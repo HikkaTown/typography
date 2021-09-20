@@ -474,8 +474,7 @@
     
                                                         <img src="img/pechati/maket/maket-1.png" class="shtamp__img">
     
-                                                        <p class="name_of_shtamp shtamp__text">QQQgfdgwwfewfiojeogifjweof<br>без дополнений <br>бесплатный макет</p>
-    
+                                                        <p class="name_of_shtamp shtamp__text">Простая печать 39 мм без дополнений бесплатный макет</p>    
                                                     </div>
     
                                                 </label>
@@ -510,7 +509,7 @@
     
                                                         <img src="img/pechati/maket/maket-3.png" class="shtamp__img">
     
-                                                        <p class="name_of_shtamp shtamp__text">Сложная печать 39 мм<br>с микротекстом и логотипом<br>макет +100 руб</p>
+                                                        <p class="name_of_shtamp shtamp__text">Сложная печать 39 мм<br>с микротекстом и логотипом макет +100 руб</p>
     
                                                     </div>
     
@@ -523,7 +522,7 @@
                                                 <label for="design4">
                                                     <div>
                                                         <img src="img/тест/pech1.jpg" class="shtamp__img">
-                                                        <p class="name_of_shtamp shtamp__text">Двух цветные печати<br>синий, красный, черный,<br>фиолетовый, +1000 руб</p>
+                                                        <p class="name_of_shtamp shtamp__text">Двух цветные печати<br>синий, красный, черный,<br>фиолетовый <br>+1000 руб</p>
                                                     </div>
                                                 </label>
                                             </div>

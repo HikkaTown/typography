@@ -1,6 +1,6 @@
- @font-face{
-	font-family: "Lato";
-	src: url("../fonts/Lato-Regular.ttf") format("truetype");
+@font-face{
+	font-family: "Roboto";
+	src: url("/fonts/Roboto/Roboto-Regular.ttf") format("truetype");
 	font-style: normal; 
 	font-weight: normal; 
 	}
@@ -65,7 +65,7 @@ section.s-content img {
 
 	top: -5px;
 
-	left: 121px;
+	left: 105px;
 
 	color: #3D70B2;
 
@@ -596,7 +596,7 @@ ul.kontakts li span{
 	height: 45px;
 }
 .label__text p{
-	font-family: 'Lato';
+	font-family: "Roboto";
 	font-style: normal;
 	font-weight: normal;
 	font-size: 13px;
@@ -611,9 +611,11 @@ ul.kontakts li span{
 }
 .loadMore {
 	font-size: 18px!important;
+	font-family: "Roboto";
 }
 .loadMoreshtamp {
 	font-size: 18px!important;
+	font-family: "Roboto";
 }
 #loadMoreshtamp {
 	color: #000000;
@@ -682,8 +684,8 @@ ul.kontakts li span{
 }
 .shtamp__text {
 	height: 90px;
-	font-size: 15px;
-	font-family: Lato;
+	font-size: 13px;
+	font-family: "Roboto";
 	color: #000
 }
 .step3 {
@@ -760,10 +762,11 @@ ul.kontakts li span{
 .step {
 	position: absolute;
     font-size: 24px;
-    left: 45px;
+    left: 30px;
 	top: 50%;
     transform: translate(0%, -50%);
 	text-transform: uppercase;
+	font-family: "Roboto";
 }
 .undirection {
 	flex-direction: row!important;
@@ -786,11 +789,15 @@ ul.kontakts li span{
 }
 .h3pech {
 	font-size: 18px!important;
+	font-family: "Roboto";
 }
 ul.tabs{
 	margin: 0px;
 	padding: 0px;
 	list-style: none;
+}
+.tab-link {
+	font-family: "Roboto";
 }
 ul.tabs li{
 	background: none;
@@ -1131,6 +1138,7 @@ ul.tabs li.current::before {
 .input-group label {
 
 	color: #000;
+	font-family: "Roboto";
 
 }
 
@@ -1310,7 +1318,7 @@ ul.tabs li.current::before {
 	font-size: 13px;
 	line-height: 32px;
 	color: #000;
-	font-family: Lato;
+	font-family: "Roboto";
 }
 .section-btns:first-child h5 {
 	padding-left: 10px;
@@ -1353,6 +1361,7 @@ ul.tabs li.current::before {
 .checkbox-group label {
 
 	cursor: pointer;
+	font-family: "Roboto";
 
 }
 
