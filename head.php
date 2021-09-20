@@ -21,6 +21,5 @@
 	<link rel="stylesheet" href="css/main.min.css">
 
 	<link rel="stylesheet" href="css/style.css">
-
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js">
+	<link rel="stylesheet" href="css/fontawesome.min.css">
+	<link rel="stylesheet" href="js/jquery-ui.min.js">
