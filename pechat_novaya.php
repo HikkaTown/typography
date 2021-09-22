@@ -230,7 +230,7 @@
 
 							<h3 class="step">шаг</h3>
 
-							<h3 class="h3pech">Выберите оснастку для вашего нового штампа</h3>
+							<h3 class="h3pech">Выберите оснастку</h3>
 							<a href="#" id="loadMore" class="loadMore">Дополнительные оснастки</a>
 							<span class="step-number">1</span>
 
@@ -501,7 +501,7 @@
     
                                             <div class="radio-group contentshtamp" id="radio-group1">
     
-                                                <input type="radio" class="inp-radio" name="maket" value="ООО-ЗАО Сложная печать 39 мм с микротекстом и логотипом макет +100 руб" id="design3">
+                                                <input type="radio" class="inp-radio" name="maket" value="ООО-ЗАО Сложная печать 39 мм с микротекстом и логотипом +100 руб" id="design3">
     
                                                 <label for="design3">
     
@@ -522,7 +522,7 @@
                                                 <label for="design4">
                                                     <div>
                                                         <img src="img/тест/pech1.jpg" class="shtamp__img">
-                                                        <p class="name_of_shtamp shtamp__text">Двух цветные печати<br>синий, красный, черный,<br>фиолетовый <br>+1000 руб</p>
+                                                        <p class="name_of_shtamp shtamp__text">Двух цветные печати<br>синий, красный, черный,<br>фиолетовый +1000 руб</p>
                                                     </div>
                                                 </label>
                                             </div>
@@ -721,7 +721,7 @@
 
 										<div class="input-group ogrnitem">
 
-											<label for="ogrn" class="ogrnlabel">ОГРН</label>
+											<label for="ogrn" class="ogrnlabel">Введите ОГРН</label>
 
 											<input type="text" id="ogrn" placeholder="11877465623120" name="ogrn" class="ogrninput">
 
@@ -827,13 +827,13 @@
 
 										<label for="name" class="dostavka__label">Имя</label>
 
-										<input type="text" class="fio samosvyazinput samosvyazname" id="name" name="name">
+										<input type="text" class="fio samosvyazinput samosvyazname" id="name" name="name" placeholder="Роман" >
 
 									</div>
 
 									<div class="input-group">
 
-										<label for="phone" class="dostavka__label dostavkaml">Телефон</label>
+										<label for="phone" class="dostavka__label dostavkaml" >Телефон</label>
 
 										<input type="text" id="phone" placeholder="+7 906 733 39 17" name="phone" class="samosvyazinput samosvyazphone">
 
@@ -845,7 +845,8 @@
 								<div class="dostavka__inputs">
 									<div class="dostavka__top">
 										<div class="dostavka__top__input">
-											<input type="text" id="adress" name="adress" class="dostavka__top_input">
+										<label for="adress" class="dostavka__label">Введите адрес</label>
+											<input type="text" id="adress" name="adress" class="dostavka__top_input" placeholder="Г. Москва">
 										</div>
 									</div>
 									<div class="dostavka__center">
@@ -868,10 +869,10 @@
 										<div class="dostavka__bottom__inputs">
 											<div class="dostavka__bottom__input">
 												<label for="name" class="dostavka__label">Имя</label>
-												<input type="text" class="dostavka__name" id="name" name="name">
+												<input type="text" class="dostavka__name"  placeholder="Роман" id="name" name="name">
 											</div>
 											<div class="dostavka__bottom__input">
-												<label for="phone" class="dostavka__label">Телефон</label>
+												<label for="phone"  class="dostavka__label" >Телефон</label>
 												<input type="text" id="phone" placeholder="+7 906 733 39 17" name="phone" class="dostavka__phone">
 											</div>
 										</div>

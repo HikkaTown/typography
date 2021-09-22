@@ -4,6 +4,18 @@
 	font-style: normal; 
 	font-weight: normal; 
 	}
+	@font-face{
+	font-family: "Roboto";
+	src: url("/fonts/Roboto/Roboto-Bold.ttf") format("truetype");
+	font-style: normal; 
+	font-weight: bold; 
+	}
+	@font-face{
+		font-family: "Roboto";
+		src: url("/fonts/Roboto/Roboto-Medium.ttf") format("truetype");
+		font-style: normal; 
+		font-weight: 500; 
+		}
 
 
 
@@ -582,7 +594,7 @@ ul.kontakts li span{
 }
 .label__content {
 	cursor: pointer;
-	height: 250px;
+	height: 270px;
 }
 .content {
 	display: none;
@@ -593,12 +605,12 @@ ul.kontakts li span{
 	box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
 } */
 .last__text {
-	height: 45px;
+	height: 55px;
 }
 .label__text p{
 	font-family: "Roboto";
 	font-style: normal;
-	font-weight: normal;
+	font-weight: 500;
 	font-size: 13px;
 	line-height: 16px;
 	color: #000000
@@ -686,7 +698,8 @@ ul.kontakts li span{
 	height: 90px;
 	font-size: 13px;
 	font-family: "Roboto";
-	color: #000
+	color: #000;
+	font-weight: 500;
 }
 .step3 {
 	background: #F2F1EC;
@@ -697,7 +710,7 @@ ul.kontakts li span{
 	padding-left: 100px;
 }
 .ogrnitem:first-child {
-	padding-top: 40px;
+	/* padding-top: 40px; */
 }
 .ogrninput {
 	width: 418px!important;
@@ -706,9 +719,13 @@ ul.kontakts li span{
 	box-sizing: border-box;
 	box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 	border-radius: 2px;
+	margin-top: 9px;
+	padding-left: 10px!important;
+	font-family: "Roboto";
 }
 .ogrnlabel {
 	font-size: 14px;
+	font-weight: 500;
 }
 .dostavka__shtamp {
 	display: flex;
@@ -767,6 +784,7 @@ ul.kontakts li span{
     transform: translate(0%, -50%);
 	text-transform: uppercase;
 	font-family: "Roboto";
+	font-weight: 500;
 }
 .undirection {
 	flex-direction: row!important;
@@ -790,6 +808,7 @@ ul.kontakts li span{
 .h3pech {
 	font-size: 18px!important;
 	font-family: "Roboto";
+	font-weight: 500;
 }
 ul.tabs{
 	margin: 0px;
@@ -798,6 +817,7 @@ ul.tabs{
 }
 .tab-link {
 	font-family: "Roboto";
+	font-weight: 500;
 }
 ul.tabs li{
 	background: none;
@@ -865,6 +885,8 @@ ul.tabs li.current::before {
 	box-sizing: border-box;
 	box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 	border-radius: 2px;
+	margin-top: 6px;
+	padding-left: 10px!important;
 }
 .samosvyazname {
 	max-width: 170px!important;
@@ -875,6 +897,10 @@ ul.tabs li.current::before {
 }
 .dostavka__inputs{
 	padding-left: 100px;
+}
+.dostavka__top__input {
+	display: flex;
+	flex-direction: column;
 }
 .dostavka__center__input {
 	display: flex;
@@ -917,15 +943,19 @@ ul.tabs li.current::before {
 	box-sizing: border-box;
 	box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 	border-radius: 2px;
+	padding-left: 10px!important;
+	margin-top: 6px;
 }
 .dostavka__center_input {
 	width: 170px;
+	padding-left: 10px;
 	height: 35px;
 	background: #FFFFFF;
 	border: 1px solid #E5E5E5;
 	box-sizing: border-box;
 	box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 	border-radius: 2px;
+	margin-top: 6px;
 }
 .dostavka__name {
 	width: 170px;
@@ -935,8 +965,11 @@ ul.tabs li.current::before {
 	box-sizing: border-box;
 	box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 	border-radius: 2px;
+	padding-left: 10px;
+	margin-top: 6px;
 }
 .dostavka__phone {
+	padding-left: 10px;
 	width: 371px;
 	height: 35px;
 	background: #FFFFFF;
@@ -944,6 +977,8 @@ ul.tabs li.current::before {
 	box-sizing: border-box;
 	box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 	border-radius: 2px;
+	margin-top: 6px;
+	font-weight: "Roboto";
 }
 .tabs {
 	height: 85px;
@@ -1319,6 +1354,7 @@ ul.tabs li.current::before {
 	line-height: 32px;
 	color: #000;
 	font-family: "Roboto";
+	font-weight: 500;
 }
 .section-btns:first-child h5 {
 	padding-left: 10px;
@@ -1362,6 +1398,8 @@ ul.tabs li.current::before {
 
 	cursor: pointer;
 	font-family: "Roboto";
+	font-weight: 500;
+	font-size: 14px;
 
 }
 
