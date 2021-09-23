@@ -18,7 +18,7 @@
 		}
 
 
-
+input[type='submit'] { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
 #mydivider {
 
 	border-top: none !important;
@@ -695,7 +695,7 @@ ul.kontakts li span{
 	height: 187px;
 }
 .shtamp__text {
-	height: 90px;
+	height: 85px;
 	font-size: 13px;
 	font-family: "Roboto";
 	color: #000;
@@ -705,6 +705,9 @@ ul.kontakts li span{
 	background: #F2F1EC;
 	height: 290px;
 	border-radius: 10px;
+}
+.step3 h3 {
+	font-family: "Roboto";
 }
 .ogrnitem {
 	padding-left: 100px;

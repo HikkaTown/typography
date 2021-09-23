@@ -230,7 +230,7 @@
 
 							<h3 class="step">шаг</h3>
 
-							<h3 class="h3pech">Выберите оснастку</h3>
+							<h3 class="h3pech">Выберете оснастку для вашей новой печати</h3>
 							<a href="#" id="loadMore" class="loadMore">Дополнительные оснастки</a>
 							<span class="step-number">1</span>
 
