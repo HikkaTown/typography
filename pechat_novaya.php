@@ -917,7 +917,7 @@
 
 								</div> -->
 
-								<input type="submit" class="submit submit__pechat" value="Заказать">
+								<input type="submit" class="submit submit__pechat" value="Отправить">
 
 								<div id="success"></div>
 
