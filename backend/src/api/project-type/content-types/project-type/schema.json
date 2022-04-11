@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "project_types",
+  "info": {
+    "singularName": "project-type",
+    "pluralName": "project-types",
+    "displayName": "Виды-проектов",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "projectTypeName": {
+      "type": "string"
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::project.project",
+      "inversedBy": "types"
+    }
+  }
+}

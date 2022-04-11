@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "straniczy_uslugs",
+  "info": {
+    "singularName": "straniczy-uslug",
+    "pluralName": "straniczy-uslugs",
+    "displayName": "Страницы услуг",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "metaData": {
+      "type": "component",
+      "repeatable": true,
+      "component": "page-data.page-product"
+    },
+    "infoComponent": {
+      "type": "component",
+      "repeatable": false,
+      "component": "info-component.info-component"
+    },
+    "catalogTab": {
+      "type": "component",
+      "repeatable": false,
+      "component": "catalog-tab.catalog-tab"
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

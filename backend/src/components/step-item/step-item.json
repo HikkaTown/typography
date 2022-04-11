@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_step_item_step_items",
+  "info": {
+    "displayName": "stepItem",
+    "icon": "apple-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "productName": {
+      "type": "string",
+      "required": true
+    },
+    "productPrice": {
+      "type": "integer",
+      "required": true,
+      "default": 0
+    },
+    "imageItem": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_catalog_tab_catalog_tabs",
+  "info": {
+    "displayName": "CatalogTab",
+    "icon": "air-freshener"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "tabName": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
