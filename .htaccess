@@ -1,6 +1,0 @@
-#RewriteCond %{HTTP_HOST} ^([^www].*)$
-#RewriteRule ^(.*)$ http://www.%1/$1 [L,R=301]
-
-RewriteEngine On
-RewriteCond %{SERVER_PORT} !^443$
-RewriteRule .* https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
