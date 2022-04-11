@@ -1,9 +1,11 @@
+import ArrowBtn from "../components/uikit/ArrowBtn/ArrowBtn";
 import BtnNext from "../components/uikit/BtnNext/BtnNext";
 
 export default function Index() {
   return (
     <>
       <BtnNext />
+      <ArrowBtn />
     </>
   );
 }
