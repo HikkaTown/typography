@@ -5,7 +5,7 @@ import cs from "classnames";
 export default function PlayBtn({ className, onClick }) {
   return (
     <button className={cs(s.btn, className)}>
-      <div className={s.container}>
+      <span className={s.container}>
         <svg
           width="24"
           height="24"
@@ -15,7 +15,7 @@ export default function PlayBtn({ className, onClick }) {
         >
           <path d="M5.74999 3L19.75 12L5.74999 21V3Z" fill="#056AC7" />
         </svg>
-      </div>
+      </span>
     </button>
   );
 }

@@ -12,6 +12,7 @@ import FooterLink from "../components/uikit/FooterLink/FooterLink";
 import OfficeDropdown from "../components/uikit/OfficeDropdown/OfficeDropdown";
 import PlayBtn from "../components/uikit/PlayBtn/PlayBtn";
 import ProjectCard from "../components/uikit/ProjectCard/ProjectCard";
+import RadioBtn from "../components/uikit/RadioBtn/RadioBtn";
 import StepBtn from "../components/uikit/StepBtn/StepBtn";
 import StepCardItem from "../components/uikit/StepCardItem/StepCardItem";
 import Tab from "../components/uikit/Tab/Tab";
@@ -22,6 +23,8 @@ import YellowBtn from "../components/uikit/YellowBtn/YellowBtn";
 export default function Index() {
   return (
     <>
+      <RadioBtn />
+      <RadioBtn isChecked={true} />
       <PlayBtn />
       <OfficeDropdown />
       <TrashBtn />
