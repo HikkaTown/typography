@@ -4,6 +4,7 @@ import ArrowBtn from "../components/uikit/ArrowBtn/ArrowBtn";
 import BtnNext from "../components/uikit/BtnNext/BtnNext";
 import Button2 from "../components/uikit/Button2/Button2";
 import Button4 from "../components/uikit/Button4/Button4";
+import CatalogItem from "../components/uikit/CatalogItem/CatalogItem";
 import CloseBtn from "../components/uikit/CloseBtn/CloseBtn";
 import DescriptionTech from "../components/uikit/DescriptionTech/DescriptionTech";
 import DropdownTech from "../components/uikit/DropdownTech/DropdownTech";
@@ -49,6 +50,7 @@ export default function Index() {
       <TabProductBtn>ООО, ОАО ,ЗАО</TabProductBtn>
       <AddFileBtn />
       <AddressCard />
+      <CatalogItem />
     </>
   );
 }
