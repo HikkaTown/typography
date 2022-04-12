@@ -1,0 +1,44 @@
+.card {
+  max-width: 328px;
+  width: 100vw;
+  height: 328px;
+  position: relative;
+  cursor: pointer;
+  @include desktop {
+    max-width: 368px;
+    height: 368px;
+  }
+  @include hover {
+    .overlay {
+      opacity: 1;
+    }
+  }
+}
+
+.image_wrapper {
+  height: 100%;
+  width: 100%;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: 0.3s;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.364) 61.46%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+.hashtag {
+  position: absolute;
+  z-index: 2;
+  @include body3-400($primary-text);
+  padding: 8px 12px;
+  background-color: $bg-1;
+  border-radius: 8px;
+  bottom: 20px;
+  left: 20px;
+}

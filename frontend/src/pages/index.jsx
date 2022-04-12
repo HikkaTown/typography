@@ -4,6 +4,7 @@ import Button2 from "../components/uikit/Button2/Button2";
 import Button4 from "../components/uikit/Button4/Button4";
 import CloseBtn from "../components/uikit/CloseBtn/CloseBtn";
 import FooterLink from "../components/uikit/FooterLink/FooterLink";
+import ProjectCard from "../components/uikit/ProjectCard/ProjectCard";
 import StepBtn from "../components/uikit/StepBtn/StepBtn";
 import StepCardItem from "../components/uikit/StepCardItem/StepCardItem";
 import Tab from "../components/uikit/Tab/Tab";
@@ -37,6 +38,7 @@ export default function Index() {
           price: 0,
         }}
       />
+      <ProjectCard />
     </>
   );
 }
