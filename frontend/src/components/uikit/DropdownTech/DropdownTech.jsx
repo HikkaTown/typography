@@ -23,7 +23,7 @@ export default function DropdownTech({ data, className }) {
   );
 }
 
-const ArrowIcon = ({ className }) => {
+export const ArrowIcon = ({ className }) => {
   return (
     <svg
       width="24"

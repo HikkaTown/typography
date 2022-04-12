@@ -9,6 +9,7 @@ import CloseBtn from "../components/uikit/CloseBtn/CloseBtn";
 import DescriptionTech from "../components/uikit/DescriptionTech/DescriptionTech";
 import DropdownTech from "../components/uikit/DropdownTech/DropdownTech";
 import FooterLink from "../components/uikit/FooterLink/FooterLink";
+import OfficeDropdown from "../components/uikit/OfficeDropdown/OfficeDropdown";
 import ProjectCard from "../components/uikit/ProjectCard/ProjectCard";
 import StepBtn from "../components/uikit/StepBtn/StepBtn";
 import StepCardItem from "../components/uikit/StepCardItem/StepCardItem";
@@ -20,6 +21,7 @@ import YellowBtn from "../components/uikit/YellowBtn/YellowBtn";
 export default function Index() {
   return (
     <>
+      <OfficeDropdown />
       <TrashBtn />
       <DropdownTech />
       <DescriptionTech />
