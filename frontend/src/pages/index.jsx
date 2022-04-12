@@ -4,6 +4,7 @@ import Button2 from "../components/uikit/Button2/Button2";
 import Button4 from "../components/uikit/Button4/Button4";
 import CloseBtn from "../components/uikit/CloseBtn/CloseBtn";
 import FooterLink from "../components/uikit/FooterLink/FooterLink";
+import StepBtn from "../components/uikit/StepBtn/StepBtn";
 import Tab from "../components/uikit/Tab/Tab";
 import YellowBtn from "../components/uikit/YellowBtn/YellowBtn";
 
@@ -19,6 +20,7 @@ export default function Index() {
       <Button2>Обратная связь</Button2>
       <Button4>Показать ещё</Button4>
       <FooterLink href="/">Ссылка</FooterLink>
+      <StepBtn>1</StepBtn>
     </>
   );
 }
