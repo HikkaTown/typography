@@ -1,0 +1,11 @@
+.btn {
+  @include buttonDefault;
+  border-radius: 12px;
+  background-color: $blu;
+  @include body3-400($white);
+  transition: 0.3s;
+  padding: 12px 24px;
+  @include hover {
+    background-color:#055FB3;
+  }
+}
