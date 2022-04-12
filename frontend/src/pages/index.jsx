@@ -5,6 +5,8 @@ import BtnNext from "../components/uikit/BtnNext/BtnNext";
 import Button2 from "../components/uikit/Button2/Button2";
 import Button4 from "../components/uikit/Button4/Button4";
 import CloseBtn from "../components/uikit/CloseBtn/CloseBtn";
+import DescriptionTech from "../components/uikit/DescriptionTech/DescriptionTech";
+import DropdownTech from "../components/uikit/DropdownTech/DropdownTech";
 import FooterLink from "../components/uikit/FooterLink/FooterLink";
 import ProjectCard from "../components/uikit/ProjectCard/ProjectCard";
 import StepBtn from "../components/uikit/StepBtn/StepBtn";
@@ -16,6 +18,8 @@ import YellowBtn from "../components/uikit/YellowBtn/YellowBtn";
 export default function Index() {
   return (
     <>
+      <DropdownTech />
+      <DescriptionTech />
       <BtnNext />
       <ArrowBtn />
       <CloseBtn />
