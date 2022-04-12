@@ -1,0 +1,20 @@
+.btn {
+  @include buttonDefault;
+  background-color: $gray;
+  @include body3-400($primary-text);
+  padding: 12px 24px;
+  border-radius: 12px;
+  transition: 0.3s;
+  @include hover {
+    background-color: $gray-2;
+  }
+  &:active {
+    background-color: $primary-text;
+    color: $white;
+  }
+}
+
+.btn_added {
+  background-color: $primary-text;
+  color: $white;
+}

@@ -1,3 +1,4 @@
+import AddFileBtn from "../components/uikit/AddFileBtn/AddFileBtn";
 import ArrowBtn from "../components/uikit/ArrowBtn/ArrowBtn";
 import BtnNext from "../components/uikit/BtnNext/BtnNext";
 import Button2 from "../components/uikit/Button2/Button2";
@@ -41,6 +42,7 @@ export default function Index() {
       />
       <ProjectCard />
       <TabProductBtn>ООО, ОАО ,ЗАО</TabProductBtn>
+      <AddFileBtn />
     </>
   );
 }
