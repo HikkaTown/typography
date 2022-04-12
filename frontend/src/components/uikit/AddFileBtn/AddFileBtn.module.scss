@@ -1,3 +1,8 @@
+.container {
+  display: flex;
+  align-items: center
+}
+
 .btn {
   @include buttonDefault;
   background-color: $gray;
@@ -17,4 +22,29 @@
 .btn_added {
   background-color: $primary-text;
   color: $white;
+  @include hover {
+    background-color: $primary-text;
+    color: $white;
+  }
+}
+
+.input {
+  width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.delete {
+  @include buttonDefault;
+  @include body3-400($secondary-text);
+  margin-left: 26px;
+  display: flex;
+  align-items: center;
+  transition: 0.3s;
+  @include hover {
+    opacity: 0.6;
+  }
 }
