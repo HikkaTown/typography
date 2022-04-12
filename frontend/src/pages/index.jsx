@@ -8,6 +8,7 @@ import ProjectCard from "../components/uikit/ProjectCard/ProjectCard";
 import StepBtn from "../components/uikit/StepBtn/StepBtn";
 import StepCardItem from "../components/uikit/StepCardItem/StepCardItem";
 import Tab from "../components/uikit/Tab/Tab";
+import TabProductBtn from "../components/uikit/TabProductBtn/TabProductBtn";
 import YellowBtn from "../components/uikit/YellowBtn/YellowBtn";
 
 export default function Index() {
@@ -39,6 +40,7 @@ export default function Index() {
         }}
       />
       <ProjectCard />
+      <TabProductBtn>ООО, ОАО ,ЗАО</TabProductBtn>
     </>
   );
 }
