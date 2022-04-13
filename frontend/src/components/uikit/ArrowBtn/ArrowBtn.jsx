@@ -1,9 +1,12 @@
 import React from "react";
 import cs from "classnames";
 import s from "./ArrowBtn.module.scss";
-export default function ArrowBtn({ className, onClick }) {
+export default function ArrowBtn({ className, onClick, disabled }) {
   return (
-    <button className={cs(s.btn, className)}>
+    <button
+      className={cs(s.btn, className, disabled ? s.btn_disabled : "")}
+      onClick={onClick}
+    >
       <span className={s.container}>
         <svg
           width="8"
