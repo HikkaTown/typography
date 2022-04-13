@@ -10,6 +10,7 @@ import DescriptionTech from "../components/uikit/DescriptionTech/DescriptionTech
 import DropdownTech from "../components/uikit/DropdownTech/DropdownTech";
 import FooterLink from "../components/uikit/FooterLink/FooterLink";
 import MenuNavBtn from "../components/uikit/MenuNavBtn/MenuNavBtn";
+import NewsCard from "../components/uikit/NewsCard/NewsCard";
 import OfficeDropdown from "../components/uikit/OfficeDropdown/OfficeDropdown";
 import PlayBtn from "../components/uikit/PlayBtn/PlayBtn";
 import ProjectCard from "../components/uikit/ProjectCard/ProjectCard";
@@ -24,6 +25,7 @@ import YellowBtn from "../components/uikit/YellowBtn/YellowBtn";
 export default function Index() {
   return (
     <>
+      <NewsCard />
       <MenuNavBtn />
       <RadioBtn />
       <RadioBtn isChecked={true} />
