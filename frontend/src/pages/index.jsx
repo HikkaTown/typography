@@ -1,3 +1,4 @@
+import Head from "next/head";
 import AddFileBtn from "../components/uikit/AddFileBtn/AddFileBtn";
 import AddressCard from "../components/uikit/AddressCard/AddressCard";
 import ArrowBtn from "../components/uikit/ArrowBtn/ArrowBtn";
@@ -25,6 +26,16 @@ import YellowBtn from "../components/uikit/YellowBtn/YellowBtn";
 export default function Index() {
   return (
     <>
+      <Head>
+        <title>{"index.metaData.head"}</title>
+        <meta property="og:title" content={"index.metaData.head"} />
+        <meta
+          itemProp="description"
+          name="description"
+          content={"index.metaData.title"}
+        />
+        <meta property="og:description" content={"index.metaData.title"} />
+      </Head>
       <NewsCard />
       <MenuNavBtn />
       <RadioBtn />
