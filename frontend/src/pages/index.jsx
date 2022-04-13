@@ -1,5 +1,6 @@
 import Head from "next/head";
 import HeroMainSection from "../components/HeroMainSection/HeroMainSection";
+import ShortDescription from "../components/ShortDescription/ShortDescription";
 import AddFileBtn from "../components/uikit/AddFileBtn/AddFileBtn";
 import AddressCard from "../components/uikit/AddressCard/AddressCard";
 import ArrowBtn from "../components/uikit/ArrowBtn/ArrowBtn";
@@ -38,6 +39,7 @@ export default function Index() {
         <meta property="og:description" content={"index.metaData.title"} />
       </Head>
       <HeroMainSection />
+      <ShortDescription />
       {/* <NewsCard />
       <MenuNavBtn />
       <RadioBtn />
