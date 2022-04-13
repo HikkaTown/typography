@@ -1,0 +1,44 @@
+.btn {
+  @include buttonDefault;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 44px;
+  width: 100vw;
+  height: 44px;
+  border-radius: 12px;
+  background-color: $white;
+  transition: 0.3s;
+  @include hover {
+    background-color: $blu-bg;
+    .svg {
+      path {
+        stroke: $blu;
+      }
+    }
+  }
+  &:active {
+    background-color: $blu;
+    .svg {
+      path {
+        stroke: $white;
+      }
+    }
+  }
+  
+}
+
+.container {
+  height: 24px;
+  max-width: 24px;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.svg {
+  path {
+    transition: 0.3s;
+  }
+}

@@ -1,0 +1,19 @@
+.btn {
+  @include buttonDefault;
+  height: 32px;
+  max-width: 32px;
+  width: 100vw;
+  @include hover {
+    .icon {
+      path {
+        fill: $blu;
+      }
+    }
+  }
+}
+
+.icon {
+  path {
+    transition: 0.3s;
+  }
+}
