@@ -20,6 +20,7 @@ import OfficeDropdown from "../components/uikit/OfficeDropdown/OfficeDropdown";
 import PlayBtn from "../components/uikit/PlayBtn/PlayBtn";
 import ProjectCard from "../components/uikit/ProjectCard/ProjectCard";
 import RadioBtn from "../components/uikit/RadioBtn/RadioBtn";
+import ReviewCard from "../components/uikit/ReviewCard/ReviewCard";
 import StepBtn from "../components/uikit/StepBtn/StepBtn";
 import StepCardItem from "../components/uikit/StepCardItem/StepCardItem";
 import Tab from "../components/uikit/Tab/Tab";
@@ -40,6 +41,7 @@ export default function Index() {
         />
         <meta property="og:description" content={"index.metaData.title"} />
       </Head>
+      <ReviewCard />
       <HeroMainSection />
       <ShortDescription />
       <BenefitsSection />
