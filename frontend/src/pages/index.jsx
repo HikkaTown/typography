@@ -1,4 +1,5 @@
 import Head from "next/head";
+import BenefitsSection from "../components/BenefitsSection/BenefitsSection";
 import HeroMainSection from "../components/HeroMainSection/HeroMainSection";
 import ShortDescription from "../components/ShortDescription/ShortDescription";
 import AddFileBtn from "../components/uikit/AddFileBtn/AddFileBtn";
@@ -40,6 +41,7 @@ export default function Index() {
       </Head>
       <HeroMainSection />
       <ShortDescription />
+      <BenefitsSection />
       {/* <NewsCard />
       <MenuNavBtn />
       <RadioBtn />
