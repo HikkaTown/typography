@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "deploy": "next build && next export && cd out && surge . --domain boorish-boy.surge.sh",
     "start": "next start",
     "lint": "next lint"
   },
