@@ -17,7 +17,11 @@ export default function ReviewCard({ className }) {
         <div className={s.person_info}>
           <h3 className={s.person_name}>Константин Иванов</h3>
           <div className={s.person_start}>
-            <>{renderStars(5)}</>
+            <>
+              {renderStars(3).map((item) => {
+                return item;
+              })}
+            </>
           </div>
         </div>
       </div>
@@ -51,50 +55,12 @@ const StarComponent = ({ className }) => {
   );
 };
 
-// TODO: исправить колхоз
-const renderStars = (count) => {
-  if (count === 0) {
-    return;
+const renderStars = (amount) => {
+  let counter = amount;
+  const stars = [];
+  while (counter) {
+    stars.push(<StarComponent className={s.star} key={counter} />);
+    counter--;
   }
-  if (count === 1) {
-    return <StarComponent className={s.star} />;
-  }
-  if (count === 2) {
-    return (
-      <>
-        <StarComponent className={s.star} />
-        <StarComponent className={s.star} />
-      </>
-    );
-  }
-  if (count === 3) {
-    return (
-      <>
-        <StarComponent className={s.star} />
-        <StarComponent className={s.star} />
-        <StarComponent className={s.star} />
-      </>
-    );
-  }
-  if (count === 4) {
-    return (
-      <>
-        <StarComponent className={s.star} />
-        <StarComponent className={s.star} />
-        <StarComponent className={s.star} />
-        <StarComponent className={s.star} />
-      </>
-    );
-  }
-  if (count === 5) {
-    return (
-      <>
-        <StarComponent className={s.star} />
-        <StarComponent className={s.star} />
-        <StarComponent className={s.star} />
-        <StarComponent className={s.star} />
-        <StarComponent className={s.star} />
-      </>
-    );
-  }
+  return stars;
 };
