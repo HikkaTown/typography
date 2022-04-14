@@ -1,12 +1,7 @@
 .wrapper {
-  // padding-left: 16px;
   margin: 0 auto;
   position: relative;
-  @include tablet {
-    // padding-left: 44px;
-  }
   @include desktop {
-    padding-left: 0;
     position: static;
   }
 }
