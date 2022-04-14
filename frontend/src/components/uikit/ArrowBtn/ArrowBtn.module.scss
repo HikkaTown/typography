@@ -7,13 +7,13 @@
   width: 100vw;
   height: 44px;
   border-radius: 12px;
-  background-color: $white;
+  background-color: $blu-bg;
   transition: 0.3s;
   @include hover {
-    background-color: $blu-bg;
+    background-color: $blu;
     .svg {
       path {
-        stroke: $blu;
+        stroke: $white;
       }
     }
   }
@@ -28,6 +28,23 @@
   
 }
 
+.btn_disabled {
+  background-color: $white;
+  .svg {
+    path {
+      stroke: $blu-light;
+    }
+  }
+  @include hover {
+    background-color: $white;
+    .svg {
+      path {
+        stroke: $blu-light;
+      }
+    }
+  }
+}
+
 .container {
   height: 24px;
   max-width: 24px;
@@ -40,5 +57,6 @@
 .svg {
   path {
     transition: 0.3s;
+    stroke: $blu;
   }
 }
