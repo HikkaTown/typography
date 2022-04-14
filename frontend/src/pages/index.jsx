@@ -1,7 +1,12 @@
 import Head from "next/head";
 import BenefitsSection from "../components/BenefitsSection/BenefitsSection";
 import CatalogSection from "../components/CatalogSection/CatalogSection";
+import Footer from "../components/Footer/Footer";
+import Header from "../components/Header/Header";
 import HeroMainSection from "../components/HeroMainSection/HeroMainSection";
+import Layout from "../components/Layout/Layout";
+import MainSeoSection from "../components/MainSeoSection/MainSeoSection";
+import NewsSection from "../components/NewsSection/NewsSection";
 import ReviewSection from "../components/ReviewSection/ReviewSection";
 import ShortDescription from "../components/ShortDescription/ShortDescription";
 import AddFileBtn from "../components/uikit/AddFileBtn/AddFileBtn";
@@ -42,11 +47,15 @@ export default function Index() {
         />
         <meta property="og:description" content={"index.metaData.title"} />
       </Head>
-      <HeroMainSection />
-      <ShortDescription />
-      <BenefitsSection />
-      <CatalogSection />
-      <ReviewSection />
+      <Layout>
+        <HeroMainSection />
+        <ShortDescription />
+        <BenefitsSection />
+        <CatalogSection />
+        <ReviewSection />
+        <NewsSection />
+        <MainSeoSection />
+      </Layout>
       {/* <NewsCard />
       <MenuNavBtn />
       <RadioBtn />

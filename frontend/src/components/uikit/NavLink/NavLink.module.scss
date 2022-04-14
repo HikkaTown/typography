@@ -1,0 +1,15 @@
+.link {
+  @include body1-400($primary-text);
+  transition: 0.3s;
+  @include desktop {
+    @include body3-400($primary-text);
+    @include hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+.link_active {
+  color: $blu;
+  text-decoration: underline;
+}

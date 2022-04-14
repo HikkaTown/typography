@@ -1,0 +1,44 @@
+.section {
+  background-color: $bg-1;
+  padding-top: 120px;
+  padding-bottom: 80px;
+}
+
+.container {
+  max-width: calc(100% - 32px);
+  width: 100vw;
+  margin: 0 auto;
+  @include tablet {
+    max-width: calc(100% - 88px);
+  }
+  @include desktop {
+    max-width: 1150px;
+  }
+}
+
+.header {
+  @include headline-3-mob($primary-text);
+  margin: 0 0 32px;
+  padding: 0;
+  @include tablet {
+    @include headline-3($primary-text);
+  }
+}
+
+.cards_block {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 24px;
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  @include desktop {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.card {
+  max-width: 100%;
+  width: 100%;
+}

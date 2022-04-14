@@ -1,26 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import cs from "classnames";
-import s from "./ReviewSlider.module.scss";
+import s from "./NewsSlider.module.scss";
 import ArrowBtn from "../../../uikit/ArrowBtn/ArrowBtn";
-import ReviewCard from "../../../uikit/ReviewCard/ReviewCard";
+import NewsCard from "../../../uikit/NewsCard/NewsCard";
 
-export default function ReviewSlider({ className, data }) {
+export default function NewsSlider({ className, data }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
   const [sliderRef, instanceRef] = useKeenSlider({
-    loop: true,
     breakpoints: {
       "(min-width: 767.98px)": {
         slides: {
-          perView: 2,
+          perView: "auto",
           spacing: 24,
         },
       },
     },
+
     slides: {
       perView: "auto",
       spacing: 8,
+      // origin: "center",
     },
     slideChanged(slider) {
       setCurrentSlide(slider.track.details.rel);
@@ -34,13 +35,13 @@ export default function ReviewSlider({ className, data }) {
     <>
       <div className={cs("navigation-wrapper", s.wrapper, className)}>
         <div ref={sliderRef} className={cs("keen-slider", s.slider)}>
-          <ReviewCard className={cs("keen-slider__slide", s.slide)} />
-          <ReviewCard className={cs("keen-slider__slide", s.slide)} />
-          <ReviewCard className={cs("keen-slider__slide", s.slide)} />
-          <ReviewCard className={cs("keen-slider__slide", s.slide)} />
-          <ReviewCard className={cs("keen-slider__slide", s.slide)} />
-          <ReviewCard className={cs("keen-slider__slide", s.slide)} />
-          <ReviewCard className={cs("keen-slider__slide", s.slide)} />
+          <NewsCard className={cs("keen-slider__slide", s.slide)} />
+          <NewsCard className={cs("keen-slider__slide", s.slide)} />
+          <NewsCard className={cs("keen-slider__slide", s.slide)} />
+          <NewsCard className={cs("keen-slider__slide", s.slide)} />
+          <NewsCard className={cs("keen-slider__slide", s.slide)} />
+          <NewsCard className={cs("keen-slider__slide", s.slide)} />
+          <NewsCard className={cs("keen-slider__slide", s.slide)} />
         </div>
         {loaded && instanceRef.current && (
           <div className={s.arrows}>
