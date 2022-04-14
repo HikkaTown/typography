@@ -1,6 +1,7 @@
 import Head from "next/head";
 import BenefitsSection from "../components/BenefitsSection/BenefitsSection";
 import CatalogSection from "../components/CatalogSection/CatalogSection";
+import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
 import HeroMainSection from "../components/HeroMainSection/HeroMainSection";
 import MainSeoSection from "../components/MainSeoSection/MainSeoSection";
@@ -53,6 +54,7 @@ export default function Index() {
       <ReviewSection />
       <NewsSection />
       <MainSeoSection />
+      <Footer />
       {/* <NewsCard />
       <MenuNavBtn />
       <RadioBtn />
