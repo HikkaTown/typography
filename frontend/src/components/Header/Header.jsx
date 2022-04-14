@@ -17,6 +17,21 @@ export default function Header() {
         isMenuShow && s.headerShow
       )}
     >
+      <div
+        itemScope
+        itemType="http://schema.org/SiteNavigationElement"
+        className={s.visually_hidden}
+      >
+        <a itemProp="url" href="/catalog">
+          Каталог
+        </a>
+        <a itemProp="url" href="/contacts">
+          Контакты
+        </a>
+        <a itemProp="url" href="/projects">
+          Наши проекты
+        </a>
+      </div>
       <div className={s.container}>
         <Logo />
         <Navigation className={s.nav} />

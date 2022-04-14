@@ -22,6 +22,11 @@
   }
 }
 
+.visually_hidden {
+  position: fixed;
+  transform: scale(0);
+}
+
 .container {
   max-width: calc(100% - 32px);
   width: 100vw;
