@@ -1,0 +1,14 @@
+.nav_link {
+  margin-bottom: 24px;
+  
+  @include desktop {
+    &:first-of-type {
+      display: none;
+    }
+    margin-bottom: 0;
+    margin-right: 44px;
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+}

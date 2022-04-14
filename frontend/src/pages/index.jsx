@@ -1,6 +1,7 @@
 import Head from "next/head";
 import BenefitsSection from "../components/BenefitsSection/BenefitsSection";
 import CatalogSection from "../components/CatalogSection/CatalogSection";
+import Header from "../components/Header/Header";
 import HeroMainSection from "../components/HeroMainSection/HeroMainSection";
 import MainSeoSection from "../components/MainSeoSection/MainSeoSection";
 import NewsSection from "../components/NewsSection/NewsSection";
@@ -44,6 +45,7 @@ export default function Index() {
         />
         <meta property="og:description" content={"index.metaData.title"} />
       </Head>
+      <Header />
       <HeroMainSection />
       <ShortDescription />
       <BenefitsSection />
