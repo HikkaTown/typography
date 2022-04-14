@@ -2,6 +2,7 @@ import Head from "next/head";
 import BenefitsSection from "../components/BenefitsSection/BenefitsSection";
 import CatalogSection from "../components/CatalogSection/CatalogSection";
 import HeroMainSection from "../components/HeroMainSection/HeroMainSection";
+import NewsSection from "../components/NewsSection/NewsSection";
 import ReviewSection from "../components/ReviewSection/ReviewSection";
 import ShortDescription from "../components/ShortDescription/ShortDescription";
 import AddFileBtn from "../components/uikit/AddFileBtn/AddFileBtn";
@@ -47,6 +48,7 @@ export default function Index() {
       <BenefitsSection />
       <CatalogSection />
       <ReviewSection />
+      <NewsSection />
       {/* <NewsCard />
       <MenuNavBtn />
       <RadioBtn />

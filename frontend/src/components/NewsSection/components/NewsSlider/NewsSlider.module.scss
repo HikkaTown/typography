@@ -1,0 +1,40 @@
+.wrapper {
+  // padding-left: 16px;
+  margin: 0 auto;
+  position: relative;
+  @include tablet {
+    // padding-left: 44px;
+  }
+  @include desktop {
+    padding-left: 0;
+    position: static;
+  }
+}
+
+.slider {
+  padding: 10px 0;
+}
+
+.slide {
+  max-width: 270px !important;
+  min-width: 270px !important;  
+}
+
+.arrows {
+  display: flex;
+  position: absolute;
+  left: 50%;
+  bottom: -61px;
+  transform: translateX(-50%);
+  @include desktop {
+    top: auto;
+    bottom: 30px;
+    $ml: calc(100% - 1150px);
+    left: calc($ml / 2 + 70px);
+  }
+}
+
+.arrow_left {
+  transform: rotate(-180deg);
+  margin-right: 12px;
+}
