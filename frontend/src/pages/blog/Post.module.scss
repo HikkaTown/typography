@@ -1,0 +1,76 @@
+.section {
+  padding-top: 96px;
+  padding-bottom: 80px;
+  @include desktop {
+    padding-top: 132px;
+  }
+}
+
+
+.container {
+  max-width: calc(100% - 32px);
+  width: 100vw;
+  margin: 0 auto;
+  @include tablet {
+    max-width: calc(100% - 88px);
+  }
+  @include desktop {
+    max-width: 1150px;
+  }
+}
+
+.container_post {
+  max-width: calc(100% - 32px);
+  width: 100vw;
+  margin: 24px auto 64px auto;
+  display: flex;
+  flex-direction: column;
+  @include tablet {
+    max-width: calc(100% - 88px);
+  }
+  @include desktop {
+    flex-direction: row;
+    max-width: 1150px;
+  }
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 24px;
+  @include desktop {
+    max-width: 466px;
+    width: 100vw;
+    margin-right: 40px;
+  }
+}
+
+.head {
+  padding: 0;
+  margin: 0px 0 4px 0;
+  @include body1-400($primary-text);
+  @include desktop {
+    margin-top: 0;
+  }
+}
+
+.date {
+  padding: 0;
+  margin: 0 0 16px;
+  @include body4-500($secondary-text);
+}
+
+.description {
+  padding: 0;
+  margin: 0;
+  @include body3-400($secondary-text);
+}
+
+.header {
+  @include headline-3-mob($primary-text);
+  margin: 0 0 32px;
+  padding: 0;
+  @include tablet {
+    @include headline-4($primary-text);
+  }
+}

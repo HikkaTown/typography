@@ -6,7 +6,7 @@ import { LazyImageWrapper } from "../../LazyImage/LazyImage";
 
 export default function NewsCard({ className, data }) {
   return (
-    <Link href={"/"} passHref={true}>
+    <Link href={"/blog/1"} passHref={true}>
       <div className={cs(s.card, className)}>
         <LazyImageWrapper
           src={
