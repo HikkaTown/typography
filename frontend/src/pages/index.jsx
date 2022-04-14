@@ -2,6 +2,7 @@ import Head from "next/head";
 import BenefitsSection from "../components/BenefitsSection/BenefitsSection";
 import CatalogSection from "../components/CatalogSection/CatalogSection";
 import HeroMainSection from "../components/HeroMainSection/HeroMainSection";
+import MainSeoSection from "../components/MainSeoSection/MainSeoSection";
 import NewsSection from "../components/NewsSection/NewsSection";
 import ReviewSection from "../components/ReviewSection/ReviewSection";
 import ShortDescription from "../components/ShortDescription/ShortDescription";
@@ -49,6 +50,7 @@ export default function Index() {
       <CatalogSection />
       <ReviewSection />
       <NewsSection />
+      <MainSeoSection />
       {/* <NewsCard />
       <MenuNavBtn />
       <RadioBtn />
