@@ -3,7 +3,7 @@ import s from "./CloseBtn.module.scss";
 import cs from "classnames";
 export default function CloseBtn({ className, onClick }) {
   return (
-    <button className={cs(s.btn, className)}>
+    <button className={cs(s.btn, className)} onClick={onClick}>
       <svg
         width="24"
         height="24"

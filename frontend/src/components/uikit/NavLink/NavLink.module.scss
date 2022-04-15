@@ -30,12 +30,14 @@
 }
 
 .link_active {
-  color: $blu;
-  &::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 1px;
-    background-color: $blu;
+  @include desktop {
+    color: $blu;
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      background-color: $blu;
+    }
   }
 }
