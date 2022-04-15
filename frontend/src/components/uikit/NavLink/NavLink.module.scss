@@ -1,16 +1,41 @@
 .link {
   @include body1-400($primary-text);
   transition: 0.3s;
+  position: relative;
   @include desktop {
     @include body3-400($primary-text);
+    &::after {
+      content: '';
+      transition: 0.3s;
+      position: absolute;
+      width: 0;
+      height: 1px;
+      bottom: 0;
+      left: 0;
+      background-color: $blu;
+      
+    }
     @include hover {
       color: $blu;
-      text-decoration: underline;
+      &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        background-color: $blu;
+
+      }
     }
   }
 }
 
 .link_active {
   color: $blu;
-  text-decoration: underline;
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: $blu;
+  }
 }
