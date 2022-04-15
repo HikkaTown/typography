@@ -27,6 +27,7 @@
 .seo_text {
   margin: 0;
   padding: 0;
+  @include body2-400($secondary-text);
   @include desktop {
     &:first-of-type {
       display: flex;
