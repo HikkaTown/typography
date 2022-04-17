@@ -7,6 +7,7 @@ import ProductMainSection from "../../components/ProductMainSection/ProductMainS
 import ProjectSection from "../../components/ProjectSection/ProjectSection";
 import SeoProduct from "../../components/SeoProduct/SeoProduct";
 import ShortDescription from "../../components/ShortDescription/ShortDescription";
+import StepSection from "../../components/StepSection/StepSection";
 import TechnicalRequirementsSection from "../../components/TechnicalRequirementsSection/TechnicalRequirementsSection";
 
 export default function Index({ id }) {
@@ -28,10 +29,19 @@ export default function Index({ id }) {
       <Layout>
         <ProductMainSection />
         <ShortDescription />
-        <HowMuchSection />
-        <InfromationProduct />
-        <CallbackProudctSection />
-        <TechnicalRequirementsSection />
+        {id === "1" && (
+          <>
+            <HowMuchSection />
+            <InfromationProduct />
+            <CallbackProudctSection />
+            <TechnicalRequirementsSection />
+          </>
+        )}
+        {id === "2" && (
+          <>
+            <StepSection data={testData} />
+          </>
+        )}
         <ProjectSection />
         <SeoProduct />
       </Layout>
@@ -42,14 +52,106 @@ export default function Index({ id }) {
 export const getStaticProps = async (context) => {
   return {
     props: {
-      id: 1,
+      id: context.params.id,
     },
   };
 };
 
 export const getStaticPaths = async () => {
   return {
-    paths: [{ params: { id: "1" } }],
+    paths: [{ params: { id: "1" } }, { params: { id: "2" } }],
     fallback: "blocking",
   };
+};
+
+const testData = {
+  header: "Закажите печать за несколько шагов",
+  files: false,
+  defaultText: "Изготовление печати 700 ₽",
+  defaultPrice: 700,
+  steps: [
+    {
+      id: 1,
+      header: "Выберите оснастку для вашей новой печати",
+      proudcts: [
+        {
+          id: 1,
+          image: "https://sovremennik.info/up/slider/tort/photo_55_big.jpg",
+          name: "Ручная оснастка",
+          price: 0,
+        },
+        {
+          id: 2,
+          image:
+            "https://img.povar.ru/main/3a/57/fb/b6/mussovii_tort_dlya_nachinaiushih-642029.JPG",
+          name: "Colob mouse",
+          price: 500,
+        },
+        {
+          id: 3,
+          image:
+            "https://tortchao.ru/files/products/chao-ushakova20064_2.1800x1200w.jpg",
+          name: "Disko",
+          price: 2700,
+        },
+        {
+          id: 4,
+          image:
+            "https://tortchao.ru/files/products/chao-ushakova20064_2.1800x1200w.jpg",
+          name: "Рука mouse",
+          price: 0,
+        },
+        {
+          id: 5,
+          image:
+            "https://tortchao.ru/files/products/chao-ushakova20064_2.1800x1200w.jpg",
+          name: "Диско mouse",
+          price: 0,
+        },
+        {
+          id: 6,
+          image:
+            "https://tortchao.ru/files/products/chao-ushakova20064_2.1800x1200w.jpg",
+          name: "Флекс mouse",
+          price: 0,
+        },
+      ],
+    },
+    {
+      id: 2,
+      header: "Выберете дизайн-макет вашей новой печати",
+      products: [
+        {
+          id: 1,
+          category: "ООО, ОАО,ЗАО",
+          name: "Печать 29 ммПечать 29 мм",
+          image:
+            "https://www.chefmarket.ru/blog/wp-content/uploads/2019/12/feta-cheese-2000x1200.jpg",
+          price: 13,
+        },
+        {
+          id: 2,
+          category: "ИП",
+          name: "Печать 29 мм+ микротекст",
+          image: "https://www.patee.ru/r/x6/12/5b/d5/960m.jpg",
+          price: 0,
+        },
+        {
+          id: 3,
+          category: "Врач",
+          name: "Печать 29 мм + микротекст + логотип",
+          image: "https://rutxt.ru/files/15321/original/42908b9dfa.JPG",
+          price: 230,
+        },
+        {
+          id: 4,
+          category: "ООО, ОАО,ЗАО",
+          name: "Печать 29 мм+ смайл",
+          image:
+            "https://www.bulochka.ru/wp-content/uploads/2019/10/salat-s-avokado-syomgoj-i-pomidorami.jpg",
+          price: 660,
+        },
+      ],
+    },
+  ],
 };

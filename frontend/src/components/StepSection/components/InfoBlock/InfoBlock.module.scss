@@ -1,0 +1,17 @@
+.alert {
+  border-radius: 12px;
+  background-color: #FAF9F9;
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  @include body4-500($primary-text);
+  margin-bottom: 24px;
+  @include tablet {
+    margin-bottom: 32px;
+  }
+}
+
+.alert_text {
+  padding: 0;
+  margin: 0 0 0 12px;
+}

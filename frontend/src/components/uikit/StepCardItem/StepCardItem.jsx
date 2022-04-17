@@ -3,12 +3,20 @@ import cs from "classnames";
 import s from "./StepCardItem.module.scss";
 import { LazyImageWrapper } from "../../LazyImage/LazyImage";
 
-export default function StepCardItem({ className, data, inCart = false }) {
+export default function StepCardItem({
+  className,
+  data,
+  inCart = false,
+  onClick,
+}) {
   return (
-    <div className={cs(s.card, inCart ? s.card_inCart : "", className)}>
+    <div
+      className={cs(s.card, inCart ? s.card_inCart : "", className)}
+      onClick={onClick}
+    >
       {inCart && <CardInCart />}
       <LazyImageWrapper
-        src={data.src}
+        src={data.image}
         alt={data.name}
         className={[s.image]}
         wrapperClass={s.image_wrapper}

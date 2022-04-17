@@ -1,0 +1,64 @@
+.wrapper {
+  position: relative;
+  margin-bottom: 97px;
+  @include tablet {
+    margin-bottom: 80px;
+  }
+  @include desktop {
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+    border-bottom: 0.5px solid #37465D;
+  }
+}
+
+.slider {
+  margin-bottom: 12px;
+}
+
+.slide {
+  max-width: 220px;
+  min-width: 220px;
+}
+
+.arrows {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+}
+
+.arrow {
+  pointer-events: all;
+}
+
+.arrow_left {
+  transform: translateX(-15px) rotate(-180deg);
+}
+
+.arrow_right {
+  margin-left: auto;
+  transform: translateX(15px);
+}
+
+.progress_bar {
+  max-width: 100%;
+  width: 100vw;
+  margin: 0 auto;
+  margin-top: 15px;
+  height: 2px;
+  background-color: $gray;
+  position: relative;
+  
+}
+
+.bar {
+  transition: 0.3s;
+  height: 2px;
+  background: $blu;
+  border-radius: 2px;
+  display: block;
+}
