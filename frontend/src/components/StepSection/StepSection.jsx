@@ -28,6 +28,7 @@ export default function StepSection({ data }) {
           setSelect={setSecondStep}
         />
         <StepsBlock count={3} className={s.step} />
+        {data.files ? <>Файлы да </> : <>Файлов нет</>}
         <StepsBlock count={4} className={s.step} />
       </div>
     </div>
