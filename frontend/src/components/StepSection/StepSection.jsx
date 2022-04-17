@@ -1,13 +1,16 @@
 import React, { useState } from "react";
+import AddFiles from "./components/AddFiles/AddFiles";
+import DeliveryStep from "./components/DeliveryStep/DeliveryStep";
 import InfoBlock from "./components/InfoBlock/InfoBlock";
 import StepComponent from "./components/StepComponent/StepComponent";
 import StepsBlock from "./components/StepsBlock/StepsBlock";
 import StepWithoutFile from "./components/StepWithoutFile/StepWithoutFile";
 import TwoStepComponent from "./components/TwoStepComponent/TwoStepComponent";
 import s from "./StepSection.module.scss";
-export default function StepSection({ data }) {
+export default function StepSection({ data, officesData }) {
   const [firstStep, setFirstStep] = useState(null);
   const [secondStep, setSecondStep] = useState(null);
+  const [devliveryAddress, setDeliveryAddres] = useState(null);
   return (
     <section className={s.section}>
       <div className={s.container}>
@@ -34,8 +37,15 @@ export default function StepSection({ data }) {
             ? "Прикрепите оттиск печати"
             : "Внесите ОГРН из свидетельства и название из устава"}
         </h3>
-        {data.files ? <>Файлы да </> : <StepWithoutFile />}
+        {data.files ? <AddFiles /> : <StepWithoutFile />}
         <StepsBlock count={4} className={s.step} />
+        <h3 className={s.header_step}>Выберете способ получения печати</h3>
+        <DeliveryStep
+          select={devliveryAddress}
+          setSelect={setDeliveryAddres}
+          officesData={officesData}
+          deliveryAmount={data.deliveryAmount}
+        />
       </div>
     </section>
   );

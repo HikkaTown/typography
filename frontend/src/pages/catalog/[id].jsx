@@ -39,7 +39,7 @@ export default function Index({ id }) {
         )}
         {id === "2" && (
           <>
-            <StepSection data={testData} />
+            <StepSection data={testData} officesData={testOfficesData} />
           </>
         )}
         <ProjectSection />
@@ -66,9 +66,10 @@ export const getStaticPaths = async () => {
 
 const testData = {
   header: "Закажите печать за несколько шагов",
-  files: false,
+  files: true,
   defaultText: "Изготовление печати 700 ₽",
   defaultPrice: 700,
+  deliveryAmount: 300,
   steps: [
     {
       id: 1,
@@ -155,3 +156,31 @@ const testData = {
     },
   ],
 };
+
+const testOfficesData = [
+  {
+    id: 1,
+    address:
+      "Самовывоз Офис #1, м. Цветной бульвар,Малый Сухаревский пер., д. 9с1, оф. 24",
+  },
+  {
+    id: 2,
+    address:
+      "Самовывоз Офис #1, м. Цветной бульвар,Малый Сухаревский пер., д. 9с1, оф. 24",
+  },
+  {
+    id: 3,
+    address:
+      "Самовывоз Офис #1, м. Цветной бульвар,Малый Сухаревский пер., д. 9с1, оф. 24",
+  },
+  {
+    id: 4,
+    address:
+      "Самовывоз Офис #1, м. Цветной бульвар,Малый Сухаревский пер., д. 9с1, оф. 24",
+  },
+  {
+    id: 5,
+    address:
+      "Самовывоз Офис #1, м. Цветной бульвар,Малый Сухаревский пер., д. 9с1, оф. 24",
+  },
+];
