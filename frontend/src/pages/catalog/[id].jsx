@@ -1,5 +1,7 @@
+import React, { useCallback } from "react";
 import Head from "next/head";
 import CallbackProudctSection from "../../components/CallbackProudctSection/CallbackProudctSection";
+import CustomBreadrcumbs from "../../components/CustomBreadrcumbs/CustomBreadrcumbs";
 import HowMuchSection from "../../components/HowMuchSection/HowMuchSection";
 import InfromationProduct from "../../components/InfromationProduct/InfromationProduct";
 import Layout from "../../components/Layout/Layout";
@@ -10,11 +12,11 @@ import ShortDescription from "../../components/ShortDescription/ShortDescription
 import StepSection from "../../components/StepSection/StepSection";
 import TechnicalRequirementsSection from "../../components/TechnicalRequirementsSection/TechnicalRequirementsSection";
 
-export default function Index({ id }) {
+export default function Index({ id, title }) {
   return (
     <>
       <Head>
-        <title itemProp="headline">{"Товар"}</title>
+        <title itemProp="headline">{title}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta property="og:title" content={"post.meta_title"} />
 
@@ -27,6 +29,7 @@ export default function Index({ id }) {
         <meta property="og:site_name" content="Первый печатный" />
       </Head>
       <Layout>
+        <CustomBreadrcumbs titlePage={title} />
         <ProductMainSection />
         <ShortDescription />
         {id === "1" && (
@@ -53,6 +56,8 @@ export const getStaticProps = async (context) => {
   return {
     props: {
       id: context.params.id,
+      title:
+        context.params.id === "1" ? "Названеи продукта" : "Название продукта2",
     },
   };
 };

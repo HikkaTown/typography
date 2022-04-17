@@ -1,8 +1,8 @@
 .section {
-  padding-top: 96px;
+  padding-top: 24px;
   padding-bottom: 80px;
   @include desktop {
-    padding-top: 132px;
+    padding-top: 24px;
   }
 }
 
@@ -22,7 +22,7 @@
 .container_post {
   max-width: calc(100% - 32px);
   width: 100vw;
-  margin: 24px auto 64px auto;
+  margin: 0 auto 64px auto;
   display: flex;
   flex-direction: column;
   @include tablet {
