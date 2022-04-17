@@ -1,0 +1,31 @@
+.tabs {
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  margin-bottom: 16px;
+  @include tablet {
+    margin-bottom: 24px;
+  }
+  @include desktop {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 0;
+  }
+}
+
+.tab {
+  min-width: fit-content;
+  margin-right: 4px;
+  white-space: nowrap;
+  &:last-of-type {
+    margin-right: 0;
+  }
+  @include desktop {
+    margin-right: 0;
+    margin-bottom: 4px;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}

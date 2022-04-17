@@ -35,7 +35,7 @@
 
 @mixin scroll {
   // fireFox
-  scrollbar-color: $orange-color #fff;
+  scrollbar-color: $blu $blu;
   scrollbar-width: thin;
 
   // chrome
@@ -53,8 +53,8 @@
   &::-webkit-scrollbar-thumb {
     background: linear-gradient(
       145.39deg,
-      $orange-color -2.4%,
-      $orange-color 93.44%
+      $blu -2.4%,
+      $blu 93.44%
     );
     border-radius: 10px;
   }
