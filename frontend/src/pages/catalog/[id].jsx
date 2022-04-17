@@ -1,4 +1,5 @@
 import Head from "next/head";
+import CallbackProudctSection from "../../components/CallbackProudctSection/CallbackProudctSection";
 import HowMuchSection from "../../components/HowMuchSection/HowMuchSection";
 import InfromationProduct from "../../components/InfromationProduct/InfromationProduct";
 import Layout from "../../components/Layout/Layout";
@@ -26,6 +27,7 @@ export default function Index({ id }) {
         <ShortDescription />
         <HowMuchSection />
         <InfromationProduct />
+        <CallbackProudctSection />
       </Layout>
     </>
   );
