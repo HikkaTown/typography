@@ -4,7 +4,8 @@
   @include desktop {
     @include body3-400($primary-text);
     @include hover {
-      opacity: 0.7;
+      color: $blu;
+      text-decoration: underline;
     }
   }
 }
