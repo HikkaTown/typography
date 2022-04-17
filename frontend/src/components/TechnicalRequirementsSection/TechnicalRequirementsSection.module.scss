@@ -1,0 +1,58 @@
+.section {
+  padding-bottom: 40px;
+}
+
+.container {
+  max-width: calc(100% - 32px);
+  width: 100vw;
+  margin: 0 auto;
+  @include tablet {
+    max-width: calc(100% - 88px);
+  }
+  @include desktop {
+    max-width: 1150px;
+  }
+}
+
+.header {
+  @include headline-5($primary-text);
+  margin: 0 0 24px;
+  padding: 0;
+  text-align: center;
+}
+
+.tech_desktop {
+  display: none;
+  @include tablet {
+    display: block;
+  }
+}
+
+.tech_mobile {
+  @include tablet {display: none;}
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.tab {
+  margin-bottom: 8px;
+  margin-right: 8px;
+}
+
+.tech {
+  max-width: 680px;
+  margin: 0 auto;
+  @include desktop {
+    max-width: 872px;
+  }
+}
+
+.dropdown {
+  margin-bottom: 24px;
+  max-width: 100%;
+  width: 100%;
+}
