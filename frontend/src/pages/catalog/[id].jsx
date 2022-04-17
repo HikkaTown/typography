@@ -1,5 +1,6 @@
 import Head from "next/head";
 import HowMuchSection from "../../components/HowMuchSection/HowMuchSection";
+import InfromationProduct from "../../components/InfromationProduct/InfromationProduct";
 import Layout from "../../components/Layout/Layout";
 import ProductMainSection from "../../components/ProductMainSection/ProductMainSection";
 import ShortDescription from "../../components/ShortDescription/ShortDescription";
@@ -24,6 +25,7 @@ export default function Index({ id }) {
         <ProductMainSection />
         <ShortDescription />
         <HowMuchSection />
+        <InfromationProduct />
       </Layout>
     </>
   );
