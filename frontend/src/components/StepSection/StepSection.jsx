@@ -5,6 +5,7 @@ import InfoBlock from "./components/InfoBlock/InfoBlock";
 import StepComponent from "./components/StepComponent/StepComponent";
 import StepsBlock from "./components/StepsBlock/StepsBlock";
 import StepWithoutFile from "./components/StepWithoutFile/StepWithoutFile";
+import TotalPriceBlock from "./components/TotalPriceBlock/TotalPriceBlock";
 import TwoStepComponent from "./components/TwoStepComponent/TwoStepComponent";
 import s from "./StepSection.module.scss";
 export default function StepSection({ data, officesData }) {
@@ -47,6 +48,7 @@ export default function StepSection({ data, officesData }) {
           deliveryAmount={data.deliveryAmount}
         />
       </div>
+      <TotalPriceBlock />
     </section>
   );
 }

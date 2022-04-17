@@ -1,0 +1,67 @@
+.container {
+  background-color: $yellow;
+  padding: 16px 0;
+}
+
+.block {
+  max-width: calc(100% - 32px);
+  width: 100vw;
+  margin:  0 auto;
+}
+
+.content {
+  border-bottom: 1px solid $secondary-text;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+}
+
+.header {
+  @include body1-400($primary-text);
+  padding: 0;
+  margin: 0 0 16px;
+}
+
+.description {
+  padding: 0;
+  margin: 0;
+  @include body4-500($primary-text);
+}
+
+.price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.cost {
+  padding: 0;
+  margin: 0;
+  @include body1-400($primary-text);
+}
+
+.amount {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.amount_text {
+  padding: 0;
+  margin: 0 27px 0 0;
+  @include headline-5($primary-text);
+}
+
+.currency {
+
+}
+
+.clear_btn {
+
+}
+
+.order_btn {
+  max-width: 100%;
+  width: 100%;
+}
