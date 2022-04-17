@@ -55,4 +55,7 @@
   margin-bottom: 16px;
   max-width: 100%;
   width: 100%;
+  &:last-of-type {
+    margin-bottom: 0;
+  }
 }

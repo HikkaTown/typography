@@ -5,6 +5,7 @@ import InfromationProduct from "../../components/InfromationProduct/InfromationP
 import Layout from "../../components/Layout/Layout";
 import ProductMainSection from "../../components/ProductMainSection/ProductMainSection";
 import ProjectSection from "../../components/ProjectSection/ProjectSection";
+import SeoProduct from "../../components/SeoProduct/SeoProduct";
 import ShortDescription from "../../components/ShortDescription/ShortDescription";
 import TechnicalRequirementsSection from "../../components/TechnicalRequirementsSection/TechnicalRequirementsSection";
 
@@ -32,6 +33,7 @@ export default function Index({ id }) {
         <CallbackProudctSection />
         <TechnicalRequirementsSection />
         <ProjectSection />
+        <SeoProduct />
       </Layout>
     </>
   );
