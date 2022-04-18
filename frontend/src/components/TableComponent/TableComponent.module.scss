@@ -1,0 +1,51 @@
+.container {
+  margin: 0 auto;
+  border: 1px solid #D7D4D4;
+  border-radius: 12px;
+  display: flex;
+  overflow-x: auto;
+}
+
+.table {
+  box-sizing: border-box;
+  border: none;
+  border-spacing: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.head_line {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  background-color: $blu;
+}
+
+.head {
+  @include body3-500($white);
+  padding: 10px 12px;
+  border: 1px solid #EAE8E8;
+  white-space: nowrap;
+}
+
+.row_line {
+  &:nth-child(even) {
+    background-color: $bg-1;
+  }
+  &:last-of-type {
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+  }
+  .row_item {
+    &:not(:first-child) {
+      text-align: right;
+    }
+  }
+}
+
+.row_item {
+  padding: 10px 12px;
+  white-space: nowrap;
+  border: 1px solid #EAE8E8;
+}

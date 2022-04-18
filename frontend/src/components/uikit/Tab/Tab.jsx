@@ -8,7 +8,10 @@ export default function Tab({
   isActive = false,
 }) {
   return (
-    <button className={cs(s.btn, isActive ? s.btn_active : "", className)}>
+    <button
+      className={cs(s.btn, isActive ? s.btn_active : "", className)}
+      onClick={onClick}
+    >
       {children}
     </button>
   );

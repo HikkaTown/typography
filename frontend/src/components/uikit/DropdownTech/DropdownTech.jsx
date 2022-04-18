@@ -1,24 +1,29 @@
 import React, { useState } from "react";
 import cs from "classnames";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import s from "./DropdownTech.module.scss";
-import { LazyImageWrapper } from "../../LazyImage/LazyImage";
 import DescriptionTech from "../DescriptionTech/DescriptionTech";
 
-export default function DropdownTech({ data, className }) {
-  const [isActive, setIsActve] = useState(false);
+export default function DropdownTech({
+  data,
+  className,
+  isActive,
+  setIsActve,
+}) {
   return (
-    <div className={s.container}>
+    <div className={cs(s.container, className)}>
       <div
-        className={cs(s.header, isActive ? s.header_active : "")}
+        className={cs(s.header, isActive === data.id ? s.header_active : "")}
         onClick={() => {
-          setIsActve((prev) => !prev);
+          setIsActve(data.id);
         }}
       >
-        <p className={s.header_name}>Российский паспорт</p>
+        <p className={s.header_name}>{data.name}</p>
         <ArrowIcon className={s.arrow} />
       </div>
-      <AnimatePresence>{isActive && <DescriptionTech />}</AnimatePresence>
+      <AnimatePresence>
+        {isActive === data.id && <DescriptionTech data={data} />}
+      </AnimatePresence>
     </div>
   );
 }

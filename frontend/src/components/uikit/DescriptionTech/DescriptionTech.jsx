@@ -43,10 +43,10 @@ const animateVariantsDescriptionContainer = {
   },
 };
 
-export default function DescriptionTech({ className }) {
+export default function DescriptionTech({ className, data }) {
   return (
     <motion.div
-      className={s.description}
+      className={cs(s.description, className)}
       variants={animateVariants}
       initial="initial"
       animate={"visible"}
@@ -62,35 +62,20 @@ export default function DescriptionTech({ className }) {
         transition={{ duration: 0.7, type: "tween" }}
       >
         <LazyImageWrapper
-          src="https://avatarko.ru/img/kartinka/33/multfilm_lyagushka_32117.jpg"
-          alt={""}
+          src={data.photo}
+          alt={data.name}
           className={[s.image]}
           wrapperClass={s.image_wrapper}
         />
         <ul className={s.list}>
-          <li className={s.list_item}>
-            <ListIcon />
-            <span className={s.list_text}>Размер: 35 х 45 мм</span>
-          </li>
-          <li className={s.list_item}>
-            <ListIcon />
-            <span className={s.list_text}>Фон: белый</span>
-          </li>
-          <li className={s.list_item}>
-            <ListIcon />
-            <span className={s.list_text}>Размер лица: 70–80%</span>
-          </li>
-          <li className={s.list_item}>
-            <ListIcon />
-            <span className={s.list_text}>Бумага: фотобумага матовая</span>
-          </li>
-          <li className={s.list_item}>
-            <ListIcon />
-            <span className={s.list_text}>
-              Электронный файл: не ниже 300dpi, размер не более 300 кб, формат
-              JPEG
-            </span>
-          </li>
+          {data.params.map((item, index) => {
+            return (
+              <li className={s.list_item} key={index}>
+                <ListIcon />
+                <span className={s.list_text}>{item}</span>
+              </li>
+            );
+          })}
         </ul>
       </motion.div>
     </motion.div>
