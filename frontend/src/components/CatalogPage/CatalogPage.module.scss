@@ -1,7 +1,13 @@
 .section {
-  padding-top: 120px;
-  padding-bottom: 80px;
   background-color: $white;
+  padding-top: 96px;
+  padding-bottom: 80px;
+  @include tablet {
+    padding-top: 112px;
+  }
+  @include desktop {
+    padding-top: 120px;
+  }
 }
 
 .container {

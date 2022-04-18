@@ -8,6 +8,10 @@
 
 .slider {
   padding: 10px 0;
+  padding-left: 16px;
+  @include tablet {
+    padding-left: 0;
+  }
 }
 
 .slide {
