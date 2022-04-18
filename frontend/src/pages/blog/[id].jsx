@@ -1,5 +1,6 @@
 import Head from "next/head";
 import CardNewsSlider from "../../components/CardNewsSlider/CardNewsSlider";
+import CustomBreadrcumbs from "../../components/CustomBreadrcumbs/CustomBreadrcumbs";
 import Layout from "../../components/Layout/Layout";
 import {
   LazyImage,
@@ -26,6 +27,7 @@ export default function Index({ id }) {
         {/* <link rel="canonical" href={DOMEN + "/blog"} /> */}
       </Head>
       <Layout>
+        <CustomBreadrcumbs titlePage={"Название статьи"} />
         <section className={s.section}>
           <div className={s.container_post}>
             <div className={s.image_container}>

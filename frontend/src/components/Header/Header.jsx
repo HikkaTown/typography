@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import cs from "classnames";
 import s from "./Header.module.scss";
 import MenuNavBtn from "../uikit/MenuNavBtn/MenuNavBtn";
@@ -22,15 +23,15 @@ export default function Header() {
         itemType="http://schema.org/SiteNavigationElement"
         className={s.visually_hidden}
       >
-        <a itemProp="url" href="/catalog">
-          Каталог
-        </a>
-        <a itemProp="url" href="/contacts">
-          Контакты
-        </a>
-        <a itemProp="url" href="/projects">
-          Наши проекты
-        </a>
+        <Link href="/catalog">
+          <a itemProp="url">Каталог</a>
+        </Link>
+        <Link href="/contacts">
+          <a itemProp="url">Контакты</a>
+        </Link>
+        <Link href="/projects">
+          <a itemProp="url">Наши проекты</a>
+        </Link>
       </div>
       <div className={s.container}>
         <Logo />

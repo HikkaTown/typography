@@ -8,6 +8,7 @@
   justify-content: center;
   background-color: $blu-bg;
   border-radius: 12px;
+  transition: 0.3s;
   @include headline-5($primary-text);
   @include desktop {
     max-width: 77px;
@@ -21,4 +22,8 @@
 .btn_active {
   background-color: $blu;
   color: $white;
+  @include hover {
+    background-color: $blu;
+    color: $white;
+  }
 }

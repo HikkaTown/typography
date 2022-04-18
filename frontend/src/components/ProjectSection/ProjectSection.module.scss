@@ -28,14 +28,19 @@
   display: grid;
   grid-template-columns: 1fr;
   row-gap: 16px;
+  margin-bottom: 24px;
   @include tablet {
     grid-template-columns: repeat(2,1fr);
-    row-gap: 24px;
-    margin-bottom: 24px;
+    gap: 24px;
   }
   @include desktop {
     grid-template-columns: repeat(3,1fr);
   }
+}
+
+.card {
+  max-width: 100%;
+  width: 100%;
 }
 
 .btn {
