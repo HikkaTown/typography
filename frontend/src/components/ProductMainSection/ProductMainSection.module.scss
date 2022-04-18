@@ -10,10 +10,11 @@
   height: 100%;
   top: 0;
   left: 0;
+  object-fit: contain;
 }
 
 .container {
-  overflow: hidden;
+  overflow: hidden;  
   position: relative;
   max-width: calc(100% - 32px);
   width: 100vw;
