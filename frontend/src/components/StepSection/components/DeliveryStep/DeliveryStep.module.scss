@@ -26,5 +26,7 @@
 }
 
 .address_text {
-
+  padding: 0;
+  margin: 0;
+  @include body3-400($secondary-text);
 }

@@ -1,6 +1,12 @@
 .section {
-  padding-top: 180px;
+  padding-top: 96px;
   padding-bottom: 80px;
+  @include tablet {
+    padding-top: 112px;
+  }
+  @include desktop {
+    padding-top: 120px;
+  }
 }
 
 .container {
