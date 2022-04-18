@@ -1,0 +1,29 @@
+.btn {
+  @include buttonDefault;
+  max-width: 53px;
+  width: 100vw;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $blu-bg;
+  border-radius: 12px;
+  transition: 0.3s;
+  @include headline-5($primary-text);
+  @include desktop {
+    max-width: 77px;
+    height: 56px;
+    @include hover {
+      background-color: $blu-2;
+    }
+  }
+}
+
+.btn_active {
+  background-color: $blu;
+  color: $white;
+  @include hover {
+    background-color: $blu;
+    color: $white;
+  }
+}

@@ -1,0 +1,62 @@
+.btn {
+  @include buttonDefault;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 44px;
+  width: 100vw;
+  height: 44px;
+  border-radius: 12px;
+  background-color: $blu-bg;
+  transition: 0.3s;
+  @include hover {
+    background-color: $blu;
+    .svg {
+      path {
+        stroke: $white;
+      }
+    }
+  }
+  &:active {
+    background-color: $blu;
+    .svg {
+      path {
+        stroke: $white;
+      }
+    }
+  }
+  
+}
+
+.btn_disabled {
+  background-color: $white;
+  .svg {
+    path {
+      stroke: $blu-light;
+    }
+  }
+  @include hover {
+    background-color: $white;
+    .svg {
+      path {
+        stroke: $blu-light;
+      }
+    }
+  }
+}
+
+.container {
+  height: 24px;
+  max-width: 24px;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.svg {
+  path {
+    transition: 0.3s;
+    stroke: $blu;
+  }
+}

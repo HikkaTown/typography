@@ -1,0 +1,30 @@
+.container {
+  @include desktop {
+    display: flex;
+    width: 100%;
+  }
+}
+
+.items {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  @include tablet {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+}
+
+.item {
+  max-width: 100%;
+  width: 100%;
+}
+
+.tabs {
+  @include desktop {
+    max-width: 250px;
+    width: 100%;
+    margin-right: 44px;
+  }
+}

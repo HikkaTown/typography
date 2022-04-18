@@ -1,0 +1,39 @@
+.container {
+  background-color: $white;
+  border: 1px solid #056AC7;
+  box-sizing: border-box;
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 24px;
+  @include tablet {
+    padding: 24px;
+    margin-top: 32px;
+  }
+}
+
+.header {
+  @include headline-5($primary-text);
+  margin: 0 0 16px;
+}
+
+.tabs {
+  margin-bottom: 16px;
+}
+
+.tab {
+  text-transform: none;
+  margin-right: 8px;
+  &:last-of-type {
+    margin-right: 0;
+  }
+}
+
+.description {
+  padding: 0;
+  margin: 0 0 16px;
+  @include body2-400($primary-text);
+  @include desktop {
+    margin-bottom: 24px;
+  }
+}
+

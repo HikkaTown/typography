@@ -1,0 +1,40 @@
+.card {
+  padding: 12px;
+  background-color: $blu-bg;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+  @include tablet {
+    padding: 16px;
+  }
+  @include hover {
+    background-color: $blu-light;
+  }
+}
+
+.image {
+  border-radius: 8px;
+}
+
+.image_wrapper {
+  height: 104px;
+  border-radius: 8px;
+  width: 100%;
+  margin-bottom: 10px;
+  @include tablet {
+    height: 136px;
+  }
+  @include desktop {
+    height: 180px;
+  }
+}
+
+.card_name {
+  text-align: center;
+  @include body3-400($secondary-text);
+  padding: 0;
+  margin: 0;
+  @include tablet {
+    @include body2-400($secondary-text);
+  }
+}

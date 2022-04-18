@@ -1,0 +1,51 @@
+.btn {
+  @include buttonDefault;
+  height: 40px;
+  max-width: 40px;
+  width: 100vw;
+  background-color: $blu;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.svg_close {
+  position: absolute;
+  path {
+    &:nth-child(1) {
+      transform: translateX(20px);
+    }
+    &:nth-child(2) {
+      transform: translateX(-20px);
+    }
+  }
+}
+
+.btn_active {
+  .svg {
+    path {
+      transform: translateX(24px);
+    }
+  }
+  .svg_close {
+    position: absolute;
+    path {
+      transition: 0.3s 0.5s;
+      &:nth-child(1) {
+        transform: translateX(0);
+      }
+      &:nth-child(2) {
+        transform: translateX(0);
+      }
+    }
+  }
+}
+
+.svg {
+  path {
+    transition: 0.3s;
+  }
+}

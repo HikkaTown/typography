@@ -1,0 +1,70 @@
+.card {
+  max-width: 328px;
+  width: 100vw;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px 0px #B8A4A440;
+  padding: 16px;
+  transition: 0.3s;
+  @include hover {
+    background-color: $blu-2;
+    box-shadow: none;
+    .btn {
+      background-color: $blu;
+      color: #fff;
+    }
+  }
+  @include desktop {
+    max-width: 368px;
+  }
+}
+
+.card_open {
+  background-color: $blu-2;
+  box-shadow: none;
+  .btn {
+    background-color: $blu;
+    color: #fff;
+  }
+}
+
+.address_name {
+  margin: 0 0 8px;
+  padding: 0;
+  @include body2-500($primary-text);
+}
+
+.address {
+  margin: 0;
+  padding: 0;
+  @include body4-400($primary-text);
+  margin-bottom: 4px;
+}
+
+.row {
+  display: flex;
+  margin-bottom: 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.callback_link {
+  display: flex;
+  align-items: center;
+  @include body4-500($primary-text);
+  transition: 0.3s;
+  @include hover {
+    opacity: 0.7;
+  }
+}
+
+.callback_text {
+  margin-left: 4px;
+  @include desktop {
+    margin-left: 8px;
+  }
+}
+
+.btn {
+
+}
+

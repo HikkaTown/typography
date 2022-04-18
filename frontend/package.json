@@ -5,17 +5,23 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "deploy": "next build && next export && cd out && surge . --domain boorish-boy.surge.sh",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@mui/material": "^5.6.1",
     "classnames": "^2.3.1",
     "framer-motion": "^6.2.9",
     "keen-slider": "^6.6.5",
     "next": "12.1.4",
+    "nextjs-breadcrumbs": "^1.1.9",
     "nodemailer": "^6.7.3",
     "normalize.css": "^8.0.1",
     "react": "18.0.0",
+    "react-custom-scrollbars": "^4.2.1",
     "react-dom": "18.0.0",
     "sass": "^1.50.0",
     "sitemap": "^7.1.1",

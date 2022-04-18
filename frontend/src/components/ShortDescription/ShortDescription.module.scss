@@ -1,0 +1,141 @@
+.section {
+  background-color: $white;
+  padding: 80px 0;
+  @include tablet {
+    padding-top: 104px;
+  }
+  @include desktop {
+    padding-bottom: 64px;
+  }
+}
+
+.container {
+  max-width: calc(100% - 32px);
+  width: 100vw;
+  margin: 0 auto;
+  background: $blu-bg;
+  border-radius: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 16px 0;
+  @include tablet {
+    max-width: calc(100% - 88px);
+    justify-content: space-between;
+  }
+  @include desktop {
+    flex-wrap: nowrap;
+    max-width: 1150px;
+  }
+}
+
+.card {
+}
+
+.item {
+  max-width: 280px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 16px;
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  position: relative;
+  &::after {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    content: '';
+    height: 1px;
+    max-width: 140px;
+    width: 100vw;
+    border-bottom: 1px dashed $primary-text;
+  }
+  &:last-of-type {
+    margin-bottom: 0;
+    padding: 0;
+    &::after {
+      display: none;
+    }
+  }
+  @include tablet {
+    &:nth-child(1) {
+      max-width: 50%;
+      &::after {
+        height: 140px;
+        max-width: 1px;
+        border-bottom: none;
+        border-left: 1px dashed $primary-text;
+        left: auto;
+        right: 0;
+        top: 50px;
+        transform: translateY(0);
+      }
+    }
+    &:nth-child(2) {
+      max-width: 50%;
+      &::after {
+        display: none;
+      }
+    }
+    &:nth-child(3) {
+      margin-left: auto;
+      margin-right: auto;
+      padding-top: 40px;
+      margin-top: 24px;
+      max-width: 100%;
+      &::after {
+        display: block;
+        max-width: 280px;
+        bottom: auto;
+        top: 0;
+      }
+    }
+  }
+  @include desktop {
+    margin-bottom: 0;
+    &::after {
+      top: 50px;
+      transform: translateY(0px);
+    }
+    &:nth-child(3) {
+      padding-top: 16px;
+      margin-top: 0;
+      &::after {
+        display: block;
+        content: '';
+        max-width: 1px;
+        height: 140px;
+        top: 50px;
+        transform: translateY(0px);
+        border-left: 1px dashed $primary-text;
+        left: 0;
+      }
+    }
+  }
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 64px;
+  width: 100vw;
+  height: 64px;
+  border-radius: 50%;
+  background-color: #AFD7FD;
+  margin-bottom: 16px;
+}
+
+.description {
+  @include body1-400($primary-text);
+  padding: 0 0 16px;
+  margin: 0;
+  text-align: center;
+  max-width: 280px;
+  @include desktop {
+    max-width: 314px;
+  }
+}

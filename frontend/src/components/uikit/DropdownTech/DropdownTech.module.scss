@@ -1,0 +1,38 @@
+.container {
+  max-width: 328px;  
+}
+
+.header {
+  max-width: 100%;
+  width: 100%;
+  border-radius: 12px;
+  padding: 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #EDEFF1;
+  transition: 0.3s;
+}
+
+.header_active {
+  background-color: $blu;
+  .header_name {
+    color: $white;
+  }
+  .arrow {
+    transform: rotate(180deg);
+    path {
+      stroke: $white;
+    }
+  }
+}
+
+.header_name {
+  padding: 0;
+  margin: 0;
+  @include body3-400($primary-text);
+  transition: 0.3s;
+}
+
+.arrow {
+  transition: 0.3s;
+}

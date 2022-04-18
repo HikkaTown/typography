@@ -1,0 +1,30 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 12px;
+  margin-bottom: 48px;
+  @include tablet {
+    padding-bottom: 32px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid $secondary-text;
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(2,1fr);
+    gap: 12px 104px;
+  }
+}
+
+.btn_line {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.radio {
+   margin-right: 12px;
+}
+
+.address_text {
+
+}

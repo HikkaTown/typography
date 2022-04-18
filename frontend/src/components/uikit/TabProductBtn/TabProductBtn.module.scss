@@ -1,0 +1,19 @@
+.btn {
+  @include buttonDefault;
+  padding: 10px 16px;
+  background: transparent;
+  border: 1px solid $primary-text;
+  @include body3-400($primary-text);
+  border-radius: 12px;
+  transition: 0.3s;
+  text-transform: uppercase;
+  @include hover {
+    background-color: $primary-text;
+    color: $white;
+  }
+}
+
+.btn_active {
+  background-color: $primary-text;
+  color: $white;
+}

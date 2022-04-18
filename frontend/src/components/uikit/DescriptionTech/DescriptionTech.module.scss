@@ -1,0 +1,61 @@
+.description {
+  padding: 16px;
+  background-color: $blu-bg;
+  border: 1px solid #64A2E3;
+  border-radius: 12px;
+  height: 0;
+  overflow: hidden;
+  @include tablet {
+    padding: 24px;
+  }
+}
+
+.description_container {
+  background-color: $white;
+  border-radius: 12px;
+  padding: 24px;
+  height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  @include tablet {
+    flex-direction: row;
+  }
+}
+
+.image_wrapper {
+  max-width: 240px;
+  width: 100vw;
+  height: 160px;
+  margin-bottom: 16px;
+  @include tablet {
+    margin-bottom: 0;
+    margin-right: 16px;
+  }
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.list_item {
+  @include body4-400($primary-text);
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.list_text {
+  margin-left: 8px;
+}
+
+.list_icon {
+  max-width: 12px;
+  width: 100vw;
+  height: 12px;
+}

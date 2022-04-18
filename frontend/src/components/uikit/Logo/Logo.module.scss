@@ -1,0 +1,29 @@
+.logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s;
+  @include hover {
+    opacity: 0.7;
+  }
+}
+
+.image_wrapper {
+  max-width: 45.47px;
+  width: 100vw;
+  height: 48px;
+  margin-right: 7px;
+}
+
+.text {
+  padding: 0;
+  margin: 0;
+  max-width: 89px;
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 20px;
+  color: #191928;
+  text-transform: uppercase;
+}
