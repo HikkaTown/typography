@@ -1,5 +1,5 @@
 import React from "react";
-import { LazyImage } from "../LazyImage/LazyImage";
+import { LazyImage, LazyImageWrapper } from "../LazyImage/LazyImage";
 import s from "./ProductMainSection.module.scss";
 export default function ProductMainSection() {
   return (
@@ -9,11 +9,12 @@ export default function ProductMainSection() {
         <p className={s.description}>
           описание/описание/описание/описание/описание/описаниеописание/описание/описание/описание/описание/описаниеописание/описание/описание/описание/описание/описание
         </p>
-        <LazyImage
+        <LazyImageWrapper
           src="/assets/PageProduct1/hero_pc.png"
           srcTablet={"/assets/PageProduct1/hero_tab.png"}
           srcMobile={"/assets/PageProduct1/hero_mob.png"}
           className={[s.background]}
+          wrapperClass={s.background_wrapper}
           lazy={false}
         />
       </div>
