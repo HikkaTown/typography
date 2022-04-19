@@ -45,6 +45,7 @@
 .menu_item {
   padding: 12px 16px;
   transition: 0.3s;
+  @include body3-400($primary-text);
   &:last-of-type {
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;

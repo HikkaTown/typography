@@ -48,4 +48,5 @@
   padding: 10px 12px;
   white-space: nowrap;
   border: 1px solid #EAE8E8;
+  @include body3-400($primary-text)
 }
