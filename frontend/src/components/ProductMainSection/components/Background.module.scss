@@ -1,0 +1,495 @@
+//yellow
+
+.left_line {
+  position: absolute;
+  display: none;
+  @include desktop {
+    display: block;
+    top: 29px;
+    left: 80px;
+  }
+}
+
+.right_line {
+  position: absolute;
+  transform: rotate(70deg);
+  bottom: 27px;
+  left: 78px;
+  @include tablet {
+    transform: rotate(0);
+    bottom: auto;
+    top: 29px;
+    left: auto;
+    right: 53px;
+  }
+  @include desktop {
+    top: auto;
+    right: 83px;
+    bottom: 14px;
+    transform: rotate(150deg);
+  }
+}
+
+.photoaparat {
+  top: 11px;
+  right: 16px;
+  position: absolute;
+  @include tablet {
+    top: 50%;
+    right: 34px;
+    transform: translateY(-50%) rotate(-34deg);
+    width: 64.85px;
+    height: 64.85px;
+  }
+  @include desktop {
+    top: 12px;
+    transform: translateY(0) rotate(-34deg);
+    right: 37px;
+  }
+}
+
+.first_star {
+  position: absolute;
+  top: 36px;
+  right: 140px;
+  height: 15px;
+  width: 15px;
+  @include tablet {
+    right: 125px;
+    height: 25px;
+    width: 25px;
+    top: auto;
+    bottom: 50px;
+  }
+  @include desktop {
+    bottom: auto;
+    top: 46px;
+    right: auto;
+    left: 343px;
+  }
+}
+
+.second_star {
+  display: none;
+  @include desktop {
+    display: block;
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    right: 358px;
+    bottom: 46px;
+  }
+}
+
+.three_star {
+  position: absolute;
+  left: 25px;
+  bottom: 15px;
+  @include tablet {
+    left: 42px;
+    bottom: 19px;
+    height: 12px;
+    width: 12px;
+  }
+  @include desktop {
+    height: 25px;
+    width: 25px;
+    left: 80px;
+    bottom: 38px;
+  }
+}
+
+.photo {
+  position: absolute;
+  right: 26px;
+  bottom: 8px;
+  height: 44px;
+  width: 44px;
+  @include tablet {
+    right: auto;
+    left: 234px;
+    bottom: 18px;
+    width: 53.19px;
+    height: 53.19px;
+    transform: scale(1.6);
+  }
+  @include desktop {
+    left: 440px;
+    bottom: 14px;
+  }
+}
+
+.book {
+  position: absolute;
+  transform: rotate(-60deg);
+  top: 4px;
+  left: 17px;
+  @include tablet {
+    transform: rotate(0);
+    height: 44px;
+    width: 44px;
+    left: 130px;
+    top: 13px;
+  }
+  @include desktop {
+    left: 50%;
+    top: 19px;
+  }
+}
+
+//blue
+
+.stamp_line {
+  position: absolute;
+  display: none;
+  @include tablet {
+    display: block;
+    top: 29px;
+    right: 52px;
+  }
+  @include desktop {
+    top: 23px;
+    right: auto;
+    left: 56px;
+  }
+}
+
+.stamp {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: rotate(-30deg) translateX(50px);
+  @include tablet {
+    top: 12px;
+    right: auto;
+    left: 123px;
+    height: 44px;
+    width: 44px;
+    transform: rotate(-30deg) translateX(0);
+  }
+  @include desktop {
+    height: auto;
+    width: auto;
+    left: 40%;
+    top: auto;
+    bottom: -10px;
+    transform: rotate(0) translate(0);
+  }
+}
+
+.broshure {
+  position: absolute;
+  bottom: 15px;
+  right: 25px;
+  @include tablet {
+    bottom: 110px;
+  }
+  @include desktop {
+    bottom: 25px;
+    right: 150px;
+  }
+}
+
+.newspaper {
+  position: absolute;
+  transform: translateX(-15px) rotate(-75deg);
+  left: 0;
+  bottom: 3px;
+  @include tablet {
+    transform: rotate(0) translateX(0);
+    left: 50%;
+    bottom: 18px;
+  }
+  @include desktop {
+    left: auto;
+    bottom: auto;
+    top: 45px;
+    right: 44px;
+  }
+}
+
+.stamp_star {
+  position: absolute;
+  left: 130px;
+  height: 15px;
+  width: 15px;
+  top: 25px;
+  @include tablet {
+    height: 12px;
+    width: 12px;
+    left: 42px;
+    top: auto;
+    bottom: 19px;
+  }
+  @include desktop {
+    height: 25px;
+    width: 25px;
+    left: 80px;
+    bottom: 38px;
+  }
+}
+
+.stamp_second_star {
+  position: absolute;
+  left: 70px;
+  bottom: 25px;
+  height: 25px;
+  width: 25px;
+  @include tablet {
+    left: auto;
+    right: 125px;
+    bottom: 50px;
+  }
+}
+
+//red
+
+.red_line {
+  position: absolute;
+  left: 78px;
+  bottom: 28px;
+  transform: rotate(45deg);
+  @include desktop {
+    display: none;
+  }
+}
+
+.roll {
+  position: absolute;
+  top: -13px;
+  right: -55px;
+  transform: scale(0.8);
+  @include desktop {
+    right: -10px;
+  }
+}
+
+.red_star {
+  position: absolute;
+  top: 36px;
+  height: 15px;
+  width: 15px;
+  right: 139px;
+  @include desktop {
+    right: 50%;
+    height: 20px;
+    width: 20px;
+    top: 51px;
+  }
+}
+
+.red_second_star {
+  position: absolute;
+  height: 25px;
+  width: 25px;
+  left: 25px;
+  bottom: 15px;
+}
+
+.red_newspaper {
+  position: absolute;
+  top: 19px;
+  left: 62px;
+  transform: scale(0.7);
+  @include desktop {
+    top: 23px;
+    left: 113px;
+    transform: scale(0.9);
+  }
+}
+
+.red_textprint {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  height: 48px;
+  width: 48px;
+  transform: rotate(104deg);
+  @include desktop {
+    transform: rotate(-53deg);
+    right: auto;
+    bottom: -30px;
+    left: 20%;
+    width: 93.48px;
+    height: 93.48px;
+  }
+}
+
+//green
+
+.green_star {
+  position: absolute;
+  display: none;
+  @include desktop {
+    top: 36px;
+    left: 135px;
+    display: block;
+    height: 25px;
+    width: 25px;
+  }
+}
+
+.green_second_star {
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  right: 40%;
+  top: 36px;
+}
+
+.green_three_star {
+  position: absolute;
+  height: 25px;
+  width: 25px;
+  top: 50%;
+  right: 23px;
+  @include desktop {
+    height: 20px;
+    width: 20px;
+    right: 187px;
+    top: auto;
+    bottom: 23px;
+  }
+}
+
+.green_plotter {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  transform: rotate(-45.54deg);
+  top: 8px;
+  left: 50px;
+  @include desktop {
+    transform: rotate(0);
+    width: 55px;
+    height: 55px;
+    left: 50%;
+    top: auto;
+    bottom: 23px;
+    
+  }
+}
+
+.green_line {
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+}
+
+.green_paper {
+  position: absolute;
+  width: 51.59px;
+  height: 51.59px;
+  bottom: 24px;
+  right: 24px;
+  transform: rotate(-40deg);
+  @include desktop {
+    width: 85.2px;
+    height: 85.2px;
+    top: 15px;
+    right: 40px;
+  }
+}
+
+
+// hightblue
+.one {
+  position: absolute;
+  top: 36px;
+  left: 55%;
+  height: 15px;
+  width: 15px;
+  @include desktop {
+    top: 46px;
+    left: 343px;
+    height: 25px;
+    width: 25px;
+  }
+}
+
+.two {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: 23px;
+  top: 40%;
+  @include desktop {
+    top: 71px;
+    right: 50px;
+  }
+}
+
+.three {
+  position: absolute;
+  bottom: 42px;
+  left: 43px;
+  width: 25px;
+  height: 25px;
+  @include desktop {
+    bottom: 43px;
+    height: 20px;
+    width: 20px;
+    left: auto;
+    right: 335px;
+  }
+}
+
+.four {
+  position: absolute;
+  height: 12px;
+  width: 12px;
+  left: 30%;
+  bottom: 15px;
+  @include desktop {
+    left: 80px;
+    bottom: 38px;
+    height: 25px;
+    width: 25px;
+  }
+}
+
+.hightblue_photo {
+  position: absolute;
+  height: 42px;
+  width: 42px;
+  top: 16px;
+  left: 43px;
+  transform: rotate(60deg);
+  @include desktop {
+    transform: rotate(0);
+    height: 85px;
+    width: 85px;
+    top: 25px;
+    left: auto;
+    right: 127px;
+  }
+}
+
+.hightblue_line {
+  position: absolute;
+  top: 16px;
+  right: -25px;
+  @include desktop {
+    transform: matrix(0.78, -0.62, -0.62, -0.78, 0, 0);
+    top: auto;
+    bottom: 15px;
+    right: 84px;
+  }
+}
+
+.hightblue_plotter {
+  position: absolute;
+  width: 68.82px;
+  height: 68.82px;
+  transform: matrix(0.23, 0.97, 0.97, -0.23, 0, 0);
+  bottom: 5px;
+  right: 0;
+  @include desktop {
+    height: 81px;
+    width: 81px;
+    bottom: 15px;
+    right: auto;
+    left: 307px;
+    transform: rotate(76.55deg);
+  }
+}

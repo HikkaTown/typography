@@ -2,16 +2,6 @@
   padding-bottom: 64px;
 }
 
-.background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 0;
-  object-fit: none;
-}
-
 .container {
   position: relative;
   padding: 32px 0;
@@ -47,4 +37,118 @@
   z-index: 1;
   display: block;
   margin: 0 auto;
+}
+
+.smile {
+  position: absolute;
+  display: none;
+  @include tablet {
+    display: block;
+    bottom: 20px;
+    right: 38px;
+  }
+  @include desktop {
+    bottom: auto;
+    top: 22px;
+    right: auto;
+    left: 244px;
+  }
+}
+
+.first_line {
+  position: absolute;
+  bottom: 70px;
+  left: 9px;
+  @include tablet {
+    transform: matrix(0.96, 0.3, 0.3, -0.96, 0, 0);
+    left: 14px;
+    bottom: 47px;
+  }
+  @include desktop {
+    transform: rotate(17.19deg);
+    left: 35px;
+    width: 95px;
+    height: 21px;
+    bottom: 34px;
+  }
+}
+
+.second_line {
+  position: absolute;
+  display: none;
+  @include desktop {
+    display: block;
+    transform: rotate(17.19deg);
+    width: 95px;
+    height: 21px;
+    top: 36px;
+    right: 200px;
+  }
+}
+
+.first_mails {
+  position: absolute;
+  display: none;
+  @include desktop {
+    display: block;
+    width: 110px;
+    height: 79.62px;
+    top: 12px;
+    right: 17px;
+  }
+}
+
+.second_mails {
+  position: absolute;
+  bottom: 10px;
+  right: 5px;
+  width: 74.6px;
+  height: 54px;
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+  @include tablet {
+    right: auto;
+    left: 117px;
+    bottom: 12px;
+  }
+  @include desktop {
+    bottom: 19px;
+    left: 269px;
+  }
+}
+
+.first_star {
+  position: absolute;
+  top: 27px;
+  left: 13px;
+  height: 25px;
+  width: 25px;
+  @include tablet {
+    top: 25px;
+    left: 37px;
+  }
+  @include desktop {
+    left: 75px;
+    top: 30px;
+  }
+}
+
+.second_star {
+  position: absolute;
+  height: 12px;
+  width: 12px;
+  bottom: 98px;
+  right: 45px;
+  @include tablet {
+    width: 17px;
+    height: 17px;
+    top: 21px;
+    right: 25px;
+  }
+  @include desktop {
+    top: auto;
+    bottom: 0;
+    right: 127px;
+    height: 25px;
+    width: 25px;
+  }
 }
