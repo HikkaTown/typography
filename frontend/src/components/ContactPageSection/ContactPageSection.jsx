@@ -1,14 +1,34 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ContactTabsBlock from "../ContactTabsBlock/ContactTabsBlock";
 import PathBlock from "../PathBlock/PathBlock";
 import s from "./ContactPageSection.module.scss";
-export default function ContactPageSection() {
+export default function ContactPageSection({ data }) {
+  const [isOpened, setIsOpened] = useState(null);
+
+  useEffect(() => {
+    if (isOpened) {
+      document
+        .getElementById("pathBlock")
+        .scrollIntoView({ block: "start", behavior: "smooth" });
+    }
+  }, [isOpened]);
+
   return (
     <section className={s.section}>
-      <div className={s.container}>
+      <div className={s.container} id="container">
         <h1 className={s.header}>Контакты</h1>
-        <ContactTabsBlock />
-        <PathBlock />
+        <ContactTabsBlock
+          data={data}
+          setIsOpen={setIsOpened}
+          isOpen={isOpened}
+        />
+        {isOpened && (
+          <PathBlock
+            data={data.find((item) => {
+              return item.id === isOpened;
+            })}
+          />
+        )}
         <div className={s.map}>
           <iframe
             className={s.iframe}
