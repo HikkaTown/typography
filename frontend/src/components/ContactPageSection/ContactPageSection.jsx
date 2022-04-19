@@ -1,13 +1,21 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ContactTabsBlock from "../ContactTabsBlock/ContactTabsBlock";
 import PathBlock from "../PathBlock/PathBlock";
 import s from "./ContactPageSection.module.scss";
 export default function ContactPageSection({ data }) {
   const [isOpened, setIsOpened] = useState(null);
+
+  useEffect(() => {
+    if (isOpened) {
+      document
+        .getElementById("pathBlock")
+        .scrollIntoView({ block: "start", behavior: "smooth" });
+    }
+  }, [isOpened]);
+
   return (
     <section className={s.section}>
-      <div className={s.container}>
+      <div className={s.container} id="container">
         <h1 className={s.header}>Контакты</h1>
         <ContactTabsBlock
           data={data}

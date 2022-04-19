@@ -10,7 +10,7 @@ export default function PathBlock({ data }) {
   };
 
   return (
-    <div className={s.container}>
+    <div className={s.container} id="pathBlock">
       <h2 className={s.header}>{data.pathHeader}</h2>
       <div className={s.tabs}>
         <TabProductBtn
