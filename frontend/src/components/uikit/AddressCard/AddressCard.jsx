@@ -2,32 +2,32 @@ import React, { useState } from "react";
 import cs from "classnames";
 import s from "./AddressCard.module.scss";
 import Button4 from "../Button4/Button4";
-export default function AddressCard({ data, className }) {
-  const [isOpen, setIsOpen] = useState(false);
+export default function AddressCard({ data, className, isOpen, setIsOpen }) {
   return (
     <div
-      className={cs(s.card, isOpen ? s.card_open : "", className)}
+      className={cs(s.card, isOpen === data.id ? s.card_open : "", className)}
       onClick={() => {
-        setIsOpen((prev) => !prev);
+        if (isOpen === data.id) {
+          setIsOpen(null);
+        } else {
+          setIsOpen(data.id);
+        }
       }}
     >
-      <h3 className={s.address_name}>Офис №1</h3>
-      <p className={s.address}>
-        м. Цветной бульвар, м. Трубная Малый Сухаревский переулок 9 стр. 1, 2-й
-        этаж
-      </p>
+      <h3 className={s.address_name}>{data.name}</h3>
+      <p className={s.address}>{data.address}</p>
       <div className={s.row}>
-        <a href="tel:+7 (495) 517-59-14" className={s.callback_link}>
+        <a href={`tel:${data.phone}`} className={s.callback_link}>
           <PhoneIcon />
-          <span className={s.callback_text}>+7 (495) 517-59-14</span>
+          <span className={s.callback_text}>{data.phone}</span>
         </a>
-        <a href="mailto:5175914@1ppc.ru" className={s.callback_link}>
+        <a href={`mailto:${data.email}`} className={s.callback_link}>
           <MailIcon />
-          <span className={s.callback_text}>5175914@1ppc.ru</span>
+          <span className={s.callback_text}>{data.email}</span>
         </a>
       </div>
       <Button4 className={s.btn}>
-        {isOpen ? "Свернуть" : "Как добраться"}
+        {isOpen === data.id ? "Свернуть" : "Как добраться"}
       </Button4>
     </div>
   );

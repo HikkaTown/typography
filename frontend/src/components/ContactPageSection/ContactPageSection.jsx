@@ -1,14 +1,26 @@
 import React from "react";
+import { useState } from "react";
 import ContactTabsBlock from "../ContactTabsBlock/ContactTabsBlock";
 import PathBlock from "../PathBlock/PathBlock";
 import s from "./ContactPageSection.module.scss";
-export default function ContactPageSection() {
+export default function ContactPageSection({ data }) {
+  const [isOpened, setIsOpened] = useState(null);
   return (
     <section className={s.section}>
       <div className={s.container}>
         <h1 className={s.header}>Контакты</h1>
-        <ContactTabsBlock />
-        <PathBlock />
+        <ContactTabsBlock
+          data={data}
+          setIsOpen={setIsOpened}
+          isOpen={isOpened}
+        />
+        {isOpened && (
+          <PathBlock
+            data={data.find((item) => {
+              return item.id === isOpened;
+            })}
+          />
+        )}
         <div className={s.map}>
           <iframe
             className={s.iframe}
