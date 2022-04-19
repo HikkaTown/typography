@@ -7,7 +7,7 @@
   @include buttonDefault;
   background-color: $gray;
   @include body3-400($primary-text);
-  padding: 12px 24px;
+  padding: 13px 24px;
   border-radius: 12px;
   transition: 0.3s;
   @include hover {

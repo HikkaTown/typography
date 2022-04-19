@@ -1,0 +1,175 @@
+.overlay {
+  z-index: 235 !important;
+  @include desktop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.child {
+  min-height: 100%;
+  height: 100%;
+  @include desktop {
+    min-height: auto;
+    height: auto;
+  }
+}
+
+.close {
+  @include buttonDefault;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+  @include tablet {
+    right: 44px;
+  }
+  @include desktop {
+    right: 24px;
+    @include hover {
+      opacity: 0.5;
+    }
+  }
+}
+
+.container {
+  position: relative;
+  background-color: $white;
+  padding-top: 24px;
+  padding-bottom: 16px;
+  max-width: 100%;
+  height: 100%;
+  width: 100vw;
+  padding-left: 16px;
+  overflow-y: auto;
+  padding-right: 16px;
+  @include tablet {
+    padding-left: 44px;
+    padding-right: 44px;
+  }
+  @include desktop {
+    
+    height: fit-content;
+    max-width: 720px;
+    border-radius: 12px;
+    padding: 24px;
+  }
+}
+
+.header {
+  @include headline-5($primary-text);
+  padding: 0;
+  margin: 0 0 24px;
+
+  @include desktop {
+    margin-bottom: 16px;
+  }
+}
+
+.form {
+  @include tablet {
+    display: grid; 
+  grid-template-columns: 1.1fr 1fr; 
+  grid-template-rows: auto auto auto auto auto; 
+  gap: 16px 16px; 
+  grid-template-areas: 
+    "name email"
+    "phone file"
+    "comment comment"
+    "address address"
+    "btn ."; 
+  }
+}
+
+.input_block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+  @include tablet {
+    margin-bottom: 0;
+    
+  }
+}
+
+.label {
+  @include body4-500($primary-text);
+  margin-bottom: 4px;
+}
+
+.input {
+  max-width: 100%;
+  width: 100%;
+  padding: 12px 16px;
+  outline: none;
+  border: 1px solid transparent;
+  background-color: $gray;
+  border-radius: 8px;
+  &::placeholder {
+    @include body3-400($secondary-text);
+  }
+  @include hover {
+    background-color: $blu-bg;
+  }
+  &:focus {
+    border-color: $blu;
+  }
+  @include body3-400($primary-text);
+}
+
+.input_error {
+  border-color: $pink;
+  background-color: $gray;
+  color: $secondary-text;
+}
+
+.description {
+  font-family: Gilroy;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0em;
+  color: #37465D;
+  margin: 8px 0 16px 0;
+  padding: 0;
+}
+
+.submit {
+  margin-top: 16px;
+  @include tablet {
+    margin: 0;
+    grid-area: btn;
+    max-width: fit-content;
+  }
+  @include desktop {
+    margin: 0;
+  }
+}
+
+.dropdown {
+  max-width: 100%;
+  width: 100%;
+}
+
+.name { grid-area: name; }
+.email { grid-area: email; }
+.phone { grid-area: phone; }
+.file { grid-area: file; }
+.comment { 
+  grid-area: comment; 
+}
+.address { grid-area: address; }
+
+.input_comment {
+  height: 64px;
+  @include tablet {
+    height: auto;
+  }
+}

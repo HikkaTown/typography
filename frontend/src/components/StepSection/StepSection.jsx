@@ -1,4 +1,7 @@
+import { AnimatePresence } from "framer-motion";
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import FeedbackModal from "../FeedbackModal/FeedbackModal";
 import AddFiles from "./components/AddFiles/AddFiles";
 import DeliveryStep from "./components/DeliveryStep/DeliveryStep";
 import InfoBlock from "./components/InfoBlock/InfoBlock";
@@ -12,6 +15,13 @@ export default function StepSection({ data, officesData }) {
   const [firstStep, setFirstStep] = useState(null);
   const [secondStep, setSecondStep] = useState(null);
   const [devliveryAddress, setDeliveryAddres] = useState(null);
+  const { register, reset, getValues } = useForm();
+  const [isOpened, setIsOpened] = useState(false);
+
+  const handleOpen = () => {
+    setIsOpened((prev) => !prev);
+  };
+
   return (
     <section className={s.section}>
       <div className={s.container}>
@@ -38,7 +48,11 @@ export default function StepSection({ data, officesData }) {
             ? "Прикрепите оттиск печати"
             : "Внесите ОГРН из свидетельства и название из устава"}
         </h3>
-        {data.files ? <AddFiles /> : <StepWithoutFile />}
+        {data.files ? (
+          <AddFiles register={register} reset={reset} />
+        ) : (
+          <StepWithoutFile />
+        )}
         <StepsBlock count={4} className={s.step} />
         <h3 className={s.header_step}>Выберете способ получения печати</h3>
         <DeliveryStep
@@ -48,7 +62,18 @@ export default function StepSection({ data, officesData }) {
           deliveryAmount={data.deliveryAmount}
         />
       </div>
-      <TotalPriceBlock />
+      <TotalPriceBlock onClick={handleOpen} />
+      <AnimatePresence>
+        {isOpened && (
+          <FeedbackModal
+            header={"Оформление заказа"}
+            isOpened={isOpened}
+            onClose={handleOpen}
+            file={!Boolean(getValues("file"))}
+            delivery={devliveryAddress === "delivery" ? true : false}
+          />
+        )}
+      </AnimatePresence>
     </section>
   );
 }
