@@ -1,8 +1,8 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import cs from "classnames";
 import s from "./AddFileBtn.module.scss";
 
-export default function AddFileBtn({ className }) {
+export default function AddFileBtn({ className, register, reset }) {
   const ref = useRef(null);
   const [isAdded, setIsAdded] = useState(false);
   const [fileName, setFileName] = useState("");
@@ -12,14 +12,14 @@ export default function AddFileBtn({ className }) {
       setIsAdded(true);
     } else {
       setFileName("");
-      ref.current.value = "";
+      // ref.current.value = "";
       setIsAdded(false);
     }
   };
 
   const clearInput = () => {
     setFileName("");
-    ref.current.value = "";
+    reset({ file: "" });
     setIsAdded(false);
   };
 
@@ -30,7 +30,7 @@ export default function AddFileBtn({ className }) {
         name="file"
         id="file"
         className={s.input}
-        ref={ref}
+        {...register("file")}
         onChange={handleLoad}
       />
       <label htmlFor="file" className={cs(s.btn, isAdded ? s.btn_added : "")}>

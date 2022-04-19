@@ -2,7 +2,7 @@ import React from "react";
 import Button2 from "../../../uikit/Button2/Button2";
 import TrashBtn from "../../../uikit/TrashBtn/TrashBtn";
 import s from "./TotalPriceBlock.module.scss";
-export default function TotalPriceBlock() {
+export default function TotalPriceBlock({ onClick }) {
   return (
     <div className={s.container}>
       <div className={s.block}>
@@ -21,7 +21,9 @@ export default function TotalPriceBlock() {
             <TrashBtn className={s.clear_btn} />
           </div>
         </div>
-        <Button2 className={s.order_btn}>Оформить заказ</Button2>
+        <Button2 className={s.order_btn} onClick={onClick} type="button">
+          Оформить заказ
+        </Button2>
       </div>
     </div>
   );
