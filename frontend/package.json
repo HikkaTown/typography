@@ -24,6 +24,7 @@
     "react-custom-scrollbars": "^4.2.1",
     "react-dom": "18.0.0",
     "react-hook-form": "^7.30.0",
+    "react-imask": "^6.4.2",
     "react-input-mask": "^2.0.4",
     "sass": "^1.50.0",
     "sitemap": "^7.1.1",

@@ -1,8 +1,14 @@
-import React from "react";
+import { AnimatePresence } from "framer-motion";
+import React, { useState } from "react";
+import FeedbackModal from "../FeedbackModal/FeedbackModal";
 import { LazyImage } from "../LazyImage/LazyImage";
 import Button2 from "../uikit/Button2/Button2";
 import s from "./CallbackProudctSection.module.scss";
 export default function CallbackProudctSection() {
+  const [isOpened, setIsOpened] = useState(false);
+  const handleOpen = () => {
+    setIsOpened((prev) => !prev);
+  };
   return (
     <section className={s.section}>
       <div className={s.container}>
@@ -16,8 +22,13 @@ export default function CallbackProudctSection() {
           Все вопросы уточняйте у менеджера, оставьте заявку и мы свяжемся
           с вами в ближайщее время
         </h2>
-        <Button2 className={s.btn}>Оставить заявку</Button2>
+        <Button2 className={s.btn} type="button" onClick={handleOpen}>
+          Оставить заявку
+        </Button2>
       </div>
+      <AnimatePresence>
+        {isOpened && <FeedbackModal isOpened={isOpened} onClose={handleOpen} />}
+      </AnimatePresence>
     </section>
   );
 }
