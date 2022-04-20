@@ -34,6 +34,11 @@ export default function StepSection({ data, officesData }) {
     setSecondStep(null);
     setDeliveryAddres(null);
     setTotalPrice(data.defaultPrice);
+    if (getValues("file")) {
+      reset({ file: "" });
+    } else {
+      reset({ ogrn: "", corp_name: "" });
+    }
   };
 
   const handleOpen = () => {
@@ -53,7 +58,10 @@ export default function StepSection({ data, officesData }) {
       scrollFunction("1");
     } else if (!secondStep) {
       scrollFunction("2");
-    } else if (!getValues("file").length) {
+    } else if (
+      !getValues("file")?.length &&
+      (!getValues("ogrn") || !getValues("corp_name"))
+    ) {
       scrollFunction("3");
     } else if (!devliveryAddress) {
       scrollFunction("4");
@@ -103,7 +111,7 @@ export default function StepSection({ data, officesData }) {
         {data.files ? (
           <AddFiles register={register} reset={reset} />
         ) : (
-          <StepWithoutFile />
+          <StepWithoutFile register={register} reset={reset} />
         )}
         <StepsBlock count={4} className={s.step} id="4" />
         <h3 className={s.header_step}>Выберете способ получения печати</h3>
