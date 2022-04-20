@@ -21,10 +21,7 @@
     "react-dom": "18.0.0",
     "react-hook-form": "^7.30.0",
     "react-imask": "^6.4.2",
-<<<<<<< HEAD
     "react-scrollbars-custom": "^4.0.27",
-=======
->>>>>>> 49394a85a657732fa017adb3899386a598902813
     "sass": "^1.50.0",
     "sitemap": "^7.1.1",
     "vanilla-lazyload": "^17.7.0"
