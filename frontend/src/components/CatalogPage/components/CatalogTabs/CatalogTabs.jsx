@@ -5,13 +5,17 @@ import cs from "classnames";
 import { Scrollbars } from "react-custom-scrollbars";
 
 export default function CatalogTabs({ className }) {
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(0);
+
   useEffect(() => {
-    if (typeof window !== "undefined") setIsActive(true);
+    setIsActive((prev) => prev + 1);
   }, []);
   return (
-    isActive && (
-      <ColoredScrollbars className={cs(s.container, className)}>
+    Boolean(isActive) && (
+      <ColoredScrollbars
+        className={cs(s.container, className)}
+        key={isActive + 1}
+      >
         <Tab className={s.tab} isActive={true}>
           Брошюровка и переплёт
         </Tab>
@@ -32,31 +36,36 @@ export default function CatalogTabs({ className }) {
 class ColoredScrollbars extends Component {
   constructor(props, ...rest) {
     super(props, ...rest);
-    // this.state = { left: 0 };
+    this.state = { left: 0, clientWidth: 0, scrollLeft: 0 };
     this.renderView = this.renderView.bind(this);
     this.renderThumb = this.renderThumb.bind(this);
     this.renderTrackHorizontal = this.renderTrackHorizontal.bind(this);
-    // this.onScrollFrame = this.onScrollFrame.bind(this);
+    this.onScrollFrame = this.onScrollFrame.bind(this);
   }
 
-  // onScrollFrame(value) {
-  //   const left = value.left;
-  //   this.setState({ left });
-  // }
+  onScrollFrame(value) {
+    this.setState({
+      left: value.left,
+      clientWidth: value.clientWidth,
+      scrollLeft: value.scrollLeft,
+    });
+  }
 
   renderView({ style, ...props }) {
-    return <div className={s.tabs} style={{ ...style }} {...props} />;
+    return <div className={s.tabs} {...props} />;
   }
 
   renderThumb({ style, ...props }) {
-    // const { left } = this.state;
+    const { left, clientWidth, scrollLeft } = this.state;
     const thumbStyle = {
+      display: "block",
       backgroundColor: `#056AC7`,
       borderRadius: "2px",
       height: "2px",
       maxWidth: "48px",
+      transform: `translateX(${left === 0 ? 0 : left * clientWidth - 48}px)`,
     };
-    return <div className={s.thumb} style={{ ...style }} {...props} />;
+    return <div style={{ ...style, ...thumbStyle }} {...props} />;
   }
 
   renderTrackHorizontal({ style, ...props }) {
@@ -79,10 +88,10 @@ class ColoredScrollbars extends Component {
       <Scrollbars
         renderView={this.renderView}
         renderThumbHorizontal={this.renderThumb}
+        renderThumbVertical={this.renderThumb}
         renderTrackHorizontal={this.renderTrackHorizontal}
-        // onUpdate={this.handleUpdate}
-        // onScrollFrame={this.onScrollFrame}
         thumbSize={48}
+        onScrollFrame={this.onScrollFrame}
         {...this.props}
       />
     );
