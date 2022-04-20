@@ -1,7 +1,21 @@
 .container {
-  padding-bottom: 24px;
+  padding-bottom: 8px;
   display: flex;
   overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.content {
+  margin-bottom: 24px;
+}
+
+.track {
+  @include desktop {
+    display: none;
+
+  }
 }
 
 .tab {
