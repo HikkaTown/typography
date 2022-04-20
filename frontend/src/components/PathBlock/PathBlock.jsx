@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PathImagesBlock from "../PathImagesBlock/PathImagesBlock";
 import TabProductBtn from "../uikit/TabProductBtn/TabProductBtn";
 import s from "./PathBlock.module.scss";
+import { Element } from "react-scroll";
 export default function PathBlock({ data }) {
   const [isActive, setIsActive] = useState(1);
   const { path } = data;
@@ -11,6 +12,7 @@ export default function PathBlock({ data }) {
 
   return (
     <div className={s.container} id="pathBlock">
+      <Element id="pathBlock" className={s.scroll_element} />
       <h2 className={s.header}>{data.pathHeader}</h2>
       <div className={s.tabs}>
         <TabProductBtn
