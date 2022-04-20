@@ -33,7 +33,7 @@ export default function CatalogTabs({ className }) {
   );
 }
 
-class ColoredScrollbars extends Component {
+export class ColoredScrollbars extends Component {
   constructor(props, ...rest) {
     super(props, ...rest);
     this.state = { left: 0, clientWidth: 0, scrollLeft: 0 };
@@ -65,7 +65,9 @@ class ColoredScrollbars extends Component {
       maxWidth: "48px",
       transform: `translateX(${left === 0 ? 0 : left * clientWidth - 48}px)`,
     };
-    return <div style={{ ...style, ...thumbStyle }} {...props} />;
+    return (
+      <div className={s.thumb} style={{ ...style, ...thumbStyle }} {...props} />
+    );
   }
 
   renderTrackHorizontal({ style, ...props }) {

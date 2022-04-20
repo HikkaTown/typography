@@ -2,6 +2,7 @@ import React from "react";
 import { LazyImageWrapper } from "../LazyImage/LazyImage";
 import YellowBtn from "../uikit/YellowBtn/YellowBtn";
 import s from "./HeroMainSection.module.scss";
+import { scroller } from "react-scroll";
 
 export default function HeroMainSection() {
   return (
@@ -23,7 +24,18 @@ export default function HeroMainSection() {
             и печатью полиграфической продукции. Изготовлением печатей
             и штампов, срочных фото на документы
           </p>
-          <YellowBtn className={s.btn}>В каталог услуг</YellowBtn>
+          <YellowBtn
+            className={s.btn}
+            onClick={() => {
+              scroller.scrollTo("catalog", {
+                duration: 800,
+                delay: 0,
+                smooth: "easeInOutQuart",
+              });
+            }}
+          >
+            В каталог услуг
+          </YellowBtn>
         </div>
       </div>
       <ScrollBtn className={s.scroll_btn} />

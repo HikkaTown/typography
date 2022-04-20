@@ -16,6 +16,7 @@ export default function AddressCard({ data, className, isOpen, setIsOpen }) {
     >
       <h3 className={s.address_name}>{data.name}</h3>
       <p className={s.address}>{data.address}</p>
+      <p className={s.worktime}>{data.workTime}</p>
       <div className={s.row}>
         <a href={`tel:${data.phone}`} className={s.callback_link}>
           <PhoneIcon />

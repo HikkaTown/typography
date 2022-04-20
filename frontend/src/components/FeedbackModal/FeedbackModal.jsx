@@ -37,7 +37,7 @@ export default function FeedbackModal({
           <h1 className={s.header}>{header ? header : "Обратная связь"}</h1>
           <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
             <Input
-              label={"Имя *"}
+              label={"Имя"}
               register={register}
               required
               placeholder={"Имя"}
@@ -58,7 +58,7 @@ export default function FeedbackModal({
               errors={errors}
             />
             <InputController
-              label={"Телефон *"}
+              label={"Телефон"}
               register={register}
               placeholder={"+7 000 000 00 00"}
               type={"tel"}
@@ -106,7 +106,9 @@ export default function FeedbackModal({
             )}
             {!delivery && (
               <div className={cs(s.input_block, s.address)}>
-                <label className={s.label}>Выберите офис обращения *</label>
+                <label className={s.label}>
+                  Выберите офис обращения <span className={s.star}>*</span>
+                </label>
                 <OfficeDropdown className={s.dropdown} />
                 <p className={s.description}>
                   Нажмая на кнопку, соглашаюсь на обработку персональных данных
@@ -167,7 +169,9 @@ const Input = ({
 }) => {
   return (
     <div className={cs(s.input_block, classNameBlock)}>
-      <label className={s.label}>{label}</label>
+      <label className={s.label}>
+        {label} {required && <span className={s.star}>*</span>}
+      </label>
       <input
         className={cs(className, errors[name] && s.input_error)}
         {...register(name, { required })}
@@ -193,7 +197,9 @@ const InputController = ({
 }) => {
   return (
     <div className={cs(s.input_block, classNameBlock)}>
-      <label className={s.label}>{label}</label>
+      <label className={s.label}>
+        {label} {required && <span className={s.star}>*</span>}
+      </label>
       <Controller
         name="phone"
         control={control}

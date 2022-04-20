@@ -2,14 +2,18 @@ import React, { useState, useEffect } from "react";
 import ContactTabsBlock from "../ContactTabsBlock/ContactTabsBlock";
 import PathBlock from "../PathBlock/PathBlock";
 import s from "./ContactPageSection.module.scss";
+import { scroller } from "react-scroll";
+
 export default function ContactPageSection({ data }) {
   const [isOpened, setIsOpened] = useState(null);
 
   useEffect(() => {
     if (isOpened) {
-      document
-        .getElementById("pathBlock")
-        .scrollIntoView({ block: "start", behavior: "smooth" });
+      scroller.scrollTo("pathBlock", {
+        duration: 760,
+        delay: 0,
+        smooth: "easeInOutQuart",
+      });
     }
   }, [isOpened]);
 

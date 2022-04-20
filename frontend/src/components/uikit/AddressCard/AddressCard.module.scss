@@ -37,14 +37,20 @@
   margin: 0;
   padding: 0;
   @include body4-400($primary-text);
-  margin-bottom: 4px;
+  margin-bottom: 8px;
 }
 
 .row {
   display: flex;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   align-items: center;
   justify-content: space-between;
+}
+
+.worktime {
+  padding: 0;
+  margin: 0 0 8px;
+  @include body4-400($primary-text);
 }
 
 .callback_link {
