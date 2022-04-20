@@ -38,3 +38,95 @@
     @include headline-5($primary-text);
   }
 }
+
+.total_line {
+  background-color: $yellow;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  padding: 16px 0;
+}
+
+.total_line_hidden {
+  display: none;
+}
+
+.line_container {
+  max-width: calc(100% - 32px);
+  width: 100vw;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  @include tablet {
+    max-width: calc(100% - 88px);
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  @include desktop {
+    max-width: 1150px;
+  }
+}
+
+.content {
+  @include tablet {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.title {
+  margin: 0;
+  padding: 0;
+  margin-right: 32px;
+  @include body1-400($primary-text);
+}
+
+.line_text {
+  margin: 0;
+  padding: 0;
+  @include body4-500($primary-text);
+}
+
+.price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  @include desktop {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: 32px;
+  }
+}
+
+.cost {
+  padding: 0;
+  margin: 0;
+  @include body1-400($primary-text);
+  @include tablet {
+    // margin-bottom: 12px;
+    margin-right: 32px;
+  }
+  @include desktop {
+    margin-bottom: 0;
+    margin-right: 32px;
+  }
+}
+
+.amount {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.amount_text {
+  padding: 0;
+  margin: 0 27px 0 0;
+  @include headline-5($primary-text);
+}

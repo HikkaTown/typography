@@ -44,7 +44,6 @@
   display: flex;
   margin-bottom: 12px;
   align-items: center;
-  justify-content: space-between;
 }
 
 .worktime {
@@ -58,6 +57,9 @@
   align-items: center;
   @include body4-500($primary-text);
   transition: 0.3s;
+  max-width: 164px;
+  width: 100%;
+  margin-right: 4px;
   @include hover {
     opacity: 0.7;
   }

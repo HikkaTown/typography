@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import Head from "next/head";
 import CallbackProudctSection from "../../components/CallbackProudctSection/CallbackProudctSection";
 import CustomBreadrcumbs from "../../components/CustomBreadrcumbs/CustomBreadrcumbs";
@@ -71,7 +71,7 @@ export const getStaticPaths = async () => {
 
 const testData = {
   header: "Закажите печать за несколько шагов",
-  files: true,
+  files: false,
   defaultText: "Изготовление печати 700 ₽",
   defaultPrice: 700,
   deliveryAmount: 300,

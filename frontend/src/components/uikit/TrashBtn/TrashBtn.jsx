@@ -3,7 +3,7 @@ import cs from "classnames";
 import s from "./TrashBtn.module.scss";
 export default function TrashBtn({ className, onClick }) {
   return (
-    <button className={cs(s.btn, className)}>
+    <button className={cs(s.btn, className)} onClick={onClick}>
       <svg
         width="32"
         height="32"
