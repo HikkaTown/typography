@@ -32,6 +32,7 @@ const offices = [
     email: "email@mail.ru",
     phone: "+7 (495) 517-59-14",
     pathHeader: "Как добраться до офиса 1",
+    workTime: "Пн-птн 09:00-18:00; Выходные:  сб, вск",
     mapUrl: "dsds",
     path: {
       onFoot: {
@@ -81,6 +82,7 @@ const offices = [
       "м. Цветной бульвар, м. Трубная Малый Сухаревский переулок 9 стр. 1, 2-й этаж",
     email: "email@mail.ru",
     phone: "+7 (495) 517-59-33",
+    workTime: "Пн-птн 09:00-18:00; Выходные:  сб, вск",
     pathHeader: "Как добраться до офиса 2",
     mapUrl: "dsds",
     path: {
