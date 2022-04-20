@@ -2,9 +2,11 @@ import React from "react";
 import s from "./StepsBlock.module.scss";
 import StepBtn from "../../../uikit/StepBtn/StepBtn";
 import cs from "classnames";
-export default function StepsBlock({ className, count }) {
+import { Element } from "react-scroll";
+export default function StepsBlock({ className, count, id }) {
   return (
     <div className={cs(s.container, className)}>
+      <Element id={id} />
       <StepBtn isActive={1 <= count}>1</StepBtn>
       <Arrows />
       <StepBtn isActive={2 <= count}>2</StepBtn>

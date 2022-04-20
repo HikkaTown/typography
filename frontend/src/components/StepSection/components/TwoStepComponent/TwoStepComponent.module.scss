@@ -73,4 +73,11 @@
   background: $blu;
   border-radius: 2px;
   display: block;
+  max-width: 100%;
+}
+
+.desktop {
+  @include desktop {
+    display: none !important;
+  }
 }

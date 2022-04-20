@@ -16,8 +16,10 @@ const MutationPlugin = (slider) => {
 
   slider.on("created", () => {
     observer.observe(slider.container, config);
+    slider.update();
   });
   slider.on("destroyed", () => {
+    slider.update();
     observer.disconnect();
   });
 };
@@ -66,24 +68,33 @@ export default function TwoStepComponent({
     setFiltersList(filters);
   }, [products]);
 
+  const counter = () => {
+    let count = 0;
+    products.map((item) => {
+      if (item.category === filtersList[activeFilter]) {
+        count++;
+      }
+    });
+    return count;
+  };
+
   return (
     <div className={s.container}>
       <div className={s.tabs}>
-        {filtersList.length > 0 &&
-          filtersList.map((item, index) => {
-            return (
-              <TabProductBtn
-                key={index}
-                isActive={index === activeFilter ? true : false}
-                className={s.tab}
-                onClick={() => {
-                  setActiveFilter(index);
-                }}
-              >
-                {item}
-              </TabProductBtn>
-            );
-          })}
+        {filtersList.map((item, index) => {
+          return (
+            <TabProductBtn
+              key={index}
+              isActive={index === activeFilter ? true : false}
+              className={s.tab}
+              onClick={() => {
+                setActiveFilter(index);
+              }}
+            >
+              {item}
+            </TabProductBtn>
+          );
+        })}
       </div>
       <div className={cs("navigation-wrapper", s.wrapper, className)}>
         <div ref={sliderRef} className={cs("keen-slider", s.slider)}>
@@ -120,15 +131,16 @@ export default function TwoStepComponent({
             />
           </div>
         )}
-        {loaded && instanceRef.current && (
-          <div className={s.progress_bar}>
+        {loaded && instanceRef?.current && (
+          <div
+            className={cs(s.progress_bar, s.desktop)}
+            style={counter() === 1 ? { display: "none" } : { display: "block" }}
+          >
             <span
               className={s.bar}
+              key={activeFilter}
               style={{
-                width: `${
-                  (100 / instanceRef?.current?.track?.details?.slides?.length) *
-                  (currentSlide + 1)
-                }%`,
+                width: `${(100 / counter()) * (currentSlide + 1)}%`,
               }}
             ></span>
           </div>
