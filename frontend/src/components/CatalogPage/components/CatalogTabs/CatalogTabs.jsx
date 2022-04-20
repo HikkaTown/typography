@@ -7,11 +7,11 @@ import { Scrollbars } from "react-custom-scrollbars";
 export default function CatalogTabs({ className }) {
   const [isActive, setIsActive] = useState(false);
   useEffect(() => {
-    setIsActive(true);
+    if (typeof window !== "undefined") setIsActive(true);
   }, []);
   return (
     isActive && (
-      <ColoredScrollbars className={cs(s.container, className)} thumbSize={48}>
+      <ColoredScrollbars className={cs(s.container, className)}>
         <Tab className={s.tab} isActive={true}>
           Брошюровка и переплёт
         </Tab>
@@ -32,30 +32,31 @@ export default function CatalogTabs({ className }) {
 class ColoredScrollbars extends Component {
   constructor(props, ...rest) {
     super(props, ...rest);
-    this.state = { left: 0 };
-    this.handleUpdate = this.handleUpdate.bind(this);
+    // this.state = { left: 0 };
     this.renderView = this.renderView.bind(this);
-    this.renderThumbHorizontal = this.renderThumbHorizontal.bind(this);
+    this.renderThumb = this.renderThumb.bind(this);
     this.renderTrackHorizontal = this.renderTrackHorizontal.bind(this);
+    // this.onScrollFrame = this.onScrollFrame.bind(this);
   }
 
-  handleUpdate(values) {
-    const { left } = values;
-    this.setState({ left });
-  }
+  // onScrollFrame(value) {
+  //   const left = value.left;
+  //   this.setState({ left });
+  // }
 
   renderView({ style, ...props }) {
-    return <div className={s.tabs} {...props} />;
+    return <div className={s.tabs} style={{ ...style }} {...props} />;
   }
 
-  renderThumbHorizontal({ style, ...props }) {
+  renderThumb({ style, ...props }) {
+    // const { left } = this.state;
     const thumbStyle = {
       backgroundColor: `#056AC7`,
       borderRadius: "2px",
       height: "2px",
       maxWidth: "48px",
     };
-    return <div style={{ ...style, ...thumbStyle }} {...props} />;
+    return <div className={s.thumb} style={{ ...style }} {...props} />;
   }
 
   renderTrackHorizontal({ style, ...props }) {
@@ -68,16 +69,20 @@ class ColoredScrollbars extends Component {
       left: 0,
       display: "block",
     };
-    return <div style={{ ...style, ...trackStyle }} {...props} />;
+    return (
+      <div className={s.track} style={{ ...style, ...trackStyle }} {...props} />
+    );
   }
 
   render() {
     return (
       <Scrollbars
         renderView={this.renderView}
-        renderThumbHorizontal={this.renderThumbHorizontal}
+        renderThumbHorizontal={this.renderThumb}
         renderTrackHorizontal={this.renderTrackHorizontal}
-        onUpdate={this.handleUpdate}
+        // onUpdate={this.handleUpdate}
+        // onScrollFrame={this.onScrollFrame}
+        thumbSize={48}
         {...this.props}
       />
     );
