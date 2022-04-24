@@ -1,7 +1,7 @@
 import React from "react";
 import NewsSlider from "./components/NewsSlider/NewsSlder";
 import s from "./NewsSection.module.scss";
-export default function NewsSection() {
+export default function NewsSection({ data }) {
   return (
     <section className={s.section}>
       <div className={s.container}>
@@ -16,7 +16,7 @@ export default function NewsSection() {
             планировали
           </p>
         </div>
-        <NewsSlider className={s.slider} />
+        <NewsSlider className={s.slider} data={data} />
       </div>
     </section>
   );

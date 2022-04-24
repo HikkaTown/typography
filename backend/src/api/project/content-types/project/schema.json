@@ -19,10 +19,10 @@
       "multiple": true,
       "required": true
     },
-    "types": {
+    "category": {
       "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::project-type.project-type",
+      "relation": "manyToOne",
+      "target": "api::tabyproektov.tabyproektov",
       "inversedBy": "projects"
     }
   }

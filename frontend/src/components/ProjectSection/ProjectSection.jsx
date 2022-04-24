@@ -3,16 +3,17 @@ import s from "./ProjectSection.module.scss";
 import Button4 from "../uikit/Button4/Button4";
 import ProjectCard from "../uikit/ProjectCard/ProjectCard";
 import { useRouter } from "next/router";
-export default function ProjectSection() {
+export default function ProjectSection({ data }) {
   const router = useRouter();
   return (
     <section className={s.section}>
       <div className={s.container}>
         <h2 className={s.header}>Наши работы</h2>
         <div className={s.cards}>
-          <ProjectCard className={s.card} />
-          <ProjectCard className={s.card} />
-          <ProjectCard className={s.card} />
+          {data &&
+            data.slice(0, 3).map((item, index) => {
+              return <ProjectCard className={s.card} key={index} data={item} />;
+            })}
         </div>
         <Button4
           className={s.btn}
@@ -20,7 +21,7 @@ export default function ProjectSection() {
             router.push("/projects");
           }}
         >
-          Показать ещё
+          Смотреть больше
         </Button4>
       </div>
     </section>

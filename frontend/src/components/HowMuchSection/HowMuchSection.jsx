@@ -37,12 +37,12 @@ const testData = {
   ],
 };
 
-export default function HowMuchSection() {
+export default function HowMuchSection({ data }) {
   return (
     <section className={s.section}>
       <div className={s.container}>
         <h2 className={s.header}>Сколько это будет стоить</h2>
-        <TableComponent data={testData} />
+        {data ? <TableComponent data={data} /> : ""}
       </div>
     </section>
   );

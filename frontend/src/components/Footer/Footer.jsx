@@ -4,54 +4,7 @@ import FooterLogo from "../uikit/FooterLogo/FooterLogo";
 import s from "./Footer.module.scss";
 import cs from "classnames";
 
-const links = [
-  {
-    url: "/",
-    name: "Страница1",
-  },
-  {
-    url: "/",
-    name: "Страница2",
-  },
-  {
-    url: "/",
-    name: "Страница3",
-  },
-  {
-    url: "/",
-    name: "Страница4",
-  },
-  {
-    url: "/",
-    name: "Страница5",
-  },
-  {
-    url: "/",
-    name: "Страница6",
-  },
-  {
-    url: "/",
-    name: "Страница7",
-  },
-  {
-    url: "/",
-    name: "Страница8",
-  },
-  {
-    url: "/",
-    name: "Страница9",
-  },
-  {
-    url: "/",
-    name: "Страница10",
-  },
-  {
-    url: "/",
-    name: "Страница11",
-  },
-];
-
-export default function Footer() {
+export default function Footer({ footerLinks }) {
   return (
     <footer className={s.footer}>
       <div className={s.container}>
@@ -77,24 +30,36 @@ export default function Footer() {
           </FooterLink>
         </div>
         <div className={cs(s.column, s.column_links)}>
-          {links.slice(0, Math.ceil(links.length / 2)).map((item, index) => {
-            return (
-              <FooterLink href={item.url} key={index} className={s.link}>
-                {item.name}
-              </FooterLink>
-            );
-          })}
+          {footerLinks &&
+            footerLinks
+              .slice(0, Math.ceil(footerLinks.length / 2))
+              .map((item, index) => {
+                return (
+                  <FooterLink
+                    href={"/catalog?id=" + item.url}
+                    key={index}
+                    className={s.link}
+                  >
+                    {item.title}
+                  </FooterLink>
+                );
+              })}
         </div>
         <div className={cs(s.column, s.column_links)}>
-          {links
-            .slice(Math.ceil(links.length / 2), links.length)
-            .map((item, index) => {
-              return (
-                <FooterLink href={item.url} key={index} className={s.link}>
-                  {item.name}
-                </FooterLink>
-              );
-            })}
+          {footerLinks &&
+            footerLinks
+              .slice(Math.ceil(footerLinks.length / 2), footerLinks.length)
+              .map((item, index) => {
+                return (
+                  <FooterLink
+                    href={"/catalog?id=" + item.url}
+                    key={index}
+                    className={s.link}
+                  >
+                    {item.title}
+                  </FooterLink>
+                );
+              })}
         </div>
       </div>
     </footer>

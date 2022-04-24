@@ -7,6 +7,7 @@ import { LazyImage, LazyImageWrapper } from "../LazyImage/LazyImage";
 import ArrowBtn from "../uikit/ArrowBtn/ArrowBtn";
 import s from "./ModalProjectPhoto.module.scss";
 import CloseBtn from "../uikit/CloseBtn/CloseBtn";
+import { PATH_IMAGE } from "../../lib/const";
 
 export default function ModalProjectPhoto({ isOpened, onClose, photos }) {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -41,7 +42,7 @@ export default function ModalProjectPhoto({ isOpened, onClose, photos }) {
                     ratio={1}
                     className={[s.image]}
                     wrapperClass={s.image_wrapper}
-                    src={item.src}
+                    src={PATH_IMAGE + item}
                     alt={""}
                   />
                 </div>

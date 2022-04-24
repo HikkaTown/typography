@@ -2,6 +2,7 @@ import React from "react";
 import cs from "classnames";
 import s from "./StepCardItem.module.scss";
 import { LazyImageWrapper } from "../../LazyImage/LazyImage";
+import { PATH_IMAGE } from "../../../lib/const";
 
 export default function StepCardItem({
   className,
@@ -16,7 +17,7 @@ export default function StepCardItem({
     >
       {inCart && <CardInCart />}
       <LazyImageWrapper
-        src={data.image}
+        src={PATH_IMAGE + data.image}
         alt={data.name}
         className={[s.image]}
         wrapperClass={s.image_wrapper}

@@ -1,35 +1,40 @@
-import React, { useState, useEffect, Component } from "react";
+import React, { Component } from "react";
 import Tab from "../../../uikit/Tab/Tab";
 import s from "./CatalogTabs.module.scss";
 import cs from "classnames";
+import { useRouter } from "next/router";
 import { Scrollbars } from "react-custom-scrollbars";
 
-export default function CatalogTabs({ className }) {
-  const [isActive, setIsActive] = useState(0);
-
-  useEffect(() => {
-    setIsActive((prev) => prev + 1);
-  }, []);
+export default function CatalogTabs({
+  className,
+  data,
+  isActive,
+  setIsActive,
+}) {
+  const router = useRouter();
   return (
-    Boolean(isActive) && (
-      <ColoredScrollbars
-        className={cs(s.container, className)}
-        key={isActive + 1}
-      >
-        <Tab className={s.tab} isActive={true}>
-          Брошюровка и переплёт
-        </Tab>
-        <Tab className={s.tab}>Визитки</Tab>
-        <Tab className={s.tab}>Календари</Tab>
-        <Tab className={s.tab}>Копирование, сканирование</Tab>
-        <Tab className={s.tab}>Ламинирование</Tab>
-        <Tab className={s.tab}>Листовки и буклеты</Tab>
-        <Tab className={s.tab}>Печать</Tab>
-        <Tab className={s.tab}>Печати и штампы</Tab>
-        <Tab className={s.tab}>Таблички</Tab>
-        <Tab className={s.tab}>Фото на документы</Tab>
-      </ColoredScrollbars>
-    )
+    <ColoredScrollbars
+      className={cs(s.container, className)}
+      key={isActive + 1}
+      universal={true}
+    >
+      {data &&
+        data.map((item) => {
+          return (
+            <Tab
+              className={s.tab}
+              key={item.id}
+              isActive={isActive === item.id ? true : false}
+              onClick={() => {
+                router.push(`/catalog?id=${item.id}`);
+                setIsActive(item.id);
+              }}
+            >
+              {item.servicesName}
+            </Tab>
+          );
+        })}
+    </ColoredScrollbars>
   );
 }
 
@@ -58,7 +63,7 @@ export class ColoredScrollbars extends Component {
   renderThumb({ style, ...props }) {
     const { left, clientWidth, scrollLeft } = this.state;
     const thumbStyle = {
-      display: "block",
+      // display: "block",
       backgroundColor: `#056AC7`,
       borderRadius: "2px",
       height: "2px",
@@ -78,7 +83,7 @@ export class ColoredScrollbars extends Component {
       borderRadius: "2px",
       bottom: 0,
       left: 0,
-      display: "block",
+      // display: "block",
     };
     return (
       <div className={s.track} style={{ ...style, ...trackStyle }} {...props} />
@@ -93,6 +98,7 @@ export class ColoredScrollbars extends Component {
         renderThumbVertical={this.renderThumb}
         renderTrackHorizontal={this.renderTrackHorizontal}
         thumbSize={48}
+        universal={true}
         onScrollFrame={this.onScrollFrame}
         {...this.props}
       />

@@ -53,7 +53,7 @@ export default function StepComponent({
             );
           })}
         </div>
-        {loaded && instanceRef.current && (
+        {products.length > 4 && loaded && instanceRef.current && (
           <div className={s.arrows}>
             <Arrow
               left
@@ -69,7 +69,7 @@ export default function StepComponent({
             />
           </div>
         )}
-        {loaded && instanceRef.current && (
+        {products.length > 4 && loaded && instanceRef.current && (
           <div className={s.progress_bar}>
             <span
               className={s.bar}

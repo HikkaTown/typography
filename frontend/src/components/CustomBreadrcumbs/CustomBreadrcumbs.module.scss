@@ -3,6 +3,8 @@
   width: 100vw;
   padding-top: 104px;
   margin: 0 auto;
+  position: relative;
+  z-index: 2;
   @include tablet {
     max-width: calc(100% - 88px);
   }
@@ -22,8 +24,11 @@
     align-items: center;
     @include body4-400($secondary-text);
     transition: 0.3s;
-    @include hover {
-      opacity: 0.5;
+    a {
+      transition: 0.3s;
+      @include hover {
+        color: $blu;
+      }
     }
     &:first-of-type {
       .star {

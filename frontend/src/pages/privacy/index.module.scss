@@ -1,0 +1,25 @@
+.section {
+  padding-top: 120px;
+  padding-bottom: 80px;
+  background-color: #fff;
+}
+
+.container {
+  max-width: calc(100% - 32px);
+  width: 100vw;
+  margin: 0 auto;
+  @include tablet {
+    max-width: calc(100% - 88px);
+  }
+  @include desktop {
+    max-width: 1150px;
+  }
+}
+
+.paragraph {
+  margin: 0 0 20px 0;
+  @include body1-400($primary-text);
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}

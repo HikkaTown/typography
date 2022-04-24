@@ -84,6 +84,7 @@ class ColoredScrollbars extends Component {
         renderThumbVertical={this.renderThumb}
         renderTrackHorizontal={this.renderTrackHorizontal}
         thumbSize={48}
+        universal={true}
         onScrollFrame={this.onScrollFrame}
         {...this.props}
       />

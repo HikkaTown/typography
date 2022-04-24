@@ -3,6 +3,7 @@ import s from "./DescriptionTech.module.scss";
 import cs from "classnames";
 import { motion } from "framer-motion";
 import { LazyImageWrapper } from "../../LazyImage/LazyImage";
+import { PATH_IMAGE } from "../../../lib/const";
 
 const animateVariants = {
   initial: {
@@ -62,7 +63,7 @@ export default function DescriptionTech({ className, data }) {
         transition={{ duration: 0.7, type: "tween" }}
       >
         <LazyImageWrapper
-          src={data.photo}
+          src={PATH_IMAGE + data.photo}
           alt={data.name}
           className={[s.image]}
           wrapperClass={s.image_wrapper}

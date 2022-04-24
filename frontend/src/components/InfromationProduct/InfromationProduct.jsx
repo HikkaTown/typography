@@ -1,14 +1,7 @@
 import React from "react";
 import s from "./InfromationProduct.module.scss";
 
-const testData = [
-  "Не более 7-ми минут во всех центрах",
-  "Запись информации на вашу флэшку — 50 ₽",
-  "Обработка и редактирование фотографии бесплатно",
-  "Отправка по электронной почте — 50 ₽",
-];
-
-export default function InfromationProduct() {
+export default function InfromationProduct({ data }) {
   return (
     <section className={s.section}>
       <div className={s.container}>
@@ -31,14 +24,15 @@ export default function InfromationProduct() {
           <h2 className={s.header}>Информация</h2>
         </div>
         <ul className={s.list}>
-          {testData.map((item, index) => {
-            return (
-              <li className={s.list_item} key={index}>
-                <span className={s.dot} />
-                {item}
-              </li>
-            );
-          })}
+          {data &&
+            data.map((item, index) => {
+              return (
+                <li className={s.list_item} key={index}>
+                  <span className={s.dot} />
+                  {item}
+                </li>
+              );
+            })}
         </ul>
       </div>
     </section>

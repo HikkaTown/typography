@@ -4,7 +4,7 @@ import PathBlock from "../PathBlock/PathBlock";
 import s from "./ContactPageSection.module.scss";
 import { scroller } from "react-scroll";
 
-export default function ContactPageSection({ data }) {
+export default function ContactPageSection({ data, header }) {
   const [isOpened, setIsOpened] = useState(null);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ export default function ContactPageSection({ data }) {
   return (
     <section className={s.section}>
       <div className={s.container} id="container">
-        <h1 className={s.header}>Контакты</h1>
+        <h1 className={s.header}>{header}</h1>
         <ContactTabsBlock
           data={data}
           setIsOpen={setIsOpened}

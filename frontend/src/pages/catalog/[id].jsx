@@ -11,181 +11,102 @@ import SeoProduct from "../../components/SeoProduct/SeoProduct";
 import ShortDescription from "../../components/ShortDescription/ShortDescription";
 import StepSection from "../../components/StepSection/StepSection";
 import TechnicalRequirementsSection from "../../components/TechnicalRequirementsSection/TechnicalRequirementsSection";
+import {
+  getAllProjectsCard,
+  getContactCards,
+  getCurrentProductCard,
+  getProductCardUrl,
+  getProductLinks,
+} from "../../lib/apiFunctions";
 
-export default function Index({ id, title }) {
+export default function Index({
+  pageData,
+  projects,
+  officesList,
+  footerLinks,
+}) {
   return (
     <>
       <Head>
-        <title itemProp="headline">{title}</title>
+        <title itemProp="headline">{pageData.pageData.metaHead}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta property="og:title" content={"post.meta_title"} />
+        <meta property="og:title" content={pageData.pageData.metaHead} />
 
         <meta
           itemProp="description"
           name="description"
-          content={"post.meta_description"}
+          content={pageData.pageData.metaDescription}
         />
-        <meta property="og:description" content={"post.meta_description"} />
+        <meta
+          property="og:description"
+          content={pageData.pageData.metaDescription}
+        />
         <meta property="og:site_name" content="Первый печатный" />
       </Head>
-      <Layout>
-        <CustomBreadrcumbs titlePage={title} />
-        <ProductMainSection />
-        <ShortDescription />
-        {id === "1" && (
+      <Layout footerLinks={footerLinks}>
+        <CustomBreadrcumbs titlePage={pageData.pageData.title} />
+        <ProductMainSection
+          style={pageData.headStyle}
+          header={pageData.pageData.title}
+          description={pageData.pageData.description}
+        />
+        <ShortDescription data={pageData.shortDescription} />
+        {!pageData.steps && (
           <>
-            <HowMuchSection />
-            <InfromationProduct />
-            <CallbackProudctSection />
-            <TechnicalRequirementsSection />
+            <HowMuchSection data={pageData.table} />
+            <InfromationProduct data={pageData.infoList} />
+            <CallbackProudctSection
+              theme={pageData.pageData.title}
+              title={pageData.callbackBlockTitle}
+            />
+            <TechnicalRequirementsSection data={pageData.tech} />
           </>
         )}
-        {id === "2" && (
+        {pageData.steps && (
           <>
-            <StepSection data={testData} officesData={testOfficesData} />
+            <StepSection data={pageData} officesData={officesList} />
           </>
         )}
-        <ProjectSection />
-        <SeoProduct />
+        <ProjectSection data={projects} />
+        <SeoProduct data={pageData.seoBlock} />
       </Layout>
     </>
   );
 }
 
 export const getStaticProps = async (context) => {
+  const url = context?.params?.id;
+  const projects = await getAllProjectsCard();
+  const footerLinks = await getProductLinks();
+  let pageData;
+  if (url) {
+    pageData = await getCurrentProductCard(url);
+  }
+  const contactList = await getContactCards();
+  let officesList = [];
+  contactList.map((item) => {
+    officesList.push({
+      id: +item.id,
+      address: `${item.name} ${item.address}`,
+    });
+  });
   return {
     props: {
-      id: context.params.id,
-      title:
-        context.params.id === "1" ? "Названеи продукта" : "Название продукта2",
+      projects,
+      officesList,
+      pageData: pageData[0],
+      footerLinks,
     },
   };
 };
 
 export const getStaticPaths = async () => {
+  const url = await getProductCardUrl();
+  const paths = url.map((item) => ({
+    params: { id: item },
+  }));
   return {
-    paths: [{ params: { id: "1" } }, { params: { id: "2" } }],
+    paths,
     fallback: "blocking",
   };
 };
-
-const testData = {
-  header: "Закажите печать за несколько шагов",
-  files: false,
-  defaultText: "Изготовление печати 700 ₽",
-  defaultPrice: 700,
-  deliveryAmount: 300,
-  steps: [
-    {
-      id: 1,
-      header: "Выберите оснастку для вашей новой печати",
-      proudcts: [
-        {
-          id: 1,
-          image: "https://sovremennik.info/up/slider/tort/photo_55_big.jpg",
-          name: "Ручная оснастка",
-          price: 0,
-        },
-        {
-          id: 2,
-          image:
-            "https://img.povar.ru/main/3a/57/fb/b6/mussovii_tort_dlya_nachinaiushih-642029.JPG",
-          name: "Colob mouse",
-          price: 500,
-        },
-        {
-          id: 3,
-          image:
-            "https://tortchao.ru/files/products/chao-ushakova20064_2.1800x1200w.jpg",
-          name: "Disko",
-          price: 2700,
-        },
-        {
-          id: 4,
-          image:
-            "https://tortchao.ru/files/products/chao-ushakova20064_2.1800x1200w.jpg",
-          name: "Рука mouse",
-          price: 0,
-        },
-        {
-          id: 5,
-          image:
-            "https://tortchao.ru/files/products/chao-ushakova20064_2.1800x1200w.jpg",
-          name: "Диско mouse",
-          price: 0,
-        },
-        {
-          id: 6,
-          image:
-            "https://tortchao.ru/files/products/chao-ushakova20064_2.1800x1200w.jpg",
-          name: "Флекс mouse",
-          price: 0,
-        },
-      ],
-    },
-    {
-      id: 2,
-      header: "Выберете дизайн-макет вашей новой печати",
-      products: [
-        {
-          id: 1,
-          category: "ООО, ОАО,ЗАО",
-          name: "Печать 29 ммПечать 29 мм",
-          image:
-            "https://www.chefmarket.ru/blog/wp-content/uploads/2019/12/feta-cheese-2000x1200.jpg",
-          price: 13,
-        },
-        {
-          id: 2,
-          category: "ИП",
-          name: "Печать 29 мм+ микротекст",
-          image: "https://www.patee.ru/r/x6/12/5b/d5/960m.jpg",
-          price: 0,
-        },
-        {
-          id: 3,
-          category: "Врач",
-          name: "Печать 29 мм + микротекст + логотип",
-          image: "https://rutxt.ru/files/15321/original/42908b9dfa.JPG",
-          price: 230,
-        },
-        {
-          id: 4,
-          category: "ООО, ОАО,ЗАО",
-          name: "Печать 29 мм+ смайл",
-          image:
-            "https://www.bulochka.ru/wp-content/uploads/2019/10/salat-s-avokado-syomgoj-i-pomidorami.jpg",
-          price: 660,
-        },
-      ],
-    },
-  ],
-};
-
-const testOfficesData = [
-  {
-    id: 1,
-    address:
-      "Самовывоз Офис #1, м. Цветной бульвар,Малый Сухаревский пер., д. 9с1, оф. 24",
-  },
-  {
-    id: 2,
-    address:
-      "Самовывоз Офис #1, м. Цветной бульвар,Малый Сухаревский пер., д. 9с1, оф. 24",
-  },
-  {
-    id: 3,
-    address:
-      "Самовывоз Офис #1, м. Цветной бульвар,Малый Сухаревский пер., д. 9с1, оф. 24",
-  },
-  {
-    id: 4,
-    address:
-      "Самовывоз Офис #1, м. Цветной бульвар,Малый Сухаревский пер., д. 9с1, оф. 24",
-  },
-  {
-    id: 5,
-    address:
-      "Самовывоз Офис #1, м. Цветной бульвар,Малый Сухаревский пер., д. 9с1, оф. 24",
-  },
-];

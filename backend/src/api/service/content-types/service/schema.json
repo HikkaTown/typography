@@ -4,7 +4,8 @@
   "info": {
     "singularName": "service",
     "pluralName": "services",
-    "displayName": "Услуги"
+    "displayName": "Услуги",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,11 +16,18 @@
       "type": "string"
     },
     "servicePoster": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "pages": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::straniczy-uslug.straniczy-uslug",
+      "mappedBy": "category"
     }
   }
 }

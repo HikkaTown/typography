@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import s from "./FeedbackModal.module.scss";
 import { useForm, Controller } from "react-hook-form";
 import { IMaskInput } from "react-imask";
@@ -8,8 +8,12 @@ import Button2 from "../uikit/Button2/Button2";
 import cs from "classnames";
 import AddFileBtn from "../uikit/AddFileBtn/AddFileBtn";
 import OfficeDropdown from "../uikit/OfficeDropdown/OfficeDropdown";
+import { useAppContext } from "../../context/state";
+import { callbackOrder } from "../../lib/callbackOrder";
 
 export default function FeedbackModal({
+  addData,
+  theme,
   header,
   isOpened,
   onClose,
@@ -23,7 +27,23 @@ export default function FeedbackModal({
     reset,
     handleSubmit,
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const [currentAddress, setCurrentAddress] = useState(0);
+  const [fileData, setFileData] = useState(null);
+  const { officesList } = useAppContext();
+  const onSubmit = (data) => {
+    callbackOrder({
+      data: {
+        ...data,
+        ...addData,
+        file:
+          (addData?.file ? addData.file : null) || (fileData ? fileData : null),
+        theme,
+        office: data.address ? "" : officesList[currentAddress],
+      },
+    });
+  };
+
+  console.log(addData);
   return (
     <Portal>
       <OverlayingPopup
@@ -72,11 +92,16 @@ export default function FeedbackModal({
             {file && (
               <div className={cs(s.input_block, s.file)}>
                 <label className={s.label}>Прикрепите документ</label>
-                <AddFileBtn register={register} reset={reset} />
+                <AddFileBtn
+                  setFileData={setFileData}
+                  id={"modal"}
+                  register={register}
+                  reset={reset}
+                />
               </div>
             )}
             {!delivery && (
-              <Input
+              <TextArea
                 label={"Ваш комментарий"}
                 register={register}
                 placeholder={"Ваш комментарий"}
@@ -89,7 +114,7 @@ export default function FeedbackModal({
             )}
             {delivery && (
               <>
-                <Input
+                <TextArea
                   label={"Адрес доставки"}
                   register={register}
                   placeholder={"Адрес доставки"}
@@ -109,7 +134,12 @@ export default function FeedbackModal({
                 <label className={s.label}>
                   Выберите офис обращения <span className={s.star}>*</span>
                 </label>
-                <OfficeDropdown className={s.dropdown} />
+                <OfficeDropdown
+                  className={s.dropdown}
+                  data={officesList}
+                  currentAddress={currentAddress}
+                  setCurrentAddress={setCurrentAddress}
+                />
                 <p className={s.description}>
                   Нажмая на кнопку, соглашаюсь на обработку персональных данных
                 </p>
@@ -173,6 +203,33 @@ const Input = ({
         {label} {required && <span className={s.star}>*</span>}
       </label>
       <input
+        className={cs(className, errors[name] && s.input_error)}
+        {...register(name, { required })}
+        placeholder={placeholder}
+        name={name}
+        type={type}
+      />
+    </div>
+  );
+};
+
+const TextArea = ({
+  label,
+  className,
+  placeholder,
+  name,
+  type,
+  register,
+  required,
+  errors,
+  classNameBlock,
+}) => {
+  return (
+    <div className={cs(s.input_block, classNameBlock)}>
+      <label className={s.label}>
+        {label} {required && <span className={s.star}>*</span>}
+      </label>
+      <textarea
         className={cs(className, errors[name] && s.input_error)}
         {...register(name, { required })}
         placeholder={placeholder}
