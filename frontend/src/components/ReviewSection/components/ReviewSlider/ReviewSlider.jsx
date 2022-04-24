@@ -34,13 +34,16 @@ export default function ReviewSlider({ className, data }) {
     <>
       <div className={cs("navigation-wrapper", s.wrapper, className)}>
         <div ref={sliderRef} className={cs("keen-slider", s.slider)}>
-          <ReviewCard className={cs("keen-slider__slide", s.slide)} />
-          <ReviewCard className={cs("keen-slider__slide", s.slide)} />
-          <ReviewCard className={cs("keen-slider__slide", s.slide)} />
-          <ReviewCard className={cs("keen-slider__slide", s.slide)} />
-          <ReviewCard className={cs("keen-slider__slide", s.slide)} />
-          <ReviewCard className={cs("keen-slider__slide", s.slide)} />
-          <ReviewCard className={cs("keen-slider__slide", s.slide)} />
+          {data &&
+            data.map((item) => {
+              return (
+                <ReviewCard
+                  key={item.id}
+                  data={item}
+                  className={cs("keen-slider__slide", s.slide)}
+                />
+              );
+            })}
         </div>
         {loaded && instanceRef.current && (
           <div className={s.arrows}>

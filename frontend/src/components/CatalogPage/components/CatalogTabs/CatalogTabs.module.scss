@@ -17,6 +17,7 @@
   height: 2px;
   background-color: $blu;
   border-radius: 2px;
+  display: block !important;
 }
 
 .track {
@@ -26,6 +27,7 @@
   border-radius: "2px";
   bottom: 0;
   left: 0;
+  display: block !important;
   @include desktop {
     display: none !important;
   }

@@ -12,24 +12,101 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "metaData": {
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "header": {
+      "type": "string",
+      "required": false
+    },
+    "metaHead": {
+      "type": "string",
+      "required": true
+    },
+    "metaDescription": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "defaultText": {
+      "type": "string"
+    },
+    "defaultPrice": {
+      "type": "biginteger"
+    },
+    "deliveryAmount": {
+      "type": "biginteger"
+    },
+    "headStyle": {
+      "type": "enumeration",
+      "enum": [
+        "yellow",
+        "blue",
+        "red",
+        "green",
+        "hightblue"
+      ],
+      "default": "yellow",
+      "required": true
+    },
+    "steps": {
       "type": "component",
       "repeatable": true,
-      "component": "page-data.page-product"
+      "component": "step-block.step-block"
     },
-    "infoComponent": {
+    "files": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "callbackBlock": {
+      "displayName": "CallbackProduct",
       "type": "component",
       "repeatable": false,
-      "component": "info-component.info-component"
+      "component": "callback-product.callback-product"
     },
-    "catalogTab": {
+    "tab": {
       "type": "component",
       "repeatable": false,
       "component": "catalog-tab.catalog-tab"
     },
-    "url": {
-      "type": "string",
-      "required": true
+    "column": {
+      "type": "component",
+      "repeatable": true,
+      "component": "table.table-column"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::service.service",
+      "inversedBy": "pages"
+    },
+    "title": {
+      "type": "string"
+    },
+    "tech": {
+      "type": "component",
+      "repeatable": true,
+      "component": "tech-require.tech-require"
+    },
+    "shortDescription": {
+      "type": "component",
+      "repeatable": false,
+      "component": "info-component.info-component"
+    },
+    "seoBlock": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo-blocks.seo-product"
+    },
+    "infoList": {
+      "type": "component",
+      "repeatable": true,
+      "component": "info-component.info-list"
     }
   }
 }

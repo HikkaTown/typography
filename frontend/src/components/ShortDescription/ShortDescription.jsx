@@ -1,17 +1,13 @@
 import React from "react";
+import cs from "classnames";
 import s from "./ShortDescription.module.scss";
-export default function ShortDescription() {
+export default function ShortDescription({ data }) {
   return (
     <section className={s.section}>
       <div className={s.container}>
-        <Item className={s.card} />
-        <Item
-          className={s.card}
-          text={
-            "Мы продумываем все продукты до мелочей и заботимся о наших клиентах"
-          }
-        />
-        <Item className={s.card} />
+        <Item className={s.card} text={data.firstBlock} />
+        <Item className={s.card} text={data.secondBlock} />
+        <Item className={s.card} text={data.thirdBlock} />
       </div>
     </section>
   );
@@ -19,7 +15,7 @@ export default function ShortDescription() {
 
 const Item = ({ className, data, text }) => {
   return (
-    <div className={s.item}>
+    <div className={cs(s.item, className)}>
       <div className={s.check}>
         <svg
           width="40"

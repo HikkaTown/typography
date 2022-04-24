@@ -4,31 +4,12 @@ import s from "./OfficeDropdown.module.scss";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowIcon } from "../DropdownTech/DropdownTech";
 
-const testData = [
-  {
-    id: "1",
-    addressName:
-      "Офис #1, м. Цветной бульвар,Малый Сухаревский пер., д. 9с1, оф. 24",
-  },
-  {
-    id: "2",
-    addressName:
-      "Офис #2, м. Цветной бульвар,Малый Сухаревский пер., д. 9с1, оф. 24",
-  },
-  {
-    id: "3",
-    addressName:
-      "Офис #3, м. Цветной бульвар,Малый Сухаревский пер., д. 9с1, оф. 24",
-  },
-  {
-    id: "4",
-    addressName:
-      "Офис #4, м. Цветной бульвар,Малый Сухаревский пер., д. 9с1, оф. 24",
-  },
-];
-
-export default function OfficeDropdown({ className, data }) {
-  const [currentAddress, setCurrentAddress] = useState(0);
+export default function OfficeDropdown({
+  className,
+  data,
+  currentAddress,
+  setCurrentAddress,
+}) {
   const [isActive, setIsActive] = useState(false);
 
   const handleCurrent = (index) => {
@@ -41,14 +22,14 @@ export default function OfficeDropdown({ className, data }) {
       className={cs(s.container, isActive ? s.container_active : "", className)}
     >
       <div className={s.header}>
-        <p className={s.header_text}>{testData[currentAddress].addressName}</p>
+        <p className={s.header_text}>{data[currentAddress].address}</p>
         <ArrowIcon className={s.arrow} />
       </div>
       <AnimatePresence>
         {isActive && (
           <DropdownMenu
             handleCurrent={handleCurrent}
-            data={testData}
+            data={data}
             currentAddress={currentAddress}
           />
         )}
@@ -94,7 +75,7 @@ const DropdownMenu = ({ data, handleCurrent, currentAddress }) => {
                 handleCurrent(index);
               }}
             >
-              {item.addressName}
+              {item.address}
             </li>
           );
         })}

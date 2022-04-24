@@ -3,7 +3,7 @@ import s from "./CardNewsSlider.module.scss";
 import { useKeenSlider } from "keen-slider/react";
 import cs from "classnames";
 import NewsCard from "../uikit/NewsCard/NewsCard";
-export default function CardNewsSlider({ className }) {
+export default function CardNewsSlider({ className, data, currentUrl }) {
   const [sliderRef, instanceRef] = useKeenSlider({
     loop: true,
     breakpoints: {
@@ -23,14 +23,18 @@ export default function CardNewsSlider({ className }) {
     <>
       <div className={cs("navigation-wrapper", s.wrapper, className)}>
         <div ref={sliderRef} className={cs("keen-slider", s.slider)}>
-          <NewsCard className={cs("keen-slider__slide", s.slide)} />
-          <NewsCard className={cs("keen-slider__slide", s.slide)} />
-          <NewsCard className={cs("keen-slider__slide", s.slide)} />
-          <NewsCard className={cs("keen-slider__slide", s.slide)} />
-          <NewsCard className={cs("keen-slider__slide", s.slide)} />
-          <NewsCard className={cs("keen-slider__slide", s.slide)} />
-          <NewsCard className={cs("keen-slider__slide", s.slide)} />
-          <NewsCard className={cs("keen-slider__slide", s.slide)} />
+          {data &&
+            data.map((item, index) => {
+              if (currentUrl !== item.url) {
+                return (
+                  <NewsCard
+                    key={index}
+                    className={cs("keen-slider__slide", s.slide)}
+                    data={item}
+                  />
+                );
+              }
+            })}
         </div>
       </div>
     </>

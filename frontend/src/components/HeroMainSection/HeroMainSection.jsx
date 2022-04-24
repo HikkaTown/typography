@@ -4,7 +4,7 @@ import YellowBtn from "../uikit/YellowBtn/YellowBtn";
 import s from "./HeroMainSection.module.scss";
 import { scroller } from "react-scroll";
 
-export default function HeroMainSection() {
+export default function HeroMainSection({ data }) {
   return (
     <section className={s.section}>
       <LazyImageWrapper
@@ -16,14 +16,9 @@ export default function HeroMainSection() {
         wrapperClass={s.background_wrapper}
       />
       <div className={s.container}>
-        <h1 className={s.header}>Первый печатный</h1>
+        <h1 className={s.header}>{data.header}</h1>
         <div className={s.content_block}>
-          <p className={s.description}>
-            Мы <span className={s.select}>типография и дизайн студия</span>{" "}
-            в центре Москвы. Занимаемся обработкой документов, дизайном
-            и печатью полиграфической продукции. Изготовлением печатей
-            и штампов, срочных фото на документы
-          </p>
+          <p className={s.description}>{data.description}</p>
           <YellowBtn
             className={s.btn}
             onClick={() => {

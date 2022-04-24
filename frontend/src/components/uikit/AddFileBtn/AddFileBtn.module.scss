@@ -28,6 +28,13 @@
   }
 }
 
+.file_name {
+  max-width: 99px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 .input {
   width: 0.1px;
 	height: 0.1px;

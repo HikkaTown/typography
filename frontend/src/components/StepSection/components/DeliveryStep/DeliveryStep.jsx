@@ -10,23 +10,24 @@ export default function DeliveryStep({
 }) {
   return (
     <div className={s.container}>
-      {officesData.map((item, index) => {
-        return (
-          <div
-            className={s.btn_line}
-            key={item.id}
-            onClick={() => {
-              setSelect(item);
-            }}
-          >
-            <RadioBtn
-              className={s.radio}
-              isChecked={select?.id === item.id ? true : false}
-            />
-            <p className={s.address_text}>{item.address}</p>
-          </div>
-        );
-      })}
+      {officesData &&
+        officesData.map((item, index) => {
+          return (
+            <div
+              className={s.btn_line}
+              key={item.id}
+              onClick={() => {
+                setSelect(item);
+              }}
+            >
+              <RadioBtn
+                className={s.radio}
+                isChecked={select?.id === item.id ? true : false}
+              />
+              <p className={s.address_text}>{item.address}</p>
+            </div>
+          );
+        })}
       <div
         className={s.btn_line}
         onClick={() => {

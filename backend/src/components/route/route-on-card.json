@@ -7,14 +7,6 @@
   },
   "options": {},
   "attributes": {
-    "video": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "videos"
-      ]
-    },
     "images": {
       "type": "media",
       "multiple": true,
@@ -25,6 +17,16 @@
     },
     "description": {
       "type": "text"
+    },
+    "videoPreview": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "videoUrl": {
+      "type": "string"
     }
   }
 }

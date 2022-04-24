@@ -4,8 +4,9 @@ import Layout from "../../components/Layout/Layout";
 import YellowBtn from "../../components/uikit/YellowBtn/YellowBtn";
 import s from "./index.module.scss";
 import { useRouter } from "next/router";
+import { getProductLinks } from "../../lib/apiFunctions";
 
-export default function Index() {
+export default function Index({ footerLinks }) {
   const router = useRouter();
   return (
     <>
@@ -13,7 +14,7 @@ export default function Index() {
         <title>Странница отсутствует</title>
         <meta name="robots" content="noindex, nofollow" />
       </Head>
-      <Layout>
+      <Layout footerLinks={footerLinks}>
         <section className={s.section}>
           <div className={s.container}>
             <h1 className={s.head}>404</h1>
@@ -38,6 +39,15 @@ export default function Index() {
     </>
   );
 }
+
+export const getStaticProps = async () => {
+  const footerLinks = await getProductLinks();
+  return {
+    props: {
+      footerLinks,
+    },
+  };
+};
 
 const ColoredIcon = ({ className }) => {
   return (

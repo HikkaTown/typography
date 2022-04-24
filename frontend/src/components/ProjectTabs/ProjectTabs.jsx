@@ -3,19 +3,34 @@ import { Scrollbars } from "react-custom-scrollbars";
 import Tab from "../uikit/Tab/Tab";
 import s from "./ProjectTabs.module.scss";
 
-export default function ProjectTabs() {
+export default function ProjectTabs({ tabs, activeTab, handleSelect }) {
   return (
     <ColoredScrollbars className={s.content}>
-      <Tab className={s.tab} isActive={true}>
+      <Tab
+        className={s.tab}
+        isActive={activeTab === null ? true : false}
+        onClick={() => {
+          handleSelect((prev) => null);
+        }}
+      >
         Все
       </Tab>
-      <Tab className={s.tab}>Календари</Tab>
-      <Tab className={s.tab}>Визитки</Tab>
-      <Tab className={s.tab}>Фото</Tab>
-      <Tab className={s.tab}>Таблички</Tab>
-      <Tab className={s.tab}>Таблички</Tab>
-      <Tab className={s.tab}>Таблички</Tab>
-      <Tab className={s.tab}>Таблички</Tab>
+
+      {tabs &&
+        tabs.map((item) => {
+          return (
+            <Tab
+              key={item.id}
+              className={s.tab}
+              isActive={activeTab === item.id ? true : false}
+              onClick={() => {
+                handleSelect(item.id);
+              }}
+            >
+              {item.typeProjectName}
+            </Tab>
+          );
+        })}
     </ColoredScrollbars>
   );
 }
@@ -75,6 +90,7 @@ class ColoredScrollbars extends Component {
   render() {
     return (
       <Scrollbars
+        universal={true}
         renderView={this.renderView}
         renderThumbHorizontal={this.renderThumb}
         renderThumbVertical={this.renderThumb}

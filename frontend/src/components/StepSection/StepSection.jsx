@@ -1,10 +1,9 @@
 import { AnimatePresence } from "framer-motion";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useForm } from "react-hook-form";
-import FeedbackModal from "../FeedbackModal/FeedbackModal";
 import Button2 from "../uikit/Button2/Button2";
 import TrashBtn from "../uikit/TrashBtn/TrashBtn";
-import AddFiles from "./components/AddFiles/AddFiles";
+// import AddFiles from "./components/AddFiles/AddFiles";
 import DeliveryStep from "./components/DeliveryStep/DeliveryStep";
 import InfoBlock from "./components/InfoBlock/InfoBlock";
 import StepComponent from "./components/StepComponent/StepComponent";
@@ -15,20 +14,44 @@ import TwoStepComponent from "./components/TwoStepComponent/TwoStepComponent";
 import cs from "classnames";
 import s from "./StepSection.module.scss";
 import { scroller } from "react-scroll";
+import dynamic from "next/dynamic";
+const FeedbackModal = dynamic(() => import("../FeedbackModal/FeedbackModal"), {
+  ssr: false,
+});
+
+const AddFiles = dynamic(() => import("./components/AddFiles/AddFiles"), {
+  ssr: false,
+});
+
 export default function StepSection({ data, officesData }) {
   const [firstStep, setFirstStep] = useState(null);
   const [secondStep, setSecondStep] = useState(null);
   const [devliveryAddress, setDeliveryAddres] = useState(null);
-  const { register, reset, getValues } = useForm();
   const [isOpened, setIsOpened] = useState(false);
+  const [fileDataStep, setFileDataStep] = useState(null);
   const [totalPrice, setTotalPrice] = useState(0);
-  const nextBtn =
-    !firstStep ||
-    !secondStep ||
-    !getValues("file")?.length ||
-    !devliveryAddress;
-  const orderBtn =
-    firstStep && secondStep && getValues("file")?.length && devliveryAddress;
+  const [nextBtn, setNextBtn] = useState(true);
+  const [orderBtn, setOrderBtn] = useState(false);
+  const { register, reset, getValues, watch } = useForm();
+  const { defaultPrice, deliveryAmount } = data;
+  const inputs = watch();
+  const checkValue = useCallback(() => {
+    let error;
+    for (const key in getValues()) {
+      error = Boolean(getValues()[key]);
+    }
+    return error;
+  }, [getValues]);
+
+  useEffect(() => {
+    setNextBtn(
+      Boolean(!firstStep || !secondStep || !devliveryAddress || !checkValue())
+    );
+    setOrderBtn(
+      Boolean(firstStep && secondStep && devliveryAddress && checkValue())
+    );
+  }, [firstStep, secondStep, devliveryAddress, checkValue, inputs]);
+
   const handleClear = () => {
     setFirstStep(null);
     setSecondStep(null);
@@ -88,20 +111,32 @@ export default function StepSection({ data, officesData }) {
         <h2 className={s.header}>{data.header}</h2>
         {data.defaultText && <InfoBlock defaultText={data.defaultText} />}
         <StepsBlock count={1} className={s.step} id="1" />
-        <h3 className={s.header_step}>{data.steps[0].header}</h3>
-        <StepComponent
-          products={data.steps[0].proudcts}
-          select={firstStep}
-          setSelect={setFirstStep}
-        />
+        <h3 className={s.header_step}>
+          {data.steps[0].header ? data.steps[0].header : ""}
+        </h3>
+        {data ? (
+          <StepComponent
+            products={data.steps[0].products}
+            select={firstStep}
+            setSelect={setFirstStep}
+          />
+        ) : (
+          ""
+        )}
 
         <StepsBlock count={2} className={s.step} id="2" />
-        <h3 className={s.header_step}>{data.steps[1].header}</h3>
-        <TwoStepComponent
-          products={data.steps[1].products}
-          select={secondStep}
-          setSelect={setSecondStep}
-        />
+        <h3 className={s.header_step}>
+          {data.steps[1].header ? data.steps[1].header : ""}
+        </h3>
+        {data ? (
+          <TwoStepComponent
+            products={data.steps[1].products}
+            select={secondStep}
+            setSelect={setSecondStep}
+          />
+        ) : (
+          ""
+        )}
         <StepsBlock count={3} className={s.step} id="3" />
         <h3 className={s.header_step}>
           {data.files
@@ -109,7 +144,12 @@ export default function StepSection({ data, officesData }) {
             : "Внесите ОГРН из свидетельства и название из устава"}
         </h3>
         {data.files ? (
-          <AddFiles register={register} reset={reset} />
+          <AddFiles
+            register={register}
+            reset={reset}
+            classFileName={s.file_name}
+            setFileData={setFileDataStep}
+          />
         ) : (
           <StepWithoutFile register={register} reset={reset} />
         )}
@@ -135,41 +175,60 @@ export default function StepSection({ data, officesData }) {
       <AnimatePresence>
         {isOpened && (
           <FeedbackModal
+            theme={data.pageData.title}
             header={"Оформление заказа"}
             isOpened={isOpened}
             onClose={handleOpen}
-            file={!Boolean(getValues("file"))}
+            file={fileDataStep ? !fileDataStep : data.file}
             delivery={devliveryAddress === "delivery" ? true : false}
+            addData={{
+              ...inputs,
+              file: fileDataStep ? fileDataStep : null,
+              firstStep,
+              secondStep,
+              totalPrice,
+              defaultPrice,
+              theme: data.pageData.title,
+              deliveryAmount:
+                devliveryAddress === "delivery" ? deliveryAmount : "",
+            }}
           />
         )}
       </AnimatePresence>
-      <div className={cs(s.total_line)}>
-        <div className={s.line_container}>
-          <div className={s.content}>
-            <p className={s.title}>Ваш заказ</p>
-            <p className={s.line_text}>
-              Изготовление печати {data.defaultPrice} ₽{" "}
-              {firstStep && "+ оснастка"} {secondStep && "+ дизайн"}{" "}
-              {devliveryAddress === "delivery" && "+ доставка"}
-            </p>
-          </div>
-          <div className={s.price}>
-            <p className={s.cost}>Сумма</p>
-            <div className={s.amount}>
-              <p className={s.amount_text}>
-                {totalPrice} <span className={s.currency}>₽</span>
+      {(firstStep ||
+        secondStep ||
+        devliveryAddress ||
+        getValues("file")?.length ||
+        getValues("ogrn") ||
+        getValues("corp_name")) && (
+        <div className={cs(s.total_line)}>
+          <div className={s.line_container}>
+            <div className={s.content}>
+              <p className={s.title}>Ваш заказ</p>
+              <p className={s.line_text}>
+                Изготовление печати {data.defaultPrice} ₽{" "}
+                {firstStep && "+ оснастка"} {secondStep && "+ дизайн"}{" "}
+                {devliveryAddress === "delivery" && "+ доставка"}
               </p>
-              <TrashBtn className={s.clear_btn} onClick={handleClear} />
             </div>
+            <div className={s.price}>
+              <p className={s.cost}>Сумма</p>
+              <div className={s.amount}>
+                <p className={s.amount_text}>
+                  {totalPrice} <span className={s.currency}>₽</span>
+                </p>
+                <TrashBtn className={s.clear_btn} onClick={handleClear} />
+              </div>
+            </div>
+            {nextBtn && <Button2 onClick={handleNextStep}>Далее</Button2>}
+            {!nextBtn && orderBtn ? (
+              <Button2 onClick={handleOpen}>Оформить заказ</Button2>
+            ) : (
+              ""
+            )}
           </div>
-          {nextBtn && <Button2 onClick={handleNextStep}>Далее</Button2>}
-          {orderBtn ? (
-            <Button2 onClick={handleOpen}>Оформить заказ</Button2>
-          ) : (
-            ""
-          )}
         </div>
-      </div>
+      )}
     </section>
   );
 }

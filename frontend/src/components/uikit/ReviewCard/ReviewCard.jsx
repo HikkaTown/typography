@@ -2,33 +2,29 @@ import React from "react";
 import cs from "classnames";
 import s from "./ReviewCard.module.scss";
 import { LazyImageWrapper } from "../../LazyImage/LazyImage";
-export default function ReviewCard({ className }) {
+import { PATH_IMAGE } from "../../../lib/const";
+export default function ReviewCard({ className, data }) {
   return (
     <div className={cs(s.card, className)}>
       <div className={s.person_data}>
         <LazyImageWrapper
-          src={
-            "https://javasea.ru/uploads/posts/2021-09/1632834474_art_-morda-lva-vo-mrake22.jpg"
-          }
-          alt={""}
+          src={PATH_IMAGE + data.userPhoto}
+          alt={data.personName}
           className={[s.image]}
           wrapperClass={s.image_wrapper}
         />
         <div className={s.person_info}>
-          <h3 className={s.person_name}>Константин Иванов</h3>
+          <h3 className={s.person_name}>{data.personName}</h3>
           <div className={s.person_start}>
             <>
-              {renderStars(3).map((item) => {
+              {renderStars(+data.stars).map((item) => {
                 return item;
               })}
             </>
           </div>
         </div>
       </div>
-      <p className={s.person_text}>
-        текст отзыва/текст отзыва/текст отзыва/текст отзыва/текст отзыва/текст
-        отзыва/текст отзыва/текст отзыва/отзыва/текст отзыва/текст отзыва/
-      </p>
+      <p className={s.person_text}>{data.reviewText}</p>
     </div>
   );
 }

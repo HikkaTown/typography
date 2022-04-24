@@ -21,6 +21,7 @@ const OverlayingPopup = (props) => {
     isOpened
       ? (document.getElementById("__next").style.overflow = "hidden")
       : (document.getElementById("__next").style.overflow = "auto");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const animate = {
     hidden: {

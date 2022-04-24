@@ -2,67 +2,54 @@ import Head from "next/head";
 import CardNewsSlider from "../../components/CardNewsSlider/CardNewsSlider";
 import CustomBreadrcumbs from "../../components/CustomBreadrcumbs/CustomBreadrcumbs";
 import Layout from "../../components/Layout/Layout";
+import { LazyImage } from "../../components/LazyImage/LazyImage";
 import {
-  LazyImage,
-  LazyImageWrapper,
-} from "../../components/LazyImage/LazyImage";
-import NewsSlider from "../../components/NewsSection/components/NewsSlider/NewsSlder";
+  getAllNews,
+  getCurrentNews,
+  getProductLinks,
+} from "../../lib/apiFunctions";
+import { PATH_IMAGE } from "../../lib/const";
 import s from "./Post.module.scss";
-export default function Index({ id }) {
+export default function Index({ pageData, news, footerLinks }) {
   return (
     <>
       <Head>
-        <title itemProp="headline">{"post.name"}</title>
+        <title itemProp="headline">{pageData.metaHead}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta property="og:title" content={"post.meta_title"} />
+        <meta property="og:title" content={pageData.metaHead} />
 
         <meta
           itemProp="description"
           name="description"
-          content={"post.meta_description"}
+          content={pageData.metaDescription}
         />
-        <meta property="og:description" content={"post.meta_description"} />
+        <meta property="og:description" content={pageData.metaDescription} />
         <meta property="og:site_name" content="Первый печатный" />
         {/* <meta property="og:url" content={DOMEN + "/blog"} /> */}
         {/* <link rel="canonical" href={DOMEN + "/blog"} /> */}
       </Head>
-      <Layout>
-        <CustomBreadrcumbs titlePage={"Название статьи"} />
+      <Layout footerLinks={footerLinks}>
+        <CustomBreadrcumbs titlePage={pageData.postName} />
         <section className={s.section}>
           <div className={s.container_post}>
             <div className={s.image_container}>
               <LazyImage
-                src={
-                  "https://mirpozitiva.ru/wp-content/uploads/2019/11/1472042719_15.jpg"
-                }
-                srcTablet={
-                  "https://mirpozitiva.ru/wp-content/uploads/2019/11/1472042719_15.jpg"
-                }
-                srcMobile={
-                  "https://mirpozitiva.ru/wp-content/uploads/2019/11/1472042719_15.jpg"
-                }
+                src={PATH_IMAGE + pageData.image}
                 className={[s.image]}
                 wrapperClass={s.image_wrapper}
               />
             </div>
             <div className={s.content}>
-              <h1 className={s.head}>{"post.name"}</h1>
-              <p className={s.date}>{"post.date"}</p>
-              <p className={s.description}>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla
-                voluptas itaque corporis deleniti ipsam enim consequuntur,
-                provident ducimus veniam, necessitatibus harum quaerat sequi
-                fugit fuga saepe. Odit, natus quae! Sunt assumenda commodi
-                dignissimos laboriosam harum provident perspiciatis doloribus
-                inventore iusto deleniti quis porro, minima blanditiis dolorum
-                corrupti eveniet rerum nostrum fugit enim quia dolorem? Quisquam
-                earum at velit esse iste?
+              <h1 className={s.head}>{pageData.postName}</h1>
+              <p className={s.date}>
+                {new Date(pageData.postDate).toLocaleDateString()}
               </p>
+              <p className={s.description}>{pageData.postText}</p>
             </div>
           </div>
           <div className={s.container}>
             <h2 className={s.header}>Рекомендуем к чтению</h2>
-            <CardNewsSlider />
+            <CardNewsSlider data={news} currentUrl={pageData.url} />
           </div>
         </section>
       </Layout>
@@ -71,16 +58,27 @@ export default function Index({ id }) {
 }
 
 export const getStaticProps = async (context) => {
+  const { params } = context;
+  const currentUrl = params.id;
+  const footerLinks = await getProductLinks();
+  const pageData = await getCurrentNews(currentUrl);
+  const news = await getAllNews();
   return {
     props: {
-      id: 1,
+      pageData: pageData,
+      news,
+      footerLinks,
     },
   };
 };
 
 export const getStaticPaths = async () => {
+  const news = await getAllNews();
+  const paths = news.map((item) => ({
+    params: { id: item.url },
+  }));
   return {
-    paths: [{ params: { id: "1" } }],
+    paths,
     fallback: "blocking",
   };
 };

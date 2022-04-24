@@ -35,13 +35,16 @@ export default function NewsSlider({ className, data }) {
     <>
       <div className={cs("navigation-wrapper", s.wrapper, className)}>
         <div ref={sliderRef} className={cs("keen-slider", s.slider)}>
-          <NewsCard className={cs("keen-slider__slide", s.slide)} />
-          <NewsCard className={cs("keen-slider__slide", s.slide)} />
-          <NewsCard className={cs("keen-slider__slide", s.slide)} />
-          <NewsCard className={cs("keen-slider__slide", s.slide)} />
-          <NewsCard className={cs("keen-slider__slide", s.slide)} />
-          <NewsCard className={cs("keen-slider__slide", s.slide)} />
-          <NewsCard className={cs("keen-slider__slide", s.slide)} />
+          {data &&
+            data.map((item, index) => {
+              return (
+                <NewsCard
+                  className={cs("keen-slider__slide", s.slide)}
+                  key={index}
+                  data={item}
+                />
+              );
+            })}
         </div>
         {loaded && instanceRef.current && (
           <div className={s.arrows}>

@@ -20,32 +20,7 @@
       "required": true
     },
     "description": {
-      "type": "text",
-      "required": true
-    },
-    "heroImageMob": {
-      "allowedTypes": [
-        "images"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": true
-    },
-    "heroImageTab": {
-      "allowedTypes": [
-        "images"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": true
-    },
-    "heroImagePc": {
-      "allowedTypes": [
-        "images"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": true
+      "type": "text"
     }
   }
 }

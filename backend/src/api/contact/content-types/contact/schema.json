@@ -43,6 +43,12 @@
       "type": "component",
       "repeatable": false,
       "component": "route.route-on-card"
+    },
+    "workTime": {
+      "type": "string"
+    },
+    "pathHeader": {
+      "type": "string"
     }
   }
 }
