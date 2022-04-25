@@ -179,3 +179,10 @@
 .star {
   color: $pink;
 }
+
+.message {
+  @include body3-400($primary-text);
+  padding: 0;
+  margin: 0;
+  max-width: 328px;
+}
