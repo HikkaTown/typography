@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import s from "./CustomBreadrcumbs.module.scss";
 import Breadcrumbs from "nextjs-breadcrumbs";
 

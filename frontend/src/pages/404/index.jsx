@@ -1,10 +1,10 @@
 import Head from "next/head";
 import React from "react";
-import Layout from "../../components/Layout/Layout";
-import YellowBtn from "../../components/uikit/YellowBtn/YellowBtn";
+import Layout from "@/components/Layout/Layout";
+import YellowBtn from "@/components/uikit/YellowBtn/YellowBtn";
 import s from "./index.module.scss";
 import { useRouter } from "next/router";
-import { getProductLinks } from "../../lib/apiFunctions";
+import { getProductLinks } from "@/lib/apiFunctions";
 
 export default function Index({ footerLinks }) {
   const router = useRouter();

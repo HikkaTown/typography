@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import cs from "classnames";
 import s from "./NewsSlider.module.scss";
-import ArrowBtn from "../../../uikit/ArrowBtn/ArrowBtn";
-import NewsCard from "../../../uikit/NewsCard/NewsCard";
+import ArrowBtn from "@/uikit/ArrowBtn/ArrowBtn";
+import NewsCard from "@/uikit/NewsCard/NewsCard";
 
 export default function NewsSlider({ className, data }) {
   const [currentSlide, setCurrentSlide] = useState(0);

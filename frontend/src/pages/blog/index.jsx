@@ -1,11 +1,7 @@
 import Head from "next/head";
-import Layout from "../../components/Layout/Layout";
-import NewsPageSection from "../../components/NewsPageSection/NewsPageSection";
-import {
-  getAllNews,
-  getNewsPage,
-  getProductLinks,
-} from "../../lib/apiFunctions";
+import Layout from "@/components/Layout/Layout";
+import NewsPageSection from "@/components/NewsPageSection/NewsPageSection";
+import { getAllNews, getNewsPage, getProductLinks } from "@/lib/apiFunctions";
 
 export default function Index({ news, pageData, footerLinks }) {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 import s from "./AddFiles.module.scss";
-import AddFileBtn from "../../../uikit/AddFileBtn/AddFileBtn";
+import AddFileBtn from "@/uikit/AddFileBtn/AddFileBtn";
 
 export default function AddFiles({
   register,

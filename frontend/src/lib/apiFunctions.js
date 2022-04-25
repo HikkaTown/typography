@@ -17,7 +17,7 @@ import {
   getServicesQuery,
   getSmallCardProductQuery,
   ProductLinksQuery,
-} from "./query";
+} from "@/lib/query";
 import { gql } from "@apollo/client";
 
 export const getIndex = async () => {

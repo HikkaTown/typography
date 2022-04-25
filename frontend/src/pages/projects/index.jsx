@@ -1,13 +1,13 @@
 import Head from "next/head";
 import React from "react";
-import Layout from "../../components/Layout/Layout";
-import ProjectsPageSection from "../../components/ProjectsPageSection/ProjectsPageSection";
+import Layout from "@/components/Layout/Layout";
+import ProjectsPageSection from "@/components/ProjectsPageSection/ProjectsPageSection";
 import {
   getAllProjectsCard,
   getProductLinks,
   getProjectPage,
   getProjectTabs,
-} from "../../lib/apiFunctions";
+} from "@/lib/apiFunctions";
 
 export default function Index({ pageData, tabs, cards, footerLinks }) {
   return (

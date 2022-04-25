@@ -1,19 +1,19 @@
 import Head from "next/head";
-import BenefitsSection from "../components/BenefitsSection/BenefitsSection";
-import CatalogSection from "../components/CatalogSection/CatalogSection";
-import HeroMainSection from "../components/HeroMainSection/HeroMainSection";
-import Layout from "../components/Layout/Layout";
-import MainSeoSection from "../components/MainSeoSection/MainSeoSection";
-import NewsSection from "../components/NewsSection/NewsSection";
-import ReviewSection from "../components/ReviewSection/ReviewSection";
-import ShortDescription from "../components/ShortDescription/ShortDescription";
+import BenefitsSection from "@/components/BenefitsSection/BenefitsSection";
+import CatalogSection from "@/components/CatalogSection/CatalogSection";
+import HeroMainSection from "@/components/HeroMainSection/HeroMainSection";
+import Layout from "@/components/Layout/Layout";
+import MainSeoSection from "@/components/MainSeoSection/MainSeoSection";
+import NewsSection from "@/components/NewsSection/NewsSection";
+import ReviewSection from "@/components/ReviewSection/ReviewSection";
+import ShortDescription from "@/components/ShortDescription/ShortDescription";
 import {
   getAllNews,
   getIndex,
   getProductLinks,
   getReviews,
   getServicesList,
-} from "../lib/apiFunctions";
+} from "@/lib/apiFunctions";
 
 export default function Index({ res, reviews, news, services, footerLinks }) {
   const { pageData, seoBlock, shortDescription } = res;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import ContactTabsBlock from "../ContactTabsBlock/ContactTabsBlock";
-import PathBlock from "../PathBlock/PathBlock";
+import ContactTabsBlock from "@/components/ContactTabsBlock/ContactTabsBlock";
+import PathBlock from "@/components/PathBlock/PathBlock";
 import s from "./ContactPageSection.module.scss";
 import { scroller } from "react-scroll";
 

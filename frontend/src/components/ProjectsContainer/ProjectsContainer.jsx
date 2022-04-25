@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Button4 from "../uikit/Button4/Button4";
-import ProjectCard from "../uikit/ProjectCard/ProjectCard";
+import Button4 from "@/uikit/Button4/Button4";
+import ProjectCard from "@/uikit/ProjectCard/ProjectCard";
 import s from "./ProjectsContainer.module.scss";
 export default function ProjectsContainer({ cards }) {
   const [visibleCount, setVisibleCount] = useState(6);

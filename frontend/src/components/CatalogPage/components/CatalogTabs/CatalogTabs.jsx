@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Tab from "../../../uikit/Tab/Tab";
+import Tab from "@/uikit/Tab/Tab";
 import s from "./CatalogTabs.module.scss";
 import cs from "classnames";
 import { useRouter } from "next/router";

@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import cs from "classnames";
-import OverlayingPopup from "../OverlayingPopup/OverlayingPopup";
-import Portal from "../Portal/Portal";
-import { LazyImage, LazyImageWrapper } from "../LazyImage/LazyImage";
-import ArrowBtn from "../uikit/ArrowBtn/ArrowBtn";
+import OverlayingPopup from "@/components/OverlayingPopup/OverlayingPopup";
+import Portal from "@/components/Portal/Portal";
+import { LazyImageWrapper } from "@/components/LazyImage/LazyImage";
+import ArrowBtn from "@/uikit/ArrowBtn/ArrowBtn";
 import s from "./ModalProjectPhoto.module.scss";
-import CloseBtn from "../uikit/CloseBtn/CloseBtn";
-import { PATH_IMAGE } from "../../lib/const";
+import CloseBtn from "@/uikit/CloseBtn/CloseBtn";
+import { PATH_IMAGE } from "@/lib/const";
 
 export default function ModalProjectPhoto({ isOpened, onClose, photos }) {
   const [currentSlide, setCurrentSlide] = useState(0);

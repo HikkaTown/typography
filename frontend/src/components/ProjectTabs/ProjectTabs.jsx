@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Scrollbars } from "react-custom-scrollbars";
-import Tab from "../uikit/Tab/Tab";
+import Tab from "@/uikit/Tab/Tab";
 import s from "./ProjectTabs.module.scss";
 
 export default function ProjectTabs({ tabs, activeTab, handleSelect }) {

@@ -1,8 +1,7 @@
 import React from "react";
-import Link from "next/link";
 import cs from "classnames";
 import s from "./Navigation.module.scss";
-import NavLink from "../uikit/NavLink/NavLink";
+import NavLink from "@/uikit/NavLink/NavLink";
 export default function Navigation({ className }) {
   return (
     <nav className={cs(s.nav, className)}>

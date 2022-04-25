@@ -1,5 +1,5 @@
 import React from "react";
-import NewsCard from "../uikit/NewsCard/NewsCard";
+import NewsCard from "@/uikit/NewsCard/NewsCard";
 import s from "./NewsPageSection.module.scss";
 export default function NewsPageSection({ data, header }) {
   return (

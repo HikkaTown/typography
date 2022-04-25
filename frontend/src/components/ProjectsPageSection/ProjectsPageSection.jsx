@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
-import {
-  getAllProjectsCard,
-  getCurrentProjectsCard,
-} from "../../lib/apiFunctions";
-import ProjectsContainer from "../ProjectsContainer/ProjectsContainer";
-import ProjectTabs from "../ProjectTabs/ProjectTabs";
+import { getAllProjectsCard, getCurrentProjectsCard } from "@/lib/apiFunctions";
+import ProjectsContainer from "@/components/ProjectsContainer/ProjectsContainer";
+import ProjectTabs from "@/components/ProjectTabs/ProjectTabs";
 import s from "./ProjectsPageSection.module.scss";
 export default function ProjectsPageSection({ header, tabs, cards }) {
   const [activeTab, setIsActiveTab] = useState(null);

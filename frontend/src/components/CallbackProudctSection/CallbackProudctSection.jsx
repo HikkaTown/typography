@@ -1,8 +1,7 @@
 import { AnimatePresence } from "framer-motion";
 import React, { useState } from "react";
-import FeedbackModal from "../FeedbackModal/FeedbackModal";
-import { LazyImage } from "../LazyImage/LazyImage";
-import Button2 from "../uikit/Button2/Button2";
+import FeedbackModal from "@/components/FeedbackModal/FeedbackModal";
+import Button2 from "@/uikit/Button2/Button2";
 import s from "./CallbackProudctSection.module.scss";
 import { Line, Mails, Smile, Star } from "./components/Icons";
 export default function CallbackProudctSection({ title, theme }) {

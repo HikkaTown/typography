@@ -1,7 +1,7 @@
 import React from "react";
-import { PATH_IMAGE } from "../../lib/const";
-import { LazyImage, LazyImageWrapper } from "../LazyImage/LazyImage";
-import PlayBtn from "../uikit/PlayBtn/PlayBtn";
+import { PATH_IMAGE } from "@/lib/const";
+import { LazyImage } from "@/components/LazyImage/LazyImage";
+import PlayBtn from "@/uikit/PlayBtn/PlayBtn";
 import s from "./PathImagesBlock.module.scss";
 export default function PathImagesBlock({ images, video }) {
   return (
