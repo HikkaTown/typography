@@ -8,7 +8,7 @@ import {
   getCurrentNews,
   getProductLinks,
 } from "@/lib/apiFunctions";
-import { PATH_IMAGE } from "@/lib/const";
+import { DOMAIN, PATH_IMAGE } from "@/lib/const";
 import s from "./Post.module.scss";
 export default function Index({ pageData, news, footerLinks }) {
   return (
@@ -25,8 +25,8 @@ export default function Index({ pageData, news, footerLinks }) {
         />
         <meta property="og:description" content={pageData.metaDescription} />
         <meta property="og:site_name" content="Первый печатный" />
-        {/* <meta property="og:url" content={DOMEN + "/blog"} /> */}
-        {/* <link rel="canonical" href={DOMEN + "/blog"} /> */}
+        <meta property="og:url" content={DOMAIN + "/blog"} />
+        <link rel="canonical" href={DOMAIN + "/blog"} />
       </Head>
       <Layout footerLinks={footerLinks}>
         <CustomBreadrcumbs titlePage={pageData.postName} />
