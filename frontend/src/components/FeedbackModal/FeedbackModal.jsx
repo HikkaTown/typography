@@ -29,10 +29,28 @@ export default function FeedbackModal({
   } = useForm();
   const [currentAddress, setCurrentAddress] = useState(0);
   const [fileData, setFileData] = useState(null);
+  const [thanksMessage, setThankMessage] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(false);
   const { officesList } = useAppContext();
+
+  const handlerThanks = () => {
+    setThankMessage(true);
+    reset();
+    setTimeout(() => {
+      setThankMessage(false);
+    }, 4000);
+  };
+
+  const handlerError = () => {
+    setErrorMessage(true);
+    setTimeout(() => {
+      setErrorMessage(false);
+    }, 4000);
+  };
+
   const onSubmit = (data) => {
-    callbackOrder({
-      data: {
+    callbackOrder(
+      {
         ...data,
         ...addData,
         file:
@@ -40,10 +58,10 @@ export default function FeedbackModal({
         theme,
         office: data.address ? "" : officesList[currentAddress],
       },
-    });
+      handlerThanks,
+      handlerError
+    );
   };
-
-  console.log(addData);
   return (
     <Portal>
       <OverlayingPopup
@@ -55,100 +73,113 @@ export default function FeedbackModal({
         <div className={s.container}>
           <CloseBtn onClick={onClose} />
           <h1 className={s.header}>{header ? header : "Обратная связь"}</h1>
-          <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
-            <Input
-              label={"Имя"}
-              register={register}
-              required
-              placeholder={"Имя"}
-              type="text"
-              name={"name"}
-              className={s.input}
-              classNameBlock={s.name}
-              errors={errors}
-            />
-            <Input
-              label={"Почта"}
-              register={register}
-              placeholder={"ivanov@yandex.ru"}
-              type="text"
-              name={"email"}
-              className={s.input}
-              classNameBlock={s.email}
-              errors={errors}
-            />
-            <InputController
-              label={"Телефон"}
-              register={register}
-              placeholder={"+7 000 000 00 00"}
-              type={"tel"}
-              name={"phone"}
-              classNameBlock={s.phone}
-              required
-              className={cs(s.input, s.phone)}
-              errors={errors}
-              control={control}
-            />
-            {file && (
-              <div className={cs(s.input_block, s.file)}>
-                <label className={s.label}>Прикрепите документ</label>
-                <AddFileBtn
-                  setFileData={setFileData}
-                  id={"modal"}
-                  register={register}
-                  reset={reset}
-                />
-              </div>
-            )}
-            {!delivery && (
-              <TextArea
-                label={"Ваш комментарий"}
+          {!thanksMessage && !errorMessage && (
+            <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
+              <Input
+                label={"Имя"}
                 register={register}
-                placeholder={"Ваш комментарий"}
-                name="comentary"
-                type={"text"}
-                className={cs(s.input, s.input_comment)}
-                classNameBlock={s.comment}
+                required
+                placeholder={"Имя"}
+                type="text"
+                name={"name"}
+                className={s.input}
+                classNameBlock={s.name}
                 errors={errors}
               />
-            )}
-            {delivery && (
-              <>
+              <Input
+                label={"Почта"}
+                register={register}
+                placeholder={"ivanov@yandex.ru"}
+                type="text"
+                name={"email"}
+                className={s.input}
+                classNameBlock={s.email}
+                errors={errors}
+              />
+              <InputController
+                label={"Телефон"}
+                register={register}
+                placeholder={"+7 000 000 00 00"}
+                type={"tel"}
+                name={"phone"}
+                classNameBlock={s.phone}
+                required
+                className={cs(s.input, s.phone)}
+                errors={errors}
+                control={control}
+              />
+              {file && (
+                <div className={cs(s.input_block, s.file)}>
+                  <label className={s.label}>Прикрепите документ</label>
+                  <AddFileBtn
+                    setFileData={setFileData}
+                    id={"modal"}
+                    register={register}
+                    reset={reset}
+                  />
+                </div>
+              )}
+              {!delivery && (
                 <TextArea
-                  label={"Адрес доставки"}
+                  label={"Ваш комментарий"}
                   register={register}
-                  placeholder={"Адрес доставки"}
-                  name="address"
-                  type="text"
+                  placeholder={"Ваш комментарий"}
+                  name="comentary"
+                  type={"text"}
                   className={cs(s.input, s.input_comment)}
                   classNameBlock={s.comment}
                   errors={errors}
                 />
-                <p className={s.description}>
-                  Нажмая на кнопку, соглашаюсь на обработку персональных данных
-                </p>
-              </>
-            )}
-            {!delivery && (
-              <div className={cs(s.input_block, s.address)}>
-                <label className={s.label}>
-                  Выберите офис обращения <span className={s.star}>*</span>
-                </label>
-                <OfficeDropdown
-                  className={s.dropdown}
-                  data={officesList}
-                  currentAddress={currentAddress}
-                  setCurrentAddress={setCurrentAddress}
-                />
-                <p className={s.description}>
-                  Нажмая на кнопку, соглашаюсь на обработку персональных данных
-                </p>
-              </div>
-            )}
-            <Button2 type="submit" className={s.submit}>
-              Оставить заявку
-            </Button2>
-          </form>
+              )}
+              {delivery && (
+                <>
+                  <TextArea
+                    label={"Адрес доставки"}
+                    register={register}
+                    placeholder={"Адрес доставки"}
+                    name="address"
+                    type="text"
+                    className={cs(s.input, s.input_comment)}
+                    classNameBlock={s.comment}
+                    errors={errors}
+                  />
+                  <p className={s.description}>
+                    Нажмая на кнопку, соглашаюсь на обработку персональных
+                    данных
+                  </p>
+                </>
+              )}
+              {!delivery && (
+                <div className={cs(s.input_block, s.address)}>
+                  <label className={s.label}>
+                    Выберите офис обращения <span className={s.star}>*</span>
+                  </label>
+                  <OfficeDropdown
+                    className={s.dropdown}
+                    data={officesList}
+                    currentAddress={currentAddress}
+                    setCurrentAddress={setCurrentAddress}
+                  />
+                  <p className={s.description}>
+                    Нажмая на кнопку, соглашаюсь на обработку персональных
+                    данных
+                  </p>
+                </div>
+              )}
+              <Button2 type="submit" className={s.submit}>
+                Оставить заявку
+              </Button2>
+            </form>
+          )}
+          {thanksMessage && (
+            <p className={s.message}>
+              Наш менеджер свяжется с вами в ближайшее время для уточнения
+              деталей
+            </p>
+          )}
+          {errorMessage && (
+            <p className={s.message}>Произошла ошибка, попробуйте снова</p>
+          )}
         </div>
       </OverlayingPopup>
     </Portal>
