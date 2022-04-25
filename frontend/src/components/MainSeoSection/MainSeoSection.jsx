@@ -1,6 +1,6 @@
 import React from "react";
-import { PATH_IMAGE } from "../../lib/const";
-import { LazyImage } from "../LazyImage/LazyImage";
+import { PATH_IMAGE } from "@/lib/const";
+import { LazyImage } from "@/components/LazyImage/LazyImage";
 import s from "./MainSeoSection.module.scss";
 
 export default function MainSeoSection({ data }) {

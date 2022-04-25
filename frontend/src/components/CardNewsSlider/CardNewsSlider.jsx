@@ -2,7 +2,7 @@ import React from "react";
 import s from "./CardNewsSlider.module.scss";
 import { useKeenSlider } from "keen-slider/react";
 import cs from "classnames";
-import NewsCard from "../uikit/NewsCard/NewsCard";
+import NewsCard from "@/uikit/NewsCard/NewsCard";
 export default function CardNewsSlider({ className, data, currentUrl }) {
   const [sliderRef, instanceRef] = useKeenSlider({
     loop: true,

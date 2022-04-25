@@ -1,14 +1,14 @@
 import Head from "next/head";
-import CardNewsSlider from "../../components/CardNewsSlider/CardNewsSlider";
-import CustomBreadrcumbs from "../../components/CustomBreadrcumbs/CustomBreadrcumbs";
-import Layout from "../../components/Layout/Layout";
-import { LazyImage } from "../../components/LazyImage/LazyImage";
+import CardNewsSlider from "@/components/CardNewsSlider/CardNewsSlider";
+import CustomBreadrcumbs from "@/components/CustomBreadrcumbs/CustomBreadrcumbs";
+import Layout from "@/components/Layout/Layout";
+import { LazyImage } from "@/components/LazyImage/LazyImage";
 import {
   getAllNews,
   getCurrentNews,
   getProductLinks,
-} from "../../lib/apiFunctions";
-import { PATH_IMAGE } from "../../lib/const";
+} from "@/lib/apiFunctions";
+import { PATH_IMAGE } from "@/lib/const";
 import s from "./Post.module.scss";
 export default function Index({ pageData, news, footerLinks }) {
   return (

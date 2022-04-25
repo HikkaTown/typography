@@ -1,7 +1,7 @@
 import React from "react";
 import cs from "classnames";
 import s from "./ReviewSection.module.scss";
-import { LazyImage } from "../LazyImage/LazyImage";
+import { LazyImage } from "@/components/LazyImage/LazyImage";
 import ReviewSlider from "./components/ReviewSlider/ReviewSlider";
 
 export default function ReviewSection({ data }) {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { getSmallProduct } from "../../../../lib/apiFunctions";
-import CatalogItem from "../../../uikit/CatalogItem/CatalogItem";
+import { getSmallProduct } from "@/lib/apiFunctions";
+import CatalogItem from "@/components/uikit/CatalogItem/CatalogItem";
 import CatalogTabs from "../CatalogTabs/CatalogTabs";
 import { useRouter } from "next/router";
 import s from "./CatalogBlock.module.scss";

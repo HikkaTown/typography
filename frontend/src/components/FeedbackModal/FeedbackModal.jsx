@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import s from "./FeedbackModal.module.scss";
 import { useForm, Controller } from "react-hook-form";
 import { IMaskInput } from "react-imask";
-import OverlayingPopup from "../OverlayingPopup/OverlayingPopup";
-import Portal from "../Portal/Portal";
-import Button2 from "../uikit/Button2/Button2";
+import OverlayingPopup from "@/components/OverlayingPopup/OverlayingPopup";
+import Portal from "@/components/Portal/Portal";
+import Button2 from "@/uikit/Button2/Button2";
 import cs from "classnames";
-import AddFileBtn from "../uikit/AddFileBtn/AddFileBtn";
-import OfficeDropdown from "../uikit/OfficeDropdown/OfficeDropdown";
-import { useAppContext } from "../../context/state";
-import { callbackOrder } from "../../lib/callbackOrder";
+import AddFileBtn from "@/uikit/AddFileBtn/AddFileBtn";
+import OfficeDropdown from "@/uikit/OfficeDropdown/OfficeDropdown";
+import { useAppContext } from "@/context/state";
+import { callbackOrder } from "@/lib/callbackOrder";
 
 export default function FeedbackModal({
   addData,

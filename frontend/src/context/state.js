@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import { getContactCards } from "../lib/apiFunctions";
+import { getContactCards } from "@/lib/apiFunctions";
 const AppContext = createContext();
 
 export function AppWrapper({ children }) {

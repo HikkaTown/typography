@@ -1,5 +1,5 @@
 import React from "react";
-import CatalogItem from "../uikit/CatalogItem/CatalogItem";
+import CatalogItem from "@/uikit/CatalogItem/CatalogItem";
 import s from "./CatalogSection.module.scss";
 import { Element } from "react-scroll";
 export default function CatalogSection({ data }) {

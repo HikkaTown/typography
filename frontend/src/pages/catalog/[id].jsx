@@ -1,23 +1,23 @@
 import React from "react";
 import Head from "next/head";
-import CallbackProudctSection from "../../components/CallbackProudctSection/CallbackProudctSection";
-import CustomBreadrcumbs from "../../components/CustomBreadrcumbs/CustomBreadrcumbs";
-import HowMuchSection from "../../components/HowMuchSection/HowMuchSection";
-import InfromationProduct from "../../components/InfromationProduct/InfromationProduct";
-import Layout from "../../components/Layout/Layout";
-import ProductMainSection from "../../components/ProductMainSection/ProductMainSection";
-import ProjectSection from "../../components/ProjectSection/ProjectSection";
-import SeoProduct from "../../components/SeoProduct/SeoProduct";
-import ShortDescription from "../../components/ShortDescription/ShortDescription";
-import StepSection from "../../components/StepSection/StepSection";
-import TechnicalRequirementsSection from "../../components/TechnicalRequirementsSection/TechnicalRequirementsSection";
+import CallbackProudctSection from "@/components/CallbackProudctSection/CallbackProudctSection";
+import CustomBreadrcumbs from "@/components/CustomBreadrcumbs/CustomBreadrcumbs";
+import HowMuchSection from "@/components/HowMuchSection/HowMuchSection";
+import InfromationProduct from "@/components/InfromationProduct/InfromationProduct";
+import Layout from "@/components/Layout/Layout";
+import ProductMainSection from "@/components/ProductMainSection/ProductMainSection";
+import ProjectSection from "@/components/ProjectSection/ProjectSection";
+import SeoProduct from "@/components/SeoProduct/SeoProduct";
+import ShortDescription from "@/components/ShortDescription/ShortDescription";
+import StepSection from "@/components/StepSection/StepSection";
+import TechnicalRequirementsSection from "@/components/TechnicalRequirementsSection/TechnicalRequirementsSection";
 import {
   getAllProjectsCard,
   getContactCards,
   getCurrentProductCard,
   getProductCardUrl,
   getProductLinks,
-} from "../../lib/apiFunctions";
+} from "@/lib/apiFunctions";
 
 export default function Index({
   pageData,

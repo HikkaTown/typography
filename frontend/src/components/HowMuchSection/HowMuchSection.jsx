@@ -1,5 +1,5 @@
 import React from "react";
-import TableComponent from "../TableComponent/TableComponent";
+import TableComponent from "@/components/TableComponent/TableComponent";
 import s from "./HowMuchSection.module.scss";
 
 const testData = {

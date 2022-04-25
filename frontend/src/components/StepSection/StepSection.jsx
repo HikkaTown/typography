@@ -1,9 +1,8 @@
 import { AnimatePresence } from "framer-motion";
 import React, { useState, useEffect, useCallback } from "react";
 import { useForm } from "react-hook-form";
-import Button2 from "../uikit/Button2/Button2";
-import TrashBtn from "../uikit/TrashBtn/TrashBtn";
-// import AddFiles from "./components/AddFiles/AddFiles";
+import Button2 from "@/uikit/Button2/Button2";
+import TrashBtn from "@/uikit/TrashBtn/TrashBtn";
 import DeliveryStep from "./components/DeliveryStep/DeliveryStep";
 import InfoBlock from "./components/InfoBlock/InfoBlock";
 import StepComponent from "./components/StepComponent/StepComponent";

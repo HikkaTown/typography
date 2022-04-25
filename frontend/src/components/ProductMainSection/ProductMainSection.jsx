@@ -1,19 +1,5 @@
 import React from "react";
 import cs from "classnames";
-import {
-  Book,
-  Broshure,
-  Line,
-  Newspaper,
-  Paper,
-  PaperRoll,
-  Photo,
-  Photoaparat,
-  Plotter,
-  Stamp,
-  Star,
-  Textprint,
-} from "./components/Icons";
 import s from "./ProductMainSection.module.scss";
 import Background from "./components/Background";
 export default function ProductMainSection({

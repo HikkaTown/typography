@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import FeedbackModal from "../FeedbackModal/FeedbackModal";
-import Navigation from "../Navigation/Navigation";
-import OverlayingPopup from "../OverlayingPopup/OverlayingPopup";
-import Portal from "../Portal/Portal";
-import Button2 from "../uikit/Button2/Button2";
+import FeedbackModal from "@/components/FeedbackModal/FeedbackModal";
+import Navigation from "@/components/Navigation/Navigation";
+import OverlayingPopup from "@/components/OverlayingPopup/OverlayingPopup";
+import Portal from "@/components/Portal/Portal";
+import Button2 from "@/uikit/Button2/Button2";
 import s from "./ModalNavigation.module.scss";
 export default function ModalNavigation({ isOpened, onClose }) {
   const [isOpen, setIsOpen] = useState(false);

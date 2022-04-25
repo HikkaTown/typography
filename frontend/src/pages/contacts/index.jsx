@@ -1,12 +1,12 @@
 import Head from "next/head";
 import React from "react";
-import ContactPageSection from "../../components/ContactPageSection/ContactPageSection";
-import Layout from "../../components/Layout/Layout";
+import ContactPageSection from "@/components/ContactPageSection/ContactPageSection";
+import Layout from "@/components/Layout/Layout";
 import {
   getContactCards,
   getContactPage,
   getProductLinks,
-} from "../../lib/apiFunctions";
+} from "@/lib/apiFunctions";
 
 export default function Index({ pageData, cards, footerLinks }) {
   return (

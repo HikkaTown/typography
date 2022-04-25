@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import cs from "classnames";
 import s from "./ReviewSlider.module.scss";
-import ArrowBtn from "../../../uikit/ArrowBtn/ArrowBtn";
-import ReviewCard from "../../../uikit/ReviewCard/ReviewCard";
+import ArrowBtn from "@/uikit/ArrowBtn/ArrowBtn";
+import ReviewCard from "@/uikit/ReviewCard/ReviewCard";
 
 export default function ReviewSlider({ className, data }) {
   const [currentSlide, setCurrentSlide] = useState(0);

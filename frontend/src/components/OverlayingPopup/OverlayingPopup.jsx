@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import cs from "classnames";
-import Portal from "../Portal/Portal";
-import Overlay from "../Overlay/Overlay";
+import Portal from "@/components/Portal/Portal";
+import Overlay from "@/components/Overlay/Overlay";
 import { motion } from "framer-motion";
 import s from "./OverlayingPopup.module.scss";
-import useLockBodyScroll from "../../hooks/useLockBodyScroll";
+import useLockBodyScroll from "@hooks/useLockBodyScroll";
 
 const OverlayingPopup = (props) => {
   const {

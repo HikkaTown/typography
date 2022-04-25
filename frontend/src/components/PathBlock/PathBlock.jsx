@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import PathImagesBlock from "../PathImagesBlock/PathImagesBlock";
-import TabProductBtn from "../uikit/TabProductBtn/TabProductBtn";
+import PathImagesBlock from "@/components/PathImagesBlock/PathImagesBlock";
+import TabProductBtn from "@/uikit/TabProductBtn/TabProductBtn";
 import s from "./PathBlock.module.scss";
 import { Element } from "react-scroll";
 export default function PathBlock({ data }) {
