@@ -7,7 +7,7 @@ export default function Index({ paragraphs }) {
   return (
     <>
       <Head>
-        <title>Политика конфиденциальности</title>
+        <title itemprop="headline">Политика конфиденциальности</title>
         <meta name="robots" content="noindex, nofollow" />
       </Head>
       <Layout>

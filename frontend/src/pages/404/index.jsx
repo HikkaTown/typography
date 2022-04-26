@@ -11,7 +11,7 @@ export default function Index({ footerLinks }) {
   return (
     <>
       <Head>
-        <title>Странница отсутствует</title>
+        <title itemprop="headline">Странница отсутствует</title>
         <meta name="robots" content="noindex, nofollow" />
       </Head>
       <Layout footerLinks={footerLinks}>

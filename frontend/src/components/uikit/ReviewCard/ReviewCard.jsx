@@ -5,7 +5,11 @@ import { LazyImageWrapper } from "../../LazyImage/LazyImage";
 import { PATH_IMAGE } from "../../../lib/const";
 export default function ReviewCard({ className, data }) {
   return (
-    <div className={cs(s.card, className)}>
+    <div
+      className={cs(s.card, className)}
+      itemScope
+      itemType="http://schema.org/Review"
+    >
       <div className={s.person_data}>
         <LazyImageWrapper
           src={PATH_IMAGE + data.userPhoto}
@@ -14,7 +18,9 @@ export default function ReviewCard({ className, data }) {
           wrapperClass={s.image_wrapper}
         />
         <div className={s.person_info}>
-          <h3 className={s.person_name}>{data.personName}</h3>
+          <h3 className={s.person_name} itemProp="author">
+            {data.personName}
+          </h3>
           <div className={s.person_start}>
             <>
               {renderStars(+data.stars).map((item) => {
@@ -24,7 +30,9 @@ export default function ReviewCard({ className, data }) {
           </div>
         </div>
       </div>
-      <p className={s.person_text}>{data.reviewText}</p>
+      <p className={s.person_text} itemProp="reviewBody">
+        {data.reviewText}
+      </p>
     </div>
   );
 }

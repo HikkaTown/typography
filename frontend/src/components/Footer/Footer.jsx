@@ -12,7 +12,11 @@ export default function Footer({ footerLinks }) {
           <FooterLogo className={s.logo} />
           <p className={s.logo_description}>Центр печати в Москве</p>
         </div>
-        <div className={cs(s.column, s.column_links)}>
+        <div
+          className={cs(s.column, s.column_links)}
+          itemScope
+          itemType="http://schema.org/SiteNavigationElement"
+        >
           <FooterLink href={"/"} className={s.link}>
             Главная
           </FooterLink>
@@ -29,7 +33,11 @@ export default function Footer({ footerLinks }) {
             Политика конфиденциальности
           </FooterLink>
         </div>
-        <div className={cs(s.column, s.column_links)}>
+        <div
+          className={cs(s.column, s.column_links)}
+          itemScope
+          itemType="http://schema.org/SiteNavigationElement"
+        >
           {footerLinks &&
             footerLinks
               .slice(0, Math.ceil(footerLinks.length / 2))
@@ -45,7 +53,11 @@ export default function Footer({ footerLinks }) {
                 );
               })}
         </div>
-        <div className={cs(s.column, s.column_links)}>
+        <div
+          className={cs(s.column, s.column_links)}
+          itemScope
+          itemType="http://schema.org/SiteNavigationElement"
+        >
           {footerLinks &&
             footerLinks
               .slice(Math.ceil(footerLinks.length / 2), footerLinks.length)

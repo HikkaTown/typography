@@ -6,7 +6,11 @@ export default function NewsPageSection({ data, header }) {
     <section className={s.section}>
       <div className={s.container}>
         <h1 className={s.header}>{header}</h1>
-        <div className={s.cards_block}>
+        <div
+          className={s.cards_block}
+          itemScope
+          itemType="http://schema.org/Blog"
+        >
           {data &&
             data.map((item, index) => {
               return <NewsCard className={s.card} key={index} data={item} />;

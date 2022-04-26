@@ -8,15 +8,28 @@ import { PATH_IMAGE } from "../../../lib/const";
 export default function NewsCard({ className, data }) {
   return (
     <Link href={`/blog/${data.url}`} passHref={true}>
-      <div className={cs(s.card, className)}>
+      <div
+        className={cs(s.card, className)}
+        itemProp="blogPosts"
+        itemScope
+        itemType="http://schema.org/BlogPosting"
+      >
         <LazyImageWrapper
           src={PATH_IMAGE + data.image}
           alt={data.postName}
           className={[s.image]}
           wrapperClass={s.image_wrapper}
         />
-        <h3 className={s.card_name}>{data.postName}</h3>
-        <p className={s.date}>{new Date(data.postDate).toLocaleDateString()}</p>
+        <h3 className={s.card_name} itemProp="headline">
+          {data.postName}
+        </h3>
+        <p
+          className={s.date}
+          itemProp="datePublished"
+          dateTime={new Date(data.postDate).toLocaleDateString()}
+        >
+          {new Date(data.postDate).toLocaleDateString()}
+        </p>
       </div>
     </Link>
   );

@@ -31,20 +31,33 @@ export default function Index({ pageData, news, footerLinks }) {
       <Layout footerLinks={footerLinks}>
         <CustomBreadrcumbs titlePage={pageData.postName} />
         <section className={s.section}>
-          <div className={s.container_post}>
+          <div
+            className={s.container_post}
+            itemScope
+            itemType="http://schema.org/Article"
+          >
             <div className={s.image_container}>
               <LazyImage
+                itemprop="image"
                 src={PATH_IMAGE + pageData.image}
                 className={[s.image]}
                 wrapperClass={s.image_wrapper}
               />
             </div>
             <div className={s.content}>
-              <h1 className={s.head}>{pageData.postName}</h1>
-              <p className={s.date}>
+              <h1 className={s.head} itemProp="headline">
+                {pageData.postName}
+              </h1>
+              <p
+                className={s.date}
+                itemProp="datePublished"
+                dateTime={new Date(pageData.postDate).toLocaleDateString()}
+              >
                 {new Date(pageData.postDate).toLocaleDateString()}
               </p>
-              <p className={s.description}>{pageData.postText}</p>
+              <p className={s.description} itemProp="articleBody">
+                {pageData.postText}
+              </p>
             </div>
           </div>
           <div className={s.container}>
