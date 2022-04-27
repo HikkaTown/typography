@@ -20,7 +20,7 @@ export default function Index({ res, reviews, news, services, footerLinks }) {
   return (
     <>
       <Head>
-        <title>{pageData.metaHead}</title>
+        <title itemProp="headline">{pageData.metaHead}</title>
         <meta property="og:title" content={pageData.metaHead} />
         <meta
           itemProp="description"

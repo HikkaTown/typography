@@ -5,6 +5,8 @@ import Button4 from "../Button4/Button4";
 export default function AddressCard({ data, className, isOpen, setIsOpen }) {
   return (
     <div
+      itemScope
+      itemType="http://schema.org/LocalBusiness"
       className={cs(s.card, isOpen === data.id ? s.card_open : "", className)}
       onClick={() => {
         if (isOpen === data.id) {
@@ -14,17 +16,36 @@ export default function AddressCard({ data, className, isOpen, setIsOpen }) {
         }
       }}
     >
-      <h3 className={s.address_name}>{data.name}</h3>
-      <p className={s.address}>{data.address}</p>
-      <p className={s.worktime}>{data.workTime}</p>
+      <h3 itemProp="name" className={s.address_name}>
+        {data.name}
+      </h3>
+      <p
+        className={s.address}
+        itemProp="address"
+        itemScope
+        itemType="http://schema.org/PostalAddress"
+      >
+        {data.address}
+      </p>
+      <p
+        className={s.worktime}
+        itemProp="openingHours"
+        dateTime="Mo-Fr, 9:00−18:00"
+      >
+        {data.workTime}
+      </p>
       <div className={s.row}>
         <a href={`tel:${data.phone}`} className={s.callback_link}>
           <PhoneIcon />
-          <span className={s.callback_text}>{data.phone}</span>
+          <span className={s.callback_text} itemProp="telephone">
+            {data.phone}
+          </span>
         </a>
         <a href={`mailto:${data.email}`} className={s.callback_link}>
           <MailIcon />
-          <span className={s.callback_text}>{data.email}</span>
+          <span className={s.callback_text} itemProp="email">
+            {data.email}
+          </span>
         </a>
       </div>
       <Button4 className={s.btn}>

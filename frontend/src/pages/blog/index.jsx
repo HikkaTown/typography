@@ -7,7 +7,7 @@ export default function Index({ news, pageData, footerLinks }) {
   return (
     <>
       <Head>
-        <title>{pageData.metaHead}</title>
+        <title itemProp="headline">{pageData.metaHead}</title>
         <meta property="og:title" content={pageData.metaHead} />
         <meta
           itemProp="description"

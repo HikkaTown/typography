@@ -38,7 +38,7 @@ module.exports = ({ env }) => ({
           throw err;
         });
         archive.pipe(output);
-        archive.append(fs.createReadStream("test/data.db"), {
+        archive.append(fs.createReadStream(".tmp/data.db"), {
           name: "data.db",
         });
         archive.directory("public/uploads", "uploads");

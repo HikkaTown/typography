@@ -6,7 +6,9 @@ import s from "./FooterLink.module.scss";
 export default function FooterLink({ className, children, href }) {
   return (
     <Link href={href}>
-      <a className={cs(s.link, className)}>{children}</a>
+      <a className={cs(s.link, className)} itemProp="url">
+        {children}
+      </a>
     </Link>
   );
 }
