@@ -13,7 +13,7 @@ export default function Index({ pageData, tabs, cards, footerLinks }) {
   return (
     <>
       <Head>
-        <title itemprop="headline">{pageData.metaHead}</title>
+        <title itemProp="headline">{pageData.metaHead}</title>
         <meta property="og:title" content={pageData.metaHead} />
         <meta
           itemProp="description"
