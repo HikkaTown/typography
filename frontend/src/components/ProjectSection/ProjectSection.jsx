@@ -21,7 +21,7 @@ export default function ProjectSection({ data }) {
             router.push("/projects");
           }}
         >
-          Смотреть больше
+          Смотреть всё
         </Button4>
       </div>
     </section>
