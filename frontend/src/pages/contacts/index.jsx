@@ -22,7 +22,11 @@ export default function Index({ pageData, cards, footerLinks }) {
         <meta property="og:description" content={pageData.metaDescription} />
       </Head>
       <Layout footerLinks={footerLinks}>
-        <ContactPageSection data={cards} header={pageData.header} />
+        <ContactPageSection
+          data={cards}
+          header={pageData.header}
+          mapUrl={pageData.mapUrl}
+        />
       </Layout>
     </>
   );
