@@ -32,14 +32,18 @@ export const getServerSideProps = async ({ res }) => {
           return createStream(`${DOMAIN}/blog/${path}`);
         })
         .join("")}
-      ${catalog.map((item) => {
-        const path = item.id;
-        return createStream(`${DOMAIN}/catalog?id=${path}`);
-      })}
-      ${products.map((item) => {
-        const path = item.url;
-        return createStream(`${DOMAIN}/catalog/${item.url}`);
-      })}
+      ${catalog
+        .map((item) => {
+          const path = item.id;
+          return createStream(`${DOMAIN}/catalog?id=${path}`);
+        })
+        .join("")}
+      ${products
+        .map((item) => {
+          const path = item.url;
+          return createStream(`${DOMAIN}/catalog/${item.url}`);
+        })
+        .join("")}
   </urlset>
 `;
   res.setHeader("Content-Type", "text/xml");

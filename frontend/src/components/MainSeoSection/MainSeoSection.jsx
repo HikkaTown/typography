@@ -13,7 +13,7 @@ export default function MainSeoSection({ data }) {
             {data.firstDescription}
             <LazyImage
               src={PATH_IMAGE + data.seoImagePc}
-              srcTablet={PATH_IMAGE + data.seoImageTable}
+              srcTablet={PATH_IMAGE + data.seoImageTablet}
               srcMobile={PATH_IMAGE + data.seoImageMobile}
               alt={data.firstHeader}
               className={[s.seo_image]}

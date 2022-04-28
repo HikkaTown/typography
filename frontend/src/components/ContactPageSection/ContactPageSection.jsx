@@ -4,7 +4,7 @@ import PathBlock from "@/components/PathBlock/PathBlock";
 import s from "./ContactPageSection.module.scss";
 import { scroller } from "react-scroll";
 
-export default function ContactPageSection({ data, header }) {
+export default function ContactPageSection({ data, header, mapUrl }) {
   const [isOpened, setIsOpened] = useState(null);
 
   useEffect(() => {
@@ -34,10 +34,7 @@ export default function ContactPageSection({ data, header }) {
           />
         )}
         <div className={s.map}>
-          <iframe
-            className={s.iframe}
-            src="https://yandex.ru/map-widget/v1/?um=constructor%3Ac566384d8ab67538fb89fce94c435f3f7b7bb49a722371e23588e71fab749ae9&amp;source=constructor"
-          />
+          <iframe className={s.iframe} src={mapUrl} />
         </div>
       </div>
     </section>
