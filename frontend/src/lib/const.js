@@ -1,5 +1,5 @@
-export const URLAPI = "http://localhost:1337/graphql";
-export const PATH_IMAGE = "http://localhost:1337";
+export const URLAPI = "https://ded4-46-138-130-42.ngrok.io/graphql";
+export const PATH_IMAGE = "https://ded4-46-138-130-42.ngrok.io";
 export const DOMAIN = "http://localhost:3000";
 
 export const PAGES = ["/catalog", "/blog", "/projects", "/contacts"];
