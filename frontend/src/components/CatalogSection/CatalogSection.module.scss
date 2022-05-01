@@ -30,6 +30,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 8px;
+  margin-bottom: 30px;
   @include tablet {
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
@@ -39,13 +40,7 @@
   }
 }
 
-.item {
-  @include desktop {
-    &:nth-child(1) {
-      grid-area: 1 / 1 / 2 / 3;
-    }
-    &:nth-child(10n) {
-      grid-area: 3 / 3 / 4 / 5;
-    }
-  }
+.btn {
+  margin: 0 auto;
+  display: block;
 }

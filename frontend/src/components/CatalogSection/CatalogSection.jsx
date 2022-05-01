@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import CatalogItem from "@/uikit/CatalogItem/CatalogItem";
 import s from "./CatalogSection.module.scss";
 import { Element } from "react-scroll";
+import Button2 from "../uikit/Button2/Button2";
 export default function CatalogSection({ data }) {
+  const [size, setSize] = useState(8);
+
+  const handleMoreBtn = () => {
+    setSize((prev) => prev + 8);
+  };
+
   return (
     <section className={s.section}>
       <Element id="catalog" />
@@ -10,7 +17,7 @@ export default function CatalogSection({ data }) {
         <h2 className={s.header}>Каталог наших услуг</h2>
         <div className={s.items}>
           {data &&
-            data.map((item, index) => {
+            data.slice(0, size).map((item, index) => {
               return (
                 <CatalogItem
                   key={index}
@@ -21,6 +28,13 @@ export default function CatalogSection({ data }) {
               );
             })}
         </div>
+        {data && size < data.length ? (
+          <Button2 className={s.btn} onClick={handleMoreBtn}>
+            Показать ещё
+          </Button2>
+        ) : (
+          ""
+        )}
       </div>
     </section>
   );
