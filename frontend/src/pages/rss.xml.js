@@ -16,7 +16,9 @@ export const getServerSideProps = async ({ res }) => {
       <item turbo="true">
         <title>${post.postName}</title>
 		<link>${DOMAIN}/blog/${post.url}</link>
-        <pubDate>${new Date(post.postDate).toLocaleDateString()}</pubDate>
+        <pubDate>${new Date(post.postDate).toLocaleDateString(
+          "ru-RU"
+        )}</pubDate>
 		<author>Аренда фуршетов</author>
         <yandex:related/>
         <turbo:content>
