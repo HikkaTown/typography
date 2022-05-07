@@ -26,9 +26,9 @@ export default function NewsCard({ className, data }) {
         <p
           className={s.date}
           itemProp="datePublished"
-          dateTime={new Date(data.postDate).toLocaleDateString("en-US")}
+          dateTime={new Date(data.postDate).toLocaleDateString("ru-RU")}
         >
-          {new Date(data.postDate).toLocaleDateString("en-US")}
+          {new Date(data.postDate).toLocaleDateString("ru-RU")}
         </p>
       </div>
     </Link>
