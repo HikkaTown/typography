@@ -51,9 +51,11 @@ export default function Index({ pageData, news, footerLinks }) {
               <p
                 className={s.date}
                 itemProp="datePublished"
-                dateTime={new Date(pageData.postDate).toLocaleDateString()}
+                dateTime={new Date(pageData.postDate).toLocaleDateString(
+                  "en-US"
+                )}
               >
-                {new Date(pageData.postDate).toLocaleDateString()}
+                {new Date(pageData.postDate).toLocaleDateString("en-US")}
               </p>
               <p className={s.description} itemProp="articleBody">
                 {pageData.postText}
