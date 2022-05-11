@@ -84,6 +84,7 @@ export const getStaticProps = async (context) => {
       news,
       footerLinks,
     },
+    revalidate: 60,
   };
 };
 
