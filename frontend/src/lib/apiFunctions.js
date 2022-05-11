@@ -357,7 +357,9 @@ const parseTable = (data) => {
   let header = [];
   let itemsTotal = [];
   data.map((item, index) => {
-    header.push(item.columnName);
+    if (item.columnName?.length > 0) {
+      header.push(item.columnName);
+    }
     let rowItems = [];
     item.row.map((rowItem) => {
       rowItems.push(rowItem.rowText);
