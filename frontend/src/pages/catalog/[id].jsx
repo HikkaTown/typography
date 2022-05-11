@@ -97,6 +97,7 @@ export const getStaticProps = async (context) => {
       pageData: pageData[0],
       footerLinks,
     },
+    revalidate: 60,
   };
 };
 
