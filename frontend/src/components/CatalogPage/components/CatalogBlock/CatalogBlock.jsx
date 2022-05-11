@@ -38,11 +38,11 @@ export default function CatalogBlock({ tabs, id }) {
       )}
       <div className={s.items}>
         {currentCards.length > 0
-          ? currentCards.map((item) => {
+          ? currentCards.map((item, index) => {
               return (
                 <CatalogItem
                   className={s.item}
-                  key={s.item}
+                  key={index}
                   href={`/catalog/${item.url}`}
                   data={item}
                 />
