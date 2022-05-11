@@ -12,6 +12,7 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 8px;
   align-items: baseline;
+  align-content: flex-start;
   @include tablet {
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
