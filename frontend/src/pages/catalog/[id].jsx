@@ -59,7 +59,9 @@ export default function Index({
               theme={pageData.pageData.title}
               title={pageData.callbackBlockTitle}
             />
-            <TechnicalRequirementsSection data={pageData.tech} />
+            {pageData?.tech && (
+              <TechnicalRequirementsSection data={pageData.tech} />
+            )}
           </>
         )}
         {pageData.steps && (
