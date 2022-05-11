@@ -24,10 +24,10 @@ export default function CatalogTabs({
             <Tab
               className={s.tab}
               key={item.id}
-              isActive={isActive === item.id ? true : false}
+              isActive={+isActive === +item.id ? true : false}
               onClick={() => {
                 router.push(`/catalog?id=${item.id}`);
-                setIsActive(item.id);
+                setIsActive(+item.id);
               }}
             >
               {item.servicesName}

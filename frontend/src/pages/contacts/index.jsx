@@ -42,5 +42,6 @@ export const getStaticProps = async () => {
       pageData,
       footerLinks,
     },
+    revalidate: 60,
   };
 };

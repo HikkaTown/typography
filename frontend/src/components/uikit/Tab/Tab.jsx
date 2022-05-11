@@ -1,12 +1,7 @@
 import React from "react";
 import s from "./Tab.module.scss";
 import cs from "classnames";
-export default function Tab({
-  className,
-  onClick,
-  children,
-  isActive = false,
-}) {
+export default function Tab({ className, onClick, children, isActive }) {
   return (
     <button
       className={cs(s.btn, isActive ? s.btn_active : "", className)}

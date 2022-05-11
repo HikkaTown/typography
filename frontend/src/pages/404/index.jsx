@@ -46,6 +46,7 @@ export const getStaticProps = async () => {
     props: {
       footerLinks,
     },
+    revalidate: 60,
   };
 };
 
