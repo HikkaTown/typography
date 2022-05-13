@@ -9,20 +9,21 @@ export default function DropdownTech({
   className,
   isActive,
   setIsActve,
+  index,
 }) {
   return (
     <div className={cs(s.container, className)}>
       <div
-        className={cs(s.header, isActive === data.id ? s.header_active : "")}
+        className={cs(s.header, isActive === index ? s.header_active : "")}
         onClick={() => {
-          setIsActve(data.id);
+          setIsActve(index);
         }}
       >
         <p className={s.header_name}>{data.name}</p>
         <ArrowIcon className={s.arrow} />
       </div>
       <AnimatePresence>
-        {isActive === data.id && <DescriptionTech data={data} />}
+        {isActive === index && <DescriptionTech data={data} />}
       </AnimatePresence>
     </div>
   );

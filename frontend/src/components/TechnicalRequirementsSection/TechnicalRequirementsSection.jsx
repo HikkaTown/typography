@@ -5,17 +5,18 @@ import Tab from "@/uikit/Tab/Tab";
 import s from "./TechnicalRequirementsSection.module.scss";
 
 export default function TechnicalRequirementsSection({ data }) {
-  const [isActive, setIsActive] = useState(1);
+  const [isActive, setIsActive] = useState(0);
   return (
     <section className={s.section}>
       <div className={s.container}>
         <h2 className={s.header}>Технические требования</h2>
         <div className={s.tech_mobile}>
           {data &&
-            data.map((item) => {
+            data.map((item, index) => {
               return (
                 <DropdownTech
                   data={item}
+                  index={index}
                   key={item.id}
                   isActive={isActive}
                   setIsActve={setIsActive}
@@ -27,14 +28,14 @@ export default function TechnicalRequirementsSection({ data }) {
         <div className={s.tech_desktop}>
           <div className={s.tabs}>
             {data &&
-              data.map((item) => {
+              data.map((item, index) => {
                 return (
                   <Tab
                     className={s.tab}
                     key={item.id}
-                    isActive={isActive === item.id ? true : false}
+                    isActive={isActive === index ? true : false}
                     onClick={() => {
-                      setIsActive(item.id);
+                      setIsActive(index);
                     }}
                   >
                     {item.name}
@@ -42,7 +43,7 @@ export default function TechnicalRequirementsSection({ data }) {
                 );
               })}
           </div>
-          <DescriptionTech className={s.tech} data={data[isActive - 1]} />
+          <DescriptionTech className={s.tech} data={{ ...data[isActive] }} />
         </div>
       </div>
     </section>
