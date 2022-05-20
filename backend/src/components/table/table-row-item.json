@@ -8,7 +8,7 @@
   "options": {},
   "attributes": {
     "rowText": {
-      "type": "string",
+      "type": "text",
       "required": true
     }
   }

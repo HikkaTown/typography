@@ -23,6 +23,12 @@
       "relation": "oneToMany",
       "target": "api::project.project",
       "mappedBy": "category"
+    },
+    "product_project": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::straniczy-uslug.straniczy-uslug",
+      "inversedBy": "proekts"
     }
   }
 }

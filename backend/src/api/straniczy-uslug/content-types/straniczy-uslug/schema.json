@@ -13,19 +13,19 @@
   "pluginOptions": {},
   "attributes": {
     "url": {
-      "type": "string",
+      "type": "text",
       "required": true
     },
     "header": {
-      "type": "string",
+      "type": "text",
       "required": false
     },
     "metaHead": {
-      "type": "string",
+      "type": "text",
       "required": true
     },
     "metaDescription": {
-      "type": "string",
+      "type": "text",
       "required": true
     },
     "description": {
@@ -36,10 +36,10 @@
       "type": "string"
     },
     "defaultPrice": {
-      "type": "biginteger"
+      "type": "integer"
     },
     "deliveryAmount": {
-      "type": "biginteger"
+      "type": "integer"
     },
     "headStyle": {
       "type": "enumeration",
@@ -86,7 +86,7 @@
       "inversedBy": "pages"
     },
     "title": {
-      "type": "string"
+      "type": "text"
     },
     "tech": {
       "type": "component",
@@ -107,6 +107,22 @@
       "type": "component",
       "repeatable": true,
       "component": "info-component.info-list"
+    },
+    "tableName": {
+      "type": "component",
+      "repeatable": true,
+      "component": "table.table-name"
+    },
+    "table": {
+      "type": "component",
+      "repeatable": true,
+      "component": "table.table"
+    },
+    "proekts": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::tabyproektov.tabyproektov",
+      "inversedBy": "product_project"
     }
   }
 }

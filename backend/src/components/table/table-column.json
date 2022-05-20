@@ -13,8 +13,8 @@
       "component": "table.table-row-item"
     },
     "columnName": {
-      "type": "string",
-      "required": true
+      "type": "text",
+      "required": false
     }
   }
 }
