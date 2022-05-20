@@ -125,6 +125,59 @@ export const getAllProjectsCard = async () => {
   return result;
 };
 
+export const getCurrentProjects = async (id) => {
+  const { data } = await client.query({
+    query: gql`
+      query getCurrentProject {
+        projects(
+          filters: { category: { id: { eq: ${id} } } }
+          pagination: { page: 1, pageSize: 1000 }
+        ) {
+          data {
+            id
+            attributes {
+              images {
+                data {
+                  attributes {
+                    url
+                  }
+                }
+              }
+              category {
+                data {
+                  id
+                  attributes {
+                    typeProjectName
+                  }
+                }
+              }
+            }
+          }
+          meta {
+            pagination {
+              page
+              pageSize
+            }
+          }
+        }
+      }
+    `,
+  });
+  let result = [];
+  data.projects.data.map((item) => {
+    let images = [];
+    item.attributes.images.data.map((itemImage) => {
+      images.push(itemImage.attributes.url);
+    });
+    let object = {
+      images: images,
+      category: item.attributes.category.data.attributes.typeProjectName,
+    };
+    result.push(object);
+  });
+  return result;
+};
+
 export const getCurrentProjectsCard = async (id) => {
   const { data } = await client.query({
     query: gql`
@@ -356,7 +409,7 @@ export const getSmallProduct = async (id) => {
 const parseTable = (data) => {
   let header = [];
   let itemsTotal = [];
-  data.map((item, index) => {
+  data.tableColumn.map((item, index) => {
     if (item.columnName?.length > 0) {
       header.push(item.columnName);
     }
@@ -442,7 +495,11 @@ export const getAllProductCard = async () => {
             };
           })
         : null,
-      table: attributes.column.length ? parseTable(attributes.column) : null,
+      table: attributes?.table?.length
+        ? attributes.table.map((item) => {
+            return parseTable(item);
+          })
+        : null,
     };
     res.push(object);
   });
@@ -467,38 +524,52 @@ export const getCurrentProductCard = async (url) => {
   let res = [];
   data.straniczyUslugs.data.map((item) => {
     const { attributes } = item;
-
     let object = {
       url: attributes.url,
       header: attributes?.header ? attributes.header : null,
       pageData: {
-        metaHead: attributes.metaHead,
-        metaDescription: attributes.metaDescription,
-        title: attributes.title,
-        description: attributes.description,
+        metaHead: attributes?.metaHead ? attributes.metaHead : null,
+        metaDescription: attributes?.metaDescription
+          ? attributes.metaDescription
+          : null,
+        title: attributes?.title ? attributes.title : null,
+        description: attributes?.description ? attributes.description : null,
       },
       infoList: attributes.infoList?.length
         ? attributes.infoList.map((item) => {
             return item.infoListItem;
           })
         : null,
-      files: attributes.files ? 1 : null,
-      deliveryAmount: attributes.deliveryAmount
+      files: attributes?.files ? 1 : null,
+      deliveryAmount: attributes?.deliveryAmount
         ? +attributes.deliveryAmount
         : null,
       shortDescription: {
-        firstBlock: attributes.shortDescription.firstBlock,
-        secondBlock: attributes.shortDescription.secondBlock,
-        thirdBlock: attributes.shortDescription.thirdBlock,
+        firstBlock: attributes?.shortDescription?.firstBlock
+          ? attributes.shortDescription.firstBlock
+          : null,
+        secondBlock: attributes?.shortDescription?.secondBlock
+          ? attributes.shortDescription.secondBlock
+          : null,
+        thirdBlock: attributes?.shortDescription?.thirdBlock
+          ? attributes.shortDescription.thirdBlock
+          : null,
       },
       seoBlock: {
-        header: attributes.seoBlock.seoHeader,
-        seoDescription: attributes.seoBlock.seoDescription,
+        header: attributes?.seoBlock?.seoHeader
+          ? attributes.seoBlock.seoHeader
+          : null,
+        seoDescription: attributes?.seoBlock?.seoDescription
+          ? attributes.seoBlock.seoDescription
+          : null,
       },
+      projectId: attributes?.proekts?.data?.id
+        ? attributes?.proekts?.data?.id
+        : null,
       defaultText: attributes?.defaultText ? attributes.defaultText : null,
       defaultPrice: attributes?.defaultPrice ? attributes.defaultPrice : null,
       headStyle: attributes.headStyle,
-      tech: attributes.tech.length
+      tech: attributes?.tech?.length
         ? attributes.tech.map((item) => {
             return {
               id: +item.id,
@@ -513,11 +584,11 @@ export const getCurrentProductCard = async (url) => {
       callbackBlockTitle: attributes?.callbackBlock?.title
         ? attributes.callbackBlock.title
         : null,
-      steps: attributes.steps.length
+      steps: attributes?.steps?.length
         ? attributes.steps.map((item, index) => {
             return {
               id: +index + 1,
-              header: item.header,
+              header: item?.header ? item.header : null,
               products: item.step.map((stepItem, index) => {
                 return {
                   id: index + 1,
@@ -530,7 +601,16 @@ export const getCurrentProductCard = async (url) => {
             };
           })
         : null,
-      table: attributes.column.length ? parseTable(attributes.column) : null,
+      tableName: attributes?.tableName?.length
+        ? attributes?.tableName.map((item) => {
+            return item.name;
+          })
+        : null,
+      table: attributes?.table?.length
+        ? attributes.table.map((item) => {
+            return parseTable(item);
+          })
+        : null,
     };
     res.push(object);
   });

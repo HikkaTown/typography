@@ -123,11 +123,13 @@ export default function StepSection({ data, officesData }) {
           ""
         )}
 
-        <StepsBlock count={2} className={s.step} id="2" />
-        <h3 className={s.header_step}>
-          {data.steps[1].header ? data.steps[1].header : ""}
-        </h3>
-        {data ? (
+        {data.steps[1] && <StepsBlock count={2} className={s.step} id="2" />}
+        {data.steps[1] && (
+          <h3 className={s.header_step}>
+            {data.steps[1].header ? data.steps[1].header : ""}
+          </h3>
+        )}
+        {data.steps[1] ? (
           <TwoStepComponent
             products={data.steps[1].products}
             select={secondStep}
