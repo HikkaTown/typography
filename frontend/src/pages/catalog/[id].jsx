@@ -15,6 +15,7 @@ import {
   getAllProjectsCard,
   getContactCards,
   getCurrentProductCard,
+  getCurrentProjects,
   getProductCardUrl,
   getProductLinks,
 } from "@/lib/apiFunctions";
@@ -53,7 +54,20 @@ export default function Index({
         <ShortDescription data={pageData.shortDescription} />
         {!pageData.steps && (
           <>
-            <HowMuchSection data={pageData.table} />
+            {pageData.table?.length &&
+              pageData.table.map((item, index) => {
+                return (
+                  <HowMuchSection
+                    data={item}
+                    key={index}
+                    title={
+                      pageData.tableName?.length
+                        ? pageData.tableName[index]
+                        : undefined
+                    }
+                  />
+                );
+              })}
             <InfromationProduct data={pageData.infoList} />
             <CallbackProudctSection
               theme={pageData.pageData.title}
@@ -64,7 +78,7 @@ export default function Index({
             )}
           </>
         )}
-        {pageData.steps && (
+        {pageData?.steps && (
           <>
             <StepSection data={pageData} officesData={officesList} />
           </>
@@ -78,11 +92,16 @@ export default function Index({
 
 export const getStaticProps = async (context) => {
   const url = context?.params?.id;
-  const projects = await getAllProjectsCard();
   const footerLinks = await getProductLinks();
   let pageData;
+  let projects;
   if (url) {
     pageData = await getCurrentProductCard(url);
+  }
+  if (pageData[0].projectId) {
+    projects = await getCurrentProjects(+pageData[0].projectId);
+  } else {
+    projects = await getAllProjectsCard();
   }
   const contactList = await getContactCards();
   let officesList = [];

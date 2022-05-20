@@ -398,6 +398,22 @@ query getCurrentProduct {
         metaHead
         metaDescription
         title
+        vidy_proektov {
+          data {
+            id
+          }
+        }
+        tableName {
+          name
+        }
+        table {
+          tableColumn {
+          	columnName
+          	row {
+            	rowText
+	          }
+        	}
+        }
         description
         defaultText
         defaultPrice
@@ -446,12 +462,6 @@ query getCurrentProduct {
                 }
               }
             }
-          }
-        }
-        column {
-          columnName
-          row {
-            rowText
           }
         }
         category {
@@ -532,6 +542,22 @@ export const getCurrentProductCardQuery = (url) => gql`
           metaHead
           metaDescription
           title
+          proekts {
+						data {
+              id
+            }
+          }
+          tableName {
+            name
+          }
+          table {
+            tableColumn {
+              columnName
+              row {
+                rowText
+              }
+            }
+          }
           description
           defaultText
           defaultPrice
@@ -591,12 +617,6 @@ export const getCurrentProductCardQuery = (url) => gql`
                   }
                 }
               }
-            }
-          }
-          column {
-            columnName
-            row {
-              rowText
             }
           }
           category {

@@ -37,11 +37,15 @@ const testData = {
   ],
 };
 
-export default function HowMuchSection({ data }) {
+export default function HowMuchSection({ data, title }) {
   return (
     <section className={s.section}>
       <div className={s.container}>
-        <h2 className={s.header}>Сколько это будет стоить</h2>
+        {!title ? (
+          <h2 className={s.header}>Сколько это будет стоить</h2>
+        ) : (
+          <h2 className={s.header}>{title}</h2>
+        )}
         {data ? <TableComponent data={data} /> : ""}
       </div>
     </section>
