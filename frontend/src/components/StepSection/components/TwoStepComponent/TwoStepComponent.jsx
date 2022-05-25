@@ -63,7 +63,9 @@ export default function TwoStepComponent({
   useEffect(() => {
     let filters = [];
     products.map((item) => {
-      !filters.includes(item.category) ? filters.push(item.category) : "";
+      if (item.category) {
+        !filters.includes(item.category) ? filters.push(item.category) : "";
+      }
     });
     setFiltersList(filters);
   }, [products]);
@@ -78,28 +80,52 @@ export default function TwoStepComponent({
     return count;
   };
 
+  useEffect(() => {
+    console.log(instanceRef);
+    if (instanceRef) {
+      instanceRef.current.update({
+        loop: true,
+        breakpoints: {
+          "(min-width: 767.98px)": {
+            drag: false,
+            slides: {
+              perView: "auto",
+              spacing: 24,
+            },
+          },
+        },
+        slides: {
+          perView: "auto",
+          spacing: 8,
+        },
+      });
+    }
+  }, [activeFilter]);
+
   return (
     <div className={s.container}>
       <div className={s.tabs}>
-        {filtersList.map((item, index) => {
-          return (
-            <TabProductBtn
-              key={index}
-              isActive={index === activeFilter ? true : false}
-              className={s.tab}
-              onClick={() => {
-                setActiveFilter(index);
-              }}
-            >
-              {item}
-            </TabProductBtn>
-          );
-        })}
+        {filtersList?.length
+          ? filtersList.map((item, index) => {
+              return (
+                <TabProductBtn
+                  key={index}
+                  isActive={index === activeFilter ? true : false}
+                  className={s.tab}
+                  onClick={() => {
+                    setActiveFilter(index);
+                  }}
+                >
+                  {item}
+                </TabProductBtn>
+              );
+            })
+          : ""}
       </div>
       <div className={cs("navigation-wrapper", s.wrapper, className)}>
         <div ref={sliderRef} className={cs("keen-slider", s.slider)}>
-          {filtersList.length > 0 &&
-            products.map((item) => {
+          {products.map((item) => {
+            if (filtersList?.length) {
               if (item.category === filtersList[activeFilter]) {
                 return (
                   <StepCardItem
@@ -113,7 +139,20 @@ export default function TwoStepComponent({
                   />
                 );
               }
-            })}
+            } else {
+              return (
+                <StepCardItem
+                  className={cs("keen-slider__slide", s.slide)}
+                  key={item.id}
+                  data={item}
+                  inCart={item.id === select?.id ? true : false}
+                  onClick={() => {
+                    setSelect((prev) => (prev?.id !== item.id ? item : null));
+                  }}
+                />
+              );
+            }
+          })}
         </div>
         {products.length < 5 && false && loaded && instanceRef.current && (
           <div className={s.arrows}>

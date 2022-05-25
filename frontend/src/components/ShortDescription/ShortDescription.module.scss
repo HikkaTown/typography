@@ -47,7 +47,7 @@
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    content: '';
+    content: "";
     height: 1px;
     max-width: 140px;
     width: 100vw;
@@ -70,8 +70,8 @@
         border-left: 1px dashed $primary-text;
         left: auto;
         right: 0;
-        top: 50px;
-        transform: translateY(0);
+        top: 50%;
+        transform: translateY(-50%);
       }
     }
     &:nth-child(2) {
@@ -105,11 +105,11 @@
       margin-top: 0;
       &::after {
         display: block;
-        content: '';
+        content: "";
         max-width: 1px;
         height: 140px;
-        top: 50px;
-        transform: translateY(0px);
+        top: 50%;
+        transform: translateY(-50%);
         border-left: 1px dashed $primary-text;
         left: 0;
       }
@@ -125,7 +125,7 @@
   width: 100vw;
   height: 64px;
   border-radius: 50%;
-  background-color: #AFD7FD;
+  background-color: #afd7fd;
   margin-bottom: 16px;
 }
 

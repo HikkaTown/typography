@@ -595,7 +595,7 @@ export const getCurrentProductCard = async (url) => {
                   image: stepItem.imageItem.data.attributes.url,
                   name: stepItem.productName,
                   price: stepItem.productPrice,
-                  category: stepItem.category,
+                  category: stepItem.category ? stepItem.category : null,
                 };
               }),
             };

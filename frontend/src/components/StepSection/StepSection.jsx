@@ -103,7 +103,6 @@ export default function StepSection({ data, officesData }) {
     }
     setTotalPrice(total + data.defaultPrice);
   }, [firstStep, secondStep, devliveryAddress, data]);
-
   return (
     <section className={s.section}>
       <div className={s.container}>
@@ -168,10 +167,13 @@ export default function StepSection({ data, officesData }) {
         totalPrice={totalPrice}
         handleClear={handleClear}
         text={`
-        Изготовление печати ${data.defaultPrice} ₽
+        ${
+          data.defaultPrice
+            ? "Изготовление печати " + data.defaultPrice + " ₽"
+            : "Изготовление печати"
+        }
         ${firstStep ? "+ оснастка" : ""} ${secondStep ? "+ дизайн" : ""}
-        ${devliveryAddress === "delivery" ? "+ доставка" : ""}
-      `}
+        ${devliveryAddress === "delivery" ? "+ доставка" : ""}`}
       />
       <AnimatePresence>
         {isOpened && (

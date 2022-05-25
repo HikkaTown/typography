@@ -2,16 +2,21 @@ import React from "react";
 import {
   Book,
   Broshure,
+  Cmyk,
+  Gromofon,
   Line,
+  Litak,
   Newspaper,
   Paper,
   PaperRoll,
   Photo,
   Photoaparat,
   Plotter,
+  Shtamp,
   Stamp,
   Star,
   Textprint,
+  Xmld,
 } from "./Icons";
 import s from "./Background.module.scss";
 export default function Background({ style }) {
@@ -76,6 +81,26 @@ export default function Background({ style }) {
           <Photo className={s.hightblue_photo} />
           <Line className={s.hightblue_line} />
           <Plotter className={s.hightblue_plotter} />
+        </>
+      ) : (
+        ""
+      )}
+      {!style ? (
+        <>
+          <Star className={s.default_one} />
+          <Star className={s.default_two} />
+          <Star className={s.default_three} />
+          <Gromofon className={s.gromofon} />
+          <Litak className={s.litak} />
+          <span className={s.cmyk_container}>
+            <Cmyk className={s.cmyk} />
+          </span>
+          <span className={s.xmld_container}>
+            <Xmld className={s.xmld} />
+          </span>
+          <span className={s.shtamp_container}>
+            <Shtamp className={s.shtamp} />
+          </span>
         </>
       ) : (
         ""

@@ -2,6 +2,7 @@
   position: relative;
   padding-top: 120px;
   padding-bottom: 62px;
+  background-color: #afd7fd;
   @include desktop {
     padding-top: 220px;
     padding-bottom: 124px;
@@ -39,7 +40,7 @@
   @include tablet {
     @include headline-1($primary-text);
     margin-bottom: 92px;
-    max-width: 482px
+    max-width: 482px;
   }
   @include desktop {
     margin-bottom: 0;
@@ -77,7 +78,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  box-shadow: 0px -2px 2px #82B0DB;
+  box-shadow: 0px -2px 2px #82b0db;
   bottom: -40px;
   left: 50%;
   transform: translateX(-50%);
