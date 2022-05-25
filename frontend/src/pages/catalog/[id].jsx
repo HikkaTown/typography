@@ -52,22 +52,22 @@ export default function Index({
           description={pageData.pageData.description}
         />
         <ShortDescription data={pageData.shortDescription} />
+        {pageData.table?.length &&
+          pageData.table.map((item, index) => {
+            return (
+              <HowMuchSection
+                data={item}
+                key={index}
+                title={
+                  pageData.tableName?.length
+                    ? pageData.tableName[index]
+                    : undefined
+                }
+              />
+            );
+          })}
         {!pageData.steps && (
           <>
-            {pageData.table?.length &&
-              pageData.table.map((item, index) => {
-                return (
-                  <HowMuchSection
-                    data={item}
-                    key={index}
-                    title={
-                      pageData.tableName?.length
-                        ? pageData.tableName[index]
-                        : undefined
-                    }
-                  />
-                );
-              })}
             <InfromationProduct data={pageData.infoList} />
             <CallbackProudctSection
               theme={pageData.pageData.title}

@@ -3,18 +3,11 @@ import { LazyImageWrapper } from "../LazyImage/LazyImage";
 import YellowBtn from "../uikit/YellowBtn/YellowBtn";
 import s from "./HeroMainSection.module.scss";
 import { scroller } from "react-scroll";
+import Background from "../ProductMainSection/components/Background";
 
 export default function HeroMainSection({ data }) {
   return (
     <section className={s.section}>
-      <LazyImageWrapper
-        src={"/assets/HeroMainSection/bg_pc.jpg"}
-        srcTablet={"/assets/HeroMainSection/bg_tab.jpg"}
-        srcMobile={"/assets/HeroMainSection/bg_mob.jpg"}
-        lazy={false}
-        className={[s.background]}
-        wrapperClass={s.background_wrapper}
-      />
       <div className={s.container}>
         <h1 className={s.header}>{data.header}</h1>
         <div className={s.content_block}>
@@ -33,6 +26,7 @@ export default function HeroMainSection({ data }) {
           </YellowBtn>
         </div>
       </div>
+      <Background />
       <ScrollBtn className={s.scroll_btn} />
     </section>
   );
