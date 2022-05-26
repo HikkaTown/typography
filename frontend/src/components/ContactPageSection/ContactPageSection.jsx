@@ -4,7 +4,12 @@ import PathBlock from "@/components/PathBlock/PathBlock";
 import s from "./ContactPageSection.module.scss";
 import { scroller } from "react-scroll";
 
-export default function ContactPageSection({ data, header, mapUrl }) {
+export default function ContactPageSection({
+  data,
+  header,
+  mapUrl,
+  setActiveMapUrl,
+}) {
   const [isOpened, setIsOpened] = useState(null);
 
   useEffect(() => {
@@ -25,6 +30,7 @@ export default function ContactPageSection({ data, header, mapUrl }) {
           data={data}
           setIsOpen={setIsOpened}
           isOpen={isOpened}
+          setActiveMapUrl={setActiveMapUrl}
         />
         {isOpened && (
           <PathBlock

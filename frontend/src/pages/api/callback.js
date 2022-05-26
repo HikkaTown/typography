@@ -1,4 +1,4 @@
-const nodemailer = require("nodemailer");
+const sendmail = require("sendmail")();
 export default function handler(req, res) {
   let theme = req.body?.theme ? req.body.theme : null;
   let address = req.body?.address
@@ -32,18 +32,9 @@ export default function handler(req, res) {
     : null;
 
   try {
-    const transporter = nodemailer.createTransport({
-      host: process.env.HOST,
-      port: process.env.PORT,
-      secure: true,
-      auth: {
-        user: process.env.EMAIL,
-        pass: process.env.PASS,
-      },
-    });
     const mailData = {
-      from: process.env.EMAIL,
-      to: process.env.EMAIL,
+      from: "no-reply@1ppc.ru",
+      to: req.body?.emailOffice.email,
       subject: `Заявка с сайта Первый печатный`,
       text: "Данные заказа",
       html: "",
@@ -63,16 +54,12 @@ export default function handler(req, res) {
     ${address ? `<p>${address}</p>` : ""}
     ${totalPrice ? `<p>${totalPrice}</p>` : ""}
     `;
-    transporter.sendMail(mailData, (err, info) => {
-      if (err) {
-        // console.log("Send Mail error:", err);
-        return res.status(400).json({ success: false });
-      }
-      // console.log("Mail", info);
-      return res.status(200).json({ success: true });
+    sendmail(mailData, function (err, reply) {
+      return res.status(400).json({ success: false });
     });
+    return res.status(200).json({ success: true });
   } catch {
-    // console.log("Some error");
+    console.log("Some error");
     return res.status(400).json({ success: false });
   }
 }

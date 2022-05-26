@@ -2,7 +2,14 @@ import React, { useState } from "react";
 import cs from "classnames";
 import s from "./AddressCard.module.scss";
 import Button4 from "../Button4/Button4";
-export default function AddressCard({ data, className, isOpen, setIsOpen }) {
+export default function AddressCard({
+  index,
+  data,
+  className,
+  isOpen,
+  setIsOpen,
+  setActiveMapUrl,
+}) {
   return (
     <div
       itemScope
@@ -11,8 +18,10 @@ export default function AddressCard({ data, className, isOpen, setIsOpen }) {
       onClick={() => {
         if (isOpen === data.id) {
           setIsOpen(null);
+          setActiveMapUrl(null);
         } else {
           setIsOpen(data.id);
+          setActiveMapUrl(index);
         }
       }}
     >

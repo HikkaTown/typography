@@ -28,6 +28,7 @@
     "react-imask": "^6.4.2",
     "react-scroll": "^1.8.7",
     "sass": "^1.50.0",
+    "sendmail": "^1.6.1",
     "sitemap": "^7.1.1",
     "vanilla-lazyload": "^17.7.0"
   },

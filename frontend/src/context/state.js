@@ -11,6 +11,7 @@ export function AppWrapper({ children }) {
       officesList.push({
         id: +item.id,
         address: `${item.name} ${item.address}`,
+        email: item.email,
       });
     });
     setData(officesList);
