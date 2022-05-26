@@ -61,18 +61,15 @@ export default function StepComponent({
 
   useEffect(() => {
     let filters = [];
-    console.log(products);
     products.map((item) => {
       if (item.category) {
         !filters.includes(item.category) ? filters.push(item.category) : "";
       }
     });
-    console.log(products);
     setFiltersList(filters);
   }, [products]);
 
   useEffect(() => {
-    console.log(instanceRef);
     if (instanceRef) {
       instanceRef.current.update({
         loop: true,

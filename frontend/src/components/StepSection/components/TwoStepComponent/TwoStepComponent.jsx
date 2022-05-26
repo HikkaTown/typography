@@ -81,7 +81,6 @@ export default function TwoStepComponent({
   };
 
   useEffect(() => {
-    console.log(instanceRef);
     if (instanceRef) {
       instanceRef.current.update({
         loop: true,
