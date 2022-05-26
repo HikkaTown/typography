@@ -93,12 +93,21 @@ export const getProjectPageQuery = gql`
 
 export const getProjectTabsQuery = gql`
   query projectTabs {
-    tabyproektovs(sort: "position:asc") {
+    tabyproektovs(
+      sort: "position:asc"
+      pagination: { page: 1, pageSize: 1000 }
+    ) {
       data {
         id
         attributes {
           typeProjectName
           position
+        }
+      }
+      meta {
+        pagination {
+          page
+          pageSize
         }
       }
     }
@@ -111,7 +120,7 @@ export const getAllProjectsCardQuery = gql`
       data {
         id
         attributes {
-          images {
+          images(pagination: { page: 1, pageSize: 100 }) {
             data {
               attributes {
                 url
@@ -605,7 +614,9 @@ export const getCurrentProductCardQuery = (url) => gql`
           }
           steps {
             header
-            step {
+            step(pagination: {
+              page: 1, pageSize: 100
+            }) {
               id
               productName
               productPrice

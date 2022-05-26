@@ -61,6 +61,7 @@ export default function StepComponent({
 
   useEffect(() => {
     let filters = [];
+    console.log(products);
     products.map((item) => {
       if (item.category) {
         !filters.includes(item.category) ? filters.push(item.category) : "";
@@ -77,7 +78,6 @@ export default function StepComponent({
         loop: true,
         breakpoints: {
           "(min-width: 767.98px)": {
-            drag: false,
             slides: {
               perView: "auto",
               spacing: 24,
