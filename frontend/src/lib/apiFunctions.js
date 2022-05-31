@@ -113,13 +113,22 @@ export const getAllProjectsCard = async () => {
   let result = [];
   data.projects.data.map((item) => {
     let images = [];
-    item.attributes.images.data.map((itemImage) => {
-      images.push(itemImage.attributes.url);
-    });
-    let object = {
-      images: images,
-      category: item.attributes.category.data.attributes.typeProjectName,
-    };
+    if (item?.attributes?.images?.data.length) {
+      item.attributes.images.data.map((itemImage) => {
+        images.push(itemImage.attributes.url);
+      });
+    }
+    let object =
+      item?.attributes?.category?.data?.attributes?.typeProjectName &&
+      images.length
+        ? {
+            images: images?.length ? images : null,
+            category: item?.attributes?.category?.data?.attributes
+              ?.typeProjectName
+              ? item?.attributes?.category?.data?.attributes?.typeProjectName
+              : null,
+          }
+        : null;
     result.push(object);
   });
   return result;
@@ -166,13 +175,20 @@ export const getCurrentProjects = async (id) => {
   let result = [];
   data.projects.data.map((item) => {
     let images = [];
-    item.attributes.images.data.map((itemImage) => {
+    item.attributes?.images.data.map((itemImage) => {
       images.push(itemImage.attributes.url);
     });
-    let object = {
-      images: images,
-      category: item.attributes.category.data.attributes.typeProjectName,
-    };
+    let object =
+      images.length &&
+      item?.attributes?.category?.data?.attributes?.typeProjectName
+        ? {
+            images: images.length ? images : null,
+            category: item?.attributes?.category?.data?.attributes
+              ?.typeProjectName
+              ? item?.attributes?.category?.data?.attributes?.typeProjectName
+              : null,
+          }
+        : null;
     result.push(object);
   });
   return result;
@@ -563,8 +579,8 @@ export const getCurrentProductCard = async (url) => {
           ? attributes.seoBlock.seoDescription
           : null,
       },
-      projectId: attributes?.proekts?.data?.id
-        ? attributes?.proekts?.data?.id
+      projectId: attributes?.proekt?.data?.id
+        ? attributes?.proekt?.data?.id
         : null,
       defaultText: attributes?.defaultText ? attributes.defaultText : null,
       defaultPrice: attributes?.defaultPrice ? attributes.defaultPrice : null,

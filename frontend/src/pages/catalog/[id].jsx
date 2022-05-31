@@ -83,52 +83,82 @@ export default function Index({
             <StepSection data={pageData} officesData={officesList} />
           </>
         )}
-        <ProjectSection data={projects} />
+        {projects ? <ProjectSection data={projects} /> : ""}
         <SeoProduct data={pageData.seoBlock} />
       </Layout>
     </>
   );
 }
 
-export const getStaticProps = async (context) => {
-  const url = context?.params?.id;
+// export const getStaticProps = async (context) => {
+//   let pageData;
+//   let projects;
+//   const url = context?.params?.id;
+//   const footerLinks = await getProductLinks();
+//   if (url) {
+//     pageData = await getCurrentProductCard(url);
+//   }
+//   if (pageData[0].projectId) {
+//     projects = await getCurrentProjects(+pageData[0].projectId);
+//   } else {
+//     projects = await getAllProjectsCard();
+//   }
+//   const contactList = await getContactCards();
+//   let officesList = [];
+//   contactList.map((item) => {
+//     officesList.push({
+//       id: +item.id,
+//       address: `${item.name} ${item.address}`,
+//     });
+//   });
+//   return {
+//     props: {
+//       projects,
+//       officesList,
+//       pageData: pageData[0],
+//       footerLinks,
+//     },
+//     revalidate: 10,
+//   };
+// };
+
+// export const getStaticPaths = async () => {
+//   const url = await getProductCardUrl();
+//   const paths = url.map((item) => ({
+//     params: { id: item },
+//   }));
+//   return {
+//     paths,
+//     fallback: "blocking",
+//   };
+// };
+
+export const getServerSideProps = async (context) => {
+  const pageData = await getCurrentProductCard(context.query.id);
   const footerLinks = await getProductLinks();
-  let pageData;
-  let projects;
-  if (url) {
-    pageData = await getCurrentProductCard(url);
-  }
-  if (pageData[0].projectId) {
-    projects = await getCurrentProjects(+pageData[0].projectId);
-  } else {
-    projects = await getAllProjectsCard();
-  }
-  const contactList = await getContactCards();
   let officesList = [];
+  const contactList = await getContactCards();
   contactList.map((item) => {
     officesList.push({
       id: +item.id,
       address: `${item.name} ${item.address}`,
     });
   });
+  let projects;
+  if (!pageData?.length) {
+    return {
+      notFound: true,
+    };
+  }
+  if (pageData[0]?.projectId) {
+    projects = await getCurrentProjects(+pageData[0].projectId);
+  }
   return {
     props: {
-      projects,
+      projects: projects?.length ? projects : null,
       officesList,
       pageData: pageData[0],
       footerLinks,
     },
-    revalidate: 10,
-  };
-};
-
-export const getStaticPaths = async () => {
-  const url = await getProductCardUrl();
-  const paths = url.map((item) => ({
-    params: { id: item },
-  }));
-  return {
-    paths,
-    fallback: "blocking",
   };
 };

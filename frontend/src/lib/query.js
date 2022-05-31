@@ -551,9 +551,12 @@ export const getCurrentProductCardQuery = (url) => gql`
           metaHead
           metaDescription
           title
-          proekts {
-						data {
+          proekt {
+            data {
               id
+              attributes {
+              	typeProjectName
+              }
             }
           }
           tableName {
