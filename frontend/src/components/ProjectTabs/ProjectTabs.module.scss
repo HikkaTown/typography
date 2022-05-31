@@ -13,14 +13,20 @@
 
 .track {
   @include desktop {
-    display: none !important;
+    height: 5px !important;
+  }
+}
+
+.thumb {
+  @include desktop {
+    height: 5px !important;
   }
 }
 
 .tab {
   margin-right: 8px;
+  white-space: nowrap;
   &:last-of-type {
     margin-right: 0;
   }
 }
-
