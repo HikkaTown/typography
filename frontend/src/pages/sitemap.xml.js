@@ -28,8 +28,10 @@ export const getServerSideProps = async ({ res }) => {
       ${staticPaths.map(createStream).join("")}
       ${news
         .map((item) => {
-          const path = item.url;
-          return createStream(`${DOMAIN}/blog/${path}`);
+          if (item) {
+            const path = item.url;
+            return createStream(`${DOMAIN}/blog/${path}`);
+          }
         })
         .join("")}
       ${catalog

@@ -84,54 +84,11 @@ export default function Index({
           </>
         )}
         {projects ? <ProjectSection data={projects} /> : ""}
-        <SeoProduct data={pageData.seoBlock} />
+        {pageData?.seoBlock ? <SeoProduct data={pageData.seoBlock} /> : ""}
       </Layout>
     </>
   );
 }
-
-// export const getStaticProps = async (context) => {
-//   let pageData;
-//   let projects;
-//   const url = context?.params?.id;
-//   const footerLinks = await getProductLinks();
-//   if (url) {
-//     pageData = await getCurrentProductCard(url);
-//   }
-//   if (pageData[0].projectId) {
-//     projects = await getCurrentProjects(+pageData[0].projectId);
-//   } else {
-//     projects = await getAllProjectsCard();
-//   }
-//   const contactList = await getContactCards();
-//   let officesList = [];
-//   contactList.map((item) => {
-//     officesList.push({
-//       id: +item.id,
-//       address: `${item.name} ${item.address}`,
-//     });
-//   });
-//   return {
-//     props: {
-//       projects,
-//       officesList,
-//       pageData: pageData[0],
-//       footerLinks,
-//     },
-//     revalidate: 10,
-//   };
-// };
-
-// export const getStaticPaths = async () => {
-//   const url = await getProductCardUrl();
-//   const paths = url.map((item) => ({
-//     params: { id: item },
-//   }));
-//   return {
-//     paths,
-//     fallback: "blocking",
-//   };
-// };
 
 export const getServerSideProps = async (context) => {
   const pageData = await getCurrentProductCard(context.query.id);

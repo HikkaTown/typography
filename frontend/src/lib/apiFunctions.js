@@ -253,15 +253,28 @@ export const getAllNews = async () => {
   let result = [];
   data.novostis.data.map((item) => {
     const { attributes } = item;
-    let object = {
-      url: attributes.url,
-      postName: attributes.postName,
-      postText: attributes.postText,
-      postDate: attributes.postDate,
-      image: attributes.image.data.attributes.url,
-      metaHead: attributes.metaHead,
-      metaDescription: attributes.metaDescription,
-    };
+    let object =
+      attributes?.url &&
+      attributes?.postName &&
+      attributes?.postText &&
+      attributes?.postDate &&
+      attributes?.image?.data?.attributes?.url &&
+      attributes?.metaHead &&
+      attributes?.metaDescription
+        ? {
+            url: attributes?.url ? attributes.url : null,
+            postName: attributes?.postName ? attributes.postName : null,
+            postText: attributes?.postText ? attributes.postText : null,
+            postDate: attributes?.postDate ? attributes.postDate : null,
+            image: attributes?.image?.data?.attributes?.url
+              ? attributes.image.data.attributes.url
+              : null,
+            metaHead: attributes?.metaHead ? attributes?.metaHead : null,
+            metaDescription: attributes?.metaDescription
+              ? attributes.metaDescription
+              : null,
+          }
+        : null;
     result.push(object);
   });
   return result;
@@ -272,9 +285,15 @@ export const getNewsPage = async () => {
     query: getNewsPageQuery,
   });
   let object = {
-    metaHead: data.news.data.attributes.metaHead,
-    metaDescription: data.news.data.attributes.metaDescription,
-    header: data.news.data.attributes.header,
+    metaHead: data?.news?.data?.attributes?.metaHead
+      ? data.news.data.attributes.metaHead
+      : null,
+    metaDescription: data?.news?.data?.attributes?.metaDescription
+      ? data.news.data.attributes.metaDescription
+      : null,
+    header: data?.news?.data?.attributes?.header
+      ? data?.news?.data?.attributes?.header
+      : null,
   };
   return object;
 };
@@ -306,17 +325,25 @@ export const getCurrentNews = async (id) => {
       }
     `,
   });
-  const { attributes } = data.novostis.data[0];
-  let object = {
-    url: attributes.url,
-    postName: attributes.postName,
-    postText: attributes.postText,
-    postDate: attributes.postDate,
-    image: attributes.image.data.attributes.url,
-    metaHead: attributes.metaHead,
-    metaDescription: attributes.metaDescription,
-  };
-  return object;
+  if (data?.novostis?.data?.length) {
+    const { attributes } = data?.novostis?.data[0];
+    let object = {
+      url: attributes?.url ? attributes?.url : null,
+      postName: attributes?.postName ? attributes?.postName : null,
+      postText: attributes?.postText ? attributes.postText : null,
+      postDate: attributes?.postDate ? attributes?.postDate : null,
+      image: attributes?.image?.data?.attributes?.url
+        ? attributes.image.data.attributes.url
+        : null,
+      metaHead: attributes?.metaHead ? attributes?.metaHead : null,
+      metaDescription: attributes?.metaDescription
+        ? attributes?.metaDescription
+        : null,
+    };
+    return object;
+  } else {
+    return null;
+  }
 };
 
 export const getContactPage = async () => {
