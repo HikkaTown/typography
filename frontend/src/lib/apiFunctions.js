@@ -262,6 +262,7 @@ export const getAllNews = async () => {
       attributes?.metaHead &&
       attributes?.metaDescription
         ? {
+            id: item?.id ? item?.id : null,
             url: attributes?.url ? attributes.url : null,
             postName: attributes?.postName ? attributes.postName : null,
             postText: attributes?.postText ? attributes.postText : null,

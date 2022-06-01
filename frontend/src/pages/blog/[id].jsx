@@ -68,7 +68,11 @@ export default function Index({ pageData, news, footerLinks }) {
           </div>
           <div className={s.container}>
             <h2 className={s.header}>Рекомендуем к чтению</h2>
-            <CardNewsSlider data={news} currentUrl={pageData.url} />
+            <CardNewsSlider
+              data={news}
+              currentUrl={pageData.url}
+              key={pageData.url}
+            />
           </div>
         </section>
       </Layout>

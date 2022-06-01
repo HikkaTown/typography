@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import s from "./CardNewsSlider.module.scss";
 import { useKeenSlider } from "keen-slider/react";
 import cs from "classnames";
 import NewsCard from "@/uikit/NewsCard/NewsCard";
+import { useRouter } from "next/router";
 export default function CardNewsSlider({ className, data, currentUrl }) {
+  const router = useRouter();
   const [sliderRef, instanceRef] = useKeenSlider({
     loop: true,
     breakpoints: {
@@ -19,6 +21,9 @@ export default function CardNewsSlider({ className, data, currentUrl }) {
       spacing: 8,
     },
   });
+  useEffect(() => {
+    instanceRef.current.update();
+  }, [router, instanceRef]);
   return (
     <>
       <div className={cs("navigation-wrapper", s.wrapper, className)}>
