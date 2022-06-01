@@ -37,13 +37,15 @@ export default function NewsSlider({ className, data }) {
         <div ref={sliderRef} className={cs("keen-slider", s.slider)}>
           {data &&
             data.map((item, index) => {
-              return (
-                <NewsCard
-                  className={cs("keen-slider__slide", s.slide)}
-                  key={index}
-                  data={item}
-                />
-              );
+              if (item) {
+                return (
+                  <NewsCard
+                    className={cs("keen-slider__slide", s.slide)}
+                    key={index}
+                    data={item}
+                  />
+                );
+              }
             })}
         </div>
         {loaded && instanceRef.current && (

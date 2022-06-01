@@ -25,14 +25,16 @@ export default function CardNewsSlider({ className, data, currentUrl }) {
         <div ref={sliderRef} className={cs("keen-slider", s.slider)}>
           {data &&
             data.map((item, index) => {
-              if (currentUrl !== item.url) {
-                return (
-                  <NewsCard
-                    key={index}
-                    className={cs("keen-slider__slide", s.slide)}
-                    data={item}
-                  />
-                );
+              if (item) {
+                if (currentUrl !== item.url) {
+                  return (
+                    <NewsCard
+                      key={index}
+                      className={cs("keen-slider__slide", s.slide)}
+                      data={item}
+                    />
+                  );
+                }
               }
             })}
         </div>

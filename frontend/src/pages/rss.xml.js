@@ -12,7 +12,8 @@ export const getServerSideProps = async ({ res }) => {
   const blogPostsRssXml = (news) => {
     let rssItemsXml = "";
     news.forEach((post) => {
-      rssItemsXml += `
+      if (post) {
+        rssItemsXml += `
       <item turbo="true">
         <title>${post.postName}</title>
 		<link>${DOMAIN}/blog/${post.url}</link>
@@ -31,6 +32,7 @@ export const getServerSideProps = async ({ res }) => {
             ]]>
         </turbo:content>
     </item>`;
+      }
     });
     return rssItemsXml;
   };

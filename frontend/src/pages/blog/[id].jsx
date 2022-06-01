@@ -10,6 +10,10 @@ import {
 } from "@/lib/apiFunctions";
 import { DOMAIN, PATH_IMAGE } from "@/lib/const";
 import s from "./Post.module.scss";
+import dynamic from "next/dynamic";
+
+const DynamicMarkdown = dynamic(() => import("react-markdown"), { ssr: false });
+
 export default function Index({ pageData, news, footerLinks }) {
   return (
     <>
@@ -57,9 +61,9 @@ export default function Index({ pageData, news, footerLinks }) {
               >
                 {new Date(pageData.postDate).toLocaleDateString("ru-RU")}
               </p>
-              <p className={s.description} itemProp="articleBody">
-                {pageData.postText}
-              </p>
+              <div className={s.description} itemProp="articleBody">
+                <DynamicMarkdown>{pageData.postText}</DynamicMarkdown>
+              </div>
             </div>
           </div>
           <div className={s.container}>
@@ -72,29 +76,20 @@ export default function Index({ pageData, news, footerLinks }) {
   );
 }
 
-export const getStaticProps = async (context) => {
-  const { params } = context;
-  const currentUrl = params.id;
+export const getServerSideProps = async (context) => {
+  const pageData = await getCurrentNews(context.query.id);
   const footerLinks = await getProductLinks();
-  const pageData = await getCurrentNews(currentUrl);
   const news = await getAllNews();
+  if (!pageData) {
+    return {
+      notFound: true,
+    };
+  }
   return {
     props: {
       pageData: pageData,
       news,
       footerLinks,
     },
-    revalidate: 60,
-  };
-};
-
-export const getStaticPaths = async () => {
-  const news = await getAllNews();
-  const paths = news.map((item) => ({
-    params: { id: item.url },
-  }));
-  return {
-    paths,
-    fallback: "blocking",
   };
 };
