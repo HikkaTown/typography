@@ -1,5 +1,5 @@
 import { getAllNews, getNewsPage } from "../lib/apiFunctions";
-import { DOMAIN } from "../lib/const";
+import { DOMAIN, PATH_IMAGE } from "../lib/const";
 
 const Rss = () => {
   return null;
@@ -25,8 +25,8 @@ export const getServerSideProps = async ({ res }) => {
         <turbo:content>
             <![CDATA[
                 <header> 
-                    <h1>${post.name}</h1> 
-                    <img src="${post.imageMob}"/>
+                    <h1>${post.postName}</h1> 
+                    <img src="${PATH_IMAGE + post.image}"/>
                 </header> 
                 ${post.postText} 
             ]]>
