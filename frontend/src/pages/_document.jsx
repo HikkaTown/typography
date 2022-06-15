@@ -1,5 +1,6 @@
 import React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
+import { DOMAIN } from "@/lib/const";
 
 class MyDocument extends Document {
   render() {
@@ -8,13 +9,19 @@ class MyDocument extends Document {
         <Head itemScope itemType="http://schema.org/WPHeader">
           <meta property="og:type" content="website" />
           <meta property="og:locale" content="ru_RU" />
-          <meta property="og:image:type" content="image/jpeg" />
-          <meta property="og:image" content={"/assets/preview_l.png"} />
-          <meta property="og:image" content={"/assets/preview_s.png"} />
+          <meta property="og:image:type" content="image/png" />
+          <meta property="og:image" content={"/preview_l.png"} />
+          <meta property="og:image" content={"/preview_s.png"} />
           <meta property="og:image:width" content="1080" />
           <meta property="og:image:height" content="1080" />
           <meta property="og:image:width" content="1080" />
           <meta property="og:image:height" content="565" />
+          <link
+            rel="alternate"
+            type="application/rss+xml"
+            title={"Блог"}
+            href={DOMAIN + "/rss.xml"}
+          />
           <link
             rel="apple-touch-icon"
             sizes="72x72"

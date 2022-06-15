@@ -8,6 +8,7 @@ import {
   getProjectPage,
   getProjectTabs,
 } from "@/lib/apiFunctions";
+import { DOMAIN } from "@/lib/const";
 
 export default function Index({ pageData, tabs, cards, footerLinks }) {
   return (
@@ -21,6 +22,7 @@ export default function Index({ pageData, tabs, cards, footerLinks }) {
           content={pageData.metaDescription}
         />
         <meta property="og:description" content={pageData.metaDescription} />
+        <meta property="og:url" content={DOMAIN + "/projects"} />
       </Head>
       <Layout footerLinks={footerLinks}>
         <ProjectsPageSection

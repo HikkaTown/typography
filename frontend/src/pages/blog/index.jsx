@@ -2,6 +2,7 @@ import Head from "next/head";
 import Layout from "@/components/Layout/Layout";
 import NewsPageSection from "@/components/NewsPageSection/NewsPageSection";
 import { getAllNews, getNewsPage, getProductLinks } from "@/lib/apiFunctions";
+import { DOMAIN } from "@/lib/const";
 
 export default function Index({ news, pageData, footerLinks }) {
   return (
@@ -15,6 +16,7 @@ export default function Index({ news, pageData, footerLinks }) {
           content={pageData.metaDescription}
         />
         <meta property="og:description" content={pageData.metaHead} />
+        <meta property="og:url" content={DOMAIN + "/blog"} />
       </Head>
       <Layout footerLinks={footerLinks}>
         <NewsPageSection data={news} header={pageData.header} />

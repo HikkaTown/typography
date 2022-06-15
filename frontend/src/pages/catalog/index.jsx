@@ -12,6 +12,7 @@ import {
   getReviews,
   getServicesList,
 } from "../../lib/apiFunctions";
+import { DOMAIN } from "@/lib/const";
 
 export default function Index({
   tabs,
@@ -32,6 +33,7 @@ export default function Index({
           content={pageData.metaDescription}
         />
         <meta property="og:description" content={pageData.metaDescription} />
+        <meta property="og:url" content={DOMAIN + "/contacts"} />
       </Head>
       <Layout footerLinks={footerLinks}>
         <CatalogPage tabs={tabs} header={pageData.header} id={id} />

@@ -7,6 +7,7 @@ import {
   getContactPage,
   getProductLinks,
 } from "@/lib/apiFunctions";
+import { DOMAIN } from "@/lib/const";
 
 export default function Index({ pageData, cards, footerLinks }) {
   const [mapUrl, setMapUrl] = useState(pageData.mapUrl);
@@ -29,6 +30,7 @@ export default function Index({ pageData, cards, footerLinks }) {
           content={pageData.metaDescription}
         />
         <meta property="og:description" content={pageData.metaDescription} />
+        <meta property="og:url" content={DOMAIN + "/contacts"} />
       </Head>
       <Layout footerLinks={footerLinks}>
         <ContactPageSection
