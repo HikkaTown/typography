@@ -29,8 +29,10 @@ export default function Index({ pageData, news, footerLinks }) {
         />
         <meta property="og:description" content={pageData.metaDescription} />
         <meta property="og:site_name" content="Первый печатный" />
-        <meta property="og:url" content={DOMAIN + "/blog"} />
-        <link rel="canonical" href={DOMAIN + "/blog"} />
+        <meta property="og:url" content={DOMAIN + "/blog/" + pageData.url} />
+        <link rel="canonical" href={DOMAIN + "/blog/" + pageData.url} />
+        <meta name="author" content="Первый печатный" />
+        <meta name="publisher" content={DOMAIN} />
       </Head>
       <Layout footerLinks={footerLinks}>
         <CustomBreadrcumbs titlePage={pageData.postName} />

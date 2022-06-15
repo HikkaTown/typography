@@ -14,6 +14,7 @@ import {
   getReviews,
   getServicesList,
 } from "@/lib/apiFunctions";
+import { DOMAIN } from "@/lib/const";
 
 export default function Index({ res, reviews, news, services, footerLinks }) {
   const { pageData, seoBlock, shortDescription } = res;
@@ -28,6 +29,7 @@ export default function Index({ res, reviews, news, services, footerLinks }) {
           content={pageData.metaDescription}
         />
         <meta property="og:description" content={pageData.metaDescription} />
+        <meta property="og:url" content={DOMAIN} />
       </Head>
       <Layout footerLinks={footerLinks}>
         <HeroMainSection data={pageData} />
