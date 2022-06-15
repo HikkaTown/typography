@@ -484,30 +484,48 @@ export const getAllProductCard = async () => {
       url: attributes.url,
       header: attributes?.header ? attributes.header : null,
       pageData: {
-        metaHead: attributes.metaHead,
-        metaDescription: attributes.metaDescription,
-        title: attributes.title,
-        description: attributes.description,
+        metaHead: attributes?.metaHead ? attributes.metaHead : null,
+        metaDescription: attributes?.metaDescription
+          ? attributes.metaDescription
+          : null,
+        title: attributes?.title ? attributes.title : null,
+        description: attributes?.description ? attributes.description : null,
       },
-      files: attributes.files ? 1 : null,
       infoList: attributes.infoList?.length
         ? attributes.infoList.map((item) => {
             return item.infoListItem;
           })
         : null,
+      files: attributes?.files ? 1 : null,
+      deliveryAmount: attributes?.deliveryAmount
+        ? +attributes.deliveryAmount
+        : null,
       shortDescription: {
-        firstBlock: attributes.shortDescription.firstBlock,
-        secondBlock: attributes.shortDescription.secondBlock,
-        thirdBlock: attributes.shortDescription.thirdBlock,
+        firstBlock: attributes?.shortDescription?.firstBlock
+          ? attributes?.shortDescription?.firstBlock
+          : null,
+        secondBlock: attributes?.shortDescription?.secondBlock
+          ? attributes?.shortDescription?.secondBlock
+          : null,
+        thirdBlock: attributes?.shortDescription?.thirdBlock
+          ? attributes?.shortDescription?.thirdBlock
+          : null,
       },
       seoBlock: {
-        header: attributes.seoBlock.seoHeader,
-        seoDescription: attributes.seoBlock.seoDescription,
+        header: attributes?.seoBlock?.seoHeader
+          ? attributes.seoBlock.seoHeader
+          : null,
+        seoDescription: attributes?.seoBlock?.seoDescription
+          ? attributes.seoBlock.seoDescription
+          : null,
       },
+      projectId: attributes?.proekt?.data?.id
+        ? attributes?.proekt?.data?.id
+        : null,
       defaultText: attributes?.defaultText ? attributes.defaultText : null,
       defaultPrice: attributes?.defaultPrice ? attributes.defaultPrice : null,
       headStyle: attributes.headStyle,
-      tech: attributes.tech.length
+      tech: attributes?.tech?.length
         ? attributes.tech.map((item) => {
             return {
               id: +item.id,
@@ -522,21 +540,26 @@ export const getAllProductCard = async () => {
       callbackBlockTitle: attributes?.callbackBlock?.title
         ? attributes.callbackBlock.title
         : null,
-      steps: attributes.steps.length
+      steps: attributes?.steps?.length
         ? attributes.steps.map((item, index) => {
             return {
               id: +index + 1,
-              header: item.header,
+              header: item?.header ? item.header : null,
               products: item.step.map((stepItem, index) => {
                 return {
                   id: index + 1,
                   image: stepItem.imageItem.data.attributes.url,
                   name: stepItem.productName,
                   price: stepItem.productPrice,
-                  category: stepItem.category,
+                  category: stepItem.category ? stepItem.category : null,
                 };
               }),
             };
+          })
+        : null,
+      tableName: attributes?.tableName?.length
+        ? attributes?.tableName.map((item) => {
+            return item.name;
           })
         : null,
       table: attributes?.table?.length
@@ -590,13 +613,13 @@ export const getCurrentProductCard = async (url) => {
         : null,
       shortDescription: {
         firstBlock: attributes?.shortDescription?.firstBlock
-          ? attributes.shortDescription.firstBlock
+          ? attributes?.shortDescription?.firstBlock
           : null,
         secondBlock: attributes?.shortDescription?.secondBlock
-          ? attributes.shortDescription.secondBlock
+          ? attributes?.shortDescription?.secondBlock
           : null,
         thirdBlock: attributes?.shortDescription?.thirdBlock
-          ? attributes.shortDescription.thirdBlock
+          ? attributes?.shortDescription?.thirdBlock
           : null,
       },
       seoBlock: {
