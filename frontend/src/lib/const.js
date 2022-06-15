@@ -1,5 +1,5 @@
-export const URLAPI = "http://188.120.251.179:1337/graphql";
-export const PATH_IMAGE = "http://188.120.251.179:1337";
-export const DOMAIN = "http://localhost:3000";
+export const URLAPI = "https://api.1ppc.ru/graphql";
+export const PATH_IMAGE = "https://api.1ppc.ru";
+export const DOMAIN = "https://1ppc.ru";
 
 export const PAGES = ["/catalog", "/blog", "/projects", "/contacts"];

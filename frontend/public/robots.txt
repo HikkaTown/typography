@@ -1,2 +1,14 @@
-User-Agent: *
-Disallow: /
+User-agent: *
+Allow: /img/
+Disallow: /js/
+Disallow: /css/
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Yandex
+Allow: /img/
+Disallow: /js/
+Disallow: /css/
+
+Sitemap: https://1ppc.ru/sitemap.xml
