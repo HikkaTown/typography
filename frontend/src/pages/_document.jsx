@@ -10,8 +10,8 @@ class MyDocument extends Document {
           <meta property="og:type" content="website" />
           <meta property="og:locale" content="ru_RU" />
           <meta property="og:image:type" content="image/png" />
-          <meta property="og:image" content={"/preview_l.png"} />
-          <meta property="og:image" content={"/preview_s.png"} />
+          <meta property="og:image" content={DOMAIN + "/preview_l.png"} />
+          <meta property="og:image" content={DOMAIN + "/preview_s.png"} />
           <meta property="og:image:width" content="1080" />
           <meta property="og:image:height" content="1080" />
           <meta property="og:image:width" content="1080" />
