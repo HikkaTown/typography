@@ -16,8 +16,14 @@ import {
 } from "@/lib/apiFunctions";
 import { DOMAIN } from "@/lib/const";
 
-export default function Index({ res, reviews, news, services, footerLinks }) {
-  const { pageData, seoBlock, shortDescription } = res;
+export default function Index({
+  response,
+  reviews,
+  news,
+  services,
+  footerLinks,
+}) {
+  const { pageData, seoBlock, shortDescription } = response;
   return (
     <>
       <Head>
@@ -44,13 +50,17 @@ export default function Index({ res, reviews, news, services, footerLinks }) {
   );
 }
 
-export async function getServerSideProps() {
-  const res = await getIndex();
+export async function getServerSideProps({ res }) {
+  res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=10, stale-while-revalidate=59"
+  );
+  const response = await getIndex();
   const reviews = await getReviews();
   const news = await getAllNews();
   const services = await getServicesList();
   const footerLinks = await getProductLinks();
   return {
-    props: { res: res, reviews, news, services, footerLinks },
+    props: { response: response, reviews, news, services, footerLinks },
   };
 }

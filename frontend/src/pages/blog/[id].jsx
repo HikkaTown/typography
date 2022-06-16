@@ -82,8 +82,12 @@ export default function Index({ pageData, news, footerLinks }) {
   );
 }
 
-export const getServerSideProps = async (context) => {
-  const pageData = await getCurrentNews(context.query.id);
+export const getServerSideProps = async ({ query, res }) => {
+  res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=10, stale-while-revalidate=59"
+  );
+  const pageData = await getCurrentNews(query.id);
   const footerLinks = await getProductLinks();
   const news = await getAllNews();
   if (!pageData) {
