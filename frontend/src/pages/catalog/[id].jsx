@@ -90,8 +90,12 @@ export default function Index({
   );
 }
 
-export const getServerSideProps = async (context) => {
-  const pageData = await getCurrentProductCard(context.query.id);
+export const getServerSideProps = async ({ query, req, res }) => {
+  res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=10, stale-while-revalidate=59"
+  );
+  const pageData = await getCurrentProductCard(query.id);
   const footerLinks = await getProductLinks();
   let officesList = [];
   const contactList = await getContactCards();

@@ -44,7 +44,11 @@ export default function Index({
   );
 }
 
-export const getServerSideProps = async (context) => {
+export const getServerSideProps = async ({ query, res }) => {
+  res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=10, stale-while-revalidate=59"
+  );
   const tabs = await getServicesList();
   const news = await getAllNews();
   const reviews = await getReviews();
