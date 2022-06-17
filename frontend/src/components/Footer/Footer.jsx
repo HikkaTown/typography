@@ -44,7 +44,11 @@ export default function Footer({ footerLinks }) {
               .map((item, index) => {
                 return (
                   <FooterLink
-                    href={"/catalog/" + item.url}
+                    href={
+                      item?.meta?.metaHead
+                        ? "/catalog/" + item.url
+                        : `/${item.url}`
+                    }
                     key={index}
                     className={s.link}
                   >
@@ -64,7 +68,11 @@ export default function Footer({ footerLinks }) {
               .map((item, index) => {
                 return (
                   <FooterLink
-                    href={"/catalog/" + item.url}
+                    href={
+                      item?.meta?.metaHead
+                        ? "/catalog/" + item.url
+                        : `/${item.url}`
+                    }
                     key={index}
                     className={s.link}
                   >
