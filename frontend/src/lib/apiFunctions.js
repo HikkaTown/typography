@@ -412,11 +412,86 @@ export const getServicesList = async () => {
   let res = [];
   data.services.data.map((item) => {
     const { attributes } = item;
-    res.push({
-      id: +item.id,
-      servicesName: attributes.serviceName,
-      servicesPoster: attributes.servicePoster.data.attributes.url,
-    });
+    if (attributes?.pages?.data?.length > 1) {
+      res.push({
+        id: +item.id,
+        url: attributes.url,
+        servicesName: attributes.serviceName,
+        breadName: attributes.serviceName,
+        meta: attributes?.meta
+          ? {
+              metaHead: attributes?.meta?.metaHead
+                ? attributes.meta.metaHead
+                : null,
+              metaDescription: attributes?.meta?.metaDescription
+                ? attributes.meta.metaDescription
+                : null,
+              header: attributes?.meta?.header ? attributes.meta.header : null,
+            }
+          : null,
+        seoBlock: attributes?.seoBlock
+          ? {
+              header: attributes?.seoBlock?.seoHeader
+                ? attributes?.seoBlock?.seoHeader
+                : null,
+              seoDescription: attributes?.seoBlock?.seoDescription
+                ? attributes?.seoBlock?.secondDescription
+                : null,
+            }
+          : null,
+        servicesPoster: attributes.servicePoster.data.attributes.url,
+      });
+    } else if (attributes?.pages?.data?.length === 1) {
+      res.push({
+        id: +item.id,
+        servicesName: attributes?.pages?.data[0].attributes.tab.tabName,
+        breadName: attributes.serviceName,
+        url: attributes?.pages?.data[0].attributes.url,
+        servicesPoster:
+          attributes?.pages?.data[0].attributes?.tab?.image?.data?.attributes
+            ?.url,
+      });
+    }
+  });
+  return res;
+};
+
+export const getServicesListSitemap = async () => {
+  const { data } = await client.query({
+    query: getServicesQuery,
+  });
+  let res = [];
+  data.services.data.map((item) => {
+    const { attributes } = item;
+    if (attributes?.pages?.data?.length > 1) {
+      res.push({
+        id: +item.id,
+        url: attributes.url,
+        servicesName: attributes.serviceName,
+        meta: attributes?.meta
+          ? {
+              metaHead: attributes?.meta?.metaHead
+                ? attributes.meta.metaHead
+                : null,
+              metaDescription: attributes?.meta?.metaDescription
+                ? attributes.meta.metaDescription
+                : null,
+              header: attributes?.meta?.header ? attributes.meta.header : null,
+            }
+          : null,
+        seoBlock: attributes?.seoBlock
+          ? {
+              header: attributes?.seoBlock?.seoHeader
+                ? attributes?.seoBlock?.seoHeader
+                : null,
+              seoDescription: attributes?.seoBlock?.seoDescription
+                ? attributes?.seoBlock?.secondDescription
+                : null,
+            }
+          : null,
+        servicesPoster: attributes.servicePoster.data.attributes.url,
+      });
+    }
   });
   return res;
 };
@@ -686,13 +761,13 @@ export const getCurrentProductCard = async (url) => {
 
 export const getProductLinks = async () => {
   const { data } = await client.query({
-    query: getServicesQuery,
+    query: ProductLinksQuery,
   });
   let res = [];
-  data.services.data.map((item) => {
+  data.straniczyUslugs.data.map((item) => {
     res.push({
-      url: item.id,
-      title: item.attributes.serviceName,
+      url: item.attributes.url,
+      title: item.attributes.title,
     });
   });
   return res;

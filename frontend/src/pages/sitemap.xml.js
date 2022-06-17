@@ -2,6 +2,7 @@ import {
   getAllNews,
   getAllProductCard,
   getServicesList,
+  getServicesListSitemap,
 } from "../lib/apiFunctions";
 import { DOMAIN, PAGES } from "../lib/const";
 
@@ -12,7 +13,7 @@ const Sitemap = () => {
 export const getServerSideProps = async ({ res }) => {
   const staticPaths = PAGES.map((page) => `${DOMAIN}${page}`);
   const news = await getAllNews();
-  const catalog = await getServicesList();
+  const catalog = await getServicesListSitemap();
   const products = await getAllProductCard();
   const createStream = (path) => {
     return `<url>
@@ -36,14 +37,14 @@ export const getServerSideProps = async ({ res }) => {
         .join("")}
       ${catalog
         .map((item) => {
-          const path = item.id;
-          return createStream(`${DOMAIN}/catalog?id=${path}`);
+          const path = item.url;
+          return createStream(`${DOMAIN}/catalog/${path}`);
         })
         .join("")}
       ${products
         .map((item) => {
           const path = item.url;
-          return createStream(`${DOMAIN}/catalog/${item.url}`);
+          return createStream(`${DOMAIN}/${item.url}`);
         })
         .join("")}
   </urlset>

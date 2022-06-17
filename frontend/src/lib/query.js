@@ -273,13 +273,40 @@ export const getServicesQuery = gql`
       data {
         id
         attributes {
+          url
           serviceName
+          meta {
+            header
+            metaHead
+            metaDescription
+          }
+          pages {
+            data {
+              attributes {
+                url
+                tab {
+                  tabName
+                  image {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
           servicePoster {
             data {
               attributes {
                 url
               }
             }
+          }
+          seoBlock {
+            seoHeader
+            seoDescription
           }
         }
       }
@@ -492,7 +519,7 @@ query getCurrentProduct {
 
 export const getSmallCardProductQuery = (id) => gql`
 query currentProductCard {
-  straniczyUslugs(filters: { category: { id: { eq: ${id} } } }, pagination: {page: 1, pageSize: 100}) {
+  straniczyUslugs(filters: { category: { url: { eq: "${id}" } } }, pagination: {page: 1, pageSize: 100}) {
     data {
       attributes {
         url

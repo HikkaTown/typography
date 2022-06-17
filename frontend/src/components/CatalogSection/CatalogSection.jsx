@@ -3,7 +3,7 @@ import CatalogItem from "@/uikit/CatalogItem/CatalogItem";
 import s from "./CatalogSection.module.scss";
 import { Element } from "react-scroll";
 import Button2 from "../uikit/Button2/Button2";
-export default function CatalogSection({ data }) {
+export default function CatalogSection({ data, header }) {
   const [size, setSize] = useState(8);
 
   const handleMoreBtn = () => {
@@ -14,7 +14,7 @@ export default function CatalogSection({ data }) {
     <section className={s.section}>
       <Element id="catalog" />
       <div className={s.container}>
-        <h2 className={s.header}>Каталог наших услуг</h2>
+        <h2 className={s.header}>{header ? header : "Каталог наших услуг"}</h2>
         <div className={s.items}>
           {data &&
             data.slice(0, size).map((item, index) => {
@@ -23,7 +23,11 @@ export default function CatalogSection({ data }) {
                   key={index}
                   className={s.item}
                   data={item}
-                  href={`/catalog?id=${item.id}`}
+                  href={
+                    item?.meta?.metaHead
+                      ? `/catalog/${item.url}`
+                      : `/${item.url}`
+                  }
                 />
               );
             })}

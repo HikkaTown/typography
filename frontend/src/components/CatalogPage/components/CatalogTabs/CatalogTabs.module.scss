@@ -22,7 +22,7 @@
 
 .track {
   width: 100%;
-  background-color: #EAE8E8;
+  background-color: #eae8e8;
   height: "2px";
   border-radius: "2px";
   bottom: 0;
@@ -56,6 +56,8 @@
   @include desktop {
     margin-right: 0;
     margin-bottom: 4px;
+    white-space: normal;
+    text-align: left;
     &:last-of-type {
       margin-bottom: 0;
     }
