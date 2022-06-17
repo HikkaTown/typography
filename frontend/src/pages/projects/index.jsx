@@ -7,6 +7,7 @@ import {
   getProductLinks,
   getProjectPage,
   getProjectTabs,
+  getServicesList,
 } from "@/lib/apiFunctions";
 import { DOMAIN } from "@/lib/const";
 
@@ -23,6 +24,7 @@ export default function Index({ pageData, tabs, cards, footerLinks }) {
         />
         <meta property="og:description" content={pageData.metaDescription} />
         <meta property="og:url" content={DOMAIN + "/projects"} />
+        <link rel="canonical" href={DOMAIN + "/projects"} />
       </Head>
       <Layout footerLinks={footerLinks}>
         <ProjectsPageSection
@@ -43,7 +45,7 @@ export async function getServerSideProps({ res }) {
   const pageData = await getProjectPage();
   const tabs = await getProjectTabs();
   const cards = await getAllProjectsCard();
-  const footerLinks = await getProductLinks();
+  const footerLinks = await getServicesList();
   return {
     props: { pageData, tabs, cards, footerLinks },
   };

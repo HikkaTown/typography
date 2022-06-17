@@ -1,7 +1,12 @@
 import Head from "next/head";
 import Layout from "@/components/Layout/Layout";
 import NewsPageSection from "@/components/NewsPageSection/NewsPageSection";
-import { getAllNews, getNewsPage, getProductLinks } from "@/lib/apiFunctions";
+import {
+  getAllNews,
+  getNewsPage,
+  getProductLinks,
+  getServicesList,
+} from "@/lib/apiFunctions";
 import { DOMAIN } from "@/lib/const";
 
 export default function Index({ news, pageData, footerLinks }) {
@@ -17,6 +22,7 @@ export default function Index({ news, pageData, footerLinks }) {
         />
         <meta property="og:description" content={pageData.metaHead} />
         <meta property="og:url" content={DOMAIN + "/blog"} />
+        <link rel="canonical" href={DOMAIN + "/blog"} />
       </Head>
       <Layout footerLinks={footerLinks}>
         <NewsPageSection data={news} header={pageData.header} />
@@ -32,7 +38,7 @@ export async function getServerSideProps({ res }) {
   );
   const pageData = await getNewsPage();
   const newsList = await getAllNews();
-  const footerLinks = await getProductLinks();
+  const footerLinks = await getServicesList();
   return {
     props: {
       pageData: pageData,

@@ -36,6 +36,7 @@ export default function Index({
         />
         <meta property="og:description" content={pageData.metaDescription} />
         <meta property="og:url" content={DOMAIN} />
+        <link rel="canonical" href="/" />
       </Head>
       <Layout footerLinks={footerLinks}>
         <HeroMainSection data={pageData} />
@@ -59,7 +60,7 @@ export async function getServerSideProps({ res }) {
   const reviews = await getReviews();
   const news = await getAllNews();
   const services = await getServicesList();
-  const footerLinks = await getProductLinks();
+  const footerLinks = await getServicesList();
   return {
     props: { response: response, reviews, news, services, footerLinks },
   };

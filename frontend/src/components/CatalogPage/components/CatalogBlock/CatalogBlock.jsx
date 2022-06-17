@@ -6,12 +6,12 @@ import { useRouter } from "next/router";
 import s from "./CatalogBlock.module.scss";
 export default function CatalogBlock({ tabs, id }) {
   const router = useRouter();
-  const [isActive, setIsActive] = useState(id || tabs[0].id);
+  const [isActive, setIsActive] = useState(id || tabs[0].url);
   const [currentCards, setCurrentCards] = useState([]);
   const [loaded, setLoaded] = useState(false);
   useEffect(() => {
     async function getData() {
-      const res = await getSmallProduct(+isActive);
+      const res = await getSmallProduct(isActive);
       setCurrentCards(res);
     }
     getData();
@@ -43,7 +43,7 @@ export default function CatalogBlock({ tabs, id }) {
                 <CatalogItem
                   className={s.item}
                   key={index}
-                  href={`/catalog/${item.url}`}
+                  href={`/${item.url}`}
                   data={item}
                 />
               );

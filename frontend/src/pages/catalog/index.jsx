@@ -13,6 +13,7 @@ import {
   getServicesList,
 } from "../../lib/apiFunctions";
 import { DOMAIN } from "@/lib/const";
+import CatalogSection from "@/components/CatalogSection/CatalogSection";
 
 export default function Index({
   tabs,
@@ -33,10 +34,12 @@ export default function Index({
           content={pageData.metaDescription}
         />
         <meta property="og:description" content={pageData.metaDescription} />
-        <meta property="og:url" content={DOMAIN + "/contacts"} />
+        <meta property="og:url" content={DOMAIN + "/catalog"} />
+        <link rel="canonical" href={DOMAIN + "/catalog"} />
       </Head>
       <Layout footerLinks={footerLinks}>
         <CatalogPage tabs={tabs} header={pageData.header} id={id} />
+        {/* <CatalogSection data={tabs} header={pageData.header} /> */}
         <ReviewSection data={reviews} />
         <NewsSection data={news} />
       </Layout>
@@ -53,8 +56,8 @@ export const getServerSideProps = async ({ query, res }) => {
   const news = await getAllNews();
   const reviews = await getReviews();
   const pageData = await getCatalogPage();
-  const id = context?.query?.id ?? null;
-  const footerLinks = await getProductLinks();
+  const id = query?.id ?? null;
+  const footerLinks = await getServicesList();
   return {
     props: {
       footerLinks,

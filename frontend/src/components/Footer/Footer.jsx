@@ -44,11 +44,11 @@ export default function Footer({ footerLinks }) {
               .map((item, index) => {
                 return (
                   <FooterLink
-                    href={"/catalog?id=" + item.url}
+                    href={"/catalog/" + item.url}
                     key={index}
                     className={s.link}
                   >
-                    {item.title}
+                    {item.servicesName}
                   </FooterLink>
                 );
               })}
@@ -64,11 +64,11 @@ export default function Footer({ footerLinks }) {
               .map((item, index) => {
                 return (
                   <FooterLink
-                    href={"/catalog?id=" + item.url}
+                    href={"/catalog/" + item.url}
                     key={index}
                     className={s.link}
                   >
-                    {item.title}
+                    {item.servicesName}
                   </FooterLink>
                 );
               })}

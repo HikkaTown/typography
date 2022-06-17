@@ -7,6 +7,7 @@ import {
   getAllNews,
   getCurrentNews,
   getProductLinks,
+  getServicesList,
 } from "@/lib/apiFunctions";
 import { DOMAIN, PATH_IMAGE } from "@/lib/const";
 import s from "./Post.module.scss";
@@ -88,7 +89,7 @@ export const getServerSideProps = async ({ query, res }) => {
     "public, s-maxage=10, stale-while-revalidate=59"
   );
   const pageData = await getCurrentNews(query.id);
-  const footerLinks = await getProductLinks();
+  const footerLinks = await getServicesList();
   const news = await getAllNews();
   if (!pageData) {
     return {
