@@ -753,6 +753,21 @@ export const getCurrentProductCard = async (url) => {
             return parseTable(item);
           })
         : null,
+      category: attributes?.category?.data?.attributes?.serviceName
+        ? {
+            serviceName: attributes?.category?.data?.attributes?.serviceName
+              ? attributes?.category?.data?.attributes?.serviceName
+              : null,
+            url: attributes?.category?.data?.attributes?.url
+              ? attributes?.category?.data?.attributes?.url
+              : null,
+            pages: attributes?.category?.data?.attributes?.pages?.data?.length
+              ? attributes?.category?.data?.attributes?.pages?.data?.map(
+                  (page) => page.attributes.url
+                )
+              : null,
+          }
+        : null,
     };
     res.push(object);
   });

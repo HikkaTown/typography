@@ -578,6 +578,23 @@ export const getCurrentProductCardQuery = (url) => gql`
           metaHead
           metaDescription
           title
+          category {
+            data {
+              attributes {
+                serviceName
+                url
+                pages(pagination: {
+              page: 1, pageSize: 100
+            }) {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+              }
+            }
+          }
           proekt {
             data {
               id
