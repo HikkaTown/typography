@@ -1,7 +1,6 @@
 import React from "react";
 import Head from "next/head";
 import CallbackProudctSection from "@/components/CallbackProudctSection/CallbackProudctSection";
-import CustomBreadrcumbs from "@/components/CustomBreadrcumbs/CustomBreadrcumbs";
 import HowMuchSection from "@/components/HowMuchSection/HowMuchSection";
 import InfromationProduct from "@/components/InfromationProduct/InfromationProduct";
 import Layout from "@/components/Layout/Layout";
@@ -12,15 +11,13 @@ import ShortDescription from "@/components/ShortDescription/ShortDescription";
 import StepSection from "@/components/StepSection/StepSection";
 import TechnicalRequirementsSection from "@/components/TechnicalRequirementsSection/TechnicalRequirementsSection";
 import {
-  getAllProjectsCard,
   getContactCards,
   getCurrentProductCard,
   getCurrentProjects,
-  getProductCardUrl,
-  getProductLinks,
   getServicesList,
 } from "@/lib/apiFunctions";
 import { DOMAIN } from "@/lib/const";
+import Breadcumbs from "@/components/Breadcumbs/Breadcumbs";
 
 export default function Index({
   pageData,
@@ -49,7 +46,10 @@ export default function Index({
         <link rel="canonical" href={DOMAIN + pageData.url} />
       </Head>
       <Layout footerLinks={footerLinks}>
-        <CustomBreadrcumbs titlePage={pageData.pageData.title} />
+        <Breadcumbs
+          categoryPage={pageData.category}
+          titlePage={pageData.pageData.title}
+        />
         <ProductMainSection
           style={pageData.headStyle}
           header={pageData.pageData.title}
