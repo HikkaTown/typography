@@ -19,7 +19,7 @@ export default function Breadcumbs({ categoryPage, titlePage }) {
         </li>
         {categoryPage?.pages?.length > 1 ? (
           <li className={s.item}>
-            <Link href={`/catalog/${categoryPage.url}`}>
+            <Link href={`/${categoryPage.url}`}>
               <a className={s.link}>{categoryPage.serviceName}</a>
             </Link>
             <Star />

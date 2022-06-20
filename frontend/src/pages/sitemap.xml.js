@@ -38,7 +38,7 @@ export const getServerSideProps = async ({ res }) => {
       ${catalog
         .map((item) => {
           const path = item.url;
-          return createStream(`${DOMAIN}/catalog/${path}`);
+          return createStream(`${DOMAIN}/${path}`);
         })
         .join("")}
       ${products
