@@ -23,11 +23,7 @@ export default function CatalogSection({ data, header }) {
                   key={index}
                   className={s.item}
                   data={item}
-                  href={
-                    item?.meta?.metaHead
-                      ? `/catalog/${item.url}`
-                      : `/${item.url}`
-                  }
+                  href={item?.meta?.metaHead ? `/${item.url}` : `/${item.url}`}
                 />
               );
             })}

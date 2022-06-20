@@ -27,7 +27,7 @@ export default function CatalogTabs({
               isActive={isActive === item.url ? true : false}
               onClick={() => {
                 router.push(
-                  item?.meta?.metaHead ? `/catalog/${item.url}` : `/${item.url}`
+                  item?.meta?.metaHead ? `/${item.url}` : `/${item.url}`
                 );
                 if (item?.meta?.metaHead) {
                   setIsActive(item.url);

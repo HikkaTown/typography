@@ -432,24 +432,32 @@ export const getServicesList = async () => {
         seoBlock: attributes?.seoBlock
           ? {
               header: attributes?.seoBlock?.seoHeader
-                ? attributes?.seoBlock?.seoHeader
+                ? attributes.seoBlock.seoHeader
                 : null,
               seoDescription: attributes?.seoBlock?.seoDescription
-                ? attributes?.seoBlock?.secondDescription
+                ? attributes.seoBlock.seoDescription
                 : null,
             }
           : null,
-        servicesPoster: attributes.servicePoster.data.attributes.url,
+        servicesPoster: attributes?.servicePoster?.data?.attributes?.url
+          ? attributes?.servicePoster?.data?.attributes?.url
+          : null,
       });
     } else if (attributes?.pages?.data?.length === 1) {
       res.push({
         id: +item.id,
-        servicesName: attributes?.pages?.data[0].attributes.tab.tabName,
-        breadName: attributes.serviceName,
-        url: attributes?.pages?.data[0].attributes.url,
-        servicesPoster:
-          attributes?.pages?.data[0].attributes?.tab?.image?.data?.attributes
-            ?.url,
+        servicesName: attributes?.pages?.data[0]?.attributes?.tab?.tabName
+          ? attributes?.pages?.data[0]?.attributes?.tab?.tabName
+          : null,
+        breadName: attributes?.serviceName ? attributes?.serviceName : null,
+        url: attributes?.pages?.data[0]?.attributes?.url
+          ? attributes?.pages?.data[0]?.attributes?.url
+          : null,
+        servicesPoster: attributes?.pages?.data[0].attributes?.tab?.image?.data
+          ?.attributes?.url
+          ? attributes?.pages?.data[0].attributes?.tab?.image?.data?.attributes
+              ?.url
+          : null,
       });
     }
   });

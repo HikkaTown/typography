@@ -45,9 +45,7 @@ export default function Footer({ footerLinks }) {
                 return (
                   <FooterLink
                     href={
-                      item?.meta?.metaHead
-                        ? "/catalog/" + item.url
-                        : `/${item.url}`
+                      item?.meta?.metaHead ? "/" + item.url : `/${item.url}`
                     }
                     key={index}
                     className={s.link}
@@ -69,9 +67,7 @@ export default function Footer({ footerLinks }) {
                 return (
                   <FooterLink
                     href={
-                      item?.meta?.metaHead
-                        ? "/catalog/" + item.url
-                        : `/${item.url}`
+                      item?.meta?.metaHead ? "/" + item.url : `/${item.url}`
                     }
                     key={index}
                     className={s.link}
