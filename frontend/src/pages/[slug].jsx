@@ -43,7 +43,7 @@ function Product({ pageData, projects, officesList, footerLinks }) {
         />
         <meta property="og:url" content={DOMAIN + pageData.url} />
         <meta property="og:site_name" content="Первый печатный" />
-        <link rel="canonical" href={DOMAIN + pageData.url} />
+        <link rel="canonical" href={DOMAIN + "/" + pageData.url} />
       </Head>
       <Layout footerLinks={footerLinks}>
         <Breadcumbs
@@ -111,7 +111,11 @@ function Service({ pageData, news, reviews, footerLinks, tabs }) {
         />
         <meta property="og:url" content={DOMAIN + "/" + pageData.url} />
         <link rel="canonical" href={DOMAIN + "/" + pageData.url} />
-        <meta name="robots" content="noindex, follow" />
+        {pageData.url === "foto-ryadom" ? (
+          <meta name="robots" content="noindex, follow" />
+        ) : (
+          ""
+        )}
       </Head>
       <Layout footerLinks={footerLinks}>
         <CatalogPage
