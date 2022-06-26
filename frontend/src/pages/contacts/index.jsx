@@ -47,10 +47,6 @@ export default function Index({ pageData, cards, footerLinks }) {
 }
 
 export const getServerSideProps = async ({ res }) => {
-  res.setHeader(
-    "Cache-Control",
-    "public, s-maxage=10, stale-while-revalidate=59"
-  );
   const pageData = await getContactPage();
   const cards = await getContactCards();
   const footerLinks = await getServicesList();
