@@ -18,6 +18,17 @@ export default function CatalogTabs({
       key={isActive + 1}
       universal={true}
     >
+      <Tab
+        className={s.tab}
+        key={"item.id"}
+        isActive={isActive === null ? true : false}
+        onClick={() => {
+          setIsActive(null);
+          router.push("/catalog");
+        }}
+      >
+        Все
+      </Tab>
       {data &&
         data.map((item) => {
           return (

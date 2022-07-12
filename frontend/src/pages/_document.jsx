@@ -5,7 +5,7 @@ import { DOMAIN } from "@/lib/const";
 class MyDocument extends Document {
   render() {
     return (
-      <Html lang="ru">
+      <Html>
         <Head itemScope itemType="http://schema.org/WPHeader">
           <meta property="og:type" content="website" />
           <meta property="og:locale" content="ru_RU" />
