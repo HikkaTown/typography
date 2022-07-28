@@ -17,7 +17,7 @@ export default function ProjectsContainer({ cards }) {
             return <ProjectCard className={s.card} key={index} data={item} />;
           })}
       </div>
-      {cards > visibleCount ? (
+      {cards?.length > visibleCount ? (
         <Button4 className={s.btn} onClick={handleShowMore}>
           Показать ещё
         </Button4>

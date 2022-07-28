@@ -113,14 +113,14 @@ export const getAllProjectsCard = async () => {
   let result = [];
   data.projects.data.map((item) => {
     let images = [];
-    if (item?.attributes?.images?.data.length) {
+    if (item?.attributes?.images?.data?.length) {
       item.attributes.images.data.map((itemImage) => {
         images.push(itemImage.attributes.url);
       });
     }
     let object =
       item?.attributes?.category?.data?.attributes?.typeProjectName &&
-      images.length
+      images?.length
         ? {
             images: images?.length ? images : null,
             category: item?.attributes?.category?.data?.attributes
@@ -806,3 +806,4 @@ export const getPrivacy = async () => {
   });
   return res;
 };
+

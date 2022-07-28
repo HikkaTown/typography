@@ -4,7 +4,6 @@ import Layout from "@/components/Layout/Layout";
 import ProjectsPageSection from "@/components/ProjectsPageSection/ProjectsPageSection";
 import {
   getAllProjectsCard,
-  getProductLinks,
   getProjectPage,
   getProjectTabs,
   getServicesList,
@@ -50,3 +49,4 @@ export async function getServerSideProps({ res }) {
     props: { pageData, tabs, cards, footerLinks },
   };
 }
+
