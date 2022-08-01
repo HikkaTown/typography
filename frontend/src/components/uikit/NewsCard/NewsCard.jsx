@@ -20,9 +20,9 @@ export default function NewsCard({ className, data }) {
           className={[s.image]}
           wrapperClass={s.image_wrapper}
         />
-        <h3 className={s.card_name} itemProp="headline">
+        <span className={s.card_name} itemProp="headline">
           {data.postName}
-        </h3>
+        </span>
         <p
           className={s.date}
           itemProp="datePublished"
@@ -34,3 +34,4 @@ export default function NewsCard({ className, data }) {
     </Link>
   );
 }
+

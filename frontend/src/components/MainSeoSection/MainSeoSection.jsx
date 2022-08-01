@@ -23,7 +23,7 @@ export default function MainSeoSection({ data }) {
             className={[s.seo_image]}
           />
         </div>
-        <h3 className={s.seo_header}>{data.secondHeader}</h3>
+        <h2 className={s.seo_header}>{data.secondHeader}</h2>
         <div className={s.row}>
           <div className={s.seo_text}>
             <DynamicMarkdown>{data.secondDescription}</DynamicMarkdown>
@@ -33,3 +33,4 @@ export default function MainSeoSection({ data }) {
     </section>
   );
 }
+

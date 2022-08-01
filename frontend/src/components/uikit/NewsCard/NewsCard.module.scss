@@ -5,10 +5,10 @@
   cursor: pointer;
   max-width: 270px;
   width: 100vw;
-  box-shadow: 0px 2px 5px 0px #726C6740;
+  box-shadow: 0px 2px 5px 0px #726c6740;
   border-radius: 12px;
   @include hover {
-    background-color: #C2DAFF;
+    background-color: #c2daff;
     box-shadow: none;
     .image {
       transform: scale(1.1);
@@ -31,14 +31,15 @@
   overflow: hidden;
 }
 
-.card_name  {
+.card_name {
   margin: 0 0 4px;
   padding: 0 16px;
+  display: block;
   @include body3-500($primary-text);
 }
 
 .date {
   margin: 0;
   padding: 0 16px 16px;
-  @include body4-500($secondary-text)
+  @include body4-500($secondary-text);
 }

@@ -14,7 +14,9 @@ export default function CatalogSection({ data, header }) {
     <section className={s.section}>
       <Element id="catalog" />
       <div className={s.container}>
-        <h2 className={s.header}>{header ? header : "Каталог наших услуг"}</h2>
+        <span className={s.header}>
+          {header ? header : "Каталог наших услуг"}
+        </span>
         <div className={s.items}>
           {data &&
             data.slice(0, size).map((item, index) => {

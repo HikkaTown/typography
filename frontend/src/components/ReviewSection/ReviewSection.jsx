@@ -7,7 +7,7 @@ import ReviewSlider from "./components/ReviewSlider/ReviewSlider";
 export default function ReviewSection({ data }) {
   return (
     <section className={s.section}>
-      <h2 className={s.header_mobile}>Что говорят о нас</h2>
+      <span className={s.header_mobile}>Что говорят о нас</span>
       <div className={s.container}>
         <LazyImage
           src="/assets/ReviewSection/image_tab.png"
@@ -16,7 +16,7 @@ export default function ReviewSection({ data }) {
           wrapperClass={s.image_wrapper}
         />
         <div className={s.content}>
-          <h2 className={s.header}>Что говорят о нас</h2>
+          <span className={s.header}>Что говорят о нас</span>
           <ReviewSlider className={s.slider} data={data} />
         </div>
       </div>

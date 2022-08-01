@@ -10,7 +10,7 @@ export default function NewsSection({ data }) {
         <Star className={s.three_star} />
         <Star className={s.four_star} />
         <div className={s.content}>
-          <h2 className={s.header}>Блог нашей компании</h2>
+          <span className={s.header}>Блог нашей компании</span>
           <p className={s.title}>
             Для нас важнее всего, чтобы клиенты получали от нас больше, чем
             планировали
@@ -39,3 +39,4 @@ const Star = ({ className }) => {
     </svg>
   );
 };
+
