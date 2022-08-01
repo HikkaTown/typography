@@ -8,7 +8,7 @@ export default function ProjectSection({ data }) {
   return (
     <section className={s.section}>
       <div className={s.container}>
-        <h2 className={s.header}>Наши работы</h2>
+        <span className={s.header}>Наши работы</span>
         <div className={s.cards}>
           {data &&
             data.slice(0, 3).map((item, index) => {

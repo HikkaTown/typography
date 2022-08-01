@@ -106,12 +106,12 @@ export default function StepSection({ data, officesData }) {
   return (
     <section className={s.section}>
       <div className={s.container}>
-        <h2 className={s.header}>{data.header}</h2>
+        <span className={s.header}>{data.header}</span>
         {data.defaultText && <InfoBlock defaultText={data.defaultText} />}
         <StepsBlock count={1} className={s.step} id="1" />
-        <h3 className={s.header_step}>
+        <span className={s.header_step}>
           {data.steps[0].header ? data.steps[0].header : ""}
-        </h3>
+        </span>
         {data ? (
           <StepComponent
             products={data.steps[0].products}
@@ -124,9 +124,9 @@ export default function StepSection({ data, officesData }) {
 
         {data.steps[1] && <StepsBlock count={2} className={s.step} id="2" />}
         {data.steps[1] && (
-          <h3 className={s.header_step}>
+          <span className={s.header_step}>
             {data.steps[1].header ? data.steps[1].header : ""}
-          </h3>
+          </span>
         )}
         {data.steps[1] ? (
           <TwoStepComponent
@@ -138,11 +138,11 @@ export default function StepSection({ data, officesData }) {
           ""
         )}
         <StepsBlock count={3} className={s.step} id="3" />
-        <h3 className={s.header_step}>
+        <span className={s.header_step}>
           {data.files
             ? "Прикрепите оттиск печати"
             : "Внесите ОГРН из свидетельства и название из устава"}
-        </h3>
+        </span>
         {data.files ? (
           <AddFiles
             register={register}
@@ -154,7 +154,7 @@ export default function StepSection({ data, officesData }) {
           <StepWithoutFile register={register} reset={reset} />
         )}
         <StepsBlock count={4} className={s.step} id="4" />
-        <h3 className={s.header_step}>Выберете способ получения печати</h3>
+        <span className={s.header_step}>Выберете способ получения печати</span>
         <DeliveryStep
           select={devliveryAddress}
           setSelect={setDeliveryAddres}

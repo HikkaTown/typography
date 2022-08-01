@@ -19,7 +19,7 @@ export default function CallbackProudctSection({ title, theme }) {
         <Mails className={s.second_mails} />
         <Star className={s.first_star} />
         <Star className={s.second_star} />
-        <h2 className={s.header}>{title}</h2>
+        <span className={s.header}>{title}</span>
         <Button2 className={s.btn} type="button" onClick={handleOpen}>
           Оставить заявку
         </Button2>
@@ -36,3 +36,4 @@ export default function CallbackProudctSection({ title, theme }) {
     </section>
   );
 }
+

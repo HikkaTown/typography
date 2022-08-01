@@ -9,7 +9,7 @@ export default function TechnicalRequirementsSection({ data }) {
   return (
     <section className={s.section}>
       <div className={s.container}>
-        <h2 className={s.header}>Технические требования</h2>
+        <span className={s.header}>Технические требования</span>
         <div className={s.tech_mobile}>
           {data &&
             data.map((item, index) => {
@@ -49,3 +49,4 @@ export default function TechnicalRequirementsSection({ data }) {
     </section>
   );
 }
+

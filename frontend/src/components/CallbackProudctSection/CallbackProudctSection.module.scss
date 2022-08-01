@@ -5,7 +5,7 @@
 .container {
   position: relative;
   padding: 32px 0;
-  background-color: #FFDFAE;
+  background-color: #ffdfae;
   @include tablet {
     max-width: calc(100% - 88px);
     width: 100vw;
@@ -25,6 +25,7 @@
   max-width: calc(100% - 32px);
   width: 100vw;
   margin: 0 auto 24px;
+  display: block;
   @include body1-400($primary-text);
   @include tablet {
     max-width: 490px;
