@@ -17,6 +17,7 @@
 .header {
   @include headline-4($primary-text);
   padding: 0;
+  display: block;
   margin: 0 0 16px;
   @include tablet {
     margin-bottom: 24px;
@@ -33,6 +34,7 @@
 .header_step {
   margin: 0 0 24px;
   padding: 0;
+  display: block;
   @include body1-400($primary-text);
   @include tablet {
     @include headline-5($primary-text);

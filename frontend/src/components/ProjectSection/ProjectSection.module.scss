@@ -18,6 +18,7 @@
   @include headline-3-mob($primary-text);
   margin: 0 0 24px;
   padding: 0;
+  display: block;
   @include tablet {
     @include headline-3($primary-text);
     margin-bottom: 32px;
@@ -30,11 +31,11 @@
   row-gap: 16px;
   margin-bottom: 24px;
   @include tablet {
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 24px;
   }
   @include desktop {
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 

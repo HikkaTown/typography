@@ -32,6 +32,7 @@
   @include headline-5($primary-text);
   margin: 0;
   padding: 0;
+  display: block;
 }
 
 .list {
@@ -42,7 +43,7 @@
   grid-template-columns: 1fr;
   row-gap: 12px;
   @include desktop {
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 12px 24px;
   }
 }

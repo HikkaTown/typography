@@ -47,13 +47,14 @@
   margin: 0 0 12px;
   padding: 0;
   @include body2-400($primary-text);
+  display: block;
   text-align: center;
 }
 
 .price {
   margin: 0;
   padding: 0;
-  @include body3-500($primary-text)
+  @include body3-500($primary-text);
 }
 
 .added {

@@ -21,7 +21,7 @@ export default function InfromationProduct({ data }) {
               fill="#056AC7"
             />
           </svg>
-          <h2 className={s.header}>Информация</h2>
+          <span className={s.header}>Информация</span>
         </div>
         <ul className={s.list}>
           {data &&
@@ -38,3 +38,4 @@ export default function InfromationProduct({ data }) {
     </section>
   );
 }
+

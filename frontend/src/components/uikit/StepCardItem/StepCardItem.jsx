@@ -22,7 +22,7 @@ export default function StepCardItem({
         className={[s.image]}
         wrapperClass={s.image_wrapper}
       />
-      <h3 className={s.card_name}>{data.name}</h3>
+      <span className={s.card_name}>{data.name}</span>
       <p className={s.price}>
         {data.price === 0 ? "Бесплатно" : data.price + " ₽"}
       </p>
@@ -48,3 +48,4 @@ const CardInCart = () => {
     </div>
   );
 };
+
