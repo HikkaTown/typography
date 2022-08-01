@@ -1,5 +1,5 @@
 .section {
-  background-color: #FEBC5B;
+  background-color: #febc5b;
   padding: 48px 0;
   @include tablet {
     padding: 80px 0;
@@ -27,6 +27,7 @@
 .header {
   padding: 0;
   margin: 0 0 32px;
+  display: block;
   @include headline-2-mob($primary-text);
   @include tablet {
     @include headline-2($primary-text);
@@ -59,7 +60,6 @@
   margin-left: 10px;
 }
 
-
 .benefits_list {
   @include tablet {
     max-width: 680px;
@@ -68,7 +68,7 @@
     position: relative;
     &::after {
       position: absolute;
-      content: '';
+      content: "";
       height: 100%;
       width: 100%;
       border-radius: 50%;

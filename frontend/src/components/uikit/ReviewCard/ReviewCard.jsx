@@ -18,9 +18,9 @@ export default function ReviewCard({ className, data }) {
           wrapperClass={s.image_wrapper}
         />
         <div className={s.person_info}>
-          <h3 className={s.person_name} itemProp="author">
+          <span className={s.person_name} itemProp="author">
             {data.personName}
-          </h3>
+          </span>
           <div className={s.person_start}>
             <>
               {renderStars(+data.stars).map((item) => {
@@ -68,3 +68,4 @@ const renderStars = (amount) => {
   }
   return stars;
 };
+

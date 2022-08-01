@@ -37,6 +37,7 @@ export default function Index({
         <meta property="og:description" content={pageData.metaDescription} />
         <meta property="og:url" content={DOMAIN} />
         <link rel="canonical" href="/" />
+        <meta name="yandex-verification" content="08f96c2fe1167ccc" />
       </Head>
       <Layout footerLinks={footerLinks}>
         <HeroMainSection data={pageData} />
@@ -65,3 +66,4 @@ export async function getServerSideProps({ res }) {
     props: { response: response, reviews, news, services, footerLinks },
   };
 }
+

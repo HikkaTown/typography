@@ -1,6 +1,6 @@
 .section {
   padding: 80px 0 110px;
-  background-color: #FED69A;
+  background-color: #fed69a;
   @include desktop {
     padding-top: 136px;
   }
@@ -14,7 +14,6 @@
 }
 
 .slider {
-  
   @include tablet {
     margin-left: 44px;
   }
@@ -42,13 +41,13 @@
     margin-left: calc($ml / 2);
     width: 100vw;
   }
-
 }
 
 .header {
   @include headline-3-mob($primary-text);
   padding: 0;
   margin: 0 0 16px;
+  display: block;
   @include tablet {
     @include headline-3($primary-text);
   }

@@ -1,7 +1,7 @@
 .card {
   max-width: 304px;
   width: 100vw;
-  background-color: $white; 
+  background-color: $white;
   padding: 16px;
   border-radius: 12px;
   @include desktop {
@@ -30,6 +30,7 @@
 .person_name {
   margin: 0 0 10px;
   padding: 0;
+  display: block;
   @include body2-500($primary-text);
 }
 

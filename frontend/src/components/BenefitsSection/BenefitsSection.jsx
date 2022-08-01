@@ -11,7 +11,7 @@ export default function BenefitsSection() {
     <section className={s.section}>
       <div className={s.container}>
         <div className={s.content}>
-          <h2 className={s.header}>Работать с нами удобно</h2>
+          <span className={s.header}>Работать с нами удобно</span>
           <ul className={s.list}>
             <li className={s.list_item}>
               <ListIcon className={s.list_icon} />
@@ -98,3 +98,4 @@ const StarForCard = ({ className }) => {
     </svg>
   );
 };
+

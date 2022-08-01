@@ -1,6 +1,6 @@
 .section {
   padding: 80px 0;
-  background-color: #AFD7FD;
+  background-color: #afd7fd;
   overflow: hidden;
 }
 
@@ -52,6 +52,7 @@
 
 .header_mobile {
   @include headline-3-mob($primary-text);
+  display: block;
   margin: 0 0 32px;
   padding: 0;
   text-align: center;

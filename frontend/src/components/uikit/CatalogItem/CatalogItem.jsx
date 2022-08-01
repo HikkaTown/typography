@@ -14,8 +14,9 @@ export default function CatalogItem({ className, data, href }) {
           src={PATH_IMAGE + data.servicesPoster}
           alt={data.servicesName}
         />
-        <h3 className={s.card_name}>{data.servicesName}</h3>
+        <h2 className={s.card_name}>{data.servicesName}</h2>
       </div>
     </Link>
   );
 }
+
