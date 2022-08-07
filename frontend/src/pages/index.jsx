@@ -66,4 +66,3 @@ export async function getServerSideProps({ res }) {
     props: { response: response, reviews, news, services, footerLinks },
   };
 }
-
