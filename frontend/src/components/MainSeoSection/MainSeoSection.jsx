@@ -11,7 +11,7 @@ export default function MainSeoSection({ data }) {
         <h2 className={s.header}>{data.firstHeader}</h2>
         <div className={s.row}>
           <div className={s.seo_text}>
-            <ReactMarkdown children={data.firstDescription} />
+            <ReactMarkdown>{data.firstDescription}</ReactMarkdown>
           </div>
           <LazyImage
             src={PATH_IMAGE + data.seoImagePc}
@@ -24,7 +24,7 @@ export default function MainSeoSection({ data }) {
         <h2 className={s.seo_header}>{data.secondHeader}</h2>
         <div className={s.row}>
           <div className={s.seo_text}>
-            <ReactMarkdown children={data.secondDescription} />
+            <ReactMarkdown>{data.secondDescription}</ReactMarkdown>
           </div>
         </div>
       </div>
