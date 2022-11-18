@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 import React from "react";
 import s from "./SeoProduct.module.scss";
 
-const DynamicMarkdown = dynamic(() => import("react-markdown"), { ssr: false });
+const DynamicMarkdown = dynamic(() => import("react-markdown"), { ssr: true });
 
 export default function SeoProduct({ data }) {
   return (
