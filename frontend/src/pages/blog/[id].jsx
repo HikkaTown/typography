@@ -11,9 +11,7 @@ import {
 } from "@/lib/apiFunctions";
 import { DOMAIN, PATH_IMAGE } from "@/lib/const";
 import s from "./Post.module.scss";
-import dynamic from "next/dynamic";
-
-const DynamicMarkdown = dynamic(() => import("react-markdown"), { ssr: true });
+import ReactMarkdown from "react-markdown";
 
 export default function Index({ pageData, news, footerLinks }) {
   return (
@@ -65,7 +63,7 @@ export default function Index({ pageData, news, footerLinks }) {
                 {new Date(pageData.postDate).toLocaleDateString("ru-RU")}
               </p>
               <div className={s.description} itemProp="articleBody">
-                <DynamicMarkdown>{pageData.postText}</DynamicMarkdown>
+                <ReactMarkdown>{pageData.postText}</ReactMarkdown>
               </div>
             </div>
           </div>
