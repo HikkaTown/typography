@@ -4,7 +4,7 @@ import { LazyImage } from "@/components/LazyImage/LazyImage";
 import s from "./MainSeoSection.module.scss";
 import dynamic from "next/dynamic";
 
-const DynamicMarkdown = dynamic(() => import("react-markdown"), { ssr: false });
+const DynamicMarkdown = dynamic(() => import("react-markdown"), { ssr: true });
 
 export default function MainSeoSection({ data }) {
   return (
@@ -33,4 +33,3 @@ export default function MainSeoSection({ data }) {
     </section>
   );
 }
-

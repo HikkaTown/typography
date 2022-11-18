@@ -13,7 +13,7 @@ import { DOMAIN, PATH_IMAGE } from "@/lib/const";
 import s from "./Post.module.scss";
 import dynamic from "next/dynamic";
 
-const DynamicMarkdown = dynamic(() => import("react-markdown"), { ssr: false });
+const DynamicMarkdown = dynamic(() => import("react-markdown"), { ssr: true });
 
 export default function Index({ pageData, news, footerLinks }) {
   return (
