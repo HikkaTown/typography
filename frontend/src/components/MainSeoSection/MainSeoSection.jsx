@@ -2,7 +2,7 @@ import React from "react";
 import { PATH_IMAGE } from "@/lib/const";
 import { LazyImage } from "@/components/LazyImage/LazyImage";
 import s from "./MainSeoSection.module.scss";
-import reactMarkdown from "react-markdown";
+import ReactMarkdown from "react-markdown";
 
 export default function MainSeoSection({ data }) {
   return (
@@ -11,7 +11,7 @@ export default function MainSeoSection({ data }) {
         <h2 className={s.header}>{data.firstHeader}</h2>
         <div className={s.row}>
           <div className={s.seo_text}>
-            <reactMarkdown>{data.firstDescription}</reactMarkdown>
+            <ReactMarkdown children={data.firstDescription} />
           </div>
           <LazyImage
             src={PATH_IMAGE + data.seoImagePc}
@@ -24,7 +24,7 @@ export default function MainSeoSection({ data }) {
         <h2 className={s.seo_header}>{data.secondHeader}</h2>
         <div className={s.row}>
           <div className={s.seo_text}>
-            <reactMarkdown>{data.secondDescription}</reactMarkdown>
+            <ReactMarkdown children={data.secondDescription} />
           </div>
         </div>
       </div>

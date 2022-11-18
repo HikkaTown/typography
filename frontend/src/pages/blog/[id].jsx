@@ -63,7 +63,7 @@ export default function Index({ pageData, news, footerLinks }) {
                 {new Date(pageData.postDate).toLocaleDateString("ru-RU")}
               </p>
               <div className={s.description} itemProp="articleBody">
-                <ReactMarkdown>{pageData.postText}</ReactMarkdown>
+                <ReactMarkdown children={pageData.postText} />
               </div>
             </div>
           </div>

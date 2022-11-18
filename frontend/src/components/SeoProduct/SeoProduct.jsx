@@ -9,7 +9,7 @@ export default function SeoProduct({ data }) {
       <div className={s.container}>
         <h2 className={s.header}>{data.header}</h2>
         <div className={s.description}>
-          <ReactMarkdown>{data.seoDescription}</ReactMarkdown>
+          <ReactMarkdown children={data.seoDescription} />
         </div>
       </div>
     </section>
