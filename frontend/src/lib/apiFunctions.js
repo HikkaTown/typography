@@ -61,19 +61,23 @@ export const getReviews = async () => {
     query: getReviewsQuery,
   });
   let result = [];
-  data.otzyvies.data.map((item) => {
-    const { id } = item;
-    const { attributes } = item;
-    let object = {
-      id: id,
-      personName: attributes.personName,
-      userPhoto: attributes.userPhoto.data.attributes.url,
-      reviewText: attributes.reviewText,
-      stars: attributes.stars,
-    };
-    result.push(object);
-  });
-  return result;
+  data.otzyvies.data
+    ? data.otzyvies.data.map((item) => {
+        const { id } = item;
+        const { attributes } = item;
+        let object = {
+          id: id,
+          personName: attributes?.personName ? attributes?.personName : null,
+          userPhoto: attributes?.userPhoto?.data?.attributes?.url
+            ? attributes?.userPhoto?.data?.attributes?.url
+            : null,
+          reviewText: attributes?.reviewText ? attributes.reviewText : null,
+          stars: attributes?.stars ? attributes?.stars : null,
+        };
+        result.push(object);
+      })
+    : null;
+  return result.length ? result : null;
 };
 
 export const getProjectPage = async () => {
@@ -806,4 +810,3 @@ export const getPrivacy = async () => {
   });
   return res;
 };
-
