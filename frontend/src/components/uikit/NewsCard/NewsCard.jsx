@@ -7,7 +7,7 @@ import { PATH_IMAGE } from "../../../lib/const";
 
 export default function NewsCard({ className, data }) {
   return (
-    <Link href={`/blog/${data.url}`} passHref={true}>
+    <Link href={`/blog${data?.url ? "/" + data.url : ""}`} passHref={true}>
       <div
         className={cs(s.card, className)}
         itemProp="blogPosts"
@@ -34,4 +34,3 @@ export default function NewsCard({ className, data }) {
     </Link>
   );
 }
-

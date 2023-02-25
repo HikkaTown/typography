@@ -257,29 +257,20 @@ export const getAllNews = async () => {
   let result = [];
   data.novostis.data.map((item) => {
     const { attributes } = item;
-    let object =
-      attributes?.url &&
-      attributes?.postName &&
-      attributes?.postText &&
-      attributes?.postDate &&
-      attributes?.image?.data?.attributes?.url &&
-      attributes?.metaHead &&
-      attributes?.metaDescription
-        ? {
-            id: item?.id ? item?.id : null,
-            url: attributes?.url ? attributes.url : null,
-            postName: attributes?.postName ? attributes.postName : null,
-            postText: attributes?.postText ? attributes.postText : null,
-            postDate: attributes?.postDate ? attributes.postDate : null,
-            image: attributes?.image?.data?.attributes?.url
-              ? attributes.image.data.attributes.url
-              : null,
-            metaHead: attributes?.metaHead ? attributes?.metaHead : null,
-            metaDescription: attributes?.metaDescription
-              ? attributes.metaDescription
-              : null,
-          }
-        : null;
+    let object = {
+      id: item?.id ? item?.id : null,
+      url: attributes?.url ? attributes.url : null,
+      postName: attributes?.postName ? attributes.postName : null,
+      postText: attributes?.postText ? attributes.postText : null,
+      postDate: attributes?.postDate ? attributes.postDate : null,
+      image: attributes?.image?.data?.attributes?.url
+        ? attributes.image.data.attributes.url
+        : null,
+      metaHead: attributes?.metaHead ? attributes?.metaHead : null,
+      metaDescription: attributes?.metaDescription
+        ? attributes.metaDescription
+        : null,
+    };
     result.push(object);
   });
   return result;
