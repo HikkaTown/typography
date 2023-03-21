@@ -1,0 +1,99 @@
+.section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    @include desktop {
+        padding-top: 60px;
+        padding-bottom: 40px;
+    }
+}
+
+.container {
+    max-width: calc(100% - 32px);
+    width: 100vw;
+    margin: 0 auto;
+    @include tablet {
+      max-width: calc(100% - 88px);
+    }
+    @include desktop {
+        position: relative;
+      max-width: 1150px;
+    }
+  }
+
+
+.header {
+    @include headline-3-mob($primary-text);
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    margin-bottom: 32px;
+    @include tablet {
+        margin-bottom: 48px;
+        @include headline-3($primary-text);
+    }
+}
+
+.card_block {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    @include tablet {
+        grid-template-columns: repeat(2, 270px);
+        gap: 24px;
+    }
+    @include desktop {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+    }
+}
+
+.card {
+    border: 1px solid #0000000D;
+    border-radius: 24px;
+    background-color: #F6F4F4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 12px;
+    padding-left: 12px;
+    padding-right: 12px;
+    min-height: 236px;
+    @include tablet {
+        padding: 20px;
+        min-height: 263px;
+    }
+    @include desktop {
+        min-height: 263px;
+    }
+}
+
+.card_name {
+    @include body3-500($primary-text);
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    margin-top: auto;
+    @include tablet {
+        @include body1-400($primary-text);
+    }
+}
+
+.card_price {
+    @include body4-500($primary-text);
+    padding: 6px 12px;
+    background-color: $yellow;
+    border-radius: 8px;
+    margin-bottom: 31px;
+    @include tablet {
+        margin-bottom: 20px;
+        align-self: flex-start;
+    }
+}
+
+.card_image {
+    display: block;
+    width: 80px;
+    height: 80px;
+}
+
