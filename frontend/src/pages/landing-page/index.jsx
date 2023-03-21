@@ -4,6 +4,7 @@ import LandingHeroSection from '@/components/LandingHeroSection/LandingHeroSecti
 import Layout from '@/components/Layout/Layout'
 import ProductSection from '@/components/ProductSection/ProductSection'
 import React from 'react'
+import SeoProduct from '@/components/SeoProduct/SeoProduct'
 
 export default function index() {
   return (
@@ -27,6 +28,10 @@ export default function index() {
                 index: '9'
             },
         ]}/>
+        {true ? <SeoProduct data={{
+            header: 'Заголовок',
+            seoDescription: 'описание'
+        }} /> : null}
     </Layout>
   )
 }
