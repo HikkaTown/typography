@@ -1,0 +1,146 @@
+.section {
+    padding-top: 60px;
+    padding-bottom: 56px;
+    @include tablet {
+        padding-bottom: 40px;
+    }
+    @include desktop {
+        padding-top: 136px;
+        padding-bottom: 40px;
+    }
+}
+
+.container {
+    max-width: calc(100% - 32px);
+    width: 100vw;
+    margin: 0 auto;
+    @include tablet {
+      max-width: calc(100% - 88px);
+    }
+    @include desktop {
+        position: relative;
+      max-width: 1150px;
+    }
+  }
+
+.header {
+    @include headline-3-mob($primary-text);
+    text-align: center;
+    @include tablet {
+        @include headline-3($primary-text);
+    }
+    @include desktop {
+        @include headline-3($primary-text);
+        max-width: 897px;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+}
+
+.sub_header {
+    @include body1-400($primary-text);
+    text-align: center;
+    margin-bottom: 56px;
+    @include tablet {
+        margin-bottom: 48px;
+    }
+    @include desktop {
+        margin-bottom: 48px;
+    }
+}
+
+.container_line {
+    width: 100%;
+}
+
+.messagesContainer {
+    border: 1px solid $blu-light;
+    background: rgba(175, 215, 253, 0.2);
+    border-radius: 24px;
+    padding: 48px 16px;
+    margin-bottom: 40px;
+    @include desktop {
+        max-width: 956px;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.messagesHeader {
+    @include headline-4($primary-text);
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 32px;
+    @include desktop {
+        margin-bottom: 50px;
+    }
+}
+
+
+.message_item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+    @include desktop {
+        margin-bottom: 23px;
+    }
+}
+
+.message_item_right {
+    flex-direction: row-reverse;
+
+    .message_avatar_container {
+        margin-right: 0;
+        margin-left: 8px;
+    }
+}
+
+.message_avatar_container {
+    border-radius: 50%;
+    border: 1px solid #37465D80;
+    max-width: 48px;
+    width: 100%;
+    height: 48px;
+    position: relative;
+    margin-right: 8px;
+    @include desktop {
+        max-width: 80px;
+        width: 100%;
+        height: 80px;
+    }
+}
+
+.message_avatar {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    @include desktop {
+        width: 64px;
+        height: 64px;
+    }
+}
+
+.message_buble {
+    border-radius: 12px;
+    padding: 8px 12px;
+}
+
+.message_text {
+    @include body2-400($primary-text);
+    padding: 0;
+    margin: 0;
+}
+
+.title {
+    max-width: 536px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+}
