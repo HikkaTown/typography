@@ -32,7 +32,7 @@ export default function HeroMainSection({ data }) {
   );
 }
 
-const ScrollBtn = ({ className }) => {
+export const ScrollBtn = ({ className }) => {
   return (
     <button className={className}>
       <svg
