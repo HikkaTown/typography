@@ -5,6 +5,7 @@ import Layout from '@/components/Layout/Layout'
 import ProductSection from '@/components/ProductSection/ProductSection'
 import React from 'react'
 import SeoProduct from '@/components/SeoProduct/SeoProduct'
+import CallbackLandingSection from '@/components/CallbackLandingSection/CallbackLandingSection'
 
 export default function index() {
   return (
@@ -28,6 +29,7 @@ export default function index() {
                 index: '9'
             },
         ]}/>
+        <CallbackLandingSection/>
         {true ? <SeoProduct data={{
             header: 'Заголовок',
             seoDescription: 'описание'

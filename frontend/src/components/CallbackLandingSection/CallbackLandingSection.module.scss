@@ -1,0 +1,193 @@
+.form {}
+
+.input_block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    
+
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+
+    @include tablet {
+        margin-bottom: 0;
+    }
+
+    @include desktop {
+        margin-right: 24px;
+        max-width: 258px;
+        width: 100%;
+    }
+}
+
+.label {
+    @include body4-500($primary-text);
+    margin-bottom: 4px;
+}
+
+.input {
+    max-width: 100%;
+    width: 100%;
+    padding: 12px 16px;
+    outline: none;
+    border: 1px solid transparent;
+    background-color: $white !important;
+    border-radius: 8px;
+
+    &::placeholder {
+        @include body3-400($secondary-text);
+        opacity: 0.5;
+    }
+
+    @include hover {
+        background-color: $blu-bg;
+    }
+
+    &:focus {
+        border-color: $blu;
+    }
+
+    @include body3-400($primary-text);
+}
+
+.input_error {
+    border-color: $pink;
+    background-color: $gray;
+    color: $secondary-text;
+}
+
+
+.description {
+    font-family: Gilroy;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0em;
+    color: #37465D;
+    margin: 8px 0 16px 0;
+    padding: 0;
+}
+
+.submit {
+    margin-top: 16px;
+    max-width: 100%;
+    width: 100%;
+
+    @include tablet {
+        margin: 0;
+        grid-area: btn;
+        max-width: fit-content;
+    }
+
+    @include desktop {
+        margin: 0;
+        max-width: 137px;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.outer_container {
+    background-color: $yellow;
+    border: 1px solid black;
+    border-radius: 60px;
+
+    @include tablet {
+        max-width: 100%;
+        width: calc(100% - 88px);
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    @include desktop {
+        max-width: 1152px;
+        width: 100%;
+    }
+}
+
+.container {
+    max-width: 100%;
+    width: calc(100% - 32px);
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 56px;
+    padding-bottom: 56px;
+
+    @include tablet {
+        padding-top: 60px;
+        padding-bottom: 60px;
+        width: calc(100% - 80px);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 0px 24px;
+        grid-template-areas:
+            "header form"
+            "text form";
+    }
+
+    @include desktop {
+        width: 100%;
+        margin-left: 100px;
+        margin-right: 69px;
+        display: grid; 
+  grid-template-columns: 1fr; 
+  grid-template-rows: 1fr 50px 1fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    "header"
+    "form"
+    "subtext";
+    }
+}
+
+.header {
+    @include headline-5($primary-text);
+    padding: 0;
+    margin: 0;
+    margin-bottom: 32px;
+
+    @include tablet {
+        @include headline-3-mob($primary-text);
+        margin-bottom: 56px;
+        grid-area: header;
+    }
+
+    @include desktop {
+        @include headline-3($primary-text);
+        margin-bottom: 32px;
+        max-width: 662px;
+    }
+}
+
+.subFormText {
+    @include body1-400($secondary-text);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    margin-top: 18px;
+    @include desktop {
+        position: absolute;
+        left: 0;
+        top: 44px;
+    }
+}
+
+.form {
+    grid-area: form;
+    @include desktop {
+        display: flex;
+        position: relative;
+        align-content: flex-start;
+    }
+}
+
+.subtext {
+    @include desktop {
+        grid-area: subtext;
+        align-self: end;
+    }
+}

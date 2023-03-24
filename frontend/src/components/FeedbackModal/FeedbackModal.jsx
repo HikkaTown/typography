@@ -220,7 +220,7 @@ const CloseBtn = ({ onClick }) => {
   );
 };
 
-const Input = ({
+export const Input = ({
   label,
   className,
   placeholder,
@@ -234,7 +234,7 @@ const Input = ({
   return (
     <div className={cs(s.input_block, classNameBlock)}>
       <label className={s.label}>
-        {label} {required && <span className={s.star}>*</span>}
+        {label} {label && required && <span className={s.star}>*</span>}
       </label>
       <input
         className={cs(className, errors[name] && s.input_error)}
@@ -274,7 +274,7 @@ const TextArea = ({
   );
 };
 
-const InputController = ({
+export const InputController = ({
   label,
   className,
   placeholder,
@@ -289,7 +289,7 @@ const InputController = ({
   return (
     <div className={cs(s.input_block, classNameBlock)}>
       <label className={s.label}>
-        {label} {required && <span className={s.star}>*</span>}
+        {label} {label && required && <span className={s.star}>*</span>}
       </label>
       <Controller
         name="phone"
@@ -302,7 +302,7 @@ const InputController = ({
         render={({ field: { onChange, value, ref } }) => (
           <IMaskInput
             name="phone"
-            className={cs(s.input, errors.phone && s.input_error)}
+            className={cs(s.input, className, errors.phone && s.input_error)}
             type="tel"
             mask="+7 000 000 00 00"
             placeholder={"+7 000 000 00 00"}
