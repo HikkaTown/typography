@@ -15,23 +15,22 @@ export default function ProjectCard({ className, data }) {
 
   return (
     <>
-      <div className={cs(s.card, className)} onClick={handleOpen}>
+      <div className={cs(s.card, className)} onClick={data?.images?.length && data?.category ? handleOpen : () => {}}>
         <div className={s.overlay}></div>
         <LazyImageWrapper
-          src={PATH_IMAGE + data.images[0]}
-          srcMobile={PATH_IMAGE + data.images[0]}
+          src={data?.images[0] ? PATH_IMAGE + data.images[0] : ''}
           alt={""}
           className={[s.image]}
           wrapperClass={s.image_wrapper}
         />
-        <span className={s.hashtag}>{data.category}</span>
+        <span className={s.hashtag}>{data?.category || '-'}</span>
       </div>
       <AnimatePresence>
         {isOpened && (
           <ModalProjectPhoto
-            isOpened={isOpened}
+            isOpened={data?.images?.length && data?.category ? isOpened : () => {}}
             onClose={handleOpen}
-            photos={data.images}
+            photos={data?.images || []}
           />
         )}
       </AnimatePresence>
