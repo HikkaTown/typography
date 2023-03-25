@@ -15,14 +15,35 @@ export default function index() {
         <HelpInfoSection/>
         <ProductSection data={[
             {
-                id: 'id',
+                id: '1',
                 name: 'сайт-визитка',
                 price: '20 000',
                 index: '2',
                 image: '',
             },
             {
-                id: 'id',
+                id: '2',
+                name: 'landing page',
+                price: '24 000',
+                image: '',
+                index: '9'
+            },
+            {
+                id: '3',
+                name: 'сайт-визитка',
+                price: '20 000',
+                index: '2',
+                image: '',
+            },
+            {
+                id: '4',
+                name: 'landing page',
+                price: '24 000',
+                image: '',
+                index: '9'
+            },
+            {
+                id: '5',
                 name: 'landing page',
                 price: '24 000',
                 image: '',

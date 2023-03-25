@@ -88,7 +88,7 @@ export default function CallbackLandingSection() {
                         </p>
                     </form>
                     <p className={style.subtext}>
-                        почта или хуёчта
+                        Или напишите нам на <a className={style.link} href="mailto:mail@1ppc.ru">почту</a> или в <a target={'_blank'} className={style.link} href="https://t.me/Zinkovsky">телеграм</a>
                     </p>
                 </div>
             </div>

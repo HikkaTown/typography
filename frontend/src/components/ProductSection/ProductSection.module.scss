@@ -36,6 +36,7 @@
 .card_block {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
     gap: 16px;
     @include tablet {
         grid-template-columns: repeat(2, 270px);
