@@ -215,4 +215,85 @@
 
 .link {
     text-decoration: underline;
+    @include hover {
+        color: $blu;
+    }
 }
+
+.overlay {
+    z-index: 235 !important;
+    @include desktop {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  
+  .child {
+    min-height: 100%;
+    height: 100%;
+    @include desktop {
+      min-height: auto;
+      height: auto;
+    }
+  }
+
+.close {
+    @include buttonDefault;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    @include tablet {
+      right: 44px;
+    }
+    @include desktop {
+      right: 24px;
+      @include hover {
+        opacity: 0.5;
+      }
+    }
+  }
+
+.modal_container {
+    position: relative;
+    background-color: $white;
+    padding: 80px 0;
+    max-width: 100%;
+    height: 100%;
+    width: 100vw;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+    }
+    @include desktop {
+      height: fit-content;
+      max-width: 720px;
+      border-radius: 12px;
+    }
+  }
+
+  .modal_icon {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 16px;
+  }
+
+  .head {
+    @include headline-5($primary-text);
+    padding: 0;
+    margin: 0 0 16px 0;
+    text-align: center;
+  }
+
+  .message {
+    @include body3-400($secondary-text);
+    text-align: center;
+    max-width: 328px;
+    margin-left: auto;
+    margin-right: auto;
+  }
