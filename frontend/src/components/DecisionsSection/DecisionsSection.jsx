@@ -1,8 +1,33 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import style from './DecisionsSection.module.scss'
 import cs from 'classnames';
+import {motion} from 'framer-motion'
+import useOnScreen from '@hooks/useOnScreen';
 
 export default function DecisionsSection() {
+    const ref = useRef(null)
+    const [animationDone, setAnimationDone] = useState(false)
+    const isVisible = useOnScreen(ref, '300px')
+    const container = {
+        hidden: { opacity: 0 },
+        show: {
+          opacity: 1,
+          transition: {
+            delayChildren: 0
+          }
+        }
+      }
+
+      const handleItem = (delay) => ({
+       hidden: {opacity: 0, transition: {duration: '0.3s'}},
+       show: {opacity: '1', transition: {delay: delay, duration: '0.3s'}}
+      })
+
+
+      useEffect(() => {
+        if(!animationDone) setAnimationDone(isVisible);
+      }, [isVisible])
+
     return (
         <section className={style.section}>
             <div className={style.container}>
@@ -10,24 +35,29 @@ export default function DecisionsSection() {
                     Цифровые решения от начала до конца
                 </p>
                 <LineComponent className={style.container_line}/>
-                <p className={style.sub_header}>Наши сайты приводят целевых клиентов</p>
-                <ul className={style.list}>
-                    <li className={cs(style.item, style.circl)}>
+                <p className={style.sub_header} ref={ref}>Наши сайты приводят целевых клиентов</p>
+                <motion.ul 
+                className={style.list}
+                variants={container}
+                initial="hidden"
+                animate={animationDone ? 'show' : 'hidden'}
+                >
+                    <motion.li className={cs(style.item, style.circl)} variants={handleItem('0.3')}>
                         <span className={style.text}>Полный контроль процесса</span>
-                    </li>
-                    <li className={cs(style.item, style.oval)}>
+                    </motion.li>
+                    <motion.li className={cs(style.item, style.oval)} variants={handleItem('0.6')}>
                         <span className={style.text}>Оптимизация конверсии</span>
-                    </li>
-                    <li className={cs(style.item, style.circl)}>
+                    </motion.li>
+                    <motion.li className={cs(style.item, style.circl)} variants={handleItem('0.9')}>
                         <span className={style.text}>Соблюдение сроков</span>
-                    </li>
-                    <li className={cs(style.item, style.oval)}>
+                    </motion.li>
+                    <motion.li className={cs(style.item, style.oval)} variants={handleItem('1.2')}>
                         <span className={style.text}>Поддержка своих продуктов</span>
-                    </li>
-                    <li className={cs(style.item, style.circl)}>
+                    </motion.li>
+                    <motion.li className={cs(style.item, style.circl)} variants={handleItem('1.5')}>
                         <span className={style.text}>Адаптация под SEO</span>
-                    </li>
-                </ul>
+                    </motion.li>
+                </motion.ul>
             </div>
         </section>
     )

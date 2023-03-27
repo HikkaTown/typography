@@ -1,0 +1,44 @@
+.card {
+    background-color: #fff;
+    border-radius: 24px;
+    padding: 24px;
+    cursor: pointer;
+}
+
+.card_image {
+    object-fit: cover;
+    object-position: center;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+    display: block;
+    margin-bottom: 24px;
+    width: '156px';
+    height: '156px';
+}
+
+.card_name {
+    @include body1-400($primary-text);
+    padding: 0;
+    margin: 0;
+    margin-bottom: 8px;
+    text-align: center;
+    word-wrap: 'no-wrap';
+}
+
+.card_prof {
+    padding: 4px 12px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.card_subtitle {
+    @include body1-400($primary-text);
+    padding: 0;
+    margin: 0;
+    height: 0;
+    overflow: auto;
+    transition: 0.6s;
+    text-align: center;
+}

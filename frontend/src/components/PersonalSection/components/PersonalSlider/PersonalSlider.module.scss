@@ -1,0 +1,50 @@
+.wrapper {
+    position: relative;
+    @include tablet {
+      max-width: 100%;
+      margin: 0 auto;
+    }
+    @include desktop {
+      max-width: 1128px;
+    }
+  }
+  
+  .slider {
+    overflow: hidden ;
+    @include desktop {
+      max-width: 100%;
+    }
+  }
+  
+  .slide {
+    max-width: 296px !important;
+    width: 296px !important;
+    min-width: 296px !important;
+    @include tablet {
+        max-width: 328px !important;
+        width: 328px !important;
+        min-width: 328px !important;
+    }
+    @include desktop {
+      max-width: 360px !important;
+      width: 360px !important;
+      min-width: 360px !important;
+    }
+  }
+  
+  .arrows {
+    position: absolute;
+    bottom: -70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .arrow_left {
+    transform: rotate(-180deg);
+  }
+  
+  .arrow_disabled {
+    opacity: 0.5;
+  }

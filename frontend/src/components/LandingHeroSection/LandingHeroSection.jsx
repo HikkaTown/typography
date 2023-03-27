@@ -4,6 +4,7 @@ import style from './LandingHeroSection.module.scss';
 import ReactMarkdown from "react-markdown";
 import { LazyImage } from '../LazyImage/LazyImage';
 import { ScrollBtn } from '../HeroMainSection/HeroMainSection';
+import { motion } from 'framer-motion';
 
 export default function LandingHeroSection({
     title
@@ -16,6 +17,21 @@ export default function LandingHeroSection({
             </svg>
         )
     }
+
+    const container = {
+        hidden: { opacity: 0 },
+        show: {
+            opacity: 1,
+            transition: {
+                delayChildren: 0
+            }
+        }
+    }
+    
+    const handleItem = (delay) => ({
+        hidden: { opacity: 0, transition: { duration: '0.3s' } },
+        show: { opacity: '0.6', transition: { delay: delay, duration: '0.3s' } }
+    })
 
     return (
         <section className={style.section}>
@@ -34,24 +50,29 @@ export default function LandingHeroSection({
                     Оставить заявку
                 </YellowBtn>
             </div>
-            <ul className={style.list}>
-                <li className={style.item}>
+            <motion.ul
+                className={style.list}
+                variants={container}
+                initial="hidden"
+                animate="show"
+            >
+                <motion.li className={style.item} variants={handleItem('0.3')}>
                     {star()} <span className={style.item_text}>Маркетинг</span>
-                </li>
-                <li className={style.item}>
+                </motion.li>
+                <motion.li className={style.item} variants={handleItem('0.6')}>
                     {star()} <span className={style.item_text}>Дизайн</span>
-                </li>
-                <li className={style.item}>
+                </motion.li>
+                <motion.li className={style.item} variants={handleItem('0.9')}>
                     {star()} <span className={style.item_text}>Разработка</span>
-                </li>
-                <li className={style.item}>
+                </motion.li>
+                <motion.li className={style.item} variants={handleItem('1.2')}>
                     {star()} <span className={style.item_text}>Тестирование</span>
-                </li>
-                <li className={style.item}>
+                </motion.li>
+                <motion.li className={style.item} variants={handleItem('1.5')}>
                     {star()} <span className={style.item_text}>Продвижение</span>
-                </li>
-            </ul>
-            <ScrollBtn className={style.scroll_btn}/>
+                </motion.li>
+            </motion.ul>
+            <ScrollBtn className={style.scroll_btn} />
         </section>
     )
 }

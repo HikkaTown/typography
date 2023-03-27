@@ -1,0 +1,51 @@
+.section {
+    background-color: #082A4A;
+    padding-bottom: 148px;
+    padding-top: 80px;
+    @include tablet {
+        padding-top: 80px;
+        padding-bottom: 148px;
+    }
+    @include desktop {
+        padding-top: 80px;
+        padding-bottom: 148px;
+    }
+}
+
+.container {
+    max-width: calc(100% - 32px);
+    width: 100vw;
+    margin: 0 auto;
+    @include tablet {
+      max-width: calc(100% - 88px);
+    }
+    @include desktop {
+      max-width: 1150px;
+    }
+  }
+
+.header {
+    @include headline-3-mob($white);
+    padding: 0;
+    margin: 0;
+    margin-bottom: 32px;
+    text-align: center;
+    @include tablet {
+        @include headline-3($white);
+        margin-bottom: 48px;
+    }
+}
+
+.subtitle {
+    @include body1-400($white);
+    margin-bottom: 32px;
+    text-align: center;  
+    @include tablet {
+        margin-bottom: 48px;
+    }
+    @include desktop {
+        max-width: 760px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+} 

@@ -60,12 +60,24 @@
     padding-left: 12px;
     padding-right: 12px;
     min-height: 236px;
+    transition: 0.5s;
     @include tablet {
         padding: 20px;
         min-height: 263px;
     }
     @include desktop {
         min-height: 263px;
+
+        @include hover {
+            background-color: #AFD7FD;
+            border-color: #AFD7FD;
+            .card_price {
+                transform: rotate(-30deg)
+            }
+            .card_image {
+                scale: 1.2
+            }
+        }
     }
 }
 
@@ -86,6 +98,7 @@
     background-color: $yellow;
     border-radius: 8px;
     margin-bottom: 31px;
+    transition: 0.5s;
     @include tablet {
         margin-bottom: 20px;
         align-self: flex-start;
@@ -96,5 +109,6 @@
     display: block;
     width: 80px;
     height: 80px;
+    transition: 0.5s;
 }
 

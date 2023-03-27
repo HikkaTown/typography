@@ -99,6 +99,8 @@ const LazyImage = ({
             src={src}
             alt={alt}
             title={alt}
+            width={width}
+            height={height}
             itemProp={itemprop || undefined}
           />
         </noscript>
