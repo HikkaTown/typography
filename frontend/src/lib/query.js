@@ -726,3 +726,35 @@ export const getPrivacyQuery = gql`
     }
   }
 `;
+
+
+export const getLandingPageQuery = gql`
+query getLandingPage {
+  razrabotkaSajtov {
+    data {
+      attributes {
+        header
+        metaTitle
+        metaDescription
+        seoBlock {
+          seoHeader
+          seoDescription
+        }
+        productSection {
+          id
+          name
+          price
+          index
+          image {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`

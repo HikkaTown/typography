@@ -9,65 +9,29 @@ import SeoProduct from '@/components/SeoProduct/SeoProduct'
 import CallbackLandingSection from '@/components/CallbackLandingSection/CallbackLandingSection'
 import PersonalSection from '@/components/PersonalSection/PersonalSection'
 import KeysLandingSection from '@/components/KeysLandingSection/KeysLandingSection'
-import { getServicesList } from '@/lib/apiFunctions'
+import { getLandingPage, getServicesList } from '@/lib/apiFunctions'
 import { DOMAIN } from '@/lib/const'
 
-export default function index({ footerLinks }) {
+export default function index({ footerLinks, pageData }) {
     return (
         <>
             <Head>
-                <title itemProp="headline">{'pageData.metaHead'}</title>
-                <meta property="og:title" content={'pageData.metaHead'} />
+                <title itemProp="headline">{pageData.metaHead}</title>
+                <meta property="og:title" content={pageData.metaHead} />
                 <meta
                     itemProp="description"
                     name="description"
-                    content={'pageData.metaDescription'}
+                    content={pageData.metaDescription}
                 />
-                <meta property="og:description" content={'pageData.metaDescription'} />
+                <meta property="og:description" content={pageData.metaDescription} />
                 <meta property="og:url" content={DOMAIN} />
                 <link rel="canonical" href="/landing-page" />
             </Head>
             <Layout footerLinks={footerLinks}>
-                <LandingHeroSection title={'Запускаем полноценные сайты за 2 недели'} />
+                <LandingHeroSection title={pageData.header} />
                 <DecisionsSection />
                 <HelpInfoSection />
-                <ProductSection data={[
-                    {
-                        id: '1',
-                        name: 'сайт-визитка',
-                        price: '20 000',
-                        index: '2',
-                        image: '',
-                    },
-                    {
-                        id: '2',
-                        name: 'landing page',
-                        price: '24 000',
-                        image: '',
-                        index: '9'
-                    },
-                    {
-                        id: '3',
-                        name: 'сайт-визитка',
-                        price: '20 000',
-                        index: '2',
-                        image: '',
-                    },
-                    {
-                        id: '4',
-                        name: 'landing page',
-                        price: '24 000',
-                        image: '',
-                        index: '9'
-                    },
-                    {
-                        id: '5',
-                        name: 'landing page',
-                        price: '24 000',
-                        image: '',
-                        index: '9'
-                    },
-                ]} />
+                {Boolean(pageData.productSection?.length) && <ProductSection data={pageData.productSection} />}
                 <KeysLandingSection
                     data={[
                         {
@@ -128,10 +92,7 @@ export default function index({ footerLinks }) {
                     }
                 ]}
                 />
-                {true ? <SeoProduct data={{
-                    header: 'Заголовок',
-                    seoDescription: 'описание'
-                }} /> : null}
+                {pageData.seoBlock ? <SeoProduct data={pageData.seoBlock} /> : null}
             </Layout>
         </>
     )
@@ -142,10 +103,11 @@ export async function getServerSideProps({ res }) {
         "Cache-Control",
         "public, s-maxage=10, stale-while-revalidate=59"
     );
-
+    const pageData = await getLandingPage();
     const footerLinks = await getServicesList();
     return {
         props: {
+            pageData,
             footerLinks
         }
     }

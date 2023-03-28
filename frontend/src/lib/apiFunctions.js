@@ -19,6 +19,8 @@ import {
   ProductLinksQuery,
 } from "@/lib/query";
 import { gql } from "@apollo/client";
+import { getLandingPageQuery } from './query';
+import { PATH_IMAGE } from '@/lib/const';
 
 export const getIndex = async () => {
   const { data } = await client.query({
@@ -801,3 +803,28 @@ export const getPrivacy = async () => {
   });
   return res;
 };
+
+export const getLandingPage = async () => {
+  const {data} = await client.query({
+    query: getLandingPageQuery,
+  });
+  const {razrabotkaSajtov} = data;
+  return {
+    metaHead: razrabotkaSajtov?.data?.attributes?.metaTitle ? razrabotkaSajtov?.data?.attributes?.metaTitle : '',
+    metaDescription: razrabotkaSajtov?.data?.attributes?.metaDescription ? razrabotkaSajtov?.data?.attributes?.metaDescription : '',
+    header: razrabotkaSajtov?.data?.attributes?.header ? razrabotkaSajtov?.data?.attributes?.header : '',
+    seoBlock: razrabotkaSajtov?.data?.attributes?.seoBlock ? {
+        header: razrabotkaSajtov?.data?.attributes?.seoBlock?.seoHeader ? razrabotkaSajtov?.data?.attributes?.seoBlock?.seoHeader : '',
+        seoDescription: razrabotkaSajtov?.data?.attributes?.seoBlock?.seoDescription ? razrabotkaSajtov?.data?.attributes?.seoBlock?.seoDescription : ''
+    } : null,
+    productSection: razrabotkaSajtov?.data?.attributes?.productSection?.length ? razrabotkaSajtov?.data?.attributes?.productSection.map((item, index) => {
+      return {
+        id: item?.id ? item.id : index,
+        name: item?.name ? item.name : '',
+        price: item?.price ? item.price : '',
+        index: item?.index ? item.index : 0,
+        image: item?.image?.data?.attributes?.url ? PATH_IMAGE + item?.image?.data?.attributes?.url : '',
+      }
+    }) : null,
+  }
+}
