@@ -21,6 +21,9 @@ export default function Navigation({ className }) {
       <NavLink href="/contacts" className={s.nav_link} itemProp="url">
         Контакты
       </NavLink>
+      <NavLink href="/landing-page" className={s.nav_link} itemProp="url">
+        Разработка сайтов
+      </NavLink>
     </nav>
   );
 }

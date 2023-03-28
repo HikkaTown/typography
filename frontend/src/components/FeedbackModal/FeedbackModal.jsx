@@ -18,7 +18,9 @@ export default function FeedbackModal({
   isOpened,
   onClose,
   delivery = false,
+  visibleOffice = true,
   file = true,
+  placeholderComment = 'Ваш комментарий'
 }) {
   const {
     register,
@@ -56,10 +58,10 @@ export default function FeedbackModal({
         file:
           (addData?.file ? addData.file : null) || (fileData ? fileData : null),
         theme,
-        office: data.address ? "" : officesList[currentAddress],
-        emailOffice: data.address
+        office: visibleOffice ? data.address ? "" : officesList[currentAddress] : null,
+        emailOffice: visibleOffice ? data.address
           ? officesList[0]
-          : officesList[currentAddress],
+          : officesList[currentAddress] : 'mail@1ppc.ru',
       },
       handlerThanks,
       handlerError
@@ -126,7 +128,7 @@ export default function FeedbackModal({
                 <TextArea
                   label={"Ваш комментарий"}
                   register={register}
-                  placeholder={"Ваш комментарий"}
+                  placeholder={placeholderComment}
                   name="comentary"
                   type={"text"}
                   className={cs(s.input, s.input_comment)}
@@ -152,7 +154,7 @@ export default function FeedbackModal({
                   </p>
                 </>
               )}
-              {!delivery && (
+              {!delivery && visibleOffice && (
                 <div className={cs(s.input_block, s.address)}>
                   <label className={s.label}>
                     Выберите офис обращения <span className={s.star}>*</span>
