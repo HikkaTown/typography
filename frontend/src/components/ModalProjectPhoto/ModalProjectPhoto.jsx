@@ -8,10 +8,14 @@ import ArrowBtn from "@/uikit/ArrowBtn/ArrowBtn";
 import s from "./ModalProjectPhoto.module.scss";
 import CloseBtn from "@/uikit/CloseBtn/CloseBtn";
 import { PATH_IMAGE } from "@/lib/const";
+import useLockBodyScroll from './../../hooks/useLockBodyScroll';
 
 export default function ModalProjectPhoto({ isOpened, onClose, photos }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
+
+  const lock = useLockBodyScroll();
+
   const [sliderRef, instanceRef] = useKeenSlider({
     loop: true,
     slides: {

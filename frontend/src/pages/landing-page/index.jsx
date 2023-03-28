@@ -7,6 +7,7 @@ import React from 'react'
 import SeoProduct from '@/components/SeoProduct/SeoProduct'
 import CallbackLandingSection from '@/components/CallbackLandingSection/CallbackLandingSection'
 import PersonalSection from '@/components/PersonalSection/PersonalSection'
+import KeysLandingSection from '@/components/KeysLandingSection/KeysLandingSection'
 
 export default function index() {
   return (
@@ -51,6 +52,22 @@ export default function index() {
                 index: '9'
             },
         ]}/>
+        <KeysLandingSection
+            data={[
+                {
+                    id: '1',
+                    name: 'CRM система для застройщика',
+                    preview: '',
+                    images: null,
+                },
+                {
+                    id: '2',
+                    name: 'Interio Design',
+                    preview: '',
+                    images: ['', '', '', ''],
+                }
+            ]}
+        />
         <CallbackLandingSection/>
         <PersonalSection persons={[
                     {

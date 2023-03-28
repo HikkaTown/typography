@@ -1,0 +1,59 @@
+.section {
+    padding-top: 40px;
+    padding-bottom: 80px;
+    @include desktop {
+        padding-bottom: 137px;
+    }
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    max-width: calc(100% - 32px);
+    width: 100vw;
+    margin: 0 auto;
+    @include tablet {
+      max-width: calc(100% - 88px);
+    }
+    @include desktop {
+      max-width: 1150px;
+      width: 100%;
+    }
+  }
+  
+
+.header {
+    padding: 0;
+    margin: 0;
+    @include headline-3-mob($primary-text);
+    text-align: center;
+    margin-bottom: 32px;
+    @include tablet {
+        @include headline-3($primary-text);
+        margin-bottom: 51px;
+    }
+}
+
+.cards_block {
+    display: grid;
+    grid-template-columns: 328px;
+    gap: 16px;
+    @include tablet {
+        grid-template-columns: repeat(2, 328px);
+        gap: 24px;
+    }
+    @include desktop {
+        grid-template-columns: repeat(3, 368px);
+    }
+}
+
+.btn {
+    margin-top: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    max-width: 154px;
+    @include tablet {
+        margin-top: 51px;
+    }
+}
