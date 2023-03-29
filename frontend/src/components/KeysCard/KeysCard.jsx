@@ -44,7 +44,9 @@ export default function KeysCard({ data }) {
                 {isOpened && (
                     <ModalProjectPhoto
                         isOpened={data?.images?.length ? isOpened : false}
-                        onClose={handleOpen}
+                        onClose={() => {
+                            
+                        }}
                         photos={data?.images || []}
                     />
                 )}

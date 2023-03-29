@@ -861,7 +861,7 @@ export const getKeysDevelopSites = async () => {
       id: item.id,
       name: item?.attributes?.name ? item.attributes.name : null,
       preview: item?.attributes?.preview?.data?.attributes?.url ? PATH_IMAGE + item?.attributes?.preview?.data?.attributes?.url : null,
-      images: item?.attributes?.images?.data?.length ? item?.attributes?.images?.data.map((item) => item?.attributes?.url ? PATH_IMAGE + item.attributes.url : '') : null,
+      images: item?.attributes?.images?.data?.length ? item?.attributes?.images?.data.map((item) => item?.attributes?.url ? item.attributes.url : '') : null,
     }
   }) : null
 }

@@ -5,6 +5,7 @@ import { useState } from 'react';
 import Button2 from '../uikit/Button2/Button2';
 
 export default function KeysLandingSection({ data }) {
+    console.log(data);
     const [showMore, setShowMore] = useState(false);
     const visibleCards = 6;
     return (
