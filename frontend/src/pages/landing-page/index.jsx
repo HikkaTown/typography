@@ -9,11 +9,10 @@ import SeoProduct from '@/components/SeoProduct/SeoProduct'
 import CallbackLandingSection from '@/components/CallbackLandingSection/CallbackLandingSection'
 import PersonalSection from '@/components/PersonalSection/PersonalSection'
 import KeysLandingSection from '@/components/KeysLandingSection/KeysLandingSection'
-import { getLandingPage, getServicesList } from '@/lib/apiFunctions'
+import { getLandingPage, getServicesList, getSotrudnik, getKeysDevelopSites } from '@/lib/apiFunctions'
 import { DOMAIN } from '@/lib/const'
-import { getSotrudnik } from './../../lib/apiFunctions';
 
-export default function index({ footerLinks, pageData, sotrudniki }) {
+export default function index({ footerLinks, pageData, sotrudniki, keysDevelopSites }) {
     return (
         <>
             <Head>
@@ -33,22 +32,9 @@ export default function index({ footerLinks, pageData, sotrudniki }) {
                 <DecisionsSection />
                 <HelpInfoSection />
                 {Boolean(pageData.productSection?.length) && <ProductSection data={pageData.productSection} />}
-                <KeysLandingSection
-                    data={[
-                        {
-                            id: '1',
-                            name: 'CRM система для застройщика',
-                            preview: '',
-                            images: null,
-                        },
-                        {
-                            id: '2',
-                            name: 'Interio Design',
-                            preview: '',
-                            images: ['', '', '', ''],
-                        }
-                    ]}
-                />
+                {keysDevelopSites?.length > 0 ? <KeysLandingSection
+                    data={keysDevelopSites}
+                /> : null}
                 <CallbackLandingSection />
                 {sotrudniki?.length > 0 ? (<PersonalSection persons={sotrudniki}/>) : null}
                 {pageData.seoBlock ? <SeoProduct data={pageData.seoBlock} /> : null}
@@ -64,11 +50,13 @@ export async function getServerSideProps({ res }) {
     );
     const pageData = await getLandingPage();
     const sotrudniki = await getSotrudnik();
+    const keysDevelopSites = await getKeysDevelopSites();
     const footerLinks = await getServicesList();
     return {
         props: {
             pageData,
             sotrudniki,
+            keysDevelopSites,
             footerLinks
         }
     }

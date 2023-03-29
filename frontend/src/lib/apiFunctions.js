@@ -6,6 +6,7 @@ import {
   getContactCardsQuery,
   getContactPageQuery,
   getCurrentProductCardQuery,
+  getKeysDevelopSitesQuery,
   getMainPage,
   getNewsPageQuery,
   getPrivacyQuery,
@@ -18,9 +19,9 @@ import {
   getSmallCardProductQuery,
   getSotrudnikiQuery,
   ProductLinksQuery,
+  getLandingPageQuery,
 } from "@/lib/query";
 import { gql } from "@apollo/client";
-import { getLandingPageQuery } from './query';
 import { PATH_IMAGE } from '@/lib/const';
 
 export const getIndex = async () => {
@@ -845,6 +846,22 @@ export const getSotrudnik = async () => {
       colorProfBackground: item?.attributes?.colorProfBackground ? item?.attributes?.colorProfBackground : '#AFD7FD',
       specific: item?.attributes?.specific ? item.attributes.specific : 0,
       src: item?.attributes?.avatar?.data?.attributes?.url ? PATH_IMAGE + item?.attributes?.avatar?.data?.attributes?.url : ''
+    }
+  }) : null
+}
+
+export const getKeysDevelopSites = async () => {
+  const {data} = await client.query({
+    query: getKeysDevelopSitesQuery
+  });
+  const {kejsyPoRazrabotkeSajtovs} = data;
+
+  return kejsyPoRazrabotkeSajtovs?.data?.length > 0 ? kejsyPoRazrabotkeSajtovs.data.map((item) => {
+    return {
+      id: item.id,
+      name: item?.attributes?.name ? item.attributes.name : null,
+      preview: item?.attributes?.preview?.data?.attributes?.url ? PATH_IMAGE + item?.attributes?.preview?.data?.attributes?.url : null,
+      images: item?.attributes?.images?.data?.length ? item?.attributes?.images?.data.map((item) => item?.attributes?.url ? PATH_IMAGE + item.attributes.url : '') : null,
     }
   }) : null
 }

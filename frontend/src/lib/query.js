@@ -782,3 +782,30 @@ query getSotrudniki {
   }
 }
 `
+
+export const getKeysDevelopSitesQuery = gql`
+query getKeysDevelopSite {
+  kejsyPoRazrabotkeSajtovs(pagination: {pageSize: 1000}) {
+    data {
+      id
+      attributes {
+        name
+        preview {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
+        images {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`
