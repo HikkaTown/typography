@@ -758,3 +758,27 @@ query getLandingPage {
   }
 }
 `
+
+export const getSotrudnikiQuery = gql`
+query getSotrudniki {
+  sotrudnikis(pagination: {pageSize: 1000}) {
+    data {
+      id
+      attributes {
+        name
+        profession
+        subtitle
+        avatar {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
+        colorProfText
+        colorProfBackground
+      }
+    }
+  }
+}
+`

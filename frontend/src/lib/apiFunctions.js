@@ -16,6 +16,7 @@ import {
   getReviewsQuery,
   getServicesQuery,
   getSmallCardProductQuery,
+  getSotrudnikiQuery,
   ProductLinksQuery,
 } from "@/lib/query";
 import { gql } from "@apollo/client";
@@ -827,4 +828,23 @@ export const getLandingPage = async () => {
       }
     }) : null,
   }
+}
+
+export const getSotrudnik = async () => {
+  const {data} = await client.query({
+    query: getSotrudnikiQuery,
+  });
+  const {sotrudnikis} = data;
+  return sotrudnikis.data?.length > 0 ? sotrudnikis.data.map((item) => {
+    return {
+      id: item.id,
+      profession: item?.attributes?.profession ? item.attributes.profession : '',
+      name: item?.attributes?.name ? item.attributes.name : '',
+      subtitle: item?.attributes?.subtitle ? item.attributes.subtitle : '',
+      colorProfText: item?.attributes?.colorProfText ? item.attributes.colorProfText : '#056AC7',
+      colorProfBackground: item?.attributes?.colorProfBackground ? item?.attributes?.colorProfBackground : '#AFD7FD',
+      specific: item?.attributes?.specific ? item.attributes.specific : 0,
+      src: item?.attributes?.avatar?.data?.attributes?.url ? PATH_IMAGE + item?.attributes?.avatar?.data?.attributes?.url : ''
+    }
+  }) : null
 }

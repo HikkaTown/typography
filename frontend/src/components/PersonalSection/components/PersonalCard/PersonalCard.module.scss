@@ -3,6 +3,8 @@
     border-radius: 24px;
     padding: 24px;
     cursor: pointer;
+    min-height: 300px;
+    height: 300px;
 }
 
 .card_image {
@@ -31,6 +33,7 @@
     border-radius: 8px;
     text-transform: uppercase;
     text-align: center;
+    margin: 0;
 }
 
 .card_subtitle {

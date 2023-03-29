@@ -62,7 +62,9 @@ export default function PersonalCard({ personInfo, className, onClick, isVisible
                         animate={{
                             height: 'auto',
                             overflow: 'visible',
+                            marginTop: '12px',
                             transition: {
+                                ease: "linear",
                                 delay: '0.3s',
                                 duration: '0.3s'
                             }
@@ -70,7 +72,9 @@ export default function PersonalCard({ personInfo, className, onClick, isVisible
                         exit={{
                             height: '0',
                             overflow: 'hidden',
+                            marginTop: 0,
                             transition: {
+                                ease: "linear",
                                 delay: '0.3s',
                                 duration: '0.3s'
                             }
