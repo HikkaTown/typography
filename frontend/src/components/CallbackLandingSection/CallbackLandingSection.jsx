@@ -7,6 +7,7 @@ import { callbackOrder } from '@/lib/callbackOrder';
 import Portal from '../Portal/Portal';
 import OverlayingPopup from '../OverlayingPopup/OverlayingPopup';
 import CloseBtn from '../uikit/CloseBtn/CloseBtn';
+import { star } from './../LandingHeroSection/LandingHeroSection';
 
 export default function CallbackLandingSection() {
     const {
@@ -55,6 +56,10 @@ export default function CallbackLandingSection() {
         <section className={style.section}>
             <div className={style.outer_container}>
                 <div className={style.container}>
+                    {star(style.star)}
+                    {star(style.star)}
+                    {star(style.star)}
+                    {star(style.star)}
                     <p className={style.header}>
                         Получите индивидуальное коммерческое предложение
                     </p>

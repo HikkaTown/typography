@@ -7,7 +7,7 @@
     flex-direction: column;
     align-items: flex-start;
     margin-bottom: 12px;
-    
+
 
     &:last-of-type {
         margin-bottom: 0;
@@ -56,6 +56,7 @@
     @include tablet {
         margin-bottom: 24px;
     }
+
     @include desktop {
         margin-bottom: 0;
     }
@@ -125,6 +126,7 @@
     margin-right: auto;
     padding-top: 56px;
     padding-bottom: 56px;
+    position: relative;
 
     @include tablet {
         padding-top: 60px;
@@ -143,15 +145,15 @@
         width: 100%;
         // margin-left: 100px;
         // margin-right: 69px;
-        display: grid; 
-        grid-template-columns: 1fr; 
-        grid-template-rows: 1fr 50px 1fr; 
-        gap: 0px 0px; 
-        grid-template-areas: 
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 50px 1fr;
+        gap: 0px 0px;
+        grid-template-areas:
             "header"
             "form"
             "subtext";
-            }
+    }
 }
 
 .header {
@@ -181,6 +183,7 @@
     font-size: 12px;
     line-height: 16px;
     margin-top: 18px;
+
     @include desktop {
         position: absolute;
         left: 0;
@@ -190,6 +193,7 @@
 
 .form {
     grid-area: form;
+
     @include desktop {
         display: flex;
         position: relative;
@@ -201,11 +205,13 @@
 .subtext {
     @include body1-400($primary-text);
     text-align: center;
+
     @include tablet {
         text-align: left;
         grid-area: text;
         align-self: baseline;
     }
+
     @include desktop {
         grid-area: subtext;
         align-self: end;
@@ -215,6 +221,7 @@
 
 .link {
     text-decoration: underline;
+
     @include hover {
         color: $blu;
     }
@@ -222,21 +229,23 @@
 
 .overlay {
     z-index: 235 !important;
+
     @include desktop {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
-  }
-  
-  .child {
+}
+
+.child {
     min-height: 100%;
     height: 100%;
+
     @include desktop {
-      min-height: auto;
-      height: auto;
+        min-height: auto;
+        height: auto;
     }
-  }
+}
 
 .close {
     @include buttonDefault;
@@ -247,16 +256,19 @@
     align-items: center;
     justify-content: center;
     transition: 0.3s;
+
     @include tablet {
-      right: 44px;
+        right: 44px;
     }
+
     @include desktop {
-      right: 24px;
-      @include hover {
-        opacity: 0.5;
-      }
+        right: 24px;
+
+        @include hover {
+            opacity: 0.5;
+        }
     }
-  }
+}
 
 .modal_container {
     position: relative;
@@ -268,32 +280,103 @@
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    @include tablet {
-    }
-    @include desktop {
-      height: fit-content;
-      max-width: 720px;
-      border-radius: 12px;
-    }
-  }
 
-  .modal_icon {
+    @include tablet {}
+
+    @include desktop {
+        height: fit-content;
+        max-width: 720px;
+        border-radius: 12px;
+    }
+}
+
+.modal_icon {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 16px;
-  }
+}
 
-  .head {
+.head {
     @include headline-5($primary-text);
     padding: 0;
     margin: 0 0 16px 0;
     text-align: center;
-  }
+}
 
-  .message {
+.message {
     @include body3-400($secondary-text);
     text-align: center;
     max-width: 328px;
     margin-left: auto;
     margin-right: auto;
-  }
+}
+
+.star {
+    position: absolute;
+
+    path {
+        fill: black;
+        opacity: 1;
+    }
+
+    &:nth-child(1) {
+        top: 16px;
+        left: 62px;
+
+        @include tablet {
+            top: 20px;
+            left: 77px;
+        }
+
+        @include desktop {
+            top: 45px;
+            left: 52px;
+        }
+    }
+
+    &:nth-child(2) {
+        top: 137px;
+        right: 26px;
+
+        @include tablet {
+            top: 66px;
+            left: 290px;
+            right: auto;
+        }
+
+        @include desktop {
+            left: auto;
+            top: 55px;
+            right: 83px;
+        }
+    }
+
+    &:nth-child(3) {
+        bottom: 130px;
+        right: 26px;
+
+        @include tablet {
+            bottom: auto;
+            right: auto;
+            top: 224px;
+            left: 280px;
+        }
+
+        @include desktop {
+            top: auto;
+            left: auto;
+            bottom: 38px;
+            right: 234px;
+        }
+    }
+
+    &:nth-child(4) {
+        display: none;
+
+        @include desktop {
+            display: block;
+            bottom: 72px;
+            left: 307px;
+        }
+    }
+}
