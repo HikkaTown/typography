@@ -7,7 +7,7 @@ import useOnScreen from '@hooks/useOnScreen';
 export default function DecisionsSection() {
     const ref = useRef(null)
     const [animationDone, setAnimationDone] = useState(false)
-    const isVisible = typeof window !== 'undefined' || useOnScreen(ref, '300px');
+    const isVisible = true
     const container = {
         hidden: { opacity: 0 },
         show: {
