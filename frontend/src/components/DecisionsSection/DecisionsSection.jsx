@@ -38,23 +38,63 @@ export default function DecisionsSection() {
                 <p className={style.sub_header} ref={ref}>Наши сайты приводят целевых клиентов</p>
                 <motion.ul 
                 className={style.list}
-                variants={container}
-                initial="hidden"
-                animate={animationDone ? 'show' : 'hidden'}
                 >
-                    <motion.li className={cs(style.item, style.circl)} variants={handleItem('0.3')}>
+                    <motion.li 
+                        className={cs(style.item, style.circl)} 
+                        whileInView={{
+                            scale: [1, 1.7, 1.7, 1, 1],
+                            rotate: [0, 0, 180, 180, 0],
+                            borderRadius: ["30%", "0%", "50%", "50%", "50%"]
+                        }}
+                        transition={{
+                            duration: 2,
+                            ease: "easeInOut",
+                            times: [0, 0.2, 0.5, 0.8, 1],
+                        }}
+                        viewport={{ once: true }}
+                    >
                         <span className={style.text}>Полный контроль процесса</span>
                     </motion.li>
-                    <motion.li className={cs(style.item, style.oval)} variants={handleItem('0.6')}>
+                    <motion.li 
+                        className={cs(style.item, style.oval)} 
+                    >
                         <span className={style.text}>Оптимизация конверсии</span>
                     </motion.li>
-                    <motion.li className={cs(style.item, style.circl)} variants={handleItem('0.9')}>
+                    <motion.li 
+                        className={cs(style.item, style.circl)} 
+                        whileInView={{
+                            scale: [1, 1.7, 1.7, 1, 1],
+                            rotate: [0, 0, 180, 180, 0],
+                            borderRadius: ["30%", "0%", "20%", "90%", "50%"]
+                        }}
+                        transition={{
+                            delay: 1.2,
+                            duration: 2,
+                            ease: "easeInOut",
+                            times: [0, 0.2, 0.5, 0.8, 1],
+                        }}
+                        viewport={{ once: true }}
+                    >
                         <span className={style.text}>Соблюдение сроков</span>
                     </motion.li>
                     <motion.li className={cs(style.item, style.oval)} variants={handleItem('1.2')}>
                         <span className={style.text}>Поддержка своих продуктов</span>
                     </motion.li>
-                    <motion.li className={cs(style.item, style.circl)} variants={handleItem('1.5')}>
+                    <motion.li 
+                        className={cs(style.item, style.circl)} 
+                        whileInView={{
+                            scale: [1, 1.7, 1.7, 1, 1],
+                            rotate: [0, 0, 180, 180, 0],
+                            borderRadius: ["30%", "0%", "33%", "77%", "50%"]
+                        }}
+                        transition={{
+                            delay: 2,
+                            duration: 2,
+                            ease: "easeInOut",
+                            times: [0, 0.2, 0.5, 0.8, 1],
+                        }}
+                        viewport={{ once: true }}
+                    >
                         <span className={style.text}>Адаптация под SEO</span>
                     </motion.li>
                 </motion.ul>
