@@ -20,6 +20,7 @@ import {
   getSotrudnikiQuery,
   ProductLinksQuery,
   getLandingPageQuery,
+  getVoennayaFormaPageQuery,
 } from "@/lib/query";
 import { gql } from "@apollo/client";
 import { PATH_IMAGE } from '@/lib/const';
@@ -67,19 +68,19 @@ export const getReviews = async () => {
   let result = [];
   data.otzyvies.data
     ? data.otzyvies.data.map((item) => {
-        const { id } = item;
-        const { attributes } = item;
-        let object = {
-          id: id,
-          personName: attributes?.personName ? attributes?.personName : null,
-          userPhoto: attributes?.userPhoto?.data?.attributes?.url
-            ? attributes?.userPhoto?.data?.attributes?.url
-            : null,
-          reviewText: attributes?.reviewText ? attributes.reviewText : null,
-          stars: attributes?.stars ? attributes?.stars : null,
-        };
-        result.push(object);
-      })
+      const { id } = item;
+      const { attributes } = item;
+      let object = {
+        id: id,
+        personName: attributes?.personName ? attributes?.personName : null,
+        userPhoto: attributes?.userPhoto?.data?.attributes?.url
+          ? attributes?.userPhoto?.data?.attributes?.url
+          : null,
+        reviewText: attributes?.reviewText ? attributes.reviewText : null,
+        stars: attributes?.stars ? attributes?.stars : null,
+      };
+      result.push(object);
+    })
     : null;
   return result.length ? result : null;
 };
@@ -128,14 +129,14 @@ export const getAllProjectsCard = async () => {
     }
     let object =
       item?.attributes?.category?.data?.attributes?.typeProjectName &&
-      images?.length
+        images?.length
         ? {
-            images: images?.length ? images : null,
-            category: item?.attributes?.category?.data?.attributes
-              ?.typeProjectName
-              ? item?.attributes?.category?.data?.attributes?.typeProjectName
-              : null,
-          }
+          images: images?.length ? images : null,
+          category: item?.attributes?.category?.data?.attributes
+            ?.typeProjectName
+            ? item?.attributes?.category?.data?.attributes?.typeProjectName
+            : null,
+        }
         : null;
     result.push(object);
   });
@@ -188,14 +189,14 @@ export const getCurrentProjects = async (id) => {
     });
     let object =
       images.length &&
-      item?.attributes?.category?.data?.attributes?.typeProjectName
+        item?.attributes?.category?.data?.attributes?.typeProjectName
         ? {
-            images: images.length ? images : null,
-            category: item?.attributes?.category?.data?.attributes
-              ?.typeProjectName
-              ? item?.attributes?.category?.data?.attributes?.typeProjectName
-              : null,
-          }
+          images: images.length ? images : null,
+          category: item?.attributes?.category?.data?.attributes
+            ?.typeProjectName
+            ? item?.attributes?.category?.data?.attributes?.typeProjectName
+            : null,
+        }
         : null;
     result.push(object);
   });
@@ -419,24 +420,24 @@ export const getServicesList = async () => {
         breadName: attributes.serviceName,
         meta: attributes?.meta
           ? {
-              metaHead: attributes?.meta?.metaHead
-                ? attributes.meta.metaHead
-                : null,
-              metaDescription: attributes?.meta?.metaDescription
-                ? attributes.meta.metaDescription
-                : null,
-              header: attributes?.meta?.header ? attributes.meta.header : null,
-            }
+            metaHead: attributes?.meta?.metaHead
+              ? attributes.meta.metaHead
+              : null,
+            metaDescription: attributes?.meta?.metaDescription
+              ? attributes.meta.metaDescription
+              : null,
+            header: attributes?.meta?.header ? attributes.meta.header : null,
+          }
           : null,
         seoBlock: attributes?.seoBlock
           ? {
-              header: attributes?.seoBlock?.seoHeader
-                ? attributes.seoBlock.seoHeader
-                : null,
-              seoDescription: attributes?.seoBlock?.seoDescription
-                ? attributes.seoBlock.seoDescription
-                : null,
-            }
+            header: attributes?.seoBlock?.seoHeader
+              ? attributes.seoBlock.seoHeader
+              : null,
+            seoDescription: attributes?.seoBlock?.seoDescription
+              ? attributes.seoBlock.seoDescription
+              : null,
+          }
           : null,
         servicesPoster: attributes?.servicePoster?.data?.attributes?.url
           ? attributes?.servicePoster?.data?.attributes?.url
@@ -455,7 +456,7 @@ export const getServicesList = async () => {
         servicesPoster: attributes?.pages?.data[0].attributes?.tab?.image?.data
           ?.attributes?.url
           ? attributes?.pages?.data[0].attributes?.tab?.image?.data?.attributes
-              ?.url
+            ?.url
           : null,
       });
     }
@@ -477,24 +478,24 @@ export const getServicesListSitemap = async () => {
         servicesName: attributes.serviceName,
         meta: attributes?.meta
           ? {
-              metaHead: attributes?.meta?.metaHead
-                ? attributes.meta.metaHead
-                : null,
-              metaDescription: attributes?.meta?.metaDescription
-                ? attributes.meta.metaDescription
-                : null,
-              header: attributes?.meta?.header ? attributes.meta.header : null,
-            }
+            metaHead: attributes?.meta?.metaHead
+              ? attributes.meta.metaHead
+              : null,
+            metaDescription: attributes?.meta?.metaDescription
+              ? attributes.meta.metaDescription
+              : null,
+            header: attributes?.meta?.header ? attributes.meta.header : null,
+          }
           : null,
         seoBlock: attributes?.seoBlock
           ? {
-              header: attributes?.seoBlock?.seoHeader
-                ? attributes?.seoBlock?.seoHeader
-                : null,
-              seoDescription: attributes?.seoBlock?.seoDescription
-                ? attributes?.seoBlock?.secondDescription
-                : null,
-            }
+            header: attributes?.seoBlock?.seoHeader
+              ? attributes?.seoBlock?.seoHeader
+              : null,
+            seoDescription: attributes?.seoBlock?.seoDescription
+              ? attributes?.seoBlock?.secondDescription
+              : null,
+          }
           : null,
         servicesPoster: attributes.servicePoster.data.attributes.url,
       });
@@ -575,8 +576,8 @@ export const getAllProductCard = async () => {
       },
       infoList: attributes.infoList?.length
         ? attributes.infoList.map((item) => {
-            return item.infoListItem;
-          })
+          return item.infoListItem;
+        })
         : null,
       files: attributes?.files ? 1 : null,
       deliveryAmount: attributes?.deliveryAmount
@@ -609,45 +610,45 @@ export const getAllProductCard = async () => {
       headStyle: attributes.headStyle,
       tech: attributes?.tech?.length
         ? attributes.tech.map((item) => {
-            return {
-              id: +item.id,
-              name: item.name,
-              photo: item.image.data.attributes.url,
-              params: item.list.map((itemParams) => {
-                return itemParams.title;
-              }),
-            };
-          })
+          return {
+            id: +item.id,
+            name: item.name,
+            photo: item.image.data.attributes.url,
+            params: item.list.map((itemParams) => {
+              return itemParams.title;
+            }),
+          };
+        })
         : null,
       callbackBlockTitle: attributes?.callbackBlock?.title
         ? attributes.callbackBlock.title
         : null,
       steps: attributes?.steps?.length
         ? attributes.steps.map((item, index) => {
-            return {
-              id: +index + 1,
-              header: item?.header ? item.header : null,
-              products: item.step.map((stepItem, index) => {
-                return {
-                  id: index + 1,
-                  image: stepItem.imageItem.data.attributes.url,
-                  name: stepItem.productName,
-                  price: stepItem.productPrice,
-                  category: stepItem.category ? stepItem.category : null,
-                };
-              }),
-            };
-          })
+          return {
+            id: +index + 1,
+            header: item?.header ? item.header : null,
+            products: item.step.map((stepItem, index) => {
+              return {
+                id: index + 1,
+                image: stepItem.imageItem.data.attributes.url,
+                name: stepItem.productName,
+                price: stepItem.productPrice,
+                category: stepItem.category ? stepItem.category : null,
+              };
+            }),
+          };
+        })
         : null,
       tableName: attributes?.tableName?.length
         ? attributes?.tableName.map((item) => {
-            return item.name;
-          })
+          return item.name;
+        })
         : null,
       table: attributes?.table?.length
         ? attributes.table.map((item) => {
-            return parseTable(item);
-          })
+          return parseTable(item);
+        })
         : null,
     };
     res.push(object);
@@ -686,8 +687,8 @@ export const getCurrentProductCard = async (url) => {
       },
       infoList: attributes.infoList?.length
         ? attributes.infoList.map((item) => {
-            return item.infoListItem;
-          })
+          return item.infoListItem;
+        })
         : null,
       files: attributes?.files ? 1 : null,
       deliveryAmount: attributes?.deliveryAmount
@@ -720,60 +721,60 @@ export const getCurrentProductCard = async (url) => {
       headStyle: attributes.headStyle,
       tech: attributes?.tech?.length
         ? attributes.tech.map((item) => {
-            return {
-              id: +item.id,
-              name: item.name,
-              photo: item.image.data.attributes.url,
-              params: item.list.map((itemParams) => {
-                return itemParams.title;
-              }),
-            };
-          })
+          return {
+            id: +item.id,
+            name: item.name,
+            photo: item.image.data.attributes.url,
+            params: item.list.map((itemParams) => {
+              return itemParams.title;
+            }),
+          };
+        })
         : null,
       callbackBlockTitle: attributes?.callbackBlock?.title
         ? attributes.callbackBlock.title
         : null,
       steps: attributes?.steps?.length
         ? attributes.steps.map((item, index) => {
-            return {
-              id: +index + 1,
-              header: item?.header ? item.header : null,
-              products: item.step.map((stepItem, index) => {
-                return {
-                  id: index + 1,
-                  image: stepItem.imageItem.data.attributes.url,
-                  name: stepItem.productName,
-                  price: stepItem.productPrice,
-                  category: stepItem.category ? stepItem.category : null,
-                };
-              }),
-            };
-          })
+          return {
+            id: +index + 1,
+            header: item?.header ? item.header : null,
+            products: item.step.map((stepItem, index) => {
+              return {
+                id: index + 1,
+                image: stepItem.imageItem.data.attributes.url,
+                name: stepItem.productName,
+                price: stepItem.productPrice,
+                category: stepItem.category ? stepItem.category : null,
+              };
+            }),
+          };
+        })
         : null,
       tableName: attributes?.tableName?.length
         ? attributes?.tableName.map((item) => {
-            return item.name;
-          })
+          return item.name;
+        })
         : null,
       table: attributes?.table?.length
         ? attributes.table.map((item) => {
-            return parseTable(item);
-          })
+          return parseTable(item);
+        })
         : null,
       category: attributes?.category?.data?.attributes?.serviceName
         ? {
-            serviceName: attributes?.category?.data?.attributes?.serviceName
-              ? attributes?.category?.data?.attributes?.serviceName
-              : null,
-            url: attributes?.category?.data?.attributes?.url
-              ? attributes?.category?.data?.attributes?.url
-              : null,
-            pages: attributes?.category?.data?.attributes?.pages?.data?.length
-              ? attributes?.category?.data?.attributes?.pages?.data?.map(
-                  (page) => page.attributes.url
-                )
-              : null,
-          }
+          serviceName: attributes?.category?.data?.attributes?.serviceName
+            ? attributes?.category?.data?.attributes?.serviceName
+            : null,
+          url: attributes?.category?.data?.attributes?.url
+            ? attributes?.category?.data?.attributes?.url
+            : null,
+          pages: attributes?.category?.data?.attributes?.pages?.data?.length
+            ? attributes?.category?.data?.attributes?.pages?.data?.map(
+              (page) => page.attributes.url
+            )
+            : null,
+        }
         : null,
     };
     res.push(object);
@@ -807,17 +808,17 @@ export const getPrivacy = async () => {
 };
 
 export const getLandingPage = async () => {
-  const {data} = await client.query({
+  const { data } = await client.query({
     query: getLandingPageQuery,
   });
-  const {razrabotkaSajtov} = data;
+  const { razrabotkaSajtov } = data;
   return {
     metaHead: razrabotkaSajtov?.data?.attributes?.metaTitle ? razrabotkaSajtov?.data?.attributes?.metaTitle : '',
     metaDescription: razrabotkaSajtov?.data?.attributes?.metaDescription ? razrabotkaSajtov?.data?.attributes?.metaDescription : '',
     header: razrabotkaSajtov?.data?.attributes?.header ? razrabotkaSajtov?.data?.attributes?.header : '',
     seoBlock: razrabotkaSajtov?.data?.attributes?.seoBlock ? {
-        header: razrabotkaSajtov?.data?.attributes?.seoBlock?.seoHeader ? razrabotkaSajtov?.data?.attributes?.seoBlock?.seoHeader : '',
-        seoDescription: razrabotkaSajtov?.data?.attributes?.seoBlock?.seoDescription ? razrabotkaSajtov?.data?.attributes?.seoBlock?.seoDescription : ''
+      header: razrabotkaSajtov?.data?.attributes?.seoBlock?.seoHeader ? razrabotkaSajtov?.data?.attributes?.seoBlock?.seoHeader : '',
+      seoDescription: razrabotkaSajtov?.data?.attributes?.seoBlock?.seoDescription ? razrabotkaSajtov?.data?.attributes?.seoBlock?.seoDescription : ''
     } : null,
     productSection: razrabotkaSajtov?.data?.attributes?.productSection?.length ? razrabotkaSajtov?.data?.attributes?.productSection.map((item, index) => {
       return {
@@ -832,10 +833,10 @@ export const getLandingPage = async () => {
 }
 
 export const getSotrudnik = async () => {
-  const {data} = await client.query({
+  const { data } = await client.query({
     query: getSotrudnikiQuery,
   });
-  const {sotrudnikis} = data;
+  const { sotrudnikis } = data;
   return sotrudnikis.data?.length > 0 ? sotrudnikis.data.map((item) => {
     return {
       id: item.id,
@@ -851,10 +852,10 @@ export const getSotrudnik = async () => {
 }
 
 export const getKeysDevelopSites = async () => {
-  const {data} = await client.query({
+  const { data } = await client.query({
     query: getKeysDevelopSitesQuery
   });
-  const {kejsyPoRazrabotkeSajtovs} = data;
+  const { kejsyPoRazrabotkeSajtovs } = data;
 
   return kejsyPoRazrabotkeSajtovs?.data?.length > 0 ? kejsyPoRazrabotkeSajtovs.data.map((item) => {
     return {
@@ -864,4 +865,61 @@ export const getKeysDevelopSites = async () => {
       images: item?.attributes?.images?.data?.length ? item?.attributes?.images?.data.map((item) => item?.attributes?.url ? item.attributes.url : '') : null,
     }
   }) : null
+}
+
+export const getVoennayaFormPage = async () => {
+  const { data } = await client.query({
+    query: getVoennayaFormaPageQuery
+  });
+  const { voennayaForma } = data;
+  const attributes = voennayaForma.data.attributes
+
+  return {
+    pageData: {
+      metaTitle: attributes?.pageData?.metaTitle ? attributes.pageData.metaTitle : 'Мета заголовок',
+      metaDescription: attributes?.pageData?.metaDescription ? attributes.pageData.metaDescription : 'Мета описание',
+      header: attributes?.pageData?.header ? attributes.pageData.header : 'заголовок',
+      description: attributes?.pageData?.description ? attributes.pageData.description : 'описание',
+    },
+    shortDescription: {
+      firstBlock: attributes?.shortDescription?.firstBlock
+        ? attributes?.shortDescription?.firstBlock
+        : null,
+      secondBlock: attributes?.shortDescription?.secondBlock
+        ? attributes?.shortDescription?.secondBlock
+        : null,
+      thirdBlock: attributes?.shortDescription?.thirdBlock
+        ? attributes?.shortDescription?.thirdBlock
+        : null,
+    },
+    projectId: attributes?.vidy_proektov?.data?.id
+      ? attributes?.vidy_proektov?.data?.id
+      : null,
+    seoBlock: {
+      header: attributes?.seoBlock?.seoHeader
+        ? attributes.seoBlock.seoHeader
+        : null,
+      seoDescription: attributes?.seoBlock?.seoDescription
+        ? attributes.seoBlock.seoDescription
+        : null,
+    },
+    callbackBlockTitle: attributes?.callbackBlock?.title
+      ? attributes.callbackBlock.title
+      : null,
+    category: attributes?.category?.data?.attributes?.serviceName
+      ? {
+        serviceName: attributes?.category?.data?.attributes?.serviceName
+          ? attributes?.category?.data?.attributes?.serviceName
+          : null,
+        url: attributes?.category?.data?.attributes?.url
+          ? attributes?.category?.data?.attributes?.url
+          : null,
+        pages: attributes?.category?.data?.attributes?.pages?.data?.length
+          ? attributes?.category?.data?.attributes?.pages?.data?.map(
+            (page) => page.attributes.url
+          )
+          : null,
+      }
+      : null,
+  }
 }

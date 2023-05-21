@@ -808,4 +808,69 @@ query getKeysDevelopSite {
     }
   }
 }
-`
+`;
+
+export const getVoennayaFormaPageQuery = gql`
+query getVoennayaFormaPage {
+  voennayaForma {
+    data {
+      attributes {
+        pageData {
+          metaHead
+          metaDescription
+          header
+          description
+        }
+        shortDescription {
+          firstBlock
+          secondBlock
+          thirdBlock
+        }
+      	callbackBlock {
+          title
+        }
+        seoBlock {
+          seoHeader
+          seoDescription
+        }
+        tab {
+          image {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          tabName
+        }
+        vidy_proektov {
+          data {
+            id
+            attributes {
+              typeProjectName
+              position
+            }
+          }
+        }
+        category {
+          data {
+            attributes {
+              serviceName
+              url
+              pages(pagination: {
+            page: 1, pageSize: 100
+          }) {
+                data {
+                  attributes {
+                    url
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`;
