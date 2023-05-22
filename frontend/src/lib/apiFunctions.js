@@ -21,6 +21,8 @@ import {
   ProductLinksQuery,
   getLandingPageQuery,
   getVoennayaFormaPageQuery,
+  getTabsFormsQuery,
+  getFormCardsCurrentVariantQuery,
 } from "@/lib/query";
 import { gql } from "@apollo/client";
 import { PATH_IMAGE } from '@/lib/const';
@@ -922,4 +924,39 @@ export const getVoennayaFormPage = async () => {
       }
       : null,
   }
+}
+
+export const getTabsForm = async () => {
+  const {data} = await client.query({
+    query: getTabsFormsQuery
+  });
+
+  const tabs = data.variantyForms.data;
+  return tabs?.length > 0 ? tabs.map((item) => {
+    return {
+      id: item.id,
+      variantName: item.attributes.variantName,
+      position:  item.attributes.position,
+    }
+  }) : null
+}
+
+export const getCurrentFormCards = async (id) => {
+  const {data} = await client.query({
+    query: getFormCardsCurrentVariantQuery(id)
+  });
+
+  if(data.kartochkiFormies.data?.length > 0) {
+    const list = data.kartochkiFormies.data;
+    return list.map((item) => (
+      {
+        id: item.id,
+        name: item?.attributes?.name ? item.attributes.name : 'Без названия',
+        position: item?.attributes?.position ? item.attributes.position : 0,
+        image: item?.attributes?.image?.data?.attributes?.url ? PATH_IMAGE + item.attributes.image.data.attributes.url : '#'
+      }
+    ))
+  }
+  return []
+  
 }

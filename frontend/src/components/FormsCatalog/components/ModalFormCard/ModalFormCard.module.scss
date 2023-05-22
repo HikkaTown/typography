@@ -1,0 +1,98 @@
+.overlay_wrapper {
+    z-index: 32;
+    overflow: scroll;
+  }
+  
+  .container {
+    height: 100vh;
+    width: 100vw;
+  }
+  
+  .overlay {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .wrapper {
+    position: relative;
+    max-width: 600px;
+    max-height: 100%;
+    width: 100vw;
+    @include mobile {
+      width: 90vw;
+    }
+  }
+  
+  .slide {
+    background-color: #fff;
+    max-height: 600px;
+    max-width: 600px;
+    height: auto;
+    width: 100%;
+    border-radius: 12px;
+    padding: 16px;
+    @include tablet {
+        padding: 20px;
+    }
+  }
+
+  .card {
+    max-height: 600px;
+  }
+  
+  .image {
+    height: 100%;
+    width: 100%;
+  }
+  
+  .image_wrapper {
+    height: 100%;
+    width: 100%;
+  }
+
+  .card_info {
+    display: flex;
+    align-items: center;
+  }
+
+  .card_name {
+    margin: 0;
+  }
+  
+  .arrows {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+    margin-top: 16px;
+    @include desktop {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+  
+  .arrow_left {
+    transform: rotate(180deg);
+    @include desktop {
+      transform: translateX(-60px) rotate(180deg);
+    }
+  }
+  
+  .arrow_right {
+    @include desktop {
+      transform: translateX(60px);
+    }
+  }
+  
+  
+  .close {
+    position: absolute;
+    right: 0;
+    top: -60px;
+    @include desktop {
+      right: -60px;
+      top: -44px;
+    }
+    z-index: 2;
+  }

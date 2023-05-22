@@ -1,0 +1,92 @@
+.card {
+    border-radius: 12px;
+    padding: 12px;
+    background-color: $blu-bg;
+    transition: .3s;
+    position: relative;
+    @include hover {
+        background-color: $blu-2;
+
+        .loop_btn {
+            opacity: 1;
+        }
+    }
+}
+
+.loop_btn {
+    position: absolute;
+    @include buttonDefault;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    border-radius: 8px;
+    width: 28px;
+    height: 28px;
+    background: rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+    opacity: 0;
+    top: 24px;
+    right: 24px;
+    
+    svg {
+        opacity: 0.5;
+    }
+
+    @include hover {
+        background: rgba(0, 0, 0, 0.15);
+        
+        svg {
+            opacity: 1;
+        }
+    }
+}
+
+.imageStyle {
+    border-radius: 12px;
+    overflow: hidden;
+    object-position: center center;
+    object-fit: cover;
+    margin-bottom: 16px;
+    display: block;
+    width: 100%;
+    height: auto;
+    background-color: $white;
+    @include tablet {
+        margin-bottom: 20px;
+    }
+}
+
+.card_info {
+    display: flex;
+    align-items: center;
+}
+
+.card_name {
+    max-width: 100px;
+    padding: 0;
+    margin: 0;
+
+    overflow: hidden;
+    text-overflow: clip;
+    @include body4-500($primary-text);
+    @include tablet {
+        max-width: 136px;
+        @include body3-500($primary-text);
+    }
+}
+
+.download_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    transition: 0.3s;
+    @include hover {
+        background-color: #FCE0E0;
+        opacity: '0.4';
+    }
+}

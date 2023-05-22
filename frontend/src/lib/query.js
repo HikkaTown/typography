@@ -874,3 +874,44 @@ query getVoennayaFormaPage {
   }
 }
 `;
+
+
+export const getTabsFormsQuery = gql`
+query varaintForms {
+  variantyForms(pagination: {page: 1, pageSize: 1000}) {
+    data {
+      id
+      attributes {
+        variantName
+        position
+      }
+    }
+  }
+}
+`;
+
+export const getFormCardsCurrentVariantQuery = (id) => gql`
+query cardFormsCurrentVariant {
+  kartochkiFormies(filters: {variant: {id: {eq: "${id}"}}}, pagination: {page: 1, pageSize: 1000}) {
+    data {
+      id
+      attributes {
+        name
+        position
+        image {
+          data {
+            attributes {
+            	url
+            }
+          }
+        }
+        variant {
+          data {
+            id
+          }
+        }
+      }
+    }
+  }
+}
+`

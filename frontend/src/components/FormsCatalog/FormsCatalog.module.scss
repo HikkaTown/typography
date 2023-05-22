@@ -1,0 +1,36 @@
+.section {
+    background-color: $white;
+    padding-top: 96px;
+    padding-bottom: 80px;
+    @include tablet {
+      padding-top: 112px;
+    }
+    @include desktop {
+      padding-top: 120px;
+    }
+  }
+  
+  .container {
+    max-width: calc(100% - 32px);
+    width: 100vw;
+    margin: 0 auto;
+    @include tablet {
+      max-width: calc(100% - 88px);
+    }
+    @include desktop {
+      max-width: 1150px;
+    }
+  }
+  
+  .header {
+    @include headline-3-mob($primary-text);
+    margin: 0 0 16px;
+    padding: 0;
+    @include tablet {
+      @include headline-3($primary-text);
+      margin-bottom: 24px;
+    }
+    @include desktop {
+      margin-bottom: 32px;
+    }
+  }

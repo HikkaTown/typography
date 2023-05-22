@@ -1,0 +1,66 @@
+.container {
+    margin-bottom: 16px !important;
+    width: 100%;
+    margin-right: 0 !important;
+    @include tablet {
+      margin-bottom: 24px;
+    }
+    @include desktop {
+      margin-bottom: 0;
+      margin-right: 44px !important;
+    }
+  }
+  
+  .thumb {
+    max-width: 48px;
+    width: 48px;
+    height: 2px;
+    background-color: $blu;
+    border-radius: 2px;
+    display: block !important;
+  }
+  
+  .track {
+    width: 100%;
+    background-color: #eae8e8;
+    height: "2px";
+    border-radius: "2px";
+    bottom: 0;
+    left: 0;
+    display: block !important;
+    @include desktop {
+      display: none !important;
+    }
+  }
+  
+  .tabs {
+    display: flex;
+    overflow: auto;
+    padding-bottom: 8px;
+    @include desktop {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  
+  .tab {
+    min-width: fit-content;
+    margin-right: 4px;
+    white-space: nowrap;
+    &:last-of-type {
+      margin-right: 0;
+    }
+    @include desktop {
+      margin-right: 0;
+      margin-bottom: 4px;
+      white-space: normal;
+      text-align: left;
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+      

@@ -1,0 +1,41 @@
+.container {
+    width: 100%;
+    @include desktop {
+      display: flex;
+      width: 100%;
+    }
+  }
+  
+  .items {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    align-items: baseline;
+    align-content: flex-start;
+    @include tablet {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+  }
+  
+  .item {
+    max-width: 100%;
+    width: 100%;
+    
+  }
+  
+  .tabs {
+    @include desktop {
+      max-width: 270px;
+      width: 100%;
+      margin-right: 22px;
+    }
+  }
+  
+  .items_loaded {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
