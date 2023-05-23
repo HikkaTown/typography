@@ -16,6 +16,8 @@ import {
   Stamp,
   Star,
   Textprint,
+  TicketIcon,
+  VoenkorIcon,
   Xmld,
 } from "./Icons";
 import s from "./Background.module.scss";
@@ -85,6 +87,15 @@ export default function Background({ style }) {
       ) : (
         ""
       )}
+      {style === 'forms' ? (
+        <>
+          <Star className={s.first_star} />
+          <Star className={s.two} />
+          <TicketIcon className={s.hightblue_photo}/>
+          <Line className={s.left_line} />
+          <VoenkorIcon className={s.photo} />
+        </>
+      ) : ""}
       {!style ? (
         <>
           <Star className={s.default_one} />

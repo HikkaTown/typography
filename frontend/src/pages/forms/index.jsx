@@ -33,7 +33,7 @@ export default function Forms({ pageData, footerLinks, projects, tabsForm }) {
                     categoryPage={pageData.category}
                 />
                 <ProductMainSection
-                    style={'yellow'}
+                    style={'forms'}
                     header={pageData.pageData.header}
                     description={pageData.pageData.description}
                 />
