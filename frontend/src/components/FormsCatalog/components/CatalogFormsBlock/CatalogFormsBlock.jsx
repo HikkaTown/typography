@@ -36,7 +36,7 @@ export default function CatalogFormsBlock({
     return (
         <div className={s.container}>
             <FomrsTabs data={tabs} isActive={isActive} setIsActive={setIsActive} className={s.tabs}/>
-            <div className={cs(s.items, loaded && s.items_loaded)}>
+            <div className={cs(s.items, loaded && s.items_loaded, !currentCards?.length && s.items_notFound)}>
                 {!loaded && currentCards.length > 0
                     ? currentCards.map((item, index) => {
                         return (
@@ -51,7 +51,7 @@ export default function CatalogFormsBlock({
                     })
                     : null
                 }
-                {!loaded && !currentCards.length ? (<>Ничего нет</>) : null}
+                {!loaded && !currentCards.length ? (<h1 className={s.data_notFound}>Ничего нет</h1> ) : null}
                 {loaded ?
                     (
                         <div

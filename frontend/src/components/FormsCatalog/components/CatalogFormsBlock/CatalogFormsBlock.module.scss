@@ -18,6 +18,10 @@
       gap: 24px;
     }
   }
+
+  .items_notFound {
+    display: block;
+  }
   
   .item {
     max-width: 100%;
@@ -39,3 +43,9 @@
     justify-content: center;
   }
   
+
+  .data_notFound {
+    text-align: center; 
+    color: $secondary-text;
+    margin: 50px 0;
+  }
