@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import s from './FormsCard.module.scss'
 import cs from 'classnames';
 import { LazyImageWrapper } from '@/components/LazyImage/LazyImage';
@@ -11,8 +11,14 @@ export default function FormsCard({
     setOpenModal,
     index,
 }) {
+
+    const cardRef = useRef(null);
+    const downloadRef = useRef(null);
+
   return (
-    <div className={cs(s.card, className)}>
+    <div className={cs(s.card, className)} ref={cardRef} onClick={(e) => {
+        if(e.target.parentNode !== downloadRef.current) setOpenModal(index)
+    }}>
         <button className={s.loop_btn} onClick={() => {
             setOpenModal(index)
         }}>
@@ -33,8 +39,9 @@ export default function FormsCard({
                 title='Скачать'
                 download
                 className={s.download_btn}
+                ref={downloadRef}
             >
-                <DownloadIcon/>
+                <DownloadIcon className={s.icon}/>
             </a>
         </div>
     </div>
