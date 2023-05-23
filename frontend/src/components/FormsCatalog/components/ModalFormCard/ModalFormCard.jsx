@@ -7,7 +7,8 @@ import s from './ModalFormCard.module.scss';
 import CloseBtn from '@/components/uikit/CloseBtn/CloseBtn';
 import cs from 'classnames';
 import ArrowBtn from '@/components/uikit/ArrowBtn/ArrowBtn';
-import { LazyImageWrapper, LazyImage } from '@/components/LazyImage/LazyImage';
+import { LazyImage } from '@/components/LazyImage/LazyImage';
+import DownloadIcon from '../DownloadIcon/DownloadIcon';
 
 export default function ModalFormCard({
     isOpened,
@@ -15,12 +16,13 @@ export default function ModalFormCard({
     cards,
     currentItem,
 }) {
-    const [currentSlide, setCurrentSlide] = useState(0);
+    const [currentSlide, setCurrentSlide] = useState(currentItem);
     const [loaded, setLoaded] = useState(false);
 
     const lock = useLockBodyScroll();
 
     const [sliderRef, instanceRef] = useKeenSlider({
+        initial: currentItem,
         loop: true,
         slides: {
             size: 1,
@@ -44,7 +46,7 @@ export default function ModalFormCard({
             >
                 <div className={cs("navigation-wrapper", s.wrapper)}>
                     <CloseBtn className={s.close} onClick={onClose} />
-                    <div className={cs("keen-slider", s.slider)}>
+                    <div  ref={sliderRef} className={cs("keen-slider", s.slider)}>
                         {cards?.length > 0 ? cards.map((item, index) => {
                             return (
                                 <div className={cs("keen-slider__slide", s.slide)} key={index}>
@@ -56,6 +58,10 @@ export default function ModalFormCard({
                                         />
                                         <div className={s.card_info}>
                                             <p className={s.card_name}>{item.name}</p>
+                                            <a href={item.image} className={s.card_download} download title='Скачать'>
+                                                <DownloadIcon className={s.download_icon} />
+                                                <span className={s.download_text}>Скачать</span>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>

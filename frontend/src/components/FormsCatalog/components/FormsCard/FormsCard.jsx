@@ -1,7 +1,7 @@
 import React from 'react'
 import s from './FormsCard.module.scss'
 import cs from 'classnames';
-import { LazyImage } from '@/components/LazyImage/LazyImage';
+import { LazyImageWrapper } from '@/components/LazyImage/LazyImage';
 import DownloadIcon from '../DownloadIcon/DownloadIcon';
 import LoopIcon from '../LoopIcon/LoopIcon';
 
@@ -18,10 +18,11 @@ export default function FormsCard({
         }}>
             <LoopIcon className={s.loop_icon}/>
         </button>
-        <LazyImage
+        <LazyImageWrapper
             src={data.image}
             alt={data.name}
             className={s.imageStyle}
+            wrapperClass={s.imageWrapper}
         />
         <div className={s.card_info}>
             <p className={s.card_name}>

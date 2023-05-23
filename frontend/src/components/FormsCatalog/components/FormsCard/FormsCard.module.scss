@@ -28,6 +28,7 @@
     opacity: 0;
     top: 24px;
     right: 24px;
+    z-index: 100;
     
     svg {
         opacity: 0.5;
@@ -42,19 +43,31 @@
     }
 }
 
-.imageStyle {
+.imageWrapper {
+    display: block;
+    height: 136px;
+    width: 100%;
+    display: block;
+    margin-bottom: 16px;
+    background-color: $white;
     border-radius: 12px;
+    overflow: hidden;
+
+    @include tablet {
+        min-height: 238px;
+        height: auto;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+.imageStyle {
     overflow: hidden;
     object-position: center center;
     object-fit: cover;
-    margin-bottom: 16px;
     display: block;
     width: 100%;
-    height: auto;
-    background-color: $white;
-    @include tablet {
-        margin-bottom: 20px;
-    }
+    height: 100%;
 }
 
 .card_info {
@@ -66,12 +79,12 @@
     max-width: 100px;
     padding: 0;
     margin: 0;
-
+    white-space: nowrap;
     overflow: hidden;
-    text-overflow: clip;
+    text-overflow: ellipsis;
     @include body4-500($primary-text);
     @include tablet {
-        max-width: 136px;
+        max-width: 160px;
         @include body3-500($primary-text);
     }
 }

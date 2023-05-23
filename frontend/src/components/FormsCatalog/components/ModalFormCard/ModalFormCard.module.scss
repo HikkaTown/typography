@@ -1,5 +1,5 @@
 .overlay_wrapper {
-    z-index: 32;
+    z-index: 1002;
     overflow: scroll;
   }
   
@@ -23,41 +23,83 @@
       width: 90vw;
     }
   }
-  
-  .slide {
-    background-color: #fff;
+
+  .card {
     max-height: 600px;
+    height: 100%;
     max-width: 600px;
-    height: auto;
-    width: 100%;
+    background-color: #fff;
     border-radius: 12px;
     padding: 16px;
+    display: flex;
+    flex-direction: column;
     @include tablet {
         padding: 20px;
     }
   }
-
-  .card {
-    max-height: 600px;
-  }
   
   .image {
-    height: 100%;
+    height: 90%;
     width: 100%;
-  }
-  
-  .image_wrapper {
-    height: 100%;
-    width: 100%;
+    object-fit: contain;
+    object-position: center center;
   }
 
   .card_info {
+    margin-top: auto;
     display: flex;
     align-items: center;
   }
 
   .card_name {
     margin: 0;
+    @include body2-400($primary-text);
+    max-width: 284px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    @include tablet {
+      max-width: 400px;
+    }
+  }
+
+  .download_text {
+    display: none;
+    @include desktop {
+      display: inline-block;
+    }
+  }
+
+  .download_icon {
+    margin-right: 6px;
+    width: 20px;
+    height: 20px;
+
+    @include tablet {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .card_download {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    @include body3-500($blu);
+
+    @include hover {
+      color: #034077;
+
+      svg {
+        path {
+          stroke: #034077;
+        }
+      }
+    }
+
+    @include tablet {
+      @include body2-500($blu);
+    }
   }
   
   .arrows {
