@@ -43,8 +43,7 @@ export default function CallbackLandingSection() {
                 ...data,
                 theme: 'Обратная связь по разработке сайта',
                 emailOffice: {
-                    // email: 'mail@1ppc.ru'
-                    email: 'zaicev.gennady@yandex.ru'
+                    email: 'mail@1ppc.ru'
                 }
             },
             handlerThanks,

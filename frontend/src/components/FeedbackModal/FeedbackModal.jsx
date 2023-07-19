@@ -59,9 +59,7 @@ export default function FeedbackModal({
           (addData?.file ? addData.file : null) || (fileData ? fileData : null),
         theme,
         office: visibleOffice ? data.address ? "" : officesList[currentAddress] : null,
-        emailOffice: visibleOffice ? data.address
-          ? officesList[0]
-          : officesList[currentAddress] : 'mail@1ppc.ru',
+        emailOffice: {email: 'mail@1ppc.ru'}
       },
       handlerThanks,
       handlerError
