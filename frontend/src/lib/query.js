@@ -521,6 +521,7 @@ export const getSmallCardProductQuery = (id) => gql`
 query currentProductCard {
   straniczyUslugs(filters: { category: { url: { eq: "${id}" } } }, pagination: {page: 1, pageSize: 100}) {
     data {
+      id
       attributes {
         url
         tab {

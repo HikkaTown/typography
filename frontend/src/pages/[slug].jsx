@@ -16,7 +16,7 @@ import {
   getServicesList,
   getContactCards,
   getCurrentProductCard,
-  getCurrentProjects,
+  getCurrentProjects, getSmallProduct,
 } from "@/lib/apiFunctions";
 import { DOMAIN } from "@/lib/const";
 import Breadcumbs from "@/components/Breadcumbs/Breadcumbs";
@@ -94,7 +94,7 @@ function Product({ pageData, projects, officesList, footerLinks }) {
   );
 }
 
-function Service({ pageData, news, reviews, footerLinks, tabs }) {
+function Service({ pageData, news, reviews, footerLinks, tabs, cards }) {
   return (
     <>
       <Head>
@@ -122,6 +122,7 @@ function Service({ pageData, news, reviews, footerLinks, tabs }) {
           tabs={tabs}
           header={pageData.meta.header}
           id={pageData.url}
+          cards={cards}
         />
         <ReviewSection data={reviews} />
         <NewsSection data={news} />
@@ -140,6 +141,7 @@ export default function Index({
   officesList,
   footerLinks,
   tabs,
+  cards,
 }) {
   if (type === "product") {
     return (
@@ -158,6 +160,7 @@ export default function Index({
         reviews={reviews}
         footerLinks={footerLinks}
         tabs={tabs}
+        cards={cards}
       />
     );
   }
@@ -170,6 +173,10 @@ export const getServerSideProps = async ({ res, query }) => {
     const news = await getAllNews();
     const reviews = await getReviews();
     const footerLinks = await getServicesList();
+    let cards = footerLinks;
+    if(page[0]?.url) {
+      cards = await getSmallProduct(page[0]?.url);
+    }
     let officesList = [];
     const contactList = await getContactCards();
     contactList.map((item) => {
@@ -189,6 +196,7 @@ export const getServerSideProps = async ({ res, query }) => {
         props: {
           type: "service",
           pageData: page[0],
+          cards,
           tabs,
           news,
           officesList,

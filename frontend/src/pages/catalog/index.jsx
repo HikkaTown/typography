@@ -6,14 +6,11 @@ import NewsSection from "../../components/NewsSection/NewsSection";
 import ReviewSection from "../../components/ReviewSection/ReviewSection";
 import {
   getAllNews,
-  getAllProductCard,
   getCatalogPage,
-  getProductLinks,
   getReviews,
   getServicesList,
-} from "../../lib/apiFunctions";
+} from "@/lib/apiFunctions";
 import { DOMAIN } from "@/lib/const";
-import CatalogSection from "@/components/CatalogSection/CatalogSection";
 
 export default function Index({
   tabs,

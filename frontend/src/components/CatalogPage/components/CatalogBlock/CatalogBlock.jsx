@@ -6,10 +6,10 @@ import CatalogTabs from "../CatalogTabs/CatalogTabs";
 import { useRouter } from "next/router";
 import s from "./CatalogBlock.module.scss";
 import Preloader from "@/components/Preloader/Preloader";
-export default function CatalogBlock({ tabs, id }) {
+export default function CatalogBlock({ tabs, id, cards = []}) {
   const router = useRouter();
   const [isActive, setIsActive] = useState(null || id);
-  const [currentCards, setCurrentCards] = useState([]);
+  const [currentCards, setCurrentCards] = useState(cards);
   const [loaded, setLoaded] = useState(false);
   useEffect(() => {
     async function getData() {
