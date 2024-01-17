@@ -7,7 +7,7 @@ export default function Breadcumbs({ categoryPage, titlePage }) {
       <ul className={s.list}>
         <li className={s.item}>
           <Link href={"/"}>
-            <a className={s.link}>Гланвая</a>
+            <a className={s.link}>Главная</a>
           </Link>
           <Star />
         </li>
