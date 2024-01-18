@@ -51,7 +51,13 @@ export default function Header() {
         </Button2>
       </div>
       <AnimatePresence>
-        {isOpened && <FeedbackModal isOpened={isOpened} onClose={handleOpen} />}
+        {isOpened && (
+          <FeedbackModal
+            isOpened={isOpened}
+            onClose={handleOpen}
+            file={false}
+          />
+        )}
       </AnimatePresence>
     </header>
   );

@@ -20,7 +20,7 @@ export default function FeedbackModal({
   delivery = false,
   visibleOffice = true,
   file = true,
-  placeholderComment = 'Ваш комментарий'
+  placeholderComment = "Ваш комментарий",
 }) {
   const {
     register,
@@ -49,7 +49,7 @@ export default function FeedbackModal({
       setErrorMessage(false);
     }, 4000);
   };
-  
+
   const onSubmit = (data) => {
     callbackOrder(
       {
@@ -58,10 +58,16 @@ export default function FeedbackModal({
         file:
           (addData?.file ? addData.file : null) || (fileData ? fileData : null),
         theme,
-        office: visibleOffice ? data.address ? "" : officesList[currentAddress] : null,
-        emailOffice: visibleOffice ? data.address
-          ? officesList[0]
-          : officesList[currentAddress] : {email: 'mail@1ppc.ru'},
+        office: visibleOffice
+          ? data.address
+            ? ""
+            : officesList[currentAddress]
+          : null,
+        emailOffice: visibleOffice
+          ? data.address
+            ? officesList[0]
+            : officesList[currentAddress]
+          : { email: "mail@1ppc.ru" },
       },
       handlerThanks,
       handlerError

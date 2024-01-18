@@ -25,7 +25,9 @@ const AddFiles = dynamic(() => import("./components/AddFiles/AddFiles"), {
 export default function StepSection({ data, officesData }) {
   const [firstStep, setFirstStep] = useState(null);
   const [secondStep, setSecondStep] = useState(null);
-  const [devliveryAddress, setDeliveryAddres] = useState(null);
+  const [devliveryAddress, setDeliveryAddres] = useState(
+    officesData[0] || null
+  );
   const [isOpened, setIsOpened] = useState(false);
   const [fileDataStep, setFileDataStep] = useState(null);
   const [totalPrice, setTotalPrice] = useState(0);
@@ -54,7 +56,7 @@ export default function StepSection({ data, officesData }) {
   const handleClear = () => {
     setFirstStep(null);
     setSecondStep(null);
-    setDeliveryAddres(null);
+    setDeliveryAddres(officesData[0] || null);
     setTotalPrice(data.defaultPrice);
     if (getValues("file")) {
       reset({ file: "" });
@@ -184,6 +186,8 @@ export default function StepSection({ data, officesData }) {
             onClose={handleOpen}
             file={fileDataStep ? !fileDataStep : data.file}
             delivery={devliveryAddress === "delivery" ? true : false}
+            hideSelectOffice
+            visibleOffice={false}
             addData={{
               ...inputs,
               file: fileDataStep ? fileDataStep : null,
