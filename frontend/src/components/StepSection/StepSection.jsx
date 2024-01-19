@@ -105,6 +105,7 @@ export default function StepSection({ data, officesData }) {
     }
     setTotalPrice(total + data.defaultPrice);
   }, [firstStep, secondStep, devliveryAddress, data]);
+
   return (
     <section className={s.section}>
       <div className={s.container}>
@@ -187,7 +188,9 @@ export default function StepSection({ data, officesData }) {
             file={fileDataStep ? !fileDataStep : data.file}
             delivery={devliveryAddress === "delivery" ? true : false}
             hideSelectOffice
-            visibleOffice={false}
+            customEmail={
+              devliveryAddress === "delivery" ? null : devliveryAddress
+            }
             addData={{
               ...inputs,
               file: fileDataStep ? fileDataStep : null,
@@ -196,6 +199,7 @@ export default function StepSection({ data, officesData }) {
               totalPrice,
               defaultPrice,
               theme: data.pageData.title,
+
               deliveryAmount:
                 devliveryAddress === "delivery" ? deliveryAmount : "",
             }}

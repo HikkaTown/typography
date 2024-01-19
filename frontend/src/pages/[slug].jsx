@@ -16,7 +16,8 @@ import {
   getServicesList,
   getContactCards,
   getCurrentProductCard,
-  getCurrentProjects, getSmallProduct,
+  getCurrentProjects,
+  getSmallProduct,
 } from "@/lib/apiFunctions";
 import { DOMAIN } from "@/lib/const";
 import Breadcumbs from "@/components/Breadcumbs/Breadcumbs";
@@ -174,7 +175,7 @@ export const getServerSideProps = async ({ res, query }) => {
     const reviews = await getReviews();
     const footerLinks = await getServicesList();
     let cards = footerLinks;
-    if(page[0]?.url) {
+    if (page[0]?.url) {
       cards = await getSmallProduct(page[0]?.url);
     }
     let officesList = [];
@@ -219,6 +220,7 @@ export const getServerSideProps = async ({ res, query }) => {
       officesList.push({
         id: +item.id,
         address: `${item.name} ${item.address}`,
+        email: item.email,
       });
     });
     let projects;

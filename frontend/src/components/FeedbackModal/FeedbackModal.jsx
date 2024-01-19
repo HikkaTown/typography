@@ -19,7 +19,9 @@ export default function FeedbackModal({
   onClose,
   delivery = false,
   visibleOffice = true,
+  hideSelectOffice,
   file = true,
+  customEmail,
   placeholderComment = "Ваш комментарий",
 }) {
   const {
@@ -66,6 +68,8 @@ export default function FeedbackModal({
         emailOffice: visibleOffice
           ? data.address
             ? officesList[0]
+            : customEmail
+            ? customEmail
             : officesList[currentAddress]
           : { email: "mail@1ppc.ru" },
       },
@@ -160,7 +164,7 @@ export default function FeedbackModal({
                   </p>
                 </>
               )}
-              {!delivery && visibleOffice && (
+              {!delivery && visibleOffice && !hideSelectOffice && (
                 <div className={cs(s.input_block, s.address)}>
                   <label className={s.label}>
                     Выберите офис обращения <span className={s.star}>*</span>
