@@ -38,9 +38,9 @@ export default function Header() {
         <Link href="/projects">
           <a itemProp="url">Наши проекты</a>
         </Link>
-        <Link href="/landing-page">
-          <a itemProp="url">Разработка сайтов</a>
-        </Link>
+        {/*<Link href="/landing-page">*/}
+        {/*  <a itemProp="url">Разработка сайтов</a>*/}
+        {/*</Link>*/}
       </div>
       <div className={s.container}>
         <Logo />

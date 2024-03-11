@@ -29,9 +29,9 @@ export default function Footer({ footerLinks }) {
           <FooterLink href={"/contacts"} className={s.link}>
             Контакты
           </FooterLink>
-          <FooterLink href={"/landing-page"} className={s.link}>
-            Разработка сайтов
-          </FooterLink>
+          {/*<FooterLink href={"/landing-page"} className={s.link}>*/}
+          {/*  Разработка сайтов*/}
+          {/*</FooterLink>*/}
           <FooterLink href={"/privacy"} className={s.link}>
             Политика конфиденциальности
           </FooterLink>
