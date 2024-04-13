@@ -7,30 +7,16 @@ import { useRouter } from "next/router";
 import s from "./CatalogBlock.module.scss";
 import Preloader from "@/components/Preloader/Preloader";
 export default function CatalogBlock({ tabs, id, cards = []}) {
-  const router = useRouter();
   const [isActive, setIsActive] = useState(null || id);
-  const [currentCards, setCurrentCards] = useState(cards);
   const [loaded, setLoaded] = useState(false);
-  useEffect(() => {
-    async function getData() {
-      setLoaded(true);
-      if (isActive !== null) {
-        const res = await getSmallProduct(isActive);
-        setCurrentCards(res);
-      } else {
-        const res = await getServicesList();
-        setCurrentCards(res);
-      }
-      setLoaded(false);
-    }
-    getData();
-  }, [isActive]);
 
+  
+  
   useEffect(() => {
-    if (router.query.id) {
-      setIsActive(router.query.id);
+    if (id) {
+      setIsActive(id);
     }
-  }, [router]);
+  }, [id]);
 
   return (
     <div className={s.container}>
@@ -42,13 +28,13 @@ export default function CatalogBlock({ tabs, id, cards = []}) {
       />
 
       <div className={cs(s.items, loaded ? s.items_loaded : "")}>
-        {!loaded && currentCards.length > 0
-          ? currentCards.map((item, index) => {
+        {!loaded && cards.length > 0
+          ? cards.map((item, index) => {
               return (
                 <CatalogItem
                   className={s.item}
-                  key={index}
-                  href={`/${item.url}`}
+                  key={item.id}
+                  href={item.url.includes('/') ? item.url : `/${item.url}`}
                   data={item}
                 />
               );

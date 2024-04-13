@@ -30,6 +30,7 @@
 }
 
 .card_name {
+  display: block;
   text-align: center;
   @include body3-400($secondary-text);
   padding: 0;

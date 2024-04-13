@@ -17,6 +17,7 @@ export default function Index({
   news,
   reviews,
   pageData,
+  cards,
   id,
   footerLinks,
 }) {
@@ -35,7 +36,7 @@ export default function Index({
         <link rel="canonical" href={DOMAIN + "/catalog"} />
       </Head>
       <Layout footerLinks={footerLinks}>
-        <CatalogPage tabs={tabs} header={pageData.header} id={id} />
+        <CatalogPage tabs={tabs} header={pageData.header} id={id} cards={cards} />
         {/* <CatalogSection data={tabs} header={pageData.header} /> */}
         <ReviewSection data={reviews} />
         <NewsSection data={news} />
@@ -53,6 +54,7 @@ export const getServerSideProps = async ({ query, res }) => {
   const news = await getAllNews();
   const reviews = await getReviews();
   const pageData = await getCatalogPage();
+  const cards = await getServicesList();
   const id = query?.id ?? null;
   const footerLinks = await getServicesList();
   return {
@@ -62,6 +64,7 @@ export const getServerSideProps = async ({ query, res }) => {
       tabs,
       news,
       reviews,
+      cards,
       id,
     },
   };

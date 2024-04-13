@@ -95,7 +95,7 @@ function Product({ pageData, projects, officesList, footerLinks }) {
   );
 }
 
-function Service({ pageData, news, reviews, footerLinks, tabs, cards }) {
+function Service({ pageData, news, reviews, footerLinks, tabs, cards, url }) {
   return (
     <>
       <Head>
@@ -122,7 +122,7 @@ function Service({ pageData, news, reviews, footerLinks, tabs, cards }) {
         <CatalogPage
           tabs={tabs}
           header={pageData.meta.header}
-          id={pageData.url}
+          id={url}
           cards={cards}
         />
         <ReviewSection data={reviews} />
@@ -143,6 +143,7 @@ export default function Index({
   footerLinks,
   tabs,
   cards,
+  url,
 }) {
   if (type === "product") {
     return (
@@ -162,6 +163,7 @@ export default function Index({
         footerLinks={footerLinks}
         tabs={tabs}
         cards={cards}
+        url={url}
       />
     );
   }
@@ -174,9 +176,10 @@ export const getServerSideProps = async ({ res, query }) => {
     const news = await getAllNews();
     const reviews = await getReviews();
     const footerLinks = await getServicesList();
-    let cards = footerLinks;
+    let cards = await getServicesList();
+    let simpleCads = [];
     if (page[0]?.url) {
-      cards = await getSmallProduct(page[0]?.url);
+      simpleCads = await getSmallProduct(query.slug);
     }
     let officesList = [];
     const contactList = await getContactCards();
@@ -197,13 +200,14 @@ export const getServerSideProps = async ({ res, query }) => {
         props: {
           type: "service",
           pageData: page[0],
-          cards,
+          cards: simpleCads.length ? simpleCads : cards.length ? cards : [],
           tabs,
           news,
           officesList,
           reviews,
           projects,
           footerLinks,
+          url: query.slug,
         },
       };
     }

@@ -7,8 +7,8 @@ import { PATH_IMAGE } from "../../../lib/const";
 
 export default function NewsCard({ className, data }) {
   return (
-    <Link href={`/blog${data?.url ? "/" + data.url : ""}`} passHref={true}>
-      <div
+    <Link href={`/blog${data?.url ? "/" + data.url : ""}`}>
+      <span
         className={cs(s.card, className)}
         itemProp="blogPosts"
         itemScope
@@ -30,7 +30,7 @@ export default function NewsCard({ className, data }) {
         >
           {new Date(data.postDate).toLocaleDateString("ru-RU")}
         </p>
-      </div>
+      </span>
     </Link>
   );
 }

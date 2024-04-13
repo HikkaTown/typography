@@ -21,11 +21,9 @@ export default function CatalogTabs({
       <Tab
         className={s.tab}
         key={"item.id"}
-        isActive={isActive === null ? true : false}
-        onClick={() => {
-          setIsActive(null);
-          router.push("/catalog");
-        }}
+        isActive={isActive === null}
+        isLink
+        href={'/catalog'}
       >
         Все
       </Tab>
@@ -35,17 +33,11 @@ export default function CatalogTabs({
             <Tab
               className={s.tab}
               key={item.id}
-              isActive={isActive === item.url ? true : false}
-              onClick={() => {
-                router.push(
-                  item?.meta?.metaHead ? `/${item.url}` : `/${item.url}`
-                );
-                if (item?.meta?.metaHead) {
-                  setIsActive(item.url);
-                }
-              }}
+              isActive={isActive === item.url}
+              isLink
+              href={item?.meta?.metaHead ? `/${item.url}` : `/${item.url}`}
             >
-              {item.servicesName}
+              {item.servicesName} + {item.url}
             </Tab>
           );
         })}
