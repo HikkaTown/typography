@@ -37,7 +37,7 @@ export default function CatalogTabs({
               isLink
               href={item?.meta?.metaHead ? `/${item.url}` : `/${item.url}`}
             >
-              {item.servicesName} + {item.url}
+              {item.servicesName}
             </Tab>
           );
         })}
