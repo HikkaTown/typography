@@ -8,7 +8,7 @@ import { PATH_IMAGE } from "../../../lib/const";
 export default function NewsCard({ className, data }) {
   return (
     <Link href={`/blog${data?.url ? "/" + data.url : ""}`}>
-      <a
+      <span
         className={cs(s.card, className)}
         itemProp="blogPosts"
         itemScope
@@ -20,9 +20,11 @@ export default function NewsCard({ className, data }) {
           className={[s.image]}
           wrapperClass={s.image_wrapper}
         />
-        <span className={s.card_name} itemProp="headline">
-          {data.postName}
-        </span>
+        <Link href={`/blog${data?.url ? "/" + data.url : ""}`}>
+          <a className={s.card_name} itemProp="headline">
+            {data.postName}
+          </a>
+        </Link>
         <p
           className={s.date}
           itemProp="datePublished"
@@ -30,7 +32,7 @@ export default function NewsCard({ className, data }) {
         >
           {new Date(data.postDate).toLocaleDateString("ru-RU")}
         </p>
-      </a>
+      </span>
     </Link>
   );
 }
