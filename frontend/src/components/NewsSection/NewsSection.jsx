@@ -16,7 +16,7 @@ export default function NewsSection({ data }) {
             планировали
           </p>
         </div>
-        <NewsSlider className={s.slider} data={data} />
+        <NewsSlider className={s.slider} data={Array.from(data || []).reverse()} />
       </div>
     </section>
   );

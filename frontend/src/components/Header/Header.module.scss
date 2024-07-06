@@ -8,17 +8,17 @@
   right: 0;
   z-index: 7;
   padding: 8px 0;
-  height: 64px;
+  height: 124px;
   transition: transform 0.2s;
   &Fixed {
     position: fixed;
-    top: -64px;
+    top: -124px;
     transform: translateY(0);
     z-index: 20;
   }
 
   &Show {
-    transform: translateY(64px);
+    transform: translateY(124px);
   }
 }
 

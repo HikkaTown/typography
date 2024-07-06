@@ -1,12 +1,14 @@
 .container {
   opacity: 0;
+  display: none;
   max-width: calc(100% - 32px);
   width: 100vw;
-  padding-top: 104px;
+  padding-top: 20px;
   margin: 0 auto;
   position: relative;
   z-index: 2;
   @include tablet {
+    display: block;
     opacity: 1;
     max-width: calc(100% - 88px);
   }

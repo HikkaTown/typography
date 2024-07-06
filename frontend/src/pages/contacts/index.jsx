@@ -5,7 +5,6 @@ import Layout from "@/components/Layout/Layout";
 import {
   getContactCards,
   getContactPage,
-  getProductLinks,
   getServicesList,
 } from "@/lib/apiFunctions";
 import { DOMAIN } from "@/lib/const";

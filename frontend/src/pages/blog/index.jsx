@@ -25,7 +25,7 @@ export default function Index({ news, pageData, footerLinks }) {
         <link rel="canonical" href={DOMAIN + "/blog"} />
       </Head>
       <Layout footerLinks={footerLinks}>
-        <NewsPageSection data={news} header={pageData.header} />
+        <NewsPageSection data={Array.from(news || []).reverse()} header={pageData.header} />
       </Layout>
     </>
   );

@@ -7,7 +7,7 @@ export default function Layout({ children, footerLinks }) {
   return (
     <>
       <Header />
-      <main>{children}</main>
+      <main style={{marginTop: '124px'}}>{children}</main>
       {router.pathname !== "/404" ? <Footer footerLinks={footerLinks} /> : ""}
     </>
   );
