@@ -2,12 +2,16 @@
   padding-top: 96px;
   padding-bottom: 80px;
   @include tablet {
-    padding-top: 112px;
+    padding-top: 100px;
   }
   @include desktop {
-    padding-top: 120px;
+    padding-top: 100px;
   }
   background-color: $bg-1;
+}
+
+.section_white {
+  background-color: $white;
 }
 
 .container {
@@ -18,7 +22,7 @@
     max-width: calc(100% - 88px);
   }
   @include desktop {
-    max-width: 1150px;
+    max-width: 1250px;
   }
 }
 
@@ -33,7 +37,7 @@
 }
 
 .map {
-  margin-top: 80px;
+  margin: 0 0 40px;
 }
 
 .iframe {

@@ -39,6 +39,7 @@ export default function Index({ pageData, cards, footerLinks }) {
           data={cards}
           header={pageData.header}
           mapUrl={mapUrl}
+          needHeader
         />
       </Layout>
     </>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import cn from 'classnames';
 import ContactTabsBlock from "@/components/ContactTabsBlock/ContactTabsBlock";
 import PathBlock from "@/components/PathBlock/PathBlock";
 import s from "./ContactPageSection.module.scss";
@@ -9,6 +10,8 @@ export default function ContactPageSection({
   header,
   mapUrl,
   setActiveMapUrl,
+  needHeader,
+  whiteBg
 }) {
   const [isOpened, setIsOpened] = useState(null);
 
@@ -23,9 +26,12 @@ export default function ContactPageSection({
   }, [isOpened]);
 
   return (
-    <section className={s.section}>
+    <section className={cn(s.section, whiteBg && s.section_white)}>
       <div className={s.container} id="container">
-        <h1 className={s.header}>{header}</h1>
+        {needHeader ? <h1 className={s.header}>{header}</h1> : null}
+        <div className={s.map}>
+          <iframe className={s.iframe} src={mapUrl}/>
+        </div>
         <ContactTabsBlock
           data={data}
           setIsOpen={setIsOpened}
@@ -39,9 +45,6 @@ export default function ContactPageSection({
             })}
           />
         )}
-        <div className={s.map}>
-          <iframe className={s.iframe} src={mapUrl} />
-        </div>
       </div>
     </section>
   );

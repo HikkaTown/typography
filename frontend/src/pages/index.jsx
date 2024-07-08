@@ -8,13 +8,14 @@ import NewsSection from "@/components/NewsSection/NewsSection";
 import ReviewSection from "@/components/ReviewSection/ReviewSection";
 import ShortDescription from "@/components/ShortDescription/ShortDescription";
 import {
-  getAllNews,
+  getAllNews, getContactCards, getContactPage,
   getIndex,
   getProductLinks,
   getReviews,
   getServicesList,
 } from "@/lib/apiFunctions";
 import { DOMAIN } from "@/lib/const";
+import ContactPageSection from '@/components/ContactPageSection/ContactPageSection';
 
 export default function Index({
   response,
@@ -22,6 +23,8 @@ export default function Index({
   news,
   services,
   footerLinks,
+  contacts,
+  mapUrl
 }) {
   const { pageData, seoBlock, shortDescription } = response;
   return (
@@ -45,6 +48,7 @@ export default function Index({
         <BenefitsSection />
         <CatalogSection data={services} />
         <ReviewSection data={reviews} />
+        <ContactPageSection data={contacts} mapUrl={mapUrl} />
         <NewsSection data={news} />
         <MainSeoSection data={seoBlock} />
       </Layout>
@@ -58,11 +62,13 @@ export async function getServerSideProps({ res }) {
     "public, s-maxage=10, stale-while-revalidate=59"
   );
   const response = await getIndex();
+  const { mapUrl } = await getContactPage();
+  const contacts = await getContactCards();
   const reviews = await getReviews();
   const news = await getAllNews();
   const services = await getServicesList();
   const footerLinks = await getServicesList();
   return {
-    props: { response: response, reviews, news, services, footerLinks },
+    props: { response: response, reviews, news, services, footerLinks, contacts, mapUrl },
   };
 }

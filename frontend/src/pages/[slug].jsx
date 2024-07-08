@@ -17,15 +17,16 @@ import {
   getContactCards,
   getCurrentProductCard,
   getCurrentProjects,
-  getSmallProduct,
+  getSmallProduct, getContactPage,
 } from "@/lib/apiFunctions";
 import { DOMAIN } from "@/lib/const";
 import Breadcumbs from "@/components/Breadcumbs/Breadcumbs";
 import ReviewSection from "@/components/ReviewSection/ReviewSection";
 import NewsSection from "@/components/NewsSection/NewsSection";
 import CatalogPage from "@/components/CatalogPage/CatalogPage";
+import ContactPageSection from '@/components/ContactPageSection/ContactPageSection';
 
-function Product({ pageData, projects, officesList, footerLinks }) {
+function Product({ pageData, projects, officesList, footerLinks, contactList, mapUrl }) {
   return (
     <>
       <Head>
@@ -89,13 +90,14 @@ function Product({ pageData, projects, officesList, footerLinks }) {
           </>
         )}
         {projects ? <ProjectSection data={projects} /> : ""}
+        <ContactPageSection data={contactList} mapUrl={mapUrl} whiteBg />
         {pageData?.seoBlock ? <SeoProduct data={pageData.seoBlock} /> : ""}
       </Layout>
     </>
   );
 }
 
-function Service({ pageData, news, reviews, footerLinks, tabs, cards, url }) {
+function Service({ pageData, news, reviews, footerLinks, tabs, cards, url, contactList, mapUrl }) {
   return (
     <>
       <Head>
@@ -126,6 +128,7 @@ function Service({ pageData, news, reviews, footerLinks, tabs, cards, url }) {
           cards={cards}
         />
         <ReviewSection data={reviews} />
+        {/*<ContactPageSection data={contactList} mapUrl={mapUrl}/>*/}
         <NewsSection data={news} />
         {pageData?.seoBlock ? <SeoProduct data={pageData.seoBlock} /> : ""}
       </Layout>
@@ -141,6 +144,8 @@ export default function Index({
   reviews,
   officesList,
   footerLinks,
+  contactList,
+  mapUrl,
   tabs,
   cards,
   url,
@@ -151,6 +156,8 @@ export default function Index({
         pageData={pageData}
         projects={projects}
         officesList={officesList}
+        contactList={contactList}
+        mapUrl={mapUrl}
         footerLinks={footerLinks}
       />
     );
@@ -161,6 +168,8 @@ export default function Index({
         news={news}
         reviews={reviews}
         footerLinks={footerLinks}
+        contactList={contactList}
+        mapUrl={mapUrl}
         tabs={tabs}
         cards={cards}
         url={url}
@@ -181,14 +190,16 @@ export const getServerSideProps = async ({ res, query }) => {
     if (page[0]?.url) {
       simpleCads = await getSmallProduct(query.slug);
     }
+    const { mapUrl } = await getContactPage();
     let officesList = [];
     const contactList = await getContactCards();
-    contactList.map((item) => {
+    contactList.forEach((item) => {
       officesList.push({
         id: +item.id,
         address: `${item.name} ${item.address}`,
+        email: item.email,
       });
-    });
+    })
     let projects;
     if (page[0]?.projectId) {
       projects = await getCurrentProjects(+page[0].projectId);
@@ -204,6 +215,8 @@ export const getServerSideProps = async ({ res, query }) => {
           tabs,
           news,
           officesList,
+          contactList,
+          mapUrl,
           reviews,
           projects,
           footerLinks,
@@ -218,15 +231,16 @@ export const getServerSideProps = async ({ res, query }) => {
     const footerLinks = await getServicesList();
     const news = await getAllNews();
     const reviews = await getReviews();
+    const { mapUrl } = await getContactPage();
     let officesList = [];
     const contactList = await getContactCards();
-    contactList.map((item) => {
+    contactList.forEach((item) => {
       officesList.push({
         id: +item.id,
         address: `${item.name} ${item.address}`,
         email: item.email,
       });
-    });
+    })
     let projects;
 
     if (pageData[0]?.projectId) {
@@ -242,6 +256,8 @@ export const getServerSideProps = async ({ res, query }) => {
           tabs,
           news,
           officesList,
+          contactList,
+          mapUrl,
           reviews,
           projects: projects?.length ? projects : null,
           footerLinks,
