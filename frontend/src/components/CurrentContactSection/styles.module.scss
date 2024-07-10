@@ -108,6 +108,12 @@
   @include body2-400($primary-text);
 }
 
+.line_url {
+  @include hover {
+    text-decoration: underline;
+  }
+}
+
 .offices {
   display: flex;
   flex-direction: column;

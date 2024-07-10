@@ -69,9 +69,11 @@ export const CurrentContactSection = ({ data, contacts }) => {
                     <ul className={styles.list}>
                       {column.lines?.map((line, index) => (
                         <li key={index} className={styles.line}>
-                          <Link href={line.linkUrl}>
-                            <a className={styles.line_url}>{line.text}</a>
-                          </Link>
+                          {line?.linkUrl ? (
+                            <Link href={line.linkUrl}>
+                              <a className={styles.line_url}>{line.text}</a>
+                            </Link>
+                          ) : <span className={styles.line_notUrl}>{line.text}</span>}
                         </li>))}
                     </ul>
                   </div>
