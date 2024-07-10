@@ -128,8 +128,8 @@ function Service({ pageData, news, reviews, footerLinks, tabs, cards, url, conta
           cards={cards}
         />
         <ReviewSection data={reviews} />
-        {/*<ContactPageSection data={contactList} mapUrl={mapUrl}/>*/}
         <NewsSection data={news} />
+        <ContactPageSection data={contactList} mapUrl={mapUrl}/>
         {pageData?.seoBlock ? <SeoProduct data={pageData.seoBlock} /> : ""}
       </Layout>
     </>

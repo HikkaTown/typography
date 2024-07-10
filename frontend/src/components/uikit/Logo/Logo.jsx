@@ -14,8 +14,10 @@ export default function Logo({ className }) {
           className={[s.image]}
           wrapperClass={s.image_wrapper}
         />
-        <p className={s.text}>Первый печатный</p>
-        <p className={s.small_text}>Напечатаем <br/>быстро и легко</p>
+        <div>
+          <p className={s.text}>Первый печатный</p>
+          <p className={s.small_text}>Напечатаем <br/>быстро и легко</p>
+        </div>
       </div>
     </Link>
   );

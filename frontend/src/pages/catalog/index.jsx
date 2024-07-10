@@ -56,10 +56,9 @@ export const getServerSideProps = async ({ query, res }) => {
   const pageData = await getCatalogPage();
   const cards = await getServicesList();
   const id = query?.id ?? null;
-  const footerLinks = await getServicesList();
   return {
     props: {
-      footerLinks,
+      footerLinks: tabs,
       pageData,
       tabs,
       news,
