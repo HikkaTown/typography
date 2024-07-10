@@ -2,7 +2,7 @@
   position: relative;
   padding-top: 100px;
   
-  @include desktop {
+  @include tablet {
     padding-top: 24px;
   }
 }
