@@ -1,7 +1,6 @@
 import {
   getAllNews,
-  getAllProductCard,
-  getServicesList,
+  getAllProductCard, getContactCards,
   getServicesListSitemap,
 } from "../lib/apiFunctions";
 import { DOMAIN, PAGES } from "../lib/const";
@@ -13,6 +12,7 @@ const Sitemap = () => {
 export const getServerSideProps = async ({ res }) => {
   const staticPaths = PAGES.map((page) => `${DOMAIN}${page}`);
   const news = await getAllNews();
+  const contacts = await getContactCards();
   const catalog = await getServicesListSitemap();
   const products = await getAllProductCard();
   const createStream = (path) => {
@@ -28,25 +28,28 @@ export const getServerSideProps = async ({ res }) => {
       ${createStream(`${DOMAIN}/`)}
       ${staticPaths.map(createStream).join("")}
       ${news
-        .map((item) => {
-          if (item) {
-            const path = item.url;
-            return createStream(`${DOMAIN}/blog/${path}`);
-          }
-        })
-        .join("")}
+    .map((item) => {
+      if (item) {
+        const path = item.url;
+        return createStream(`${DOMAIN}/blog/${path}`);
+      }
+    })
+    .join("")}
       ${catalog
-        .map((item) => {
-          const path = item.url;
-          return createStream(`${DOMAIN}/${path}`);
-        })
-        .join("")}
+    .map((item) => {
+      const path = item.url;
+      return createStream(`${DOMAIN}/${path}`);
+    })
+    .join("")}
       ${products
-        .map((item) => {
-          const path = item.url;
-          return createStream(`${DOMAIN}/${item.url}`);
-        })
-        .join("")}
+    .map((item) => {
+      const path = item.url;
+      return createStream(`${DOMAIN}/${item.url}`);
+    })
+    .join("")}
+      ${
+    contacts.map((item) => createStream(`${DOMAIN}/contacts/${item.url}`)).join('')
+  } 
   </urlset>
 `;
   res.setHeader("Content-Type", "text/xml");

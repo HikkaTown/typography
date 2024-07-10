@@ -89,6 +89,7 @@ export default function AddressCard({
             <div className={s.container}>
               <CloseBtn className={s.closeBtn} onClick={handleClose} />
               <PathBlock
+                offBorder
                 data={data}
               />
             </div>

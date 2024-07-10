@@ -1,0 +1,166 @@
+.container {
+  margin: 0 auto;
+  max-width: calc(100% - 32px);
+  width: 100%;
+  
+  @include tablet {
+    max-width: calc(100% - 48px);
+  }
+  
+  @include desktop {
+    max-width: 1150px;
+  }
+}
+
+.path_container {
+  margin-bottom: 40px;
+}
+
+.header {
+  margin: 0 0 24px;
+  padding: 0;
+  @include headline-3-mob($primary-text);
+  @include tablet {
+    @include headline-3($primary-text);
+    margin-bottom: 24px;
+  }
+}
+
+.iframe {
+  width: 100%;
+  border: none;
+  height: 400px;
+  max-height: 100vh;
+  margin-bottom: 40px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.info_block {
+  
+}
+
+.info_item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.info_header {
+  @include headline-3-mob($pink);
+  margin: 0;
+  padding: 0;
+}
+
+.info_text {
+  margin: 0;
+  padding: 0;
+  @include body2-400($secondary-text);
+}
+
+.info_link {
+  text-decoration: none;
+  transition: 0.3s;
+  @include hover {
+    opacity: 0.6;
+    color: $primary-text;
+  }
+}
+
+.header_path {
+  @include headline-3($primary-text);
+  margin: 0 0 24px;
+  padding: 0;
+}
+
+.columns {
+  @include desktop {
+    margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.column {
+  margin-bottom: 24px;
+  @include tablet {
+    margin-bottom: 0;
+  }
+}
+
+.column_header {
+  padding: 0;
+  margin: 0 0 14px;
+}
+
+.list {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.line {
+  @include body2-400($primary-text);
+}
+
+.offices {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 40px;
+  
+  @include desktop {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+.office {
+  display: flex;
+  align-items: center;
+  transition: 0.3s;
+  text-decoration-color: $pink;
+  
+  &:after {
+    display: none;
+    content: '';
+    height: 20px;
+    width: 4px;
+    margin-left: 18px;
+    background-color: $pink;
+    
+    @include desktop {
+      display: block;
+    }
+  }
+
+  &:last-of-type {
+    &:after {
+      display: none;
+    }
+  }
+  
+}
+
+.office_link {
+  transition: 0.3s;
+  @include hover {
+    text-decoration-color: $pink;
+    text-decoration: underline;
+  }
+}
+
+.svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+  margin-right: 8px;
+  path {
+    fill: $pink;
+  }
+}

@@ -42,17 +42,17 @@ export const getIndex = async () => {
       firstHeader: data.glavnaya.data.attributes.seoBlock.firstSeoHeader,
       secondHeader: data.glavnaya.data.attributes.seoBlock.secondSeoHeader,
       seoImagePc:
-        data.glavnaya.data.attributes.seoBlock.seoImagePc.data.attributes.url,
+      data.glavnaya.data.attributes.seoBlock.seoImagePc.data.attributes.url,
       seoImageTablet:
-        data.glavnaya.data.attributes.seoBlock.seoImageTablet.data.attributes
-          .url,
+      data.glavnaya.data.attributes.seoBlock.seoImageTablet.data.attributes
+        .url,
       seoImageMobile:
-        data.glavnaya.data.attributes.seoBlock.seoImageMobile.data.attributes
-          .url,
+      data.glavnaya.data.attributes.seoBlock.seoImageMobile.data.attributes
+        .url,
       firstDescription:
-        data.glavnaya.data.attributes.seoBlock.firstSeoDescription,
+      data.glavnaya.data.attributes.seoBlock.firstSeoDescription,
       secondDescription:
-        data.glavnaya.data.attributes.seoBlock.secondSeoDescription,
+      data.glavnaya.data.attributes.seoBlock.secondSeoDescription,
     },
     shortDescription: {
       firstBlock: data.glavnaya.data.attributes.shortDescription.firstBlock,
@@ -131,7 +131,7 @@ export const getAllProjectsCard = async () => {
     }
     let object =
       item?.attributes?.category?.data?.attributes?.typeProjectName &&
-        images?.length
+      images?.length
         ? {
           images: images?.length ? images : null,
           category: item?.attributes?.category?.data?.attributes
@@ -191,7 +191,7 @@ export const getCurrentProjects = async (id) => {
     });
     let object =
       images.length &&
-        item?.attributes?.category?.data?.attributes?.typeProjectName
+      item?.attributes?.category?.data?.attributes?.typeProjectName
         ? {
           images: images.length ? images : null,
           category: item?.attributes?.category?.data?.attributes
@@ -373,6 +373,10 @@ export const getContactCards = async () => {
     let res = {
       id: id,
       url: attributes.url,
+      columns: attributes.column.length ? attributes.column.map((col) => ({
+        header: col.header,
+        lines: col.line.length ? col.line : []
+      })) : [],
       name: attributes.contactName,
       address: attributes.address,
       email: attributes.email,
@@ -385,6 +389,12 @@ export const getContactCards = async () => {
       addressIcon: attributes?.addressIcon.data.attributes.url,
       cardImage: attributes?.cardImage.data.attributes.url,
       mapUrl: attributes.mapUrl,
+      meta: {
+        metaHead: attributes?.metaHead ? attributes?.metaHead : null,
+        metaDescription: attributes?.metaDescription
+          ? attributes?.metaDescription
+          : null,
+      },
       path: {
         onFoot: {
           description: attributes.routeOnFoot.description,
@@ -933,7 +943,7 @@ export const getVoennayaFormPage = async () => {
 }
 
 export const getTabsForm = async () => {
-  const {data} = await client.query({
+  const { data } = await client.query({
     query: getTabsFormsQuery
   });
 
@@ -942,17 +952,17 @@ export const getTabsForm = async () => {
     return {
       id: item.id,
       variantName: item.attributes.variantName,
-      position:  item.attributes.position,
+      position: item.attributes.position,
     }
   }) : null
 }
 
 export const getCurrentFormCards = async (id) => {
-  const {data} = await client.query({
+  const { data } = await client.query({
     query: getFormCardsCurrentVariantQuery(id)
   });
 
-  if(data.kartochkiFormies.data?.length > 0) {
+  if (data.kartochkiFormies.data?.length > 0) {
     const list = data.kartochkiFormies.data;
     return list.map((item) => (
       {
@@ -964,5 +974,5 @@ export const getCurrentFormCards = async (id) => {
     ))
   }
   return []
-  
+
 }

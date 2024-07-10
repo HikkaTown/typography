@@ -10,6 +10,11 @@
   }
 }
 
+.withoutBorder {
+  border: none;
+  padding: 0;
+}
+
 .header {
   @include headline-5($primary-text);
   margin: 0 0 16px;

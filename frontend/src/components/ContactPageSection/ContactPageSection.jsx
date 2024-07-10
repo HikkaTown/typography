@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import cn from 'classnames';
 import ContactTabsBlock from "@/components/ContactTabsBlock/ContactTabsBlock";
 import s from "./ContactPageSection.module.scss";
-import { scroller } from "react-scroll";
+
 
 export default function ContactPageSection({
   data,

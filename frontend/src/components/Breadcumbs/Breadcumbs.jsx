@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import s from "./Breadcumbs.module.scss";
-export default function Breadcumbs({ categoryPage, titlePage }) {
+export default function Breadcumbs({ categoryPage, titlePage, contacts }) {
   return (
     <div className={s.container}>
       <ul className={s.list}>
@@ -11,12 +11,22 @@ export default function Breadcumbs({ categoryPage, titlePage }) {
           </Link>
           <Star />
         </li>
-        <li className={s.item}>
-          <Link href={"/catalog"}>
-            <a className={s.link}>Каталог</a>
-          </Link>
-          <Star />
-        </li>
+        {contacts ? (
+          <li className={s.item}>
+            <Link href={"/contacts"}>
+              <a className={s.link}>Контакты</a>
+            </Link>
+            <Star/>
+          </li>
+        ) : null}
+        {categoryPage ? (
+          <li className={s.item}>
+            <Link href={"/catalog"}>
+              <a className={s.link}>Каталог</a>
+            </Link>
+            <Star/>
+          </li>
+        ) : null}
         {categoryPage?.pages?.length > 1 ? (
           <li className={s.item}>
             <Link href={`/${categoryPage.url}`}>

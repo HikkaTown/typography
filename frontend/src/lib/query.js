@@ -213,6 +213,13 @@ export const getContactCardsQuery = gql`
         id
         attributes {
           url
+          column {
+            header
+            line {
+              linkUrl
+              text
+            }
+          }
           meta {
             metaHead
             metaDescription

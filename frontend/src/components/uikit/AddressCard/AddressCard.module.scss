@@ -118,6 +118,7 @@
   padding: 0;
   margin: 0;
   transition: 0.3s;
+  text-decoration: underline;
   
   @include hover {
     color: $blu-light;
@@ -219,5 +220,6 @@
 }
 
 .closeBtn {
-  margin: 8px auto;
+  margin: 8px 0;
+  margin-left: auto;
 }
