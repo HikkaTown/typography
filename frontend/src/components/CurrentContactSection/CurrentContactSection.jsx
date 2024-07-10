@@ -8,8 +8,7 @@ import Link from 'next/link';
 export const CurrentContactSection = ({ data, contacts }) => {
   return (
     <>
-      <section>
-
+      <section className={styles.firstSection}>
         <div className={styles.container}>
           <h1 className={styles.header}>
             {data.name}

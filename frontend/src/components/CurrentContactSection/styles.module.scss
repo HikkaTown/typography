@@ -1,3 +1,11 @@
+.firstSection {
+  padding-top: 70px;
+  
+  @include tablet {
+    padding-top: 0;
+  }
+}
+
 .container {
   margin: 0 auto;
   max-width: calc(100% - 32px);
@@ -17,7 +25,7 @@
 }
 
 .header {
-  margin: 0 0 24px;
+  margin: 24px 0;
   padding: 0;
   @include headline-3-mob($primary-text);
   @include tablet {
@@ -37,7 +45,7 @@
 .info {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 14px;
   margin-bottom: 40px;
 }
 
@@ -53,6 +61,7 @@
 
 .info_header {
   @include headline-3-mob($pink);
+  font-size: 24px;
   margin: 0;
   padding: 0;
 }
