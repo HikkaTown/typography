@@ -64,7 +64,7 @@ export const CurrentContactSection = ({ data, contacts }) => {
             <div className={styles.columns}>
               {data.columns?.map((column) => {
                 return (
-                  <div className={styles.column}>
+                  <div className={styles.column} key={column.header}>
                     <h3 className={styles.column_header}>{column.header}</h3>
                     <ul className={styles.list}>
                       {column.lines?.map((line, index) => (
