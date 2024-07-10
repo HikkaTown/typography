@@ -201,7 +201,7 @@ export default function FeedbackModal({
   );
 }
 
-const CloseBtn = ({ onClick }) => {
+export const CloseBtn = ({ onClick }) => {
   return (
     <button className={s.close} onClick={onClick} type="button">
       <span className={s.icon}>

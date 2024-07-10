@@ -1,5 +1,5 @@
 import Head from "next/head";
-import React, { useState, useEffect } from "react";
+import React  from "react";
 import ContactPageSection from "@/components/ContactPageSection/ContactPageSection";
 import Layout from "@/components/Layout/Layout";
 import {
@@ -10,15 +10,6 @@ import {
 import { DOMAIN } from "@/lib/const";
 
 export default function Index({ pageData, cards, footerLinks }) {
-  const [mapUrl, setMapUrl] = useState(pageData.mapUrl);
-  const [activeMapUrl, setActiveMapUrl] = useState(null);
-  useEffect(() => {
-    if (activeMapUrl === null) {
-      setMapUrl(pageData.mapUrl);
-    } else {
-      setMapUrl(cards[activeMapUrl].mapUrl);
-    }
-  }, [activeMapUrl]);
   return (
     <>
       <Head>
@@ -35,10 +26,9 @@ export default function Index({ pageData, cards, footerLinks }) {
       </Head>
       <Layout footerLinks={footerLinks}>
         <ContactPageSection
-          setActiveMapUrl={setActiveMapUrl}
           data={cards}
           header={pageData.header}
-          mapUrl={mapUrl}
+          mapUrl={pageData.mapUrl}
           needHeader
         />
       </Layout>

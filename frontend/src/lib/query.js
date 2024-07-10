@@ -212,6 +212,47 @@ export const getContactCardsQuery = gql`
       data {
         id
         attributes {
+          url
+          meta {
+            metaHead
+            metaDescription
+            header
+          }
+          cardImage {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          mailIcon {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          workTimeIcon {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          phoneIcon {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          addressIcon {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
           contactName
           address
           phoneNumber

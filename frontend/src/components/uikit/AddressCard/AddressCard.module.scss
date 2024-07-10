@@ -73,7 +73,7 @@
 .callback_link {
   display: flex;
   align-items: center;
-  @include body3-500($primary-text);
+  @include body4-500($primary-text);
   transition: 0.3s;
   max-width: 164px;
   width: 100%;
@@ -134,10 +134,90 @@
 }
 
 .list_item {
-  margin: 0;
+  margin: 0 0 6px;
   padding: 0;
+  display: flex;
+  align-items: center;
 }
 
 .list_text {
-  @include body3-500($primary-text);
+  @include body4-500($primary-text);
+}
+
+.icon {
+  display: block;
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+}
+
+.overlay {
+  z-index: 235 !important;
+  @include desktop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.child {
+  min-height: 100%;
+  height: 100%;
+  @include desktop {
+    min-height: auto;
+    height: auto;
+  }
+}
+
+.close {
+  @include buttonDefault;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+  @include tablet {
+    right: 44px;
+  }
+  @include desktop {
+    right: 24px;
+    @include hover {
+      opacity: 0.5;
+    }
+  }
+}
+
+.container {
+  position: relative;
+  background-color: $white;
+  padding: 16px;
+  padding-top: 0;
+  max-width: 100%;
+  height: 100%;
+  width: 100vw;
+  overflow-y: auto;
+  
+  @include desktop {
+    height: fit-content;
+    max-width: 880px;
+    border-radius: 12px;
+    padding: 24px;
+    padding-top: 0;
+  }
+}
+
+.header {
+  @include headline-5($primary-text);
+  padding: 0;
+  margin: 0 0 24px;
+
+  @include desktop {
+    margin-bottom: 16px;
+  }
+}
+
+.closeBtn {
+  margin: 8px auto;
 }

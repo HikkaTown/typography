@@ -372,12 +372,18 @@ export const getContactCards = async () => {
     const { id } = item;
     let res = {
       id: id,
+      url: attributes.url,
       name: attributes.contactName,
       address: attributes.address,
       email: attributes.email,
       phone: attributes.phoneNumber,
       pathHeader: attributes.pathHeader,
       workTime: attributes.workTime,
+      workIcon: attributes?.workTimeIcon?.data.attributes.url,
+      phoneIcon: attributes?.phoneIcon.data.attributes.url,
+      mailIcon: attributes?.mailIcon.data.attributes.url,
+      addressIcon: attributes?.addressIcon.data.attributes.url,
+      cardImage: attributes?.cardImage.data.attributes.url,
       mapUrl: attributes.mapUrl,
       path: {
         onFoot: {
