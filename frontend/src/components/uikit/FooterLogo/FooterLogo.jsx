@@ -13,8 +13,8 @@ export default function FooterLogo({ className }) {
           className={[s.image]}
           wrapperClass={s.image_wrapper}
         />
-        <p className={s.text}>Первый печатный</p>
-        <p className={s.small_text}>Напечатаем <br/>быстро и легко</p>
+        {/*<p className={s.text}>Первый печатный</p>*/}
+        {/*<p className={s.small_text}>Напечатаем <br/>быстро и легко</p>*/}
       </div>
     </Link>
   );

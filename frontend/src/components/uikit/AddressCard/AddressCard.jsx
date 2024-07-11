@@ -73,9 +73,9 @@ export default function AddressCard({
           >
             Как добраться
           </Button4>
-          {/*<Link href={`/contacts/${data.url}`}>*/}
-          {/*  <a className={s.about_btn}>Подробнее</a>*/}
-          {/*</Link>*/}
+          <Link href={`/contacts/${data.url}`}>
+            <a className={s.about_btn}>Подробнее</a>
+          </Link>
         </div>
       </div>
       {isOpen ? (
