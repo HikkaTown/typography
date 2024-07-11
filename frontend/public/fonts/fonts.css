@@ -8,6 +8,14 @@
 }
 
 @font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-Bold.ttf") format("ttf");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: "Gilroy";
   src: url("/fonts/Gilroy-Medium.woff2") format("woff2"),
     url("/fonts/Gilroy-Medium.woff") format("woff");
