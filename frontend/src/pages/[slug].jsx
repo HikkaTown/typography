@@ -114,11 +114,6 @@ function Service({ pageData, news, reviews, footerLinks, tabs, cards, url, conta
         />
         <meta property="og:url" content={DOMAIN + "/" + pageData.url} />
         <link rel="canonical" href={DOMAIN + "/" + pageData.url} />
-        {pageData.url === "foto-ryadom" ? (
-          <meta name="robots" content="noindex, follow" />
-        ) : (
-          ""
-        )}
       </Head>
       <Layout footerLinks={footerLinks}>
         <CatalogPage

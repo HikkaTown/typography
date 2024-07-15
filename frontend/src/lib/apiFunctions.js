@@ -390,9 +390,9 @@ export const getContactCards = async () => {
       cardImage: attributes?.cardImage.data.attributes.url,
       mapUrl: attributes.mapUrl,
       meta: {
-        metaHead: attributes?.metaHead ? attributes?.metaHead : null,
-        metaDescription: attributes?.metaDescription
-          ? attributes?.metaDescription
+        metaHead: attributes?.meta?.metaHead ? attributes?.meta?.metaHead : null,
+        metaDescription: attributes?.meta?.metaDescription
+          ? attributes?.meta?.metaDescription
           : null,
       },
       path: {
