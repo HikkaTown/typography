@@ -213,9 +213,9 @@ export const getContactCardsQuery = gql`
         id
         attributes {
           url
-          column {
+          column(pagination: { page: 1, pageSize: 100 }) {
             header
-            line {
+            line(pagination: { page: 1, pageSize: 100 }) {
               linkUrl
               text
             }
