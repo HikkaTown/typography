@@ -9,8 +9,8 @@ export default function FormsCatalog({
   return (
     <div className={s.section}>
       <div className={s.container}>
-        <h1 className={s.header}>{header}</h1>
-        <CatalogFormsBlock tabs={tabs}/>
+          {header ? <h2 className={s.header}>{header}</h2> : null}
+          <CatalogFormsBlock tabs={tabs}/>
       </div>
     </div>
   )
