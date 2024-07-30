@@ -894,7 +894,7 @@ export const getVoennayaFormPage = async () => {
 
   return {
     pageData: {
-      metaTitle: attributes?.pageData?.metaTitle ? attributes.pageData.metaTitle : 'Мета заголовок',
+      metaTitle: attributes?.pageData?.metaHead ? attributes.pageData.metaHead : 'Мета заголовок',
       metaDescription: attributes?.pageData?.metaDescription ? attributes.pageData.metaDescription : 'Мета описание',
       header: attributes?.pageData?.header ? attributes.pageData.header : 'заголовок',
       description: attributes?.pageData?.description ? attributes.pageData.description : 'описание',
