@@ -4,7 +4,6 @@ import NewsPageSection from "@/components/NewsPageSection/NewsPageSection";
 import {
   getAllNews,
   getNewsPage,
-  getProductLinks,
   getServicesList,
 } from "@/lib/apiFunctions";
 import { DOMAIN } from "@/lib/const";
@@ -31,11 +30,7 @@ export default function Index({ news, pageData, footerLinks }) {
   );
 }
 
-export async function getServerSideProps({ res }) {
-  res.setHeader(
-    "Cache-Control",
-    "public, s-maxage=10, stale-while-revalidate=59"
-  );
+export async function getServerSideProps() {
   const pageData = await getNewsPage();
   const newsList = await getAllNews();
   const footerLinks = await getServicesList();

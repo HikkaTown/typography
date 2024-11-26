@@ -73,7 +73,7 @@ export default function AddressCard({
           >
             Как добраться
           </Button4>
-          <Link href={`/contacts/${data.url}`}>
+          <Link href={`/contacts/${data.url}`} prefetch={true}>
             <a className={s.about_btn}>Подробнее</a>
           </Link>
         </div>

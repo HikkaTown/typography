@@ -6,7 +6,7 @@ import cs from "classnames";
 import { PATH_IMAGE } from "@/lib/const";
 export default function CatalogItem({ className, data, href }) {
   return (
-    <Link href={href}>
+    <Link href={href} prefetch={true}>
       <span className={cs(s.card, className)}>
         <LazyImageWrapper
           className={[s.image]}
@@ -14,7 +14,7 @@ export default function CatalogItem({ className, data, href }) {
           src={PATH_IMAGE + data.servicesPoster}
           alt={data.servicesName}
         />
-        <Link href={href}><a className={s.card_name}>{data.servicesName}</a></Link>
+        <Link href={href} prefetch={true}><a className={s.card_name}>{data.servicesName}</a></Link>
       </span>
     </Link>
   );

@@ -89,7 +89,7 @@ export const CurrentContactSection = ({ data, contacts }) => {
             {contacts.filter((contact) => contact.url !== data.url).map((contact, index) => {
               return (<div key={index} className={styles.office}>
                 <Icon/>
-                <Link href={`/contacts/${contact.url}`}>
+                <Link href={`/contacts/${contact.url}`} prefetch={true}>
                   <a className={styles.office_link}>{contact.name}</a>
                 </Link>
               </div>)

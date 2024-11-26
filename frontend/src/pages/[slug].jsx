@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import CallbackProudctSection from "@/components/CallbackProudctSection/CallbackProudctSection";
+import CallbackProductSection from "@/components/CallbackProudctSection/CallbackProductSection";
 import HowMuchSection from "@/components/HowMuchSection/HowMuchSection";
 import InfromationProduct from "@/components/InfromationProduct/InfromationProduct";
 import Layout from "@/components/Layout/Layout";
@@ -20,7 +20,7 @@ import {
   getSmallProduct, getContactPage,
 } from "@/lib/apiFunctions";
 import { DOMAIN } from "@/lib/const";
-import Breadcumbs from "@/components/Breadcumbs/Breadcumbs";
+import Breadcrumbs from "@/components/Breadcrumbs/Breadcrumbs";
 import ReviewSection from "@/components/ReviewSection/ReviewSection";
 import NewsSection from "@/components/NewsSection/NewsSection";
 import CatalogPage from "@/components/CatalogPage/CatalogPage";
@@ -48,7 +48,7 @@ function Product({ pageData, projects, officesList, footerLinks, contactList, ma
         <link rel="canonical" href={DOMAIN + "/" + pageData.url} />
       </Head>
       <Layout footerLinks={footerLinks}>
-        <Breadcumbs
+        <Breadcrumbs
           categoryPage={pageData.category}
           titlePage={pageData.pageData.title}
         />
@@ -75,7 +75,7 @@ function Product({ pageData, projects, officesList, footerLinks, contactList, ma
         {!pageData.steps && (
           <>
             <InfromationProduct data={pageData.infoList} />
-            <CallbackProudctSection
+            <CallbackProductSection
               theme={pageData.pageData.title}
               title={pageData.callbackBlockTitle}
             />
@@ -173,102 +173,67 @@ export default function Index({
   }
 }
 
-export const getServerSideProps = async ({ res, query }) => {
-  const service = async () => {
-    const tabs = await getServicesList();
-    const page = tabs.filter((item) => item.url === query.slug);
-    const news = await getAllNews();
-    const reviews = await getReviews();
-    const footerLinks = await getServicesList();
-    let cards = await getServicesList();
-    let simpleCads = [];
-    if (page[0]?.url) {
-      simpleCads = await getSmallProduct(query.slug);
+export const getServerSideProps = async ({ query }) => {
+  try {
+    const [servicesList, news, reviews, contactPage, contactCards] = await Promise.all([
+      getServicesList(),
+      getAllNews(),
+      getReviews(),
+      getContactPage(),
+      getContactCards()
+    ]);
+
+    const page = servicesList.find(item => item.url === query.slug);
+    const mapUrl = contactPage.mapUrl;
+    const officesList = contactCards.map(item => ({
+      id: +item.id,
+      address: `${item.name} ${item.address}`,
+      email: item.email,
+    }));
+
+    let projects = null;
+    if (page?.projectId) {
+      projects = await getCurrentProjects(+page.projectId);
     }
-    const { mapUrl } = await getContactPage();
-    let officesList = [];
-    const contactList = await getContactCards();
-    contactList.forEach((item) => {
-      officesList.push({
-        id: +item.id,
-        address: `${item.name} ${item.address}`,
-        email: item.email,
-      });
-    })
-    let projects;
-    if (page[0]?.projectId) {
-      projects = await getCurrentProjects(+page[0].projectId);
-    } else {
-      projects = null;
-    }
-    if (page?.length) {
+
+    if (page) {
       return {
         props: {
           type: "service",
-          pageData: page[0],
-          cards: simpleCads.length ? simpleCads : cards.length ? cards : [],
-          tabs,
+          pageData: page,
+          cards: await getSmallProduct(query.slug) || servicesList,
+          tabs: servicesList,
           news,
           officesList,
-          contactList,
+          contactList: contactCards,
           mapUrl,
           reviews,
           projects,
-          footerLinks,
+          footerLinks: servicesList,
           url: query.slug,
         },
       };
     }
-  };
-  const product = async () => {
-    const pageData = await getCurrentProductCard(query.slug);
-    const tabs = await getServicesList();
-    const footerLinks = await getServicesList();
-    const news = await getAllNews();
-    const reviews = await getReviews();
-    const { mapUrl } = await getContactPage();
-    let officesList = [];
-    const contactList = await getContactCards();
-    contactList.forEach((item) => {
-      officesList.push({
-        id: +item.id,
-        address: `${item.name} ${item.address}`,
-        email: item.email,
-      });
-    })
-    let projects;
 
-    if (pageData[0]?.projectId) {
-      projects = await getCurrentProjects(+pageData[0].projectId);
-    } else {
-      projects = [];
-    }
-    if (pageData?.length) {
+    const pageData = await getCurrentProductCard(query.slug);
+    if (pageData.length) {
       return {
         props: {
           type: "product",
           pageData: pageData[0],
-          tabs,
+          tabs: servicesList,
           news,
           officesList,
-          contactList,
+          contactList: contactCards,
           mapUrl,
           reviews,
-          projects: projects?.length ? projects : null,
-          footerLinks,
+          projects: projects || null,
+          footerLinks: servicesList,
         },
       };
     }
-  };
-  const resProd = await product();
-  const resServ = await service();
-  if (resProd) {
-    return resProd;
-  } else if (resServ) {
-    return resServ;
-  } else {
-    return {
-      notFound: true,
-    };
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return { notFound: true };
   }
 };

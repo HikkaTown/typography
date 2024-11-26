@@ -5,9 +5,9 @@ import { getServicesList, getVoennayaFormPage, getCurrentProjects, getTabsForm }
 import { DOMAIN } from '@/lib/const'
 import ProductMainSection from '@/components/ProductMainSection/ProductMainSection'
 import ShortDescription from '@/components/ShortDescription/ShortDescription'
-import Breadcumbs from '@/components/Breadcumbs/Breadcumbs'
+import Breadcrumbs from '@/components/Breadcrumbs/Breadcrumbs'
 import SeoProduct from '@/components/SeoProduct/SeoProduct'
-import CallbackProudctSection from "@/components/CallbackProudctSection/CallbackProudctSection";
+import CallbackProductSection from "@/components/CallbackProudctSection/CallbackProductSection";
 import ProjectSection from "@/components/ProjectSection/ProjectSection";
 import FormsCatalog from '@/components/FormsCatalog/FormsCatalog'
 
@@ -28,7 +28,7 @@ export default function Forms({ pageData, footerLinks, projects, tabsForm }) {
                 <link rel="canonical" href={`${DOMAIN}/forms`} />
             </Head>
             <Layout footerLinks={footerLinks}>
-                <Breadcumbs
+                <Breadcrumbs
                     titlePage={pageData.pageData.header}
                     categoryPage={pageData.category}
                 />
@@ -41,7 +41,7 @@ export default function Forms({ pageData, footerLinks, projects, tabsForm }) {
                     data={pageData.shortDescription}
                 />
                 <FormsCatalog header={'Варианты форм'} tabs={tabsForm} />
-                <CallbackProudctSection
+                <CallbackProductSection
                     theme={pageData.pageData.title}
                     title={pageData.callbackBlockTitle}
                 />

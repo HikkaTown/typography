@@ -10,7 +10,6 @@ import ShortDescription from "@/components/ShortDescription/ShortDescription";
 import {
   getAllNews, getContactCards, getContactPage,
   getIndex,
-  getProductLinks,
   getReviews,
   getServicesList,
 } from "@/lib/apiFunctions";
@@ -56,11 +55,7 @@ export default function Index({
   );
 }
 
-export async function getServerSideProps({ res }) {
-  res.setHeader(
-    "Cache-Control",
-    "public, s-maxage=10, stale-while-revalidate=59"
-  );
+export async function getServerSideProps() {
   const response = await getIndex();
   const { mapUrl } = await getContactPage();
   const contacts = await getContactCards();

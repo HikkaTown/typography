@@ -36,11 +36,7 @@ export default function Index({ pageData, tabs, cards, footerLinks }) {
   );
 }
 
-export async function getServerSideProps({ res }) {
-  res.setHeader(
-    "Cache-Control",
-    "public, s-maxage=10, stale-while-revalidate=59"
-  );
+export async function getServerSideProps() {
   const pageData = await getProjectPage();
   const tabs = await getProjectTabs();
   const cards = await getAllProjectsCard();

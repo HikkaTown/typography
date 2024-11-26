@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import s from "./Breadcumbs.module.scss";
-export default function Breadcumbs({ categoryPage, titlePage, contacts }) {
+import s from "./Breadcrumbs.module.scss";
+export default function Breadcrumbs({ categoryPage, titlePage, contacts }) {
   return (
     <div className={s.container}>
       <ul className={s.list}>

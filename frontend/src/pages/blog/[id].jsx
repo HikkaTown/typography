@@ -6,7 +6,6 @@ import { LazyImage } from "@/components/LazyImage/LazyImage";
 import {
   getAllNews,
   getCurrentNews,
-  getProductLinks,
   getServicesList,
 } from "@/lib/apiFunctions";
 import { DOMAIN, PATH_IMAGE } from "@/lib/const";
@@ -81,11 +80,7 @@ export default function Index({ pageData, news, footerLinks }) {
   );
 }
 
-export const getServerSideProps = async ({ query, res }) => {
-  res.setHeader(
-    "Cache-Control",
-    "public, s-maxage=10, stale-while-revalidate=59"
-  );
+export const getServerSideProps = async ({ query }) => {
   const pageData = await getCurrentNews(query.id);
   const footerLinks = await getServicesList();
   const news = await getAllNews();

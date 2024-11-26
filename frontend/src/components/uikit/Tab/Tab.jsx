@@ -6,7 +6,7 @@ export default function Tab({ className, onClick, children, isActive, href, isLi
   
   if (isLink) {
     return (
-      <Link href={href}>
+      <Link href={href} prefetch={true}>
         <a 
           className={cs(s.btn, isActive ? s.btn_active : "", className)}
         >

@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 export default function NavLink({ className, children, href }) {
   const router = useRouter();
   return (
-    <Link href={href}>
+    <Link href={href} prefetch={true}>
       <a
         className={cs(
           s.link,

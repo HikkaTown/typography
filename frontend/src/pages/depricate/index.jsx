@@ -43,11 +43,7 @@ export default function index({ footerLinks, pageData, sotrudniki, keysDevelopSi
     )
 }
 
-export async function getServerSideProps({ res }) {
-    res.setHeader(
-        "Cache-Control",
-        "public, s-maxage=10, stale-while-revalidate=59"
-    );
+export async function getServerSideProps() {
     const pageData = await getLandingPage();
     const sotrudniki = await getSotrudnik();
     const keysDevelopSites = await getKeysDevelopSites();

@@ -29,13 +29,13 @@ export default function Header() {
         itemType="http://schema.org/SiteNavigationElement"
         className={s.visually_hidden}
       >
-        <Link href="/catalog">
+        <Link href="/catalog" prefetch={true}>
           <a itemProp="url">Каталог</a>
         </Link>
-        <Link href="/contacts">
+        <Link href="/contacts" prefetch={true}>
           <a itemProp="url">Контакты</a>
         </Link>
-        <Link href="/projects">
+        <Link href="/projects" prefetch={true}>
           <a itemProp="url">Наши проекты</a>
         </Link>
         {/*<Link href="/landing-page">*/}

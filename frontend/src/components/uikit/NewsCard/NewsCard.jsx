@@ -3,11 +3,11 @@ import Link from "next/link";
 import cs from "classnames";
 import s from "./NewsCard.module.scss";
 import { LazyImageWrapper } from "../../LazyImage/LazyImage";
-import { PATH_IMAGE } from "../../../lib/const";
+import { PATH_IMAGE } from "@/lib/const";
 
 export default function NewsCard({ className, data }) {
   return (
-    <Link href={`/blog${data?.url ? "/" + data.url : ""}`}>
+    <Link href={`/blog${data?.url ? "/" + data.url : ""}`} prefetch={true}>
       <span
         className={cs(s.card, className)}
         itemProp="blogPosts"
@@ -20,7 +20,7 @@ export default function NewsCard({ className, data }) {
           className={[s.image]}
           wrapperClass={s.image_wrapper}
         />
-        <Link href={`/blog${data?.url ? "/" + data.url : ""}`}>
+        <Link href={`/blog${data?.url ? "/" + data.url : ""}`} prefetch={true}>
           <a className={s.card_name} itemProp="headline">
             {data.postName}
           </a>

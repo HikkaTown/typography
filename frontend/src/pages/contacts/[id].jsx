@@ -3,7 +3,7 @@ import { getContactCards, getServicesList } from '@/lib/apiFunctions';
 import Head from 'next/head';
 import { DOMAIN } from '@/lib/const';
 import Layout from '@/components/Layout/Layout';
-import Breadcumbs from '@/components/Breadcumbs/Breadcumbs';
+import Breadcrumbs from '@/components/Breadcrumbs/Breadcrumbs';
 import { CurrentContactSection } from '@/components/CurrentContactSection/CurrentContactSection';
 
 export default function Index({ pageData, contactCards, footerLinks }) {
@@ -22,7 +22,7 @@ export default function Index({ pageData, contactCards, footerLinks }) {
         <link rel="canonical" href={`${DOMAIN}/contacts/${pageData.url}`} />
       </Head>
       <Layout footerLinks={footerLinks}>
-        <Breadcumbs
+        <Breadcrumbs
           contacts
           titlePage={pageData.name}
         />
@@ -33,7 +33,7 @@ export default function Index({ pageData, contactCards, footerLinks }) {
 }
 
 
-export const getServerSideProps = async ({ res, query }) => {
+export const getServerSideProps = async ({ query }) => {
   const currentUrl = query?.id;
   
   const contactCards = await getContactCards();

@@ -4,7 +4,7 @@ import FeedbackModal from "@/components/FeedbackModal/FeedbackModal";
 import Button2 from "@/uikit/Button2/Button2";
 import s from "./CallbackProudctSection.module.scss";
 import { Line, Mails, Smile, Star } from "./components/Icons";
-export default function CallbackProudctSection({ title, theme }) {
+export default function CallbackProductSection({ title, theme }) {
   const [isOpened, setIsOpened] = useState(false);
   const handleOpen = () => {
     setIsOpened((prev) => !prev);
