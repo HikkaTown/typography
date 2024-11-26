@@ -34,7 +34,14 @@ export default function HeroMainSection({ data }) {
 
 export const ScrollBtn = ({ className }) => {
   return (
-    <button className={className}>
+    <button className={className} onClick={(e) => {
+        e.preventDefault();
+        scroller.scrollTo("catalog", {
+            duration: 800,
+            delay: 0,
+            smooth: "easeInOutQuart",
+        });
+    }}>
       <svg
         width="32"
         height="40"
